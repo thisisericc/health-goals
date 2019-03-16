@@ -1,0 +1,42 @@
+.exercisevid {
+    position: static;
+    background-position-x: 60px;
+    background-image: url(images/exercisevid.jpg);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    height: 300px;
+    width: 500px;
+}
+
+.weightwatchers {
+    position: relative;
+    background-position-x: 220px;
+    background-image: url(images/weight_watchers.png);
+    background-repeat: no-repeat;
+    top: -120px;
+    background-size: 200px;
+    height: 300px;
+    width: 500px;
+}
+
+.foodrecipes {
+    position: relative;
+    background-position-x: 60px;
+    background-image: url(images/food_recipes.jpg);
+    background-repeat: no-repeat;
+    top: -230px;
+    background-size: 200px;
+    height: 300px;
+    width: 500px;
+}
+
+.foodblogs {
+    position: relative;
+    background-position-x: 220px;
+    background-image: url(images/foodblogs.png);
+    background-repeat: no-repeat;
+    top: -355px;
+    background-size: 200px;
+    height: 300px;
+    width: 500px;
+}
