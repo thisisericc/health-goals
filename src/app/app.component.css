@@ -1,42 +1,76 @@
-.exercisevid {
-    position: static;
-    background-position-x: 60px;
+.circle-set {
+    color: WHITE;
+    background: rgb(255, 255, 255);
+    height: 650px;
+    position: relative;
+    border-radius: 15px;
+    font:  Helvetica ;
+    width: 1280px;
+  }
+  .circle {
+    height: 200px;
+    position: absolute;
+    width: 200px;
+  }
+  .circle-1 {
     background-image: url(images/exercisevid.jpg);
     background-repeat: no-repeat;
     background-size: 200px;
-    height: 300px;
-    width: 500px;
-}
-
-.weightwatchers {
-    position: relative;
-    background-position-x: 220px;
+    top: 0%;
+    left: 2.5%;
+  }
+  .circle-2 {
     background-image: url(images/weight_watchers.png);
     background-repeat: no-repeat;
-    top: -120px;
     background-size: 200px;
-    height: 300px;
-    width: 500px;
-}
-
-.foodrecipes {
-    position: relative;
-    background-position-x: 60px;
-    background-image: url(images/food_recipes.jpg);
-    background-repeat: no-repeat;
-    top: -230px;
-    background-size: 200px;
-    height: 300px;
-    width: 500px;
-}
-
-.foodblogs {
-    position: relative;
-    background-position-x: 220px;
+    top: 20%;
+    left: 17%;
+  }
+  .circle-3 {
     background-image: url(images/foodblogs.png);
     background-repeat: no-repeat;
-    top: -355px;
     background-size: 200px;
-    height: 300px;
-    width: 500px;
-}
+    top: 40%;
+    left: 2.5%;
+  }
+  .circle-4 {
+    background-image: url(images/food_recipes.jpg);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 60%;
+    left: 17%;
+  }
+
+  .circle-5 {
+    background-image: url(images/instructors.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 0%;
+    right: 2.5%;
+  }
+
+  .circle-6 {
+    background-image: url(images/therapist.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 20%;
+    right: 17%;
+  }
+
+  .circle-7 {
+    background-image: url(images/forums.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 40%;
+    right: 2.5%;
+  }
+
+  .circle-8 {
+    background-image: url(images/articles.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 60%;
+    right: 17%;
+  }
+
+
