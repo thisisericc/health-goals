@@ -21,14 +21,82 @@
 </div>
 </body>
 </html>
-<!-- <body>
 
-<a class="exercisevid" href="google.com" title="exercisevid" id="exercisevid">photo</a>
-<div class = "weightwatchers"></div>
-<div class = "forums"></div>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
 
-<div class = "foodrecipes"></div>
-<div class = "foodblogs"></div>
-</body> -->
+input[type=text], input[type=password] {
+  position: absolute;
+  left: 35%;
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  position: absolute;
+  left: 35%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: center;
+  padding-top: 16px;
+}
+
+</style>
+</head>
+<body>
+<div align = "center"><br><br><br>
+<h2>Login to Health Goals!</h2><br><br>
+
+<form action="/action_page.php">
+  
+  <div class="container">
+    <label for="uname"><b>Username: </b></label>
+    <br>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+    <br>
+    <br>
+    <br>
+    <label for="psw"><b>Password:</b></label>
+    <br>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <br>
+    <br>
+    <br>
+    <button type="submit">Login</button>
+    <br><br><br>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <span class="psw">Forgot Password? Click <a href="#">here.</a></span>
+
+</form>
+</div>
+</body>
+</html>
 
 
