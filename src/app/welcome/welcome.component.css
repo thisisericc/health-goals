@@ -1,0 +1,78 @@
+.circle-set {
+    color: WHITE;
+    background: rgb(255, 255, 255);
+    background-size: cover;
+    position: relative;
+    border-radius: 15px;
+    font: Helvetica;
+}
+
+.circle {
+    height: 200px;
+    position: absolute;
+    width: 200px;
+}
+
+.circle-exercise-videos {
+    background-image: url(images/exercisevid.jpg);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 0;
+    left: 10px;
+}
+
+.circle-weight-watchers {
+    background-image: url(images/weight_watchers.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 150px;
+    left: 150px;
+}
+
+.circle-food-blogs {
+    background-image: url(images/foodblogs.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 300px;
+    left: 10px;
+}
+
+.circle-food-recipes {
+    background-image: url(images/food_recipes.jpg);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 450px;
+    left: 150px;
+}
+
+.circle-fitness-instructors {
+    background-image: url(images/instructors.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 0;
+    right: 10px;
+}
+
+.circle-find-therapist {
+    background-image: url(images/therapist.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 150px;
+    right: 150px;
+}
+
+.circle-mh-forums {
+    background-image: url(images/forums.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 300px;
+    right: 10px;
+}
+
+.circle-mh-articles {
+    background-image: url(images/articles.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    top: 450px;
+    right: 150px;
+}
