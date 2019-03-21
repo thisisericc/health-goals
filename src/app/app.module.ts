@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,11 @@ import { FindTherapistComponent } from './find-therapist/find-therapist.componen
 import { MhForumsComponent } from './mh-forums/mh-forums.component';
 import { MhArticlesComponent } from './mh-articles/mh-articles.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+
+import { CardModule } from 'primeng/card';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
   declarations: [
@@ -30,8 +37,13 @@ import { WelcomeComponent } from './welcome/welcome.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    AlertModule.forRoot()
+    FormsModule,
+    AlertModule.forRoot(),
+    CardModule,
+    CheckboxModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
