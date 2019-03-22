@@ -32,7 +32,7 @@
 <div class="Search-Bar">
     <span class="ui-float-label">
         <input id="float-input" type="text" size="40" [(ngModel)]="mealQuery"> 
-        <label for="float-input">Search For Recipes</label>
+        <label *ngIf="mealQuery == null" for="float-input">Search For Recipes</label>
     </span>
 </div>
 
@@ -42,7 +42,13 @@
 
 <div class="Search-Results">
     <li *ngFor="let res of searchResults">
-        <img src="{{ res }}">
+        <a href="{{ res.articleURL }}">
+            <img src="{{ res.imageURL }}">
+        </a>>
+        <br/>
+        <font color="grey"><b>Diet Labels: </b></font> {{ res.dietLabels }}
+        <br/>
+        <font color="grey"><b>Health Labels: </b></font> {{ res.healthLabels }}
         <br/>
         <br/>
     </li>
