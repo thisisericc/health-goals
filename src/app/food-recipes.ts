@@ -4,4 +4,7 @@ export interface FoodRecipes {
     articleURL: string;
     dietLabels: string;
     healthLabels: string;
+    calories: string;
+    servings: string;
+    totalDaily: string;
 }

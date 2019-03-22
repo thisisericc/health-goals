@@ -37,7 +37,7 @@
 </div>
 
 <div class="Search-Button">
-    <p-button label="Search" id="searchButton" (click)="recipesQuery(mealQuery)"></p-button>
+    <p-button label="Search" id="searchButton" (click)="recipesQuery(mealQuery)" style="display: none;"></p-button>
 </div>
 
 <div class="Search-Results">
@@ -64,26 +64,33 @@
 
     <p-dataView [value]="searchResults" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
         <ng-template let-res pTemplate="listItem">
-            <div style="padding: 0.5em;border-bottom: 1px solid #d9d9d9">
+            <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
                 <div>
                     <div>
                         <font color="grey"><b> {{ res.recipeName }}</b></font>
                     </div>
                     <div>
                         <a href="{{ res.articleURL }}">
-                            <img src="{{ res.imageURL }}" height="125" width="200">
+                            <img src="{{ res.imageURL }}" height="160" width="220">
                         </a>
                     </div>
                 </div>
 
-                <div>
+                <div class="Search-Row-Info">
                     <div>
-                        <font size="1">
+                        <font size="1.5">
+                            <font color="grey"><b>Calories: </b></font> {{ res.calories }}
+                            <font color="grey"><b>Servings: </b></font> {{ res.servings }}
+                            <font color="grey"><b>Daily Value: </b></font> {{ res.totalDaily }}
+                        </font>
+                    </div>
+                    <div>
+                        <font size="1.5">
                             <font color="grey"><b>Diet Labels: </b></font> {{ res.dietLabels }}
                         </font>
                     </div>
                     <div>
-                        <font size="1">
+                        <font size="1.5">
                             <font color="grey"><b>Health Labels: </b></font> {{ res.healthLabels }}
                         </font>
                     </div>
@@ -91,4 +98,17 @@
             </div>
         </ng-template>
     </p-dataView>
+</div>
+
+<div class="Trending-Recipes">
+    <p-card header="Trending Recipes">
+        <li *ngFor="let res of searchResults | slice:0:10; let i=index">
+            <div>
+                <a href="{{ res.articleURL }}">
+                    <b>{{ i+1 }}. {{ res.recipeName }}</b>
+                </a>
+            </div>
+            <br/>
+        </li>
+    </p-card>
 </div>
