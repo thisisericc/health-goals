@@ -9,6 +9,7 @@ import { FoodRecipes } from '../food-recipes';
 })
 export class FoodRecipesComponent implements OnInit {
 
+  mealQuery: any;
   searchResults: any;
 
   constructor(
