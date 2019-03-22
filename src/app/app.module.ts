@@ -24,6 +24,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/primeng';
 import { HttpClientModule } from '@angular/common/http';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { HttpClientModule } from '@angular/common/http';
     InputTextModule,
     DataViewModule,
     DropdownModule,
-    HttpClientModule
+    HttpClientModule,
+    MessagesModule,
+    MessageModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

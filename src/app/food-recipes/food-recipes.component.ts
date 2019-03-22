@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodRecipesService } from '../food-recipes.service';
 import { FoodRecipes } from '../food-recipes';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-food-recipes',
   templateUrl: './food-recipes.component.html',
-  styleUrls: ['./food-recipes.component.css']
+  styleUrls: ['./food-recipes.component.css'],
+  providers: [MessageService]
 })
 export class FoodRecipesComponent implements OnInit {
 
   mealQuery: any;
   searchResults: any;
+  error = null;
 
   constructor(
-    private foodRecipesService: FoodRecipesService
+    private foodRecipesService: FoodRecipesService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -28,17 +32,23 @@ export class FoodRecipesComponent implements OnInit {
 
         const fR = {} as FoodRecipes;
 
+        fR.recipeName = recipe.substring(recipe.indexOf('\"label\"') + 9, recipe.indexOf('\"', recipe.indexOf('\"label\"') + 9));
         fR.imageURL = recipe.substring(recipe.indexOf('\"image\"') + 9, recipe.indexOf('\"', recipe.indexOf('\"image\"') + 9));
         fR.articleURL = recipe.substring(recipe.indexOf('\"url\"') + 7, recipe.indexOf('\"', recipe.indexOf('\"url\"') + 7));
         fR.dietLabels = recipe.substring(recipe.indexOf('\"dietLabels\"') + 14, recipe.indexOf('\],',
-        recipe.indexOf('\"dietLabels\"') + 14)).split('\", \"');
+        recipe.indexOf('\"dietLabels\"') + 14)).split('\"').join(' ');
         fR.healthLabels = recipe.substring(recipe.indexOf('\"healthLabels\"') + 16, recipe.indexOf('\],',
-        recipe.indexOf('\"healthLabels\"') + 16)).split('\", \"');
+        recipe.indexOf('\"healthLabels\"') + 16)).split('\"').join(' ');
         // console.log(fR.dietLabels);
 
         output.push(fR);
       });
       this.searchResults = output;
+    },
+    error => {
+      console.error(error);
+      this.error = error;
+      this.messageService.add({severity: 'error', summary: this.error, life: 5000, detail: 'Search Failed!'});
     });
   }
 }
