@@ -20,6 +20,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { DataViewModule } from 'primeng/dataview';
+import { DropdownModule } from 'primeng/primeng';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -43,7 +47,11 @@ import { ButtonModule } from 'primeng/button';
     AlertModule.forRoot(),
     CardModule,
     CheckboxModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    DataViewModule,
+    DropdownModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
