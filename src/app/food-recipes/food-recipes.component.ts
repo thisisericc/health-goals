@@ -45,6 +45,9 @@ export class FoodRecipesComponent implements OnInit {
         fR.healthLabels = recipe.substring(recipe.indexOf('\"healthLabels\"') + 16, recipe.indexOf('\],',
         recipe.indexOf('\"healthLabels\"') + 16)).split('\"').join(' ');
 
+        fR.ingredients = recipe.substring(recipe.indexOf('\"ingredientLines\"') + 19, recipe.indexOf('\],',
+        recipe.indexOf('\"ingredientLines\"') + 19)).split('\"').join(' ');
+
         fR.calories = Math.round(parseFloat(recipe.substring(recipe.indexOf('\"calories\"') + 11,
         recipe.indexOf(',', recipe.indexOf('\"calories\"') + 11)))) + '';
 
