@@ -1,0 +1,57 @@
+.jumbotron {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.sidenav {
+    width: 300px;
+    background: #eee;
+    padding: 8px 8px;
+}
+h1 { 
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2 {
+        display: block;
+        font-size: 1.5em;
+        font-weight: bold;
+}
+
+.searchbar{
+    position: absolute;
+    top: 300px;
+    left: 320px;
+}
+
+.new-button{
+    position: absolute;
+    top: 300px;
+    left: 1015px;
+}
+
+.page-button{
+    position: absolute;
+    top: 300px;
+    left: 1130px;
+}
+
+.workout-set1{
+    color: white;
+    position: absolute;
+    top: 380px;
+    left: 320px;
+}
+
+.workout-set2{
+    color:WHITE;
+    position: absolute;
+    top: 380px;
+    left: 650px;
+}
+.workout-set3{
+    color:WHITE;
+    position: absolute;
+    top: 380px;
+    left: 980px;
+}
