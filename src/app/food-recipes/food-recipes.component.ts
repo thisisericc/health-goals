@@ -54,11 +54,11 @@ export class FoodRecipesComponent implements OnInit {
 
         const totalDailyStr = recipe.substring(recipe.indexOf('\"totalDaily\"') + 14, recipe.indexOf('\},',
         recipe.indexOf('\"totalDaily\"') + 14));
-        console.log(totalDailyStr);
         fR.totalDaily = Math.round(parseFloat(totalDailyStr.substring(totalDailyStr.indexOf('\"quantity\"') + 11,
         totalDailyStr.indexOf('\,', totalDailyStr.indexOf('\"quantity\"') + 11)))) + '\%';
-        console.log(totalDailyStr.substring(totalDailyStr.indexOf('\"quantity\"') + 11, totalDailyStr.indexOf('\,',
-        totalDailyStr.indexOf('\"quantity\"'))));
+
+        fR.calories = Math.round(parseFloat(fR.calories) / parseFloat(fR.servings)) + '';
+        fR.totalDaily = Math.round(parseFloat(fR.totalDaily) / parseFloat(fR.servings)) + '';
 
         output.push(fR);
       });

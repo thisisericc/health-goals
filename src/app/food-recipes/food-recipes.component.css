@@ -34,7 +34,8 @@
 .Search-Row-Info {
     position: relative;
     left: 235px;
-    bottom: 100px;
+    top: -120px;
+    margin-bottom: -50px;
 }
 
 .Trending-Recipes {

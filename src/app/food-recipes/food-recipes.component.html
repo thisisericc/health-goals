@@ -63,7 +63,7 @@
     <br> -->
 
     <p-dataView [value]="searchResults" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
-        <ng-template let-res pTemplate="listItem">
+        <ng-template let-res pTemplate="listItem" style="position: relative; top: -100px">
             <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
                 <div>
                     <div>
@@ -79,9 +79,9 @@
                 <div class="Search-Row-Info">
                     <div>
                         <font size="1.5">
-                            <font color="grey"><b>Calories: </b></font> {{ res.calories }}
+                            <font color="grey"><b>Calories (serving): </b></font> {{ res.calories }} &nbsp;
+                            <font color="grey"><b>Daily %: </b></font> {{ res.totalDaily }} &nbsp;
                             <font color="grey"><b>Servings: </b></font> {{ res.servings }}
-                            <font color="grey"><b>Daily Value: </b></font> {{ res.totalDaily }}
                         </font>
                     </div>
                     <div>
