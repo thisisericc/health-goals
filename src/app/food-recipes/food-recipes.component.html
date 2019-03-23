@@ -31,7 +31,7 @@
 
 <div class="Search-Bar">
     <span class="ui-float-label">
-        <input id="float-input" type="text" size="60" [(ngModel)]="mealQuery" (keyup.enter)="recipesQuery(mealQuery)"> 
+        <input id="float-input" type="text" size="83" [(ngModel)]="mealQuery" (keyup.enter)="recipesQuery(mealQuery)"> 
         <label *ngIf="mealQuery == null" for="float-input">Search For Recipes</label>
     </span>
 </div>
@@ -79,7 +79,7 @@
                 <div class="Search-Row-Info">
                     <div>
                         <font size="1.5">
-                            <font color="grey"><b>Calories (serving): </b></font> {{ res.calories }} &nbsp;
+                            <font color="grey"><b>Calories/Serving: </b></font> {{ res.calories }} &nbsp;
                             <font color="grey"><b>Daily %: </b></font> {{ res.totalDaily }} &nbsp;
                             <font color="grey"><b>Servings: </b></font> {{ res.servings }}
                         </font>
