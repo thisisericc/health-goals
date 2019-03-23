@@ -1,0 +1,67 @@
+.Heading {
+    font-family: 'Quicksand', sans-serif;
+    position: absolute;
+    left: 140px;
+}
+
+.Filter-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 200px;
+    width: 200px;
+}
+
+.Search-Forum {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 200px;
+    left: 450px;
+}
+
+.Search-Button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 200px;
+    left: 735px;
+}
+
+.Search-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 245px;
+    left: 215px;
+    width: 700px;
+}
+
+.Search-Row-Info {
+    position: relative;
+    left: 235px;
+    top: -185px;
+    min-height: 180px;
+    margin-bottom: -150px;
+    margin-right: 235px;
+}
+
+.Active-Forums {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    list-style: none;
+    position: absolute;
+    top: 200px;
+    left: 930px;
+    width: 250px;
+}
+
+.Forums-List {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    list-style: none;
+    position: absolute;
+    top: 200px;
+    left: 930px;
+    width: 250px;
+}
