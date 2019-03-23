@@ -19,9 +19,6 @@ export class FoodRecipesComponent implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-}
-=======
   recipesQuery(mealQuery: string) {
     this.foodRecipesService.getFoodRecipes(mealQuery).subscribe(
       obj => {
@@ -45,4 +42,3 @@ export class FoodRecipesComponent implements OnInit {
     });
   }
 }
->>>>>>> f3099bb4f50eb91fdfe99da8bcabbef28e2f9de2
