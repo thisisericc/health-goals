@@ -53,19 +53,19 @@
 <!-- Search Bar -->
      <div class="searchbar">
       <span class="ui-float-label">
-          <input id="float-input" type="text" size="75" [(ngModel)]="videoQuery" (keyup.enter)="exerciseQuery(videoQuery)"> 
-          <label *ngIf="videoQuery == null" for="float-input">Search For Exercise Videos</label>
+          <input id="float-input" type="text" size="75" > 
+          <label for="float-input">Search For Exercise Videos</label>
       </span>
      </div>
 
 <!-- Newest First Button -->
   <div class="new-button">
-    <p-button label="Newest First" id="searchButton" (click)="new()"></p-button>
+    <p-button label="Newest First" id="searchButton" ></p-button>
   </div>
 
 <!-- Page Number Button -->
 <div class="page-button">
-  <p-button label="Page 1 of 10" id="searchButton" (click)="new()"></p-button>
+  <p-button label="Page 1 of 10" id="searchButton" ></p-button>
 </div>
 
 <!--Workout Links-->
