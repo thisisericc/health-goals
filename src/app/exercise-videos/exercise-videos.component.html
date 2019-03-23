@@ -34,7 +34,22 @@
         <br> 
         <label><input type="checkbox" value=""> 4 </label>
         <br> 
-        </div>
+     </div>
 
-       
-        
+<!-- Save Button -->
+<div class="save-button">
+  <p-button label="Save" id="searchButton"></p-button>
+</div>
+
+<!-- Search Bar -->
+     <div class="searchbar">
+      <span class="ui-float-label">
+          <input id="float-input" type="text" size="40" [(ngModel)]="exerciseQuery"> 
+          <label *ngIf="exerciseQuery == null" for="float-input">Search For Exercise Videos</label>
+      </span>
+     </div>
+
+<!-- Search Button -->
+  <div class="search-button">
+    <p-button label="Search" id="searchButton"></p-button>
+  </div>

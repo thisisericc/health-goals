@@ -13,3 +13,15 @@ h2 {
         font-size: 1.5em;
         font-weight: bold;
 }
+
+.searchbar{
+    position: absolute;
+    top: 323px;
+    left: 300px;
+}
+
+.search-button{
+    position: absolute;
+    top: 321px;
+    left: 680px;
+}
