@@ -7,4 +7,5 @@ export interface FoodRecipes {
     calories: string;
     servings: string;
     totalDaily: string;
+    ingredients: string;
 }

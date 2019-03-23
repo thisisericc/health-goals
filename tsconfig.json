@@ -4,6 +4,9 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "paths": {
+      "core-js/es7/reflect": ["node_modules/core-js/proposals/reflect-metadata"]
+    },
     "declaration": false,
     "paths": {
       "core-js/es7/reflect": ["node_modules/core-js/proposals/reflect-metadata"]
