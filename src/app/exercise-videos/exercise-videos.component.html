@@ -51,5 +51,20 @@
 
 <!-- Search Button -->
   <div class="search-button">
-    <p-button label="Search" id="searchButton"></p-button>
+    <p-button label="Search" id="searchButton" (click)="exerciseQuery(videoQuery)"></p-button>
   </div>
+
+<!-- Search Results-->
+<div class="Search-Results">
+  <li *ngFor="let res of searchResults">
+      <a href="{{ res.articleURL }}">
+          <img src="{{ res.imageURL }}">
+      </a>>
+      <br/>
+      <font color="grey"><b>Diet Labels: </b></font> {{ res.dietLabels }}
+      <br/>
+      <font color="grey"><b>Health Labels: </b></font> {{ res.healthLabels }}
+      <br/>
+      <br/>
+  </li>
+</div>
