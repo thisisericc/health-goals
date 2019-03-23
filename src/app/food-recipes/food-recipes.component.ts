@@ -13,6 +13,7 @@ export class FoodRecipesComponent implements OnInit {
 
   mealQuery: any;
   searchResults: any;
+  loading: any;
   error = null;
 
   constructor(
@@ -43,8 +44,6 @@ export class FoodRecipesComponent implements OnInit {
 
         fR.healthLabels = recipe.substring(recipe.indexOf('\"healthLabels\"') + 16, recipe.indexOf('\],',
         recipe.indexOf('\"healthLabels\"') + 16)).split('\"').join(' ');
-
-        // console.log(fR.dietLabels);
 
         fR.calories = Math.round(parseFloat(recipe.substring(recipe.indexOf('\"calories\"') + 11,
         recipe.indexOf(',', recipe.indexOf('\"calories\"') + 11)))) + '';
