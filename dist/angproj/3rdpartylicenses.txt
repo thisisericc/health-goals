@@ -1,9 +1,20 @@
+<<<<<<< HEAD
 bootstrap
 MIT
 The MIT License (MIT)
 
 Copyright (c) 2011-2018 Twitter, Inc.
 Copyright (c) 2011-2018 The Bootstrap Authors
+=======
+@angular/animations
+MIT
+
+@angular/cdk
+MIT
+The MIT License
+
+Copyright (c) 2019 Google LLC.
+>>>>>>> 7df5b4a0311e831730505bbbf944eb31184833ad
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +35,37 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+<<<<<<< HEAD
 primeng
 MIT
 The MIT License (MIT)
 
 Copyright (c) 2016-2019 PrimeTek
+=======
+@angular/cdk/scrolling
+
+@angular/common
+MIT
+
+@angular/core
+MIT
+
+@angular/forms
+MIT
+
+@angular/platform-browser
+MIT
+
+@angular/router
+MIT
+
+bootstrap
+MIT
+The MIT License (MIT)
+
+Copyright (c) 2011-2019 Twitter, Inc.
+Copyright (c) 2011-2019 The Bootstrap Authors
+>>>>>>> 7df5b4a0311e831730505bbbf944eb31184833ad
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -49,6 +86,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+<<<<<<< HEAD
+=======
+ngx-bootstrap/alert
+
+ngx-bootstrap/utils
+
+>>>>>>> 7df5b4a0311e831730505bbbf944eb31184833ad
 primeicons
 MIT
 MIT License
@@ -74,6 +118,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+<<<<<<< HEAD
+=======
+primeng
+MIT
+The MIT License (MIT)
+
+Copyright (c) 2016-2019 PrimeTek
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+>>>>>>> 7df5b4a0311e831730505bbbf944eb31184833ad
 rxjs
 Apache-2.0
                                Apache License
@@ -280,6 +352,7 @@ Apache-2.0
  
 
 
+<<<<<<< HEAD
 @angular/forms
 MIT
 
@@ -289,6 +362,8 @@ MIT
 @angular/common
 MIT
 
+=======
+>>>>>>> 7df5b4a0311e831730505bbbf944eb31184833ad
 tslib
 Apache-2.0
 Apache License
@@ -348,6 +423,7 @@ If the Work includes a "NOTICE" text file as part of its distribution, then any 
 END OF TERMS AND CONDITIONS
 
 
+<<<<<<< HEAD
 @angular/cdk
 MIT
 The MIT License
@@ -388,6 +464,8 @@ ngx-bootstrap/alert
 @angular/core
 MIT
 
+=======
+>>>>>>> 7df5b4a0311e831730505bbbf944eb31184833ad
 zone.js
 MIT
 The MIT License
