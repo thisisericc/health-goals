@@ -1,3 +1,7 @@
+.container{
+    right: 200px;
+    background-size: 100px;
+}
 .sidenav {
     width: 300px;
     background: #eee;
