@@ -52,14 +52,14 @@
 <!-- Search Bar -->
      <div class="searchbar">
       <span class="ui-float-label">
-          <input id="float-input" type="text" size="40"> 
+          <input id="float-input" type="text" size="40" [(ngModel)]="videoQuery"> 
           <label for="float-input">Search For Exercise Videos</label>
       </span>
      </div>
 
 <!-- Search Button -->
   <div class="search-button">
-    <p-button label="Search" id="searchButton"></p-button>
+    <p-button label="Search" id="searchButton" (click)="search()"></p-button>
   </div>
 
 <!-- Search Results-->
