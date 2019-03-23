@@ -1,0 +1,58 @@
+<<<<<<< HEAD
+=======
+<div class="Filter-Results">
+    <p-card header="Filter Results" subheader="Meal Type">
+        <p-checkbox name="mealtype" value="breakfast" label="Breakfast"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="mealtype" value="lunch" label="Lunch"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="mealtype" value="dinner" label="Dinner"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="mealtype" value="snack" label="Snack"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="mealtype" value="drink" label="Drink"></p-checkbox>
+        <br/>
+        <br/>
+
+        <font color="grey"><b>Additional</b></font>
+        <br/>
+        <br/>
+        <p-checkbox name="additional" value="convenience" label="Convenience" [(ngModel)]="selectedValues"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="additional" value="cost" label="Cost" [(ngModel)]="selectedValues"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="additional" value="ratings" label="Ratings" [(ngModel)]="selectedValues"></p-checkbox>
+    </p-card>
+</div>
+
+<div class="Search-Bar">
+    <span class="ui-float-label">
+        <input id="float-input" type="text" size="40" [(ngModel)]="mealQuery"> 
+        <label *ngIf="mealQuery == null" for="float-input">Search For Recipes</label>
+    </span>
+</div>
+
+<div class="Search-Button">
+    <p-button label="Search" id="searchButton" (click)="recipesQuery(mealQuery)"></p-button>
+</div>
+
+<div class="Search-Results">
+    <li *ngFor="let res of searchResults">
+        <a href="{{ res.articleURL }}">
+            <img src="{{ res.imageURL }}">
+        </a>>
+        <br/>
+        <font color="grey"><b>Diet Labels: </b></font> {{ res.dietLabels }}
+        <br/>
+        <font color="grey"><b>Health Labels: </b></font> {{ res.healthLabels }}
+        <br/>
+        <br/>
+    </li>
+</div>
+>>>>>>> f3099bb4f50eb91fdfe99da8bcabbef28e2f9de2
