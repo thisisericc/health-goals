@@ -14,7 +14,13 @@
       <div class="checkbox">
       <label><input type="checkbox" value=""> Cardio </label>
       <br>
-      <label><input type="checkbox" value=""> Training </label>
+      <label><input type="checkbox" value=""> Cross Fit </label>
+      <br>
+      <label><input type="checkbox" value=""> Weight Lifting </label>
+      <br>
+      <label><input type="checkbox" value=""> Interval Training </label>
+      <br>
+      <label><input type="checkbox" value=""> High Intensity Training </label>
       <br>
       <label><input type="checkbox" value=""> Yoga </label>
       <br>
@@ -33,6 +39,8 @@
         <label><input type="checkbox" value=""> 3 </label>
         <br> 
         <label><input type="checkbox" value=""> 4 </label>
+        <br> 
+        <label><input type="checkbox" value=""> 5 </label>
         <br> 
      </div>
 
@@ -55,16 +63,3 @@
   </div>
 
 <!-- Search Results-->
-<div class="Search-Results">
-  <li *ngFor="let res of searchResults">
-      <a href="{{ res.articleURL }}">
-          <img src="{{ res.imageURL }}">
-      </a>>
-      <br/>
-      <font color="grey"><b>Diet Labels: </b></font> {{ res.dietLabels }}
-      <br/>
-      <font color="grey"><b>Health Labels: </b></font> {{ res.healthLabels }}
-      <br/>
-      <br/>
-  </li>
-</div>
