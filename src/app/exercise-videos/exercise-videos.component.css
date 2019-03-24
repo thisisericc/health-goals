@@ -3,10 +3,6 @@
     padding-bottom: 3%;
 }
 
-.Heading {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 30px;
-}
 .sidenav {
     width: 300px;
     background: #eee;
@@ -25,19 +21,19 @@ h2 {
 
 .searchbar{
     position: absolute;
-    top: 300px;
+    top: 318px;
     left: 320px;
 }
 
 .new-button{
     position: absolute;
-    top: 300px;
+    top: 318px;
     left: 1015px;
 }
 
 .page-button{
     position: absolute;
-    top: 300px;
+    top: 318px;
     left: 1130px;
 }
 
