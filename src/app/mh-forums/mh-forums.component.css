@@ -1,0 +1,86 @@
+.jumbotron {
+    padding:20px 0 120px 0;
+    margin-bottom:0;
+}
+
+.Heading {
+    font-family: 'Quicksand', sans-serif;
+    position: absolute;
+    font-size: 30px;
+    left: 550px;
+    top: 150px;
+}
+
+.HeadingPic {
+    position: absolute;
+    left: 600px;
+}
+
+.Heading2 {
+    font-family: 'Quicksand', sans-serif;
+    position: absolute;
+    left: 25px;
+    font-size: 25px;
+}
+
+.Filter-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    left: 25px;
+    top: 275px;
+    width: 200px;
+}
+
+.Start-Forum-Button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 275px;
+    left: 240px;
+    width: 200px;
+}
+
+.Search-Forum {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 275px;
+    left: 450px;
+}
+
+.Search-Button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 275px;
+    left: 760px;
+}
+
+.Dropdown-Forum {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 275px;
+    left: 835px;
+}
+
+.Search-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 315px;
+    left: 240px;
+    width: 700px;
+    bottom: 100px;
+}
+
+.Active-Forums {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    list-style: none;
+    position: absolute;
+    top: 275px;
+    left: 955px;
+    width: 300px;
+}
