@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
+import { MealPlanComponent } from './meal-plan/meal-plan.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ToastModule } from 'primeng/toast';
     FindTherapistComponent,
     MhForumsComponent,
     MhArticlesComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    MealPlanComponent
   ],
   imports: [
     BrowserModule,
