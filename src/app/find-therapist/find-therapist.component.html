@@ -68,67 +68,48 @@
 </div>
 
 <div class="Search-Results">
-    <!--
-    <ng-container *ngIf="error == null">
-        <li *ngFor="let res of searchResults">
-            <br/>
-            <font color="grey"><b> {{ res.recipeName }}</b></font>
-            <br/>
-            <a href="{{ res.articleURL }}">
-                <img src="{{ res.imageURL }}">
-            </a>
-            <br/>
-            <font color="grey"><b>Diet Labels: </b></font> {{ res.dietLabels }}
-            <br/>
-            <font color="grey"><b>Health Labels: </b></font> {{ res.healthLabels }}
-            <br/>
-            <br/>
-        </li>
-    </ng-container>
-    <br>
-    <p-toast *ngIf="error !== null" position="center">{{ error }}</p-toast>
-    <br> -->
+    <div class="match1">
+        <a href="https://www.psychologytoday.com/us/therapists/male/08854/372242?sid=5c978f30b4abf&zipdist=7&spec=172&ref=3&tr=ResultsName" style="color:#000;">
+            <figure><img src="assets/image/match1.jpg" width="180" height="200" style="border:0.5px solid gray">
+                <figcaption>Peter John Smith</figcaption>
+                <p style="font-size: xx-small; width: 50px;">Clinical Social Work/Therapist,  MSW,  LCSW<br>
+                    <span style="font-size: x-small" style="width: 180px">Family & Community Services of Somerset County <br> Bound Brook, New Jersey 08805<br>
+                    (732) 356-1082 </span></p>
+            </figure>
+        </a>
+    </div>
 
-    <p-dataView [value]="searchResults" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
-        <ng-template let-res pTemplate="listItem">
-            <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
-                <div>
-                    <div>
-                        <font color="grey"><b> {{ res.recipeName }}</b></font>
-                    </div>
-                    <div>
-                        <a href="{{ res.articleURL }}">
-                            <img src="{{ res.imageURL }}" height="180" width="220">
-                        </a>
-                    </div>
-                </div>
+    <div class="match2">
+        <a href="https://www.psychologytoday.com/us/therapists/male/08854/94290?sid=5c978f30b4abf&zipdist=7&spec=172&ref=5&tr=ResultsName" style="color: #000;">
+            <figure><img src="assets/image/match2.jpg" width="180" height="200" style="border: 0.5px solid gray">
+                <figcaption>David Rogoff</figcaption>
+                <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">Licensed Professional Counselor,  LPC<br>
+                    <span style="font-size: x-small">4 North 3rd Avenue Suite 202 <br> Highland Park, New Jersey 08904 <br>
+                        (732) 481-1567</span></p>
+            </figure>
+        </a>
+    </div>
+    
+    <div class="match3">
+        <a href="https://www.psychologytoday.com/us/therapists/08854/81618?sid=5c96f0bbe1a39&ref=10&tr=ResultsName" style="color:#000;">
+            <figure><img src="assets/image/match3.jpg" width="180" height="200" style="border:0.5px solid gray">
+                <figcaption>Christine M. Valentin</figcaption>
+                <p style="font-size: xx-small; width: 50px;">Licensed Professional Counselor,  MA,  LPC,  NCC<br>
+                    <span style="font-size: x-small" style="width: 180px">Fair Havens Counseling Center <br>Piscataway, New Jersey 08854<br>
+                    (908) 731-6624 </span></p>
+            </figure>
+        </a>
+    </div>
 
-                <div class="Search-Row-Info">
-                    <div>
-                        <font size="1.6">
-                            <font color="grey"><b>Calories/Serving: </b></font> {{ res.calories }} &nbsp;
-                            <font color="grey"><b>Daily %: </b></font> {{ res.totalDaily }} &nbsp;
-                            <font color="grey"><b>Servings: </b></font> {{ res.servings }}
+    <div class="match4">
+        <a href="https://www.psychologytoday.com/us/therapists/08854/267405?sid=5c96f0bbe1a39&ref=5&rec_next=21&tr=ResultsName" style="color: #000;">
+            <figure><img src="assets/image/match4.jpg" width="180" height="200" style="border: 0.5px solid gray">
+                <figcaption>Sonja Welch</figcaption>
+                <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">Clinical Social Work/Therapist,  LCSW<br>
+                    <span style="font-size: x-small">127 Union Avenue Suite 4 <br> Middlesex, New Jersey 08846<br>
+                    (347) 318-0746</span></p>
+            </figure>
+        </a>
+    </div>
 
-                        </font>
-                    </div>
-                    <div>
-                        <font size="1.6">
-                            <font color="grey"><b>Diet Labels: </b></font> {{ res.dietLabels }}
-                        </font>
-                    </div>
-                    <div>
-                        <font size="1.6">
-                            <font color="grey"><b>Health Labels: </b></font> {{ res.healthLabels }}
-                        </font>
-                    </div>
-                    <div>
-                        <font size="1.6">
-                            <font color="grey"><b>Ingredients: </b></font> {{ res.ingredients }}
-                        </font>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-    </p-dataView>
 </div>
