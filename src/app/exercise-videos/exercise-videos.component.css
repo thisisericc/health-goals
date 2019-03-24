@@ -1,6 +1,11 @@
 .jumbotron {
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding-top:2%;
+    padding-bottom: 3%;
+}
+
+.Heading {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
 }
 .sidenav {
     width: 300px;
