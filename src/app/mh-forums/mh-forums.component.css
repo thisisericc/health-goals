@@ -1,14 +1,54 @@
+<<<<<<< HEAD
 .Heading {
     font-family: 'Quicksand', sans-serif;
     position: absolute;
     left: 140px;
+=======
+.jumbotron {
+    padding:20px 0 120px 0;
+    margin-bottom:0;
+}
+
+.Heading {
+    font-family: 'Quicksand', sans-serif;
+    position: absolute;
+    font-size: 30px;
+    left: 550px;
+    top: 150px;
+}
+
+.HeadingPic {
+    position: absolute;
+    left: 600px;
+}
+
+.Heading2 {
+    font-family: 'Quicksand', sans-serif;
+    position: absolute;
+    left: 25px;
+    font-size: 25px;
+>>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
 }
 
 .Filter-Results {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
+<<<<<<< HEAD
     top: 200px;
+=======
+    left: 25px;
+    top: 275px;
+    width: 200px;
+}
+
+.Start-Forum-Button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 275px;
+    left: 240px;
+>>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
     width: 200px;
 }
 
@@ -16,7 +56,11 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
+<<<<<<< HEAD
     top: 200px;
+=======
+    top: 275px;
+>>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
     left: 450px;
 }
 
@@ -24,6 +68,7 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
+<<<<<<< HEAD
     top: 200px;
     left: 735px;
 }
@@ -57,11 +102,42 @@
 }
 
 .Forums-List {
+=======
+    top: 275px;
+    left: 760px;
+}
+
+.Dropdown-Forum {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 275px;
+    left: 835px;
+}
+
+.Search-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 315px;
+    left: 240px;
+    width: 700px;
+    bottom: 100px;
+}
+
+.Active-Forums {
+>>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     list-style: none;
     position: absolute;
+<<<<<<< HEAD
     top: 200px;
     left: 930px;
     width: 250px;
+=======
+    top: 275px;
+    left: 955px;
+    width: 300px;
+>>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
 }
