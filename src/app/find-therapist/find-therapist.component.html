@@ -60,13 +60,13 @@
 
 <div class="Search-Bar">
     <span class="ui-float-label">
-        <input id="float-input" type="text" size="83" [(ngModel)]="mealQuery" (keyup.enter)="recipesQuery(mealQuery)"> 
-        <label *ngIf="mealQuery == null" for="float-input">Search For Service</label>
+        <input id="float-input" type="text" size="83"> 
+        <label for="float-input">Search For Service</label>
     </span>
 </div>
 
 <div class="Search-Button">
-    <p-button label="Search" id="searchButton" (click)="recipesQuery(mealQuery)" style="display: none;"></p-button>
+    <p-button label="Search" id="searchButton" style="display: none;"></p-button>
 </div>
 
 <div class="Search-Results">
