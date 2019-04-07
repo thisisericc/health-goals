@@ -1,3 +1,115 @@
-<p>
-  find-therapist works!
-</p>
+<div class="jumbotron jumbotron-fluid">
+    <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+    <h1 style="text-align:center" class="display-4">Health Goals</h1>
+</div>
+
+<h2> Mental Health Service Finder </h2>
+
+<div class="Filter-Results">
+    <p-card header="Filter Results" subheader="Treatment Type">
+        <p-checkbox name="treatmenttype" value="therapist" label="Therapist"></p-checkbox>
+        <!–– <br/>
+        <!–– <br/>
+        &nbsp;&nbsp;
+        <p-checkbox name="treatmenttype" value="psychologist" label="Psychologist"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="treatmenttype" value="counselor" label="Counselor"></p-checkbox>
+        <!–– <br/>
+        <!–– <br/>
+        &nbsp;
+        <p-checkbox name="treatmenttype" value="other" label="Other"></p-checkbox>
+        <br/>
+        <br/>
+        
+        <font color="grey"><b>Duration</b></font>
+        <br/>
+        <br/>
+        <p-checkbox name="duration" value="shortterm" label="Short Term"></p-checkbox>
+        <!–– <br/>
+        <!–– <br/>
+        &nbsp;
+        <p-checkbox name="duration" value="longterm" label="Long Term"></p-checkbox>
+        <br/>
+        <br/>
+
+        <font color="grey"><b>Other Specifications</b></font>
+        <br/>
+        <br/>
+        <p-checkbox name="otherspecifications" value="LGBTQ" label="LGBTQ+ Friendly"></p-checkbox>
+        <br/>
+        <br/>
+
+        <font color="grey"><b>Location Radius</b></font>
+        <br/>
+        <br/>
+        <p-checkbox name="locationradius" value="1to3" label="1-3 miles"></p-checkbox>
+        &nbsp;
+        &nbsp;
+        <p-checkbox name="locationradius" value="3to5" label="3-5 miles"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="locationradius" value="5to10" label="5-10 miles"></p-checkbox>
+        &nbsp;
+        <p-checkbox name="locationradius" value="morethan10" label="10+ miles"></p-checkbox>
+
+    </p-card>
+</div>
+
+<div class="Search-Bar">
+    <span class="ui-float-label">
+        <input id="float-input" type="text" size="83"> 
+        <label for="float-input">Search For Service</label>
+    </span>
+</div>
+
+<div class="Search-Button">
+    <p-button label="Search" id="searchButton" style="display: none;"></p-button>
+</div>
+
+<div class="Search-Results">
+    <div class="match1">
+        <a href="https://www.psychologytoday.com/us/therapists/male/08854/372242?sid=5c978f30b4abf&zipdist=7&spec=172&ref=3&tr=ResultsName" style="color:#000;">
+            <figure><img src="assets/image/match1.jpg" width="180" height="200" style="border:0.5px solid gray">
+                <figcaption>Peter John Smith</figcaption>
+                <p style="font-size: xx-small; width: 50px;">Clinical Social Work/Therapist,  MSW,  LCSW<br>
+                    <span style="font-size: x-small" style="width: 180px">Family & Community Services of Somerset County <br> Bound Brook, New Jersey 08805<br>
+                    (732) 356-1082 </span></p>
+            </figure>
+        </a>
+    </div>
+
+    <div class="match2">
+        <a href="https://www.psychologytoday.com/us/therapists/male/08854/94290?sid=5c978f30b4abf&zipdist=7&spec=172&ref=5&tr=ResultsName" style="color: #000;">
+            <figure><img src="assets/image/match2.jpg" width="180" height="200" style="border: 0.5px solid gray">
+                <figcaption>David Rogoff</figcaption>
+                <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">Licensed Professional Counselor,  LPC<br>
+                    <span style="font-size: x-small">4 North 3rd Avenue Suite 202 <br> Highland Park, New Jersey 08904 <br>
+                        (732) 481-1567</span></p>
+            </figure>
+        </a>
+    </div>
+    
+    <div class="match3">
+        <a href="https://www.psychologytoday.com/us/therapists/08854/81618?sid=5c96f0bbe1a39&ref=10&tr=ResultsName" style="color:#000;">
+            <figure><img src="assets/image/match3.jpg" width="180" height="200" style="border:0.5px solid gray">
+                <figcaption>Christine M. Valentin</figcaption>
+                <p style="font-size: xx-small; width: 50px;">Licensed Professional Counselor,  MA,  LPC,  NCC<br>
+                    <span style="font-size: x-small" style="width: 180px">Fair Havens Counseling Center <br>Piscataway, New Jersey 08854<br>
+                    (908) 731-6624 </span></p>
+            </figure>
+        </a>
+    </div>
+
+    <div class="match4">
+        <a href="https://www.psychologytoday.com/us/therapists/08854/267405?sid=5c96f0bbe1a39&ref=5&rec_next=21&tr=ResultsName" style="color: #000;">
+            <figure><img src="assets/image/match4.jpg" width="180" height="200" style="border: 0.5px solid gray">
+                <figcaption>Sonja Welch</figcaption>
+                <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">Clinical Social Work/Therapist,  LCSW<br>
+                    <span style="font-size: x-small">127 Union Avenue Suite 4 <br> Middlesex, New Jersey 08846<br>
+                    (347) 318-0746</span></p>
+            </figure>
+        </a>
+    </div>
+
+</div>

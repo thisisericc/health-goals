@@ -5,26 +5,23 @@
     left: 140px;
 =======
 .jumbotron {
-    padding:20px 0 120px 0;
-    margin-bottom:0;
+    padding-top:2%;
+    padding-bottom: 3%;
 }
-
-.Heading {
-    font-family: 'Quicksand', sans-serif;
-    position: absolute;
-    font-size: 30px;
-    left: 550px;
-    top: 150px;
+h1 { 
+    font-size: 2em;
+    font-weight: bold;
 }
-
-.HeadingPic {
-    position: absolute;
-    left: 600px;
+h2 {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .Heading2 {
     font-family: 'Quicksand', sans-serif;
     position: absolute;
+    top: 260px;
     left: 25px;
     font-size: 25px;
 >>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
@@ -38,7 +35,7 @@
     top: 200px;
 =======
     left: 25px;
-    top: 275px;
+    top: 325px;
     width: 200px;
 }
 
@@ -46,7 +43,7 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 275px;
+    top: 325px;
     left: 240px;
 >>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
     width: 200px;
@@ -57,10 +54,14 @@
     font-weight: 350;
     position: absolute;
 <<<<<<< HEAD
+<<<<<<< HEAD
     top: 200px;
 =======
     top: 275px;
 >>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
+=======
+    top: 325px;
+>>>>>>> 04a1abb2608ddec828e65fa2d62c2a69491a0fcb
     left: 450px;
 }
 
@@ -68,6 +69,7 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
+<<<<<<< HEAD
 <<<<<<< HEAD
     top: 200px;
     left: 735px;
@@ -104,6 +106,9 @@
 .Forums-List {
 =======
     top: 275px;
+=======
+    top: 325px;   
+>>>>>>> 04a1abb2608ddec828e65fa2d62c2a69491a0fcb
     left: 760px;
 }
 
@@ -111,7 +116,7 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 275px;
+    top: 325px;
     left: 835px;
 }
 
@@ -119,7 +124,7 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 250;
     position: absolute;
-    top: 315px;
+    top: 365px;
     left: 240px;
     width: 700px;
     bottom: 100px;
@@ -132,11 +137,15 @@
     list-style: none;
     position: absolute;
 <<<<<<< HEAD
+<<<<<<< HEAD
     top: 200px;
     left: 930px;
     width: 250px;
 =======
     top: 275px;
+=======
+    top: 325px;
+>>>>>>> 04a1abb2608ddec828e65fa2d62c2a69491a0fcb
     left: 955px;
     width: 300px;
 >>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63

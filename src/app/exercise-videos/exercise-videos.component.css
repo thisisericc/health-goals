@@ -1,7 +1,8 @@
 .jumbotron {
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding-top:2%;
+    padding-bottom: 3%;
 }
+
 .sidenav {
     width: 300px;
     background: #eee;
@@ -20,19 +21,19 @@ h2 {
 
 .searchbar{
     position: absolute;
-    top: 300px;
+    top: 318px;
     left: 320px;
 }
 
 .new-button{
     position: absolute;
-    top: 300px;
+    top: 318px;
     left: 1015px;
 }
 
 .page-button{
     position: absolute;
-    top: 300px;
+    top: 318px;
     left: 1130px;
 }
 
