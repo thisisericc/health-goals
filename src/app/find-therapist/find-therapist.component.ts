@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FindTherapistService } from '../find-therapist.service';
 import { FindTherapist } from '../find-therapist';
 import { MessageService } from 'primeng/api';
-import { LocationService } from '../location.service';
 
 
 @Component({
@@ -20,7 +19,6 @@ export class FindTherapistComponent implements OnInit {
   constructor(
     private findTherapistService: FindTherapistService,
     private messageService: MessageService,
-    private LocationService: LocationService
   ) { }
 
   ngOnInit() {
