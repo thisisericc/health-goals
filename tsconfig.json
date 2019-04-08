@@ -4,20 +4,14 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "paths": {
-      "core-js/es7/reflect": ["node_modules/core-js/proposals/reflect-metadata"]
-    },
     "declaration": false,
-    "paths": {
-      "core-js/es7/reflect": ["node_modules/core-js/proposals/reflect-metadata"]
-    },
     "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
     "typeRoots": [
-      "node_modules/@types"
+      "./node_modules/@types"
     ],
     "lib": [
       "es2018",

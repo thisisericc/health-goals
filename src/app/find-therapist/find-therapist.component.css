@@ -1,56 +1,34 @@
-.jumbotron {
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-
-
-h1 { 
-    font-size: 2em;
-    font-weight: bold;
-}
-
-h2 {
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
 .Filter-Results {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 300px;
-    width: 275px;
+    top: 200px;
+    width: 200px;
 }
 
 .Search-Bar {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 300px;
-    left: 290px;
-    width: 960px;
+    top: 200px;
+    left: 215px;
 }
 
 .Search-Button {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 300px;
+    top: 200px;
     left: 735px;
-    width: 960px;
 }
 
 .Search-Results {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    border-radius: 3px;
-    border: 1px solid lightgray;
-    top: 345px;
-    left: 290px;
-    width: 960px;
-    height: 500px;
+    top: 245px;
+    left: 215px;
+    width: 700px;
 }
 
 .Search-Row-Info {
@@ -62,23 +40,12 @@ h2 {
     margin-right: 235px;
 }
 
-.match3{
-    color: white;
+.Trending-Recipes {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    list-style: none;
     position: absolute;
-    top: 20px;
-    left: 485px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.match4{
-    color: white;
-    position: absolute;
-    top: 20px;
-    left: 745px;
-    text-align: center;
-}
-
-.body{
-    font-size: 8;
+    top: 200px;
+    left: 930px;
+    width: 250px;
 }

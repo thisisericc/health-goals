@@ -29,7 +29,9 @@
                             "node_modules/primeng/resources/themes/nova-light/theme.css",
                             "src/styles.css"
                         ],
-                        "scripts": []
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {

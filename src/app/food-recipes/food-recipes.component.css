@@ -1,13 +1,8 @@
-.jumbotron {
-    margin-top: -40px;
-    height: 240px;
-}
-
 .Filter-Results {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 350px;
+    top: 200px;
     width: 200px;
 }
 
@@ -15,7 +10,7 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 350px;
+    top: 200px;
     left: 215px;
 }
 
@@ -23,7 +18,7 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 350px;
+    top: 200px;
     left: 735px;
 }
 
@@ -31,7 +26,7 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 395px;
+    top: 245px;
     left: 215px;
     width: 700px;
 }
@@ -50,7 +45,7 @@
     font-weight: 350;
     list-style: none;
     position: absolute;
-    top: 350px;
+    top: 200px;
     left: 930px;
     width: 250px;
 }
