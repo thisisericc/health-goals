@@ -1,18 +1,17 @@
-
-
 <!DOCTYPE html>
+
 <html>
 
 <div class="jumbotron jumbotron-fluid">
-  <figure><img src="assets/image/heart.png" width="60" height="60" class="mx-auto d-block"></figure>
-  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+    <figure><img src="assets/image/heart.png" width="60" height="60" class="mx-auto d-block"></figure>
+    <h1 style="text-align:center" class="display-4">Health Goals</h1>
 </div>
 
 <h2> Food Blogs </h2>
 
 
 <body>
-<!--
+    <!--
 <div class="Filter-Results">
   <p>Current Top Food Blogs:</p>
 
@@ -85,16 +84,16 @@
 
 
 </div>-->
-<div class="Search-Results">
-
-
-  <p>Search for articles through the latest and most recent food blogs!</p>
-  <script type="text/javascript"
-          id="bcs_js_snippet"
-          src="https://ui.customsearch.ai/api/ux/rendering-js?customConfig=cc8011fc-0a87-478d-b7e5-dcdc3eb169f7&market=en-US&version=latest&q=">
-  </script>
-
-</div>
+    <!--
+    <div class="Search-Bar">
+        <span class="ui-float-label">
+      <input id="float-input" type="text" size="83" [(ngModel)]="blogQuery" (keyup.enter)="foodBlogsQuery(blogQuery)"> 
+      <label *ngIf="mealQuery == null" for="float-input">Search For Food Blogs</label>
+  </span>
+    </div>
+-->
+    <iframe src="https://ui.customsearch.ai/hosted-page?customconfig=cc8011fc-0a87-478d-b7e5-dcdc3eb169f7&version=latest&market=en-US&q=brownie" height="2000" width="1000"></iframe>
 
 </body>
+
 </html>
