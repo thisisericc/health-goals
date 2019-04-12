@@ -31,6 +31,7 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
 import { TableModule } from 'primeng/table';
 import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
 import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component
     WelcomeComponent,
     MealPlanComponent,
     MhForumsDetailsComponent,
-    MhStartForumComponent
+    MhStartForumComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
