@@ -23,11 +23,14 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/primeng';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { MealPlanComponent } from './meal-plan/meal-plan.component';
+import { TableModule } from 'primeng/table';
+import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
+import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
     MhForumsComponent,
     MhArticlesComponent,
     WelcomeComponent,
-    MealPlanComponent
+    MealPlanComponent,
+    MhForumsDetailsComponent,
+    MhStartForumComponent
   ],
   imports: [
     BrowserModule,
@@ -58,9 +63,10 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
     HttpClientModule,
     MessagesModule,
     MessageModule,
-    ToastModule
+    ToastModule,
+    TableModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

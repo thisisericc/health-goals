@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-.Heading {
-    font-family: 'Quicksand', sans-serif;
-    position: absolute;
-    left: 140px;
-=======
 .jumbotron {
     padding-top:2%;
     padding-bottom: 3%;
@@ -18,22 +12,28 @@ h2 {
     font-weight: bold;
 }
 
+a {
+    text-decoration: none;
+}
+
+p {
+    height:65px;
+    line-height:20px;
+    overflow:hidden;
+}
+
 .Heading2 {
     font-family: 'Quicksand', sans-serif;
     position: absolute;
     top: 260px;
     left: 25px;
     font-size: 25px;
->>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
 }
 
 .Filter-Results {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-<<<<<<< HEAD
-    top: 200px;
-=======
     left: 25px;
     top: 325px;
     width: 200px;
@@ -45,7 +45,6 @@ h2 {
     position: absolute;
     top: 325px;
     left: 240px;
->>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
     width: 200px;
 }
 
@@ -53,63 +52,16 @@ h2 {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    top: 200px;
-=======
-    top: 275px;
->>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
-=======
     top: 325px;
->>>>>>> 04a1abb2608ddec828e65fa2d62c2a69491a0fcb
-    left: 450px;
+    left: 452px;
 }
 
 .Search-Button {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    top: 200px;
-    left: 735px;
-}
-
-.Search-Results {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 350;
-    position: absolute;
-    top: 245px;
-    left: 215px;
-    width: 700px;
-}
-
-.Search-Row-Info {
-    position: relative;
-    left: 235px;
-    top: -185px;
-    min-height: 180px;
-    margin-bottom: -150px;
-    margin-right: 235px;
-}
-
-.Active-Forums {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 350;
-    list-style: none;
-    position: absolute;
-    top: 200px;
-    left: 930px;
-    width: 250px;
-}
-
-.Forums-List {
-=======
-    top: 275px;
-=======
     top: 325px;   
->>>>>>> 04a1abb2608ddec828e65fa2d62c2a69491a0fcb
-    left: 760px;
+    left: 805px;
 }
 
 .Dropdown-Forum {
@@ -117,7 +69,7 @@ h2 {
     font-weight: 350;
     position: absolute;
     top: 325px;
-    left: 835px;
+    left: 885px;
 }
 
 .Search-Results {
@@ -126,27 +78,16 @@ h2 {
     position: absolute;
     top: 365px;
     left: 240px;
-    width: 700px;
+    width: 753px;
     bottom: 100px;
 }
 
-.Active-Forums {
->>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
+.Latest-Forums {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     list-style: none;
     position: absolute;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    top: 200px;
-    left: 930px;
-    width: 250px;
-=======
-    top: 275px;
-=======
     top: 325px;
->>>>>>> 04a1abb2608ddec828e65fa2d62c2a69491a0fcb
-    left: 955px;
-    width: 300px;
->>>>>>> 46343fef0ecafc2f30abd720bfc1670eb610cb63
+    left: 1015px;
+    width: 230px;
 }
