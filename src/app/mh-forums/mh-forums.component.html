@@ -1,132 +1,96 @@
 <div class="jumbotron jumbotron-fluid">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
     <h1 style="text-align:center" class="display-4">Health Goals</h1>
 </div>
 
-=======
-    <div class="container">
-      <img src = "/assets/img/healthgoalslogo.png" height = 50 width = 50 class = "HeadingPic">
-      <H2 class = "Heading">Health Goals</H2>
-    </div>
-</div>
->>>>>>> update all parts
-=======
-  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
-  <h1 style="text-align:center" class="display-4">Health Goals</h1>
-</div>
-
->>>>>>> fixed ui
-=======
-  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
-  <h1 style="text-align:center" class="display-4">Health Goals</h1>
-</div>
-
->>>>>>> 04a1abb2608ddec828e65fa2d62c2a69491a0fcb
-<br/>
-
 <p class = "Heading2"><b>Mental Health Forums: <i>A safe discussion space for anyone who needs it</i></b></p>
 
 <div class="Filter-Results">
-  <p-card header="Filter Results" subheader="Mental Health Topics">
-      <p-checkbox name="forumtype" value="depression" label="Depression"></p-checkbox>
+    <p-card header="Filter Results" subheader="Mental Health Topics">
+      <p-checkbox name="forumtype" value="depression" label="Depression" [(ngModel)]="selectedValues"></p-checkbox>
       <br/>
       <br/>
-      <p-checkbox name="forumtype" value="anxiety" label="Anxiety"></p-checkbox>
+      <p-checkbox name="forumtype" value="anxiety" label="Anxiety" [(ngModel)]="selectedValues"></p-checkbox>
       <br/>
       <br/>
-      <p-checkbox name="forumtype" value="ptsd" label="PTSD"></p-checkbox>
+      <p-checkbox name="forumtype" value="ptsd" label="PTSD" [(ngModel)]="selectedValues"></p-checkbox>
       <br/>
       <br/>
-      <p-checkbox name="forumtype" value="general" label="General"></p-checkbox>
+      <p-checkbox name="forumtype" value="phobia" label="Phobia" [(ngModel)]="selectedValues"></p-checkbox>
       <br/>
       <br/>
-      <p-checkbox name="forumtype" value="menshealth" label="Men's Health"></p-checkbox>
+      <p-checkbox name="forumtype" value="eating disorder" label="Eating Disorder" [(ngModel)]="selectedValues"></p-checkbox>
       <br/>
       <br/>
-      <p-checkbox name="forumtype" value="womenshealth" label="Women's Health"></p-checkbox>
+      <p-checkbox name="forumtype" value="self harm" label="Self Harm" [(ngModel)]="selectedValues"></p-checkbox>
       <br/>
       <br/>
-      <p-checkbox name="forumtype" value="lgbtq" label="LGBTQ"></p-checkbox>
+      <p-checkbox name="forumtype" value="lgbtq" label="LGBTQ" [(ngModel)]="selectedValues"></p-checkbox>
       <br/>
       <br/>
-      <p-checkbox name="forumtype" value="suicideprevention" label="Suicide Prevention"></p-checkbox>
+      <p-checkbox name="forumtype" value="panic disorder" label="Panic Disorder" [(ngModel)]="selectedValues"></p-checkbox>
       <br/>
       <br/>
+      <button type="button" (click) = "filterByTopic(selectedValues)" pButton label="Save"></button>
+      <br/>
+      <br/>
+      <button type="button" (click) = "getForums()" pButton label="Clear Filters"></button>
   </p-card>
 </div>
 
-<input type ="button" value = "Start a Forum" class = "Start-Forum-Button">
+<button type="button" routerLink = "/mh-start" pButton label="Start a Forum" class = "Start-Forum-Button"></button>
 
 <div class="Search-Forum">
   <span class="ui-float-label">
-      <input id="float-input" type="text" size="36"> 
-      <label>Search for Forums</label>
+      <input id="float-input" type="text" size="41" pInputTextarea [(ngModel)]="input"> 
   </span>
 </div>
 
-<input type ="button" value = "Search" class = "Search-Button"> 
+<button type="button" (click) = "searchForForums(input)" pButton label="Search" class = "Search-Button"></button>
 
-<input type ="button" value = "Newest First" class = "Dropdown-Forum">
+<button type="button" pButton label="Dropdown" class="Dropdown-Forum"></button>
 
-<div class = "Search-Results">
-  <p-card header="Anxiety and Depression: Which one do I have?">
-    <p>David Carbonell, a psychologist who does a lot of work around anxiety has published a useful page on his website which helps one understand the difference between anxiety and depression. Take a read .... you may find it useful.</p>
-    <br/>
-    <b><a href = "https://mentalhealthforum.net/forum/threads/anxiety-and-depression-which-one-do-i-have.34110/">Read More</a></b>
-  </p-card>
+<br/>
+<br/>
 
-  <p-card header="Mental health at work: Thinking about returning to work after stress, anxiety or depression?">
-    <p>Want to get back to work but don’t know where to start?
-      <br/>
-      <br/>
-      Sadly, you are not alone. Stress, anxiety and depression are one of most frequent causes of absence from work, with 1 in 3 fit notes citing mental health. 
-      <br/>
-      <br/>
-      There is a new free-to-access toolkit which helps to support employees and employers through the return to work process following a mental health sickness absence. The toolkit offers step by step advice about how to get back to work, with easy to use templates, checklists and suggestions. 
-    </p>
-    <br/>
-    <b><a href = "https://mentalhealthforum.net/forum/threads/mental-health-at-work-thinking-about-returning-to-work-after-stress-anxiety-or-depression.183448/">Read More</a></b>
-  </p-card>
-
-  <p-card header="Useful Information about Eating Disorders">
-    <p>What is an Eating Disorder? 
-        <br/>
-        <br/>
-        This is a phrase that describes a condition in which an individual engages in disordered eating. 
-        Eating disorders are not simply poor eating habits but are recognised mental health disorders in which emotional issues manifest in harmful eating habits. 
-        <br/>
-        <br/>
-        The three most common eating disorders are anorexia nervosa (anorexia), bulimia nervosa (bulimia), and binge eating disorder. Though each of these disorders result in different eating behaviours, each occurs when sufferers can not separate their emotions from their eating habits and this skews the way, and the amount, that they eat.
-    </p>
-    <br/>
-    <b><a href = "https://mentalhealthforum.net/forum/threads/useful-information-about-eating-disorders.32644/">Read More</a></b>
-  </p-card>
+<div class="Search-Results">
+  <p-table [value]="forums" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="body" let-forum>
+      <p-card>
+          <a routerLink = "/mh-forums/{{ forum.NameOfForum }}"><h2>{{forum.NameOfForum}}</h2></a>
+        <hr>
+        <p>{{forum.Description}}</p>
+        <br>
+        <b><a routerLink = "/mh-forums/{{ forum.NameOfForum }}">Read More</a></b>
+      </p-card>
+      <br>
+    </ng-template>
+  </p-table>
+  <br>
 </div>
 
-
-<div class="Active-Forums">
-  <p-card header="Active Forums">
-      <li><b><a href = "https://mentalhealthforum.net/forum/threads/no-motivation-to-do-anything-what-the-hell-is-wrong.75665/">1. No motivation to do ANYTHING</a></b></li>
-      <br/>
-      <li><b><a href = "https://mentalhealthforum.net/forum/threads/im-not-depressed-i-just-dont-enjoy-life-anymore.100786/">2. I'm not depressed I just don't enjoy life anymore?</a></b></li>
-      <br/>
-      <li><b><a href ="https://mentalhealthforum.net/forum/threads/panic-attacks-in-dreams.46739/">3. Panic attacks in dreams</a></b></li>
-      <br/>
-      <li><b><a href = "https://mentalhealthforum.net/forum/threads/nervous-about-my-graduation.117635/">4. Nervous about my graduation </a></b></li>
-      <br/>
-      <li><b><a href = "https://mentalhealthforum.net/forum/threads/coping-with-flashbacks.107422/">5. Coping With Flashbacks</a></b></li>
-      <br/>
-      <li><b><a href = "https://mentalhealthforum.net/forum/threads/complex-ptsd-please-help-%E2%80%99.41712/">6. Complex PTSD - please help :’(</a></b> </li>
-      <br/>
-      <li><b><a href = "https://mentalhealthforum.net/forum/threads/possible-personality-disorder.78136/">7. Possible Personality Disorder</a></b> </li>
-      <br/>
-      <li><b><a href = "https://mentalhealthforum.net/forum/threads/come-on-then-whats-your-bipolar-creativity.22153/">8. Come on then, what's your Bipolar creativity?</a></b></li>
-      <br/>
-      <li><b><a href = "https://mentalhealthforum.net/forum/threads/anger-blackouts-ii.80461/">9. Anger Blackouts II</a></b></li>
-      <br/>
-      <li><b><a href = "https://mentalhealthforum.net/forum/threads/is-this-part-of-an-eating-disorder.53188/">10. Is this part of an eating disorder?</a></b></li>
-  </p-card>
+<div class="Latest-Forums">
+  <h2>Latest Forums</h2>
+    <p-table [value]="latestForums">
+        <ng-template pTemplate="body" let-latestForum>
+          <p-card>
+            <a routerLink = "/mh-forums/{{ latestForum.NameOfForum }}"><b>{{ latestForum.ForumNumber }}.</b> {{ latestForum.NameOfForum }}</a>
+          </p-card>
+        </ng-template>
+    </p-table>
 </div>
+
+<!--
+
+<div class="Latest-Forums">
+  <h2>Latest Forums</h2>
+    <p-table [value]="latestForums">
+        <ng-template pTemplate="body" let-latestForum>
+          <tr>
+            <a routerLink = "/mh-forums/{{ latestForum.NameOfForum }}"><b>{{ latestForum.ForumNumber }}.</b> {{ latestForum.NameOfForum }}</a>
+          </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+-->
