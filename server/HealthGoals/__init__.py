@@ -49,24 +49,6 @@ def filter_by_difficulty(difficulty):
         if difficultynum is None:
             return make_response("No type found with the given difficulty.", 400)
         return jsonify(difficultynum)
-
-@app.route('/api/MentalHealthForums', methods=["GET"])
-def get_forums():
-    return jsonify(database.get_forums())
-
-@app.route('/api/MentalHealthLatestForums', methods=["GET"])
-def get_latest_forums():
-    return jsonify(database.get_latest_forums())
-
-@app.route('/api/MentalHealthForums/<name>', methods=["GET"])
-def find_forum(name):
-    try:
-        if name is None:
-            raise ValueError("Forum is not specified.")
-        forum = database.find_forum(name)
-        if forum is None:
-            return make_response("No forum found with the given name.", 404)
-        return jsonify(forum)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
@@ -81,21 +63,11 @@ def filter_by_bodyfocus(focus):
         if bodyfocus is None:
             return make_response("No type found with the given focus.", 400)
         return jsonify(bodyfocus)
-@app.route('/api/FilterForumByTopic/<topic>', methods=["GET"])
-def filter_by_topic(topic):
-    try:
-        if topic is None:
-            raise ValueError("Topic is not specified.")
-        forum = database.filter_by_topic(topic)
-        if forum is None:
-            return make_response("No forum found with the given topic.", 404)
-        return jsonify(forum)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
 
-'''
 @app.route("/api/combine/<training>/<difficulty>", methods=["GET"])
 def filter_td(training,difficulty):
     return jsonify(database.filter_td(training,difficulty))
@@ -135,7 +107,8 @@ def filter_combine(training,difficulty,focus):
         return jsonify(database.filter_combine(training,difficulty,focus))
     except Exception as e:
         return make_response(str(e),500)        
-'''
+
+
 @app.route("/api/SearchVideos/<name>", methods=["GET"])
 def search_videos(name):
     try:
@@ -145,6 +118,25 @@ def search_videos(name):
         if video is None:
             return make_response("No video with the given name.", 400)
         return jsonify(video)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/FilterForumByTopic/<topic>', methods=["GET"])
+def filter_by_topic(topic):
+    try:
+        if topic is None:
+            raise ValueError("Topic is not specified.")
+        forum = database.filter_by_topic(topic)
+        if forum is None:
+            return make_response("No forum found with the given topic.", 404)
+        return jsonify(forum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
 @app.route('/api/SearchForForum/<name>', methods=["GET"])
 def search_forums(name):
     try:
@@ -159,21 +151,27 @@ def search_forums(name):
     except Exception as e:
         return make_response(str(e), 500)
 
-"""
-@app.route("/api/videolink/<link>", methods=["GET"])
-def video_link(link):
+@app.route('/api/MentalHealthForums', methods=["GET"])
+def get_forums():
+    return jsonify(database.get_forums())
+
+@app.route('/api/MentalHealthLatestForums', methods=["GET"])
+def get_latest_forums():
+    return jsonify(database.get_latest_forums())
+
+@app.route('/api/MentalHealthForums/<name>', methods=["GET"])
+def find_forum(name):
     try:
-        if link is None:
-            raise ValueError("name is not specified.")
-        video = database.video_link(link)
-        if video is None:
-            return make_response("No video with the given name.", 400)
-        return jsonify(video)
+        if name is None:
+            raise ValueError("Forum is not specified.")
+        forum = database.find_forum(name)
+        if forum is None:
+            return make_response("No forum found with the given name.", 404)
+        return jsonify(forum)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
-"""
     
 @app.route('/api/PostForum/<name>/<description>/<topic>', methods=["GET"])
 def post_forum(name, description, topic):

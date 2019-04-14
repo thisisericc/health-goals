@@ -47,7 +47,7 @@ import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exerci
     MhArticlesComponent,
     WelcomeComponent,
     ExerciseVideosDetailsComponent,
-    Youtube
+    Youtube,
     MealPlanComponent,
     MhForumsDetailsComponent,
     MhStartForumComponent
