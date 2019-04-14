@@ -211,9 +211,3 @@ export class ExerciseVideosComponent implements OnInit{
 
 }
 
-export class ModelComponent {
-
-  selectedTraining: string[] = [];
-  selectedDifficulty:string[] = [];
-  selectedFocus:string[] = []; 
-}

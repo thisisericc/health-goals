@@ -9,58 +9,58 @@
 <div class="sidenav">
       <p-card header = "Filter Results">
       <h5> Training Type </h5>
-          <p-checkbox name="trainingtype" value="Strength Training" label="Strength Training" [(ngModel)] ="selectedTraining"> </p-checkbox>
+          <p-checkbox name="trainingtype" value="Strength Training" label="Strength Training" (click) ="getTrainingType('Strength Training')"> </p-checkbox>
           <br>
-          <p-checkbox name="trainingtype" value="HIIT" label="HIIT" [(ngModel)] ="selectedTraining" > </p-checkbox>
+          <p-checkbox name="trainingtype" value="HIIT" label="HIIT" (click) ="getTrainingType('HIIT')" > </p-checkbox>
           <br>
-          <p-checkbox name="trainingtype" value="Low Impact" label="Low Impact" [(ngModel)] ="selectedTraining" > </p-checkbox>
+          <p-checkbox name="trainingtype" value="Low Impact" label="Low Impact" (click) ="getTrainingType('Low Impact')" > </p-checkbox>
           <br>
-          <p-checkbox name="trainingtype" value="Toning" label="Toning" [(ngModel)] ="selectedTraining" > </p-checkbox>
+          <p-checkbox name="trainingtype" value="Toning" label="Toning" (click) ="getTrainingType('Toning')" > </p-checkbox>
           <br>
-          <p-checkbox name="trainingtype" value="Warming/Cooldown" label="Warm up /Cool down"[(ngModel)] ="selectedTraining"> </p-checkbox>
+          <p-checkbox name="trainingtype" value="Warming/Cooldown" label="Warm up /Cool down" (click) ="getTrainingType('Warming')"> </p-checkbox>
           <br>
-          <p-checkbox name="trainingtype" value="Yoga" label="Yoga" [(ngModel)] ="selectedTraining" ></p-checkbox>
+          <p-checkbox name="trainingtype" value="Yoga" label="Yoga" (click) ="getTrainingType('Yoga')" ></p-checkbox>
           <br>
-          <p-checkbox name="trainingtype" value="Cardiovascular" label="Cardiovascular" [(ngModel)] ="selectedTraining" > </p-checkbox>
+          <p-checkbox name="trainingtype" value="Cardiovascular" label="Cardiovascular" (click) ="getTrainingType('Cardiovascular')"> </p-checkbox>
           <br>
-          <p-checkbox name="trainingtype" value="Barre" label="Barre" [(ngModel)] ="selectedTraining"> </p-checkbox>
+          <p-checkbox name="trainingtype" value="Barre" label="Barre" (click) ="getTrainingType('Barre')"> </p-checkbox>
           <br>
-          <p-checkbox name="trainingtype" value="Plyometric" label ="Plyometric"[(ngModel)] ="selectedTraining"> </p-checkbox>
+          <p-checkbox name="trainingtype" value="Plyometric" label ="Plyometric"(click) ="getTrainingType('Plyometric')"> </p-checkbox>
           <br>
-          <p-checkbox name="trainingtype" value="Balance" label="Balance / Agility"  [(ngModel)] ="selectedTraining"> </p-checkbox>
+          <p-checkbox name="trainingtype" value="Balance" label="Balance / Agility"  (click) ="getTrainingType('Balance')"> </p-checkbox>
           <br>
           <br>
   
       <h5> Difficulty </h5>
-          <p-checkbox name="difficulty" value="1" label="1"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <p-checkbox name="difficulty" value="1" label="1"   (click) ="getDifficultyLevel('1')"> </p-checkbox>
           <br>
-          <p-checkbox name="difficulty" value="2" label="2"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <p-checkbox name="difficulty" value="2" label="2"  (click) ="getDifficultyLevel('2')"> </p-checkbox>
           <br>
-          <p-checkbox name="difficulty" value="3" label="3"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <p-checkbox name="difficulty" value="3" label="3"   (click) ="getDifficultyLevel('3')"> </p-checkbox>
           <br>
-          <p-checkbox name="difficulty" value="4" label="4"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <p-checkbox name="difficulty" value="4" label="4"   (click) ="getDifficultyLevel('4')"> </p-checkbox>
           <br>
-          <p-checkbox name="difficulty" value="5" label="5"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <p-checkbox name="difficulty" value="5" label="5"   (click) ="getDifficultyLevel('5')"> </p-checkbox>
           <br>
           <br>
   
       <h5> Body Focus </h5>
       
-          <p-checkbox name="bodyfocus" value="core" label=" Core "   [(ngModel)] ="selectedFocus"> </p-checkbox>
+          <p-checkbox name="bodyfocus" value="core" label=" Core "    (click) ="getbodyfocus('Core')"> </p-checkbox>
           <br>
-          <p-checkbox name="bodyfocus" value="upper" label=" Upper " [(ngModel)] ="selectedFocus"> </p-checkbox>
+          <p-checkbox name="bodyfocus" value="upper" label=" Upper "  (click) ="getbodyfocus('Upper')"> </p-checkbox>
           <br>
-          <p-checkbox name="bodyfocus" value="lower" label=" Lower " [(ngModel)] ="selectedFocus"> </p-checkbox>
+          <p-checkbox name="bodyfocus" value="lower" label=" Lower "  (click) ="getbodyfocus('Lower')"> </p-checkbox>
           <br>
-          <p-checkbox name="bodyfocus" value="total" label=" Total " [(ngModel)] ="selectedFocus"> </p-checkbox>
+          <p-checkbox name="bodyfocus" value="total" label=" Total " (click) ="getbodyfocus('Total')"> </p-checkbox>
           <br>
           <br>
      
-      <!-- Save Button -->
+      <!-- Save Button 
       <div class="save-button">
-          <p-button label="Save" (click) ="getcombine(selectedTraining,selectedDifficulty,selectedFocus)"></p-button>
+          <p-button label="Save" (click) =""></p-button>
       </div>  
-      <br>
+      <br>-->
 
       <!-- Clear Filters Button   -->     
       <p-button label="Clear Filters" id="searchButton" (click) = "getVideos()"></p-button>

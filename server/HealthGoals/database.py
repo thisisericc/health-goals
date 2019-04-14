@@ -84,7 +84,7 @@ def filter_df(difficulty,focus):
                 )
                 rs = con.execute(query, difficulty=difficulty, string2 = string2)
                 return [dict(row) for row in rs]
-
+'''
 def search_videos(name):
         with engine.connect() as con:
                 nameFinal = "%" + name + "%"
@@ -93,7 +93,7 @@ def search_videos(name):
                 )
                 rs = con.execute(query, name=nameFinal)
                 return [dict(row) for row in rs]
-'''
+
 def get_forums():
     with engine.connect() as con:
         rs = con.execute("SELECT ForumNumber, NameOfForum, Link, Description, Topic FROM MentalHealthForums;")
