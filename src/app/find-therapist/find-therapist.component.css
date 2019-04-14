@@ -1,0 +1,51 @@
+.Filter-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 200px;
+    width: 200px;
+}
+
+.Search-Bar {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 200px;
+    left: 215px;
+}
+
+.Search-Button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 200px;
+    left: 735px;
+}
+
+.Search-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 245px;
+    left: 215px;
+    width: 700px;
+}
+
+.Search-Row-Info {
+    position: relative;
+    left: 235px;
+    top: -185px;
+    min-height: 180px;
+    margin-bottom: -150px;
+    margin-right: 235px;
+}
+
+.Trending-Recipes {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    list-style: none;
+    position: absolute;
+    top: 200px;
+    left: 930px;
+    width: 250px;
+}

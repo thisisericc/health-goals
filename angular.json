@@ -29,7 +29,11 @@
                             "node_modules/primeng/resources/themes/nova-light/theme.css",
                             "src/styles.css"
                         ],
-                        "scripts": []
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "node_modules/popper.js/dist/popper.min.js",
+                            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {

@@ -24,13 +24,14 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/primeng';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
-
-
-import {TableModule} from 'primeng/table';
+import { MealPlanComponent } from './meal-plan/meal-plan.component';
+import { TableModule } from 'primeng/table';
+import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
+import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
 
 @NgModule({
@@ -45,8 +46,14 @@ import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exerci
     MhForumsComponent,
     MhArticlesComponent,
     WelcomeComponent,
+<<<<<<< HEAD
     ExerciseVideosDetailsComponent,
     Youtube
+=======
+    MealPlanComponent,
+    MhForumsDetailsComponent,
+    MhStartForumComponent
+>>>>>>> bd05f5d9ded14aaf4747e08d3596095fb0fc9698
   ],
   imports: [
     BrowserModule,

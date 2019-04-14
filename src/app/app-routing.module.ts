@@ -8,8 +8,14 @@ import { FoodBlogsComponent } from './food-blogs/food-blogs.component';
 import { FoodRecipesComponent } from './food-recipes/food-recipes.component';
 import { MhArticlesComponent } from './mh-articles/mh-articles.component';
 import { MhForumsComponent } from './mh-forums/mh-forums.component';
+import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
+import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
 import { WeightWatchersComponent } from './weight-watchers/weight-watchers.component';
+<<<<<<< HEAD
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
+=======
+import {MealPlanComponent} from './meal-plan/meal-plan.component';
+>>>>>>> bd05f5d9ded14aaf4747e08d3596095fb0fc9698
 
 const routes: Routes = [
   {
@@ -63,10 +69,26 @@ const routes: Routes = [
     component: MhForumsComponent
   },
   {
+    path: 'mh-forums/:forum',
+    pathMatch: 'full',
+    component: MhForumsDetailsComponent
+  },
+  {
+    path: 'mh-start',
+    pathMatch: 'full',
+    component: MhStartForumComponent
+  },
+  {
     path: 'weight-watchers',
     pathMatch: 'full',
     component: WeightWatchersComponent
+  },
+  {
+    path: 'meal-plan',
+    pathMatch: 'full',
+    component: MealPlanComponent
   }
+
 ];
 
 @NgModule({

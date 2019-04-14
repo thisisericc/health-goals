@@ -1,0 +1,42 @@
+.jumbotron {
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.sidenav {
+    width: 300px;
+    background: #eee;
+    padding: 8px 8px;
+}
+
+.Filter-Results {
+    position: absolute;
+    top: 330px;
+    width: 275px;
+    left:1020px;
+}
+
+
+.Search-Results {
+    border-radius: 3px;
+    position: absolute;
+    border: 1px solid lightgray;
+    top: 330px;
+    left: 320px;
+    width: 1000px;
+    height: 400px;
+}
+
+.Search-Row-Info {
+    position: relative;
+    left: 235px;
+    top: -165px;
+    min-height: 180px;
+    margin-bottom: -75px;
+    margin-right: 235px;
+}
