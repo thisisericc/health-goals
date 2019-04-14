@@ -47,7 +47,7 @@ def filter_by_bodyfocus(focus):
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]
 
-def filter_combine(training,difficulty,focus):
+'''def filter_combine(training,difficulty,focus):
         with engine.connect() as con:
                 string1 = "%" + training + "%"
                 string2 = "%" + focus + "%"
@@ -93,13 +93,4 @@ def search_videos(name):
                 )
                 rs = con.execute(query, name=nameFinal)
                 return [dict(row) for row in rs]
-"""
-def video_link(link):
-        with engine.connect() as con:
-                linkfinal = "%" + link + "%"
-                query = sql.text(
-                        " SELECT * from ExerciseVideos WHERE VideoName LIKE :link;"
-                )
-                rs = con.execute(query, link=linkfinal)
-                return [dict(row) for row in rs]
-"""
+'''

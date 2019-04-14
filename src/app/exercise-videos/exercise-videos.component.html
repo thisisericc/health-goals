@@ -55,19 +55,19 @@
             <p-checkbox name="bodyfocus" value="total" label=" Total " [(ngModel)] ="selectedFocus"> </p-checkbox>
             <br>
             <br>
-       
-        <!-- Save Button -->
+            
+        <!--Save Button--> 
         <div class="save-button">
             <p-button label="Save" (click) ="getcombine(selectedTraining,selectedDifficulty,selectedFocus)"></p-button>
         </div>  
         <br>
 
-        <!-- Clear Filters Button   -->     
+         <!--Clear Filters Button-->
         <p-button label="Clear Filters" id="searchButton" (click) = "getVideos()"></p-button>
     
     </p-card>
 </div>
- 
+
 <div class="VideoResults">
         <p-carousel [value]="videos">
             <ng-template pTemplate ="body" let-video>
@@ -81,10 +81,9 @@
     <!--Search Bar-->
     <div class="searchbar">
         <span class="ui-float-label">
-          <input id="float-input" type="text" size="75" pInputTextArea [(ngModel)] = "input"> 
+          <input id="float-input" type="text" size="75" pInputTextArea [(ngModel)] = "input" (keyup.enter) = "searchVideo(input)"> 
       </span>
     </div>
 
-    <button type="button" (click) = "searchVideo(input)" pButton label="Search" class = "search-button"></button>
 
 

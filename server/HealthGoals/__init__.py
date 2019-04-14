@@ -68,7 +68,7 @@ def filter_by_bodyfocus(focus):
     except Exception as e:
         return make_response(str(e), 500)
 
-
+'''
 @app.route("/api/combine/<training>/<difficulty>", methods=["GET"])
 def filter_td(training,difficulty):
     return jsonify(database.filter_td(training,difficulty))
@@ -108,7 +108,7 @@ def filter_combine(training,difficulty,focus):
         return jsonify(database.filter_combine(training,difficulty,focus))
     except Exception as e:
         return make_response(str(e),500)        
-
+'''
 @app.route("/api/SearchVideos/<name>", methods=["GET"])
 def search_videos(name):
     try:

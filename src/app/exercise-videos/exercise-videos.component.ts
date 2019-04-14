@@ -7,8 +7,6 @@ import { ExerciseVideos, ExercisevideosService } from '../exercisevideos.service
   templateUrl: './exercise-videos.component.html',
   styleUrls: ['./exercise-videos.component.css']
 })
-
-
 export class ExerciseVideosComponent implements OnInit{
 
   videos: ExerciseVideos[];
@@ -211,4 +209,11 @@ export class ExerciseVideosComponent implements OnInit{
     )
   }
 
+}
+
+export class ModelComponent {
+
+  selectedTraining: string[] = [];
+  selectedDifficulty:string[] = [];
+  selectedFocus:string[] = []; 
 }
