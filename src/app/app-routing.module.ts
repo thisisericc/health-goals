@@ -9,6 +9,7 @@ import { FoodRecipesComponent } from './food-recipes/food-recipes.component';
 import { MhArticlesComponent } from './mh-articles/mh-articles.component';
 import { MhForumsComponent } from './mh-forums/mh-forums.component';
 import { WeightWatchersComponent } from './weight-watchers/weight-watchers.component';
+import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
     path: 'exercise-videos',
     pathMatch: 'full',
     component: ExerciseVideosComponent
+  },
+  {
+    path: 'exercise-videos/:videos',
+    pathMatch: 'full',
+    component:ExerciseVideosDetailsComponent
   },
   {
     path: 'find-therapist',

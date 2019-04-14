@@ -1,0 +1,84 @@
+<div class="jumbotron jumbotron-fluid">
+  <figure><img src="assets/image/heart.png" width="60" height="60" class="mx-auto d-block"></figure>
+  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+</div>
+
+<p class = "Heading2"><b>Exercise Videos</b></p>
+
+<!-- Side navigation -->
+<div class="sidenav">
+      <p-card header = "Filter Results">
+      <h5> Training Type </h5>
+          <p-checkbox name="trainingtype" value="Strength Training" label="Strength Training" [(ngModel)] ="selectedTraining"> </p-checkbox>
+          <br>
+          <p-checkbox name="trainingtype" value="HIIT" label="HIIT" [(ngModel)] ="selectedTraining" > </p-checkbox>
+          <br>
+          <p-checkbox name="trainingtype" value="Low Impact" label="Low Impact" [(ngModel)] ="selectedTraining" > </p-checkbox>
+          <br>
+          <p-checkbox name="trainingtype" value="Toning" label="Toning" [(ngModel)] ="selectedTraining" > </p-checkbox>
+          <br>
+          <p-checkbox name="trainingtype" value="Warming/Cooldown" label="Warm up /Cool down"[(ngModel)] ="selectedTraining"> </p-checkbox>
+          <br>
+          <p-checkbox name="trainingtype" value="Yoga" label="Yoga" [(ngModel)] ="selectedTraining" ></p-checkbox>
+          <br>
+          <p-checkbox name="trainingtype" value="Cardiovascular" label="Cardiovascular" [(ngModel)] ="selectedTraining" > </p-checkbox>
+          <br>
+          <p-checkbox name="trainingtype" value="Barre" label="Barre" [(ngModel)] ="selectedTraining"> </p-checkbox>
+          <br>
+          <p-checkbox name="trainingtype" value="Plyometric" label ="Plyometric"[(ngModel)] ="selectedTraining"> </p-checkbox>
+          <br>
+          <p-checkbox name="trainingtype" value="Balance" label="Balance / Agility"  [(ngModel)] ="selectedTraining"> </p-checkbox>
+          <br>
+          <br>
+  
+      <h5> Difficulty </h5>
+          <p-checkbox name="difficulty" value="1" label="1"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <br>
+          <p-checkbox name="difficulty" value="2" label="2"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <br>
+          <p-checkbox name="difficulty" value="3" label="3"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <br>
+          <p-checkbox name="difficulty" value="4" label="4"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <br>
+          <p-checkbox name="difficulty" value="5" label="5"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+          <br>
+          <br>
+  
+      <h5> Body Focus </h5>
+      
+          <p-checkbox name="bodyfocus" value="core" label=" Core "   [(ngModel)] ="selectedFocus"> </p-checkbox>
+          <br>
+          <p-checkbox name="bodyfocus" value="upper" label=" Upper " [(ngModel)] ="selectedFocus"> </p-checkbox>
+          <br>
+          <p-checkbox name="bodyfocus" value="lower" label=" Lower " [(ngModel)] ="selectedFocus"> </p-checkbox>
+          <br>
+          <p-checkbox name="bodyfocus" value="total" label=" Total " [(ngModel)] ="selectedFocus"> </p-checkbox>
+          <br>
+          <br>
+     
+      <!-- Save Button -->
+      <div class="save-button">
+          <p-button label="Save" (click) ="getcombine(selectedTraining,selectedDifficulty,selectedFocus)"></p-button>
+      </div>  
+      <br>
+
+      <!-- Clear Filters Button   -->     
+      <p-button label="Clear Filters" id="searchButton" (click) = "getVideos()"></p-button>
+  
+  </p-card>
+</div>
+
+<button type="button" (click) = "backClicked()" pButton label="Back to all Videos" class = "Back-Button"></button>
+
+<div class="VideoResults">
+          <p-card> 
+           <h2> {{videoname}} </h2>
+               <p *ngIf="videoDetails">Training Type: {{videoDetails?.TrainingType }}</p>
+               <br>
+               <p *ngIf="videoDetails">Body Focus: {{videoDetails?.BodyFocus }}</p>
+               <br>
+               <p *ngIf="videoDetails"> Difficulty: {{videoDetails?.Difficulty }}</p>
+               <br>
+              <iframe *ngIf="videoDetails" width="900" height="507" [src]="videoDetails?.FinalLink | youtube" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe> 
+          </p-card>
+        </div>
