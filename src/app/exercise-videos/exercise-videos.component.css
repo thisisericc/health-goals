@@ -3,7 +3,6 @@
     padding-bottom: 3%;
 }
 
-<<<<<<< HEAD
 .VideoResults{
     font-family: 'Quicksand', sans-serif;
     font-weight: 250;
@@ -14,8 +13,6 @@
     bottom: 100px;
 }
 
-=======
->>>>>>> bd05f5d9ded14aaf4747e08d3596095fb0fc9698
 .sidenav {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
@@ -47,7 +44,6 @@ h2 {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-<<<<<<< HEAD
     top: 325px;
     left: 350px;
 }
@@ -56,32 +52,20 @@ h2 {
     position: absolute;
     top: 325px;
     left: 940px;
-=======
     top: 318px;
     left: 320px;
->>>>>>> bd05f5d9ded14aaf4747e08d3596095fb0fc9698
 }
 
 .new-button{
     position: absolute;
-<<<<<<< HEAD
     top: 325px;
     left: 1035px;
-=======
-    top: 318px;
-    left: 1015px;
->>>>>>> bd05f5d9ded14aaf4747e08d3596095fb0fc9698
 }
 
 .page-button{
     position: absolute;
-<<<<<<< HEAD
     top: 325px;
     left: 1165px;
-=======
-    top: 318px;
-    left: 1130px;
->>>>>>> bd05f5d9ded14aaf4747e08d3596095fb0fc9698
 }
 
 .workout-set1{

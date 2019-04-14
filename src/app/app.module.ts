@@ -46,14 +46,11 @@ import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exerci
     MhForumsComponent,
     MhArticlesComponent,
     WelcomeComponent,
-<<<<<<< HEAD
     ExerciseVideosDetailsComponent,
     Youtube
-=======
     MealPlanComponent,
     MhForumsDetailsComponent,
     MhStartForumComponent
->>>>>>> bd05f5d9ded14aaf4747e08d3596095fb0fc9698
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,6 @@
 {
-<<<<<<< HEAD
- "/api" : {
-     "target": "http://localhost:8080",
-     "secure": false
- }   
-=======
     "/api": {
         "target": "http://localhost:8080",
         "secure": false
     }
->>>>>>> bd05f5d9ded14aaf4747e08d3596095fb0fc9698
 }
