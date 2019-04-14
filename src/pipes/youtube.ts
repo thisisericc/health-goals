@@ -8,7 +8,6 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class Youtube{
 
     constructor(private dom: DomSanitizer){
-
     }
 
     transform(url){
