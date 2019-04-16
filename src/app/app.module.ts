@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import {Youtube} from '../pipes/youtube';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -18,16 +18,21 @@ import { MhArticlesComponent } from './mh-articles/mh-articles.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 import { CardModule } from 'primeng/card';
+import {CarouselModule} from 'primeng/carousel';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/primeng';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { MealPlanComponent } from './meal-plan/meal-plan.component';
+import { TableModule } from 'primeng/table';
+import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
+import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
+import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,11 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
     MhForumsComponent,
     MhArticlesComponent,
     WelcomeComponent,
-    MealPlanComponent
+    ExerciseVideosDetailsComponent,
+    Youtube,
+    MealPlanComponent,
+    MhForumsDetailsComponent,
+    MhStartForumComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +60,7 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
     AlertModule.forRoot(),
     CardModule,
     CheckboxModule,
+    CarouselModule,
     ButtonModule,
     InputTextModule,
     DataViewModule,
@@ -58,9 +68,10 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
     HttpClientModule,
     MessagesModule,
     MessageModule,
-    ToastModule
+    ToastModule,
+    TableModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

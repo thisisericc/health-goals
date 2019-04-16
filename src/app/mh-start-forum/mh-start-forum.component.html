@@ -1,0 +1,80 @@
+<div class="jumbotron jumbotron-fluid">
+  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+</div>
+
+<p class = "Heading2"><b>Mental Health Forums: <i>A safe discussion space for anyone who needs it</i></b></p>
+
+<div class="Filter-Results">
+  <p-card header="Filter Results" subheader="Mental Health Topics">
+    <p-checkbox name="forumtype" value="depression" label="Depression" [(ngModel)]="selectedValues"></p-checkbox>
+    <br/>
+    <br/>
+    <p-checkbox name="forumtype" value="anxiety" label="Anxiety" [(ngModel)]="selectedValues"></p-checkbox>
+    <br/>
+    <br/>
+    <p-checkbox name="forumtype" value="ptsd" label="PTSD" [(ngModel)]="selectedValues"></p-checkbox>
+    <br/>
+    <br/>
+    <p-checkbox name="forumtype" value="phobia" label="Phobia" [(ngModel)]="selectedValues"></p-checkbox>
+    <br/>
+    <br/>
+    <p-checkbox name="forumtype" value="eating disorder" label="Eating Disorder" [(ngModel)]="selectedValues"></p-checkbox>
+    <br/>
+    <br/>
+    <p-checkbox name="forumtype" value="self harm" label="Self Harm" [(ngModel)]="selectedValues"></p-checkbox>
+    <br/>
+    <br/>
+    <p-checkbox name="forumtype" value="lgbtq" label="LGBTQ" [(ngModel)]="selectedValues"></p-checkbox>
+    <br/>
+    <br/>
+    <p-checkbox name="forumtype" value="panic disorder" label="Panic Disorder" [(ngModel)]="selectedValues"></p-checkbox>
+    <br/>
+    <br/>
+    <button type="button" (click) = "filterByTopic(selectedValues)" pButton label="Save"></button>
+    <br/>
+    <br/>
+    <button type="button" (click) = "getForums()" pButton label="Clear Filters"></button>
+</p-card>
+</div>
+<!--
+<button type="button" (click) = "backClicked()" pButton label="Back to all Forums" class = "Back-Button"></button>
+-->
+<div class="New-Forum">
+    <p-card>
+      <h5><b>Name of Forum:</b></h5>
+      <textarea autoresize="autoResize" cols="100" pInputTextarea rows="2" [(ngModel)]="NameOfNewForum"></textarea>
+      <br/>
+      <br/>
+      <h5><b>Description:</b></h5>
+      <textarea autoresize="autoResize" cols="100" pInputTextarea rows="10" [(ngModel)]="NewDescription"></textarea>
+      <br/>
+      <br/>
+      <h5><b>Topic:</b></h5>
+      <textarea autoresize="autoResize" cols="100" pInputTextarea rows="1" [(ngModel)]="NewTopic"></textarea>
+      <br/>
+      <br/>
+      <button type="button" (click) = "postForum(NameOfNewForum, NewDescription, NewTopic)" pButton label="Post Forum"></button>
+    </p-card>
+    <br>
+</div>
+
+<!--
+  class = "Post-Forum-Button"
+<div class="NameOfNewForum">
+  <span class="ui-float-label">
+    <input id="float-input" type="text" size="50" pInputTextarea [(ngModel)]="NameOfNewForum"> 
+  </span>
+</div>
+
+<div class="NewDescription">
+  <span class="ui-float-label">
+    <input id="float-input-description" type="text" pInputTextarea [(ngModel)]="NewDescription"> 
+  </span>
+</div>
+
+<div class="NewDescription">
+  <h6>Description</h6>
+  <textarea autoresize="autoResize" cols="75" pInputTextarea rows="10" [(ngModel)]="NewDescription"></textarea>
+</div>
+-->
