@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FoodRecipesService } from '../food-recipes.service';
 import { FoodRecipes } from '../food-recipes';
 import { MessageService } from 'primeng/api';
+import { FoodRecipesSuggestionsService } from '../food-recipes-suggestions.service';
 
 @Component({
   selector: 'app-food-recipes',
@@ -16,10 +17,12 @@ export class FoodRecipesComponent implements OnInit {
   searchResults: any;
   loading: any;
   error = null;
+  results: any;
 
   constructor(
     private foodRecipesService: FoodRecipesService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private foodRecipesSuggestionsService: FoodRecipesSuggestionsService
   ) { }
 
   ngOnInit() {
@@ -79,6 +82,13 @@ export class FoodRecipesComponent implements OnInit {
       console.error(error);
       this.error = error;
       this.messageService.add({severity: 'error', summary: this.error, life: 5000, detail: 'Search Failed!'});
+    });
+  }
+
+  suggestions(event) {
+    this.foodRecipesSuggestionsService.getFoodSuggestions(event.query).subscribe(
+      data => {
+      this.results = data;
     });
   }
 }
