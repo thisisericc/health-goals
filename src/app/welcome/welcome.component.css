@@ -81,3 +81,12 @@
     top: 450px;
     right: 150px;
 }
+
+.SignInBox{
+    background-color: rgb(236, 236, 236);
+    margin: auto;
+    margin-bottom: 3%;
+    width: 35%;
+    height: 500px;
+    padding: 50px;
+}
