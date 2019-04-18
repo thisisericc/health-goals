@@ -53,4 +53,8 @@ export class FindInstructorsService {
   getRates(rates:string){
     return this.http.get<FindInstructors[]>('/api/rates/'+rates);
   }
+
+  getCertifications(certifications:string){
+    return this.http.get<FindInstructors[]>('/api/certifications/'+certifications);
+  }
 }
