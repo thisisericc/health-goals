@@ -77,12 +77,12 @@ def get_login(email, password):
     except Exception as e:
         return make_response(str(e), 500)
 
-@app.route('/api/getid/<email>/<password>', methods=["GET"])
-def getid(email, password):
+@app.route('/api/get_userdata/<ID>', methods=["GET"])
+def getid(ID):
     try:
-        res = database.getid(email, password)
+        res = database.get_userdata(ID)
         if res is None:
-            raise ValueError("Incorrect username or password, please try again")
+            raise ValueError("Couldnt get data")
         return jsonify(res)
     except ValueError as e:
         return make_response(str(e), 400)

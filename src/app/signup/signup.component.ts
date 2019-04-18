@@ -16,13 +16,16 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem("signup") == "true"){
+      
+    }
   }
 
   sign_up(FirstName: String, LastName: String, Email: String, Password:String, Description:String, Goals: String, DietaryRestrictions: String, Picture: String) {
     this.signupService.sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture).subscribe(
       data => {
         this.user = data;
-        
+        localStorage.setItem("signup","true");
         alert('Signed Up!');
       },
       error => {

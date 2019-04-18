@@ -23,12 +23,36 @@ export class WelcomeComponent implements OnInit {
     private router: Router
   ) { }
 
+
+  ngOnInit() {
+    if(localStorage.getItem("loggedIn") == "true"){
+      this.loggedIn = true;
+      this.get_userdata(localStorage.getItem("ID"));
+    }
+    else{
+      this.loggedIn = false;
+      localStorage.clear();
+      localStorage.setItem("loggedIn", "false");
+    }
+  }
+
+  get_userdata(ID: any){
+    this.userService.get_userdata(ID).subscribe(
+      data => {
+        this.user= data;
+      },
+      error => {
+        alert("unable to get user data");
+      }
+    )
+  }
+
   get_login(email: string, password: string) {
     this.userService.get_login(email, password).subscribe(
       data => {
         this.user = data;
-        console.log(this.user);
-        // this.router.navigate(["mh-forums"]);
+        localStorage.setItem("loggedIn","true");
+        localStorage.setItem("ID", this.user["ID"]);
         alert("logged in");
         this.loggedIn = true;
       },
@@ -37,7 +61,10 @@ export class WelcomeComponent implements OnInit {
       }
     );
   }
-  
-  ngOnInit() {
+
+  logout(){
+    localStorage.clear();
+    localStorage.setItem("loggedIn", "false");
+    this.loggedIn = false;
   }
 }

@@ -46,7 +46,7 @@
         <textarea class="form-control" [(ngModel)]="Description" placeholder="Describe yourself here..."></textarea>
         <br>
         <div style="text-align: center">
-          <button type="button" (click) = "sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture)" pButton label="Sign Up!"></button>
+          <button type="button" (click) = "sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture)" pButton label="Sign Up!" routerLink="/welcome"></button>
         </div>
     <br><br>
 </div>

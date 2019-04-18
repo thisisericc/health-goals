@@ -58,10 +58,10 @@ def get_login(email, password):
             return None
         return dict(result)
 
-def getid(email, password):
+def get_userdata(ID):
     with engine.connect() as con:
-        query = sql.text("SELECT ID FROM Users WHERE Email =:email AND Password =:password")
-        rs = con.execute(query, email=email, password=password)
+        query = sql.text("SELECT * FROM Users WHERE ID=:ID")
+        rs = con.execute(query, ID=ID)
         result = rs.first()
         if result is None:
             return None
