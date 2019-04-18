@@ -9,7 +9,7 @@
     <p-card header="Filter Results" subheader="Meal Type">
         <p-checkbox name="mealtype" value="breakfast" label="Breakfast"></p-checkbox>
         <br/>
-        <br/>   2
+        <br/>
         <p-checkbox name="mealtype" value="lunch" label="Lunch"></p-checkbox>
         <br/>
         <br/>
@@ -38,7 +38,8 @@
 
 <div class="Search-Bar">
     <span class="ui-float-label">
-        <input id="float-input" type="text" size="83" [(ngModel)]="mealQuery" (keyup.enter)="recipesQuery(mealQuery)"> 
+        <!--<input id="float-input" type="text" size="83" [(ngModel)]="mealQuery" (keyup.enter)="recipesQuery(mealQuery)"> -->
+        <p-autoComplete id="float-input" type="text" size="93" [(ngModel)]="mealQuery" (keyup.enter)="recipesQuery(mealQuery)" [(ngModel)]="text" [suggestions]="results" (completeMethod)="suggestions($event)"></p-autoComplete>
         <label *ngIf="mealQuery == null" for="float-input">Search For Recipes</label>
     </span>
 </div>

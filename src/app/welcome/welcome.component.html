@@ -36,84 +36,36 @@
             <figure class="circle circle-mh-articles"></figure>
         </a>
     </div>
-</body>
-
-</html>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <style>
-        input[type=text],
-        input[type=password] {
-            position: absolute;
-            left: 35%;
-            width: 30%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        
-        button {
-            position: absolute;
-            left: 35%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 30%;
-        }
-        
-        button:hover {
-            opacity: 0.8;
-        }
-        
-        .container {
-            padding: 16px;
-        }
-        
-        span.psw {
-            float: center;
-            padding-top: 16px;
-        }
-    </style>
-</head>
-
-<body>
-    <div align="center"><br><br><br>
-        <h2>Login to Your Account</h2><br>
-
-        <form action="/action_page.php">
-
-            <div class="container">
-                <label for="uname"><b>Username: </b></label>
+    <br>
+    <br>
+    <div class="SignInBox" *ngIf="!loggedIn">
+            <h2 style="text-align:center" class="display-4">Sign In</h2>
+            <br><br>
+            <span class="ui-float-label">
+                <input type="email" class="form-control" placeholder="Email" pInputText [(ngModel)]="email">
                 <br>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-                <br>
-                <br>
-                <br>
-                <label for="psw"><b>Password:</b></label>
-                <br>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-                <br>
-                <br>
-                <br>
-                <button type="submit">Login</button>
-                <br><br><br>
-                <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+                <input type="password" class="form-control" placeholder="Password" pInputText [(ngModel)]="password">
+            <br><br>
+            <div style="text-align: center"> 
+                    <button type="button" (click) = "get_login(email,password)" pButton label="Log In"></button>
+                    <br><br>
             </div>
-            <span class="psw">Forgot Password? Click <a href="#">here.</a></span> <br>
-            <span class = "psw"> Guests: View a Sample Meal Plan <a href="meal-plan"> Here! </a></span>
-
-        </form>
+            </span>
+            <br><br><br>
+            <div style="text-align: center">
+                <span class="psw">Don't have an account? <a href="sign-up">Sign Up!</a></span> <br>
+                <span class = "psw"> Guests: View a Sample Meal Plan <a href="meal-plan"> Here! </a></span>
+            </div>         
     </div>
+    <div class="SignInBox" *ngIf="loggedIn">
+        <h2 style="text-align:center" class="display-4">Welcome <br> {{user.FirstName}} </h2>
+        <br><br><br>
+        <div style="text-align: center">
+        <button type="btn-primary" (click) = "logout()" pButton label="Log Out"></button>
+        </div>
+
+    </div>
+    
 </body>
 
 </html>

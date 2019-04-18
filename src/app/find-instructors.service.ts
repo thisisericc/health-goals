@@ -1,46 +1,56 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
-import {map} from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+
+export interface FindInstructors{
+  name:string;
+  phone: string;
+  address : string;
+  zip : string;
+  tags : string;
+  image_URL : string;
+  certifications:string;
+  about : string;
+  rates : string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class FindInstructorsService {
 
-  data: any =null;
+  constructor(public http: HttpClient) { }
 
-  constructor(public http:Http) { }
+  getInstructor(){
+    return this.http.get<FindInstructors[]>('/api/instructors');
+  }
+  getName(name:string){
+    return this.http.get<FindInstructors[]>('/api/name/'+name);
+  }
 
-  load(id){
-    if(this.data){
-      return Promise.resolve(this.data);
-    }
+  getAddress(address:string){
+    return this.http.get<FindInstructors[]>('/api/address/'+address);
+  }
+  getZip(zip:string){
+    return this.http.get<FindInstructors[]>('/api/zip/'+zip);
+  }
 
-    var url= 'https://spreadsheets.google.com/feeds/list/'+id+'/od6/public/values?alt=json';
-    //no data yet
+  getPhone(phone:string){
+    return this.http.get<FindInstructors[]>('/api/phone/'+phone);
+  }
 
-    return new Promise(resolve=>{
-      this.http.get(url)
-        .pipe(map(res=>res.json() ))
-        .subscribe(data=>{
-          console.log('Raw Data', data);
-          this.data=data.feed.entry;
+  getTags(tags:string){
+    return this.http.get<FindInstructors[]>('/api/tags/'+tags);
+  }
 
-          let returnArray:Array<any>=[];
-          if(this.data && this.data.length>0){
-            this.data.forEach((entry,index)=>{
-              var obj={};
-              for(let x in entry){
-                if(x.includes('gsx$')&&entry[x].$t){
-                  obj[x.split('$')[1]]=entry[x]['$t'];
-                
-                }
-              }
-              returnArray.push(obj);
-            });
-          }
-          resolve(returnArray);
-        });
-    });
+  getImage(image_URL:string){
+    return this.http.get<FindInstructors[]>('/api/image/'+image_URL);
+  }
+
+  getAbout(about:string){
+    return this.http.get<FindInstructors[]>('/api/about/'+about);
+  }
+
+  getRates(rates:string){
+    return this.http.get<FindInstructors[]>('/api/rates/'+rates);
   }
 }
