@@ -164,3 +164,16 @@ def sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRes
         rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, DietaryRestrictions=DietaryRestrictions, Picture=Picture)
 
 
+def getInstructors():
+        with engine.connect() as con:
+                rs = con.execute("SELECT Name, Number, Address, Zip, Tags, Image_url, Certifications, About FROM Instructors;")
+                return [dict(row) for row in rs]
+
+def filter_by_Tags(tags):
+        with engine.connect() as con:
+                string = "%" + tags+ "%"
+                query = sql.text(
+                        "SELECT * from Instructors WHERE Tags LIKE :string;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
