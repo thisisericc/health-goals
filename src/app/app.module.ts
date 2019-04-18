@@ -32,6 +32,7 @@ import { TableModule } from 'primeng/table';
 import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
 import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
 import { SignupComponent } from './signup/signup.component';
+import {WelcomeService} from './welcome.service'
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ import { SignupComponent } from './signup/signup.component';
     ToastModule,
     TableModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, WelcomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

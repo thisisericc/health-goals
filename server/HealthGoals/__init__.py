@@ -64,3 +64,37 @@ def post_forum(name, description, topic):
 @app.route('/api/CountForums', methods=["GET"])
 def count_num_forums():
     return jsonify(database.count_num_forums())
+
+@app.route('/api/login/<email>/<password>', methods=["GET"])
+def get_login(email, password):
+    try:
+        res = database.get_login(email, password)
+        if res is None:
+            raise ValueError("Incorrect username or password, please try again")
+        return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/getid/<email>/<password>', methods=["GET"])
+def getid(email, password):
+    try:
+        res = database.getid(email, password)
+        if res is None:
+            raise ValueError("Incorrect username or password, please try again")
+        return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/signup/<FirstName>/<LastName>/<Email>/<Password>/<Description>/<Goals>/<DietaryRestrictions>/<Picture>', methods=["GET"])
+def sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture):
+    try:
+        res = database.sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture)
+        return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)

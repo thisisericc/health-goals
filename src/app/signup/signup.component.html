@@ -1,72 +1,53 @@
 <div class="jumbotron jumbotron-fluid">
-  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
-  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+    <br>
+    <h1 style="text-align:center" class="display-6">Welcome to Health Goals!</h1>
+    <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
 </div>
-
+<html>
 <br/>
-<h2 style="text-align:center" class="display-4">Sign Up</h2>
 <div class="SignUpBox">
-    <div class="leftside">
-      <br><br>
-    <figure class="icon"></figure>
-    <div class="input-group mb-3">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-          <label class="custom-file-label" for="inputGroupFile01"> Add Photo</label>
+        <h2 style="text-align:center" font="Arial">Sign Up</h2>
+        <small>First Name:</small>
+        <input type="text" class="form-control" placeholder="FirstName" pInputText [(ngModel)]="FirstName" required>
+        <br>
+        <small>Last Name:</small>
+        <input type="text" class="form-control" placeholder="LastName" pInputText [(ngModel)]="LastName">
+        <br>
+        <small>Email Address:</small>
+        <input type="email" class="form-control" placeholder="Email" pInputText [(ngModel)]="Email">
+        <br>
+        <small>Password:</small>
+        <input type="password" class="form-control" placeholder="Password" pInputText [(ngModel)]="Password">
+        <br>
+        <small>Health Goals:</small>
+        <input type="text" class="form-control" [(ngModel)]="Goals" placeholder="Weight loss, get toned, healthy diet, etc...">
+        <br>
+        <small>Dietary Restrictions:</small>
+        <select class="custom-select" multiple id="scrolllist" size="3" [(ngModel)]="DietaryRestrictions">
+            <option selected>None</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="pescetarian">Pescetarian</option>
+            <option value="gluten free">Gluten Free</option>
+            <option value="grain free">Grain Free</option>
+            <option value="dairy free">Dairy Free</option>
+            <option value="high protein">High Protein</option>
+            <option value="low sodium">Low Sodium</option>
+            <option value="low carb">Low Carb</option>
+            <option value="Paleo">Paleo</option>
+            <option value="Primal">Primal</option>
+            <option value="ketogenic">Ketogenic</option>
+            <option value="FODMAP">FODMAP</option>
+            <option value="Whole 30">Whole 30</option>
+        </select>
+        <br>
+        <br>
+        <small>Description:</small>
+        <textarea class="form-control" [(ngModel)]="Description" placeholder="Describe yourself here..."></textarea>
+        <br>
+        <div style="text-align: center">
+          <button type="button" (click) = "sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture)" pButton label="Sign Up!"></button>
         </div>
-      </div>
-    </div>
-
-    <div class="rightside">
-      <form>
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputFirst">First Name: </label>
-                  <input type="text" class="form-control" id="inputFirst" placeholder="First Name">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputLast">Last Name: </label>
-                  <input type="text" class="form-control" id="inputLast" placeholder="Last Name">
-                </div>
-            </div>
-        </form>
-        
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4">Email Address: </label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email Address">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPassword4">Password: </label>
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                </div>
-            </div>
-
-            <div class="form-group">
-              <label for="inputGoals">Health Goals: </label>
-              <input type="text" class="form-control" id="inputGoals" placeholder="Weight loss, get toned, healthy diet, etc...
-              ">
-            </div>
-
-            <label for="scrolllist">Dietary Restrictions: </label>
-            <select class="custom-select" multiple id="scrolllist" size="3">
-                <option selected>None</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </form>
-      </form>
-      <br>
-    </div>
-    
-    <div class="input-group" id="desc">
-        <textarea class="form-control" placeholder="Describe yourself here..."></textarea>
-    </div>
-
-    <div style="text-align: center"><br>
-      <button type="submit" class="btn btn-primary">Sign Up!</button>
-    </div>
+    <br><br>
 </div>
+</html>

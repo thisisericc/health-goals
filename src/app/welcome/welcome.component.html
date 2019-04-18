@@ -38,25 +38,30 @@
     </div>
     <br>
     <br>
-    <div class="SignInBox">
+    <div class="SignInBox" *ngIf="!loggedIn">
             <h2 style="text-align:center" class="display-4">Sign In</h2>
             <br><br>
-            <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address:</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password:</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div><br>
-            </form>
+            <span class="ui-float-label">
+                <input type="email" class="form-control" placeholder="Email" pInputText [(ngModel)]="email">
+                <br>
+                <input type="password" class="form-control" placeholder="Password" pInputText [(ngModel)]="password">
+            <br><br>
             <div style="text-align: center"> 
-                    <button type="submit" class="btn btn-primary">Log In</button><br><br>
-                    <span class="psw">Don't have an account? <a href="sign-up">Sign Up!</a></span> <br>
-                    <span class = "psw"> Guests: View a Sample Meal Plan <a href="meal-plan"> Here! </a></span>
+                    <button type="button" (click) = "get_login(email,password)" pButton label="Log In"></button>
+                    <br><br>
             </div>
+            </span>
+            <br><br><br>
+            <div style="text-align: center">
+                <span class="psw">Don't have an account? <a href="sign-up">Sign Up!</a></span> <br>
+                <span class = "psw"> Guests: View a Sample Meal Plan <a href="meal-plan"> Here! </a></span>
+            </div>         
     </div>
+    <div class="SignInBox" *ngIf="loggedIn" routerLink="mh-forums">
+        <h2 style="text-align:center" class="display-4">Welcome, <br> {{id}} {{user.FirstName}}</h2>
+
+    </div>
+    
 </body>
 
 </html>
