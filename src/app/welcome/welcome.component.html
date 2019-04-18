@@ -61,7 +61,8 @@
         <h2 style="text-align:center" class="display-4">Welcome <br> {{user.FirstName}} </h2>
         <br><br><br>
         <div style="text-align: center">
-        <button type="btn-primary" (click) = "logout()" pButton label="Log Out"></button>
+            <span class="psw"> <a href="/profile/{{user.ID}}">View Your Profile</a></span> <br>
+            <button type="btn-primary" (click) = "logout()" pButton label="Log Out"></button>
         </div>
 
     </div>

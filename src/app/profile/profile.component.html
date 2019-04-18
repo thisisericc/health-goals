@@ -1,0 +1,34 @@
+<div class="jumbotron jumbotron-fluid">
+    <br>
+    <h1 style="text-align:center" class="display-6">Welcome to Health Goals!</h1>
+    <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+</div>
+<html>
+
+<div class="container">
+    <h2 class="text-center font-weight-light">About {{user.FirstName}} </h2>
+    <div class="UserBox">
+            <h3 class="text-center font-weight-light"> Your Groups </h3>
+            <table class="table table-dark">
+                    <thead>
+                      <tr> 
+                        <th scope="col">Group Name</th>
+                        <th scope="col">Group Number</th>
+                        <th scope="col">Training Type</th>
+                        <th scope="col">Calorie Goal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{groupInfo.NameOfGroup}}</th>
+                        <td>{{groupInfo.GroupNumber}}</td>
+                        <td>{{groupInfo.TrainingType}}</td>
+                        <td>{{groupInfo.CalorieGoal}}</td>
+                      </tr>
+                    </tbody>
+            </table>
+
+    
+    </div>
+</div>
+</html>

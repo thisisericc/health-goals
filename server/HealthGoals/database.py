@@ -163,4 +163,24 @@ def sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRes
         )
         rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, DietaryRestrictions=DietaryRestrictions, Picture=Picture)
 
+def get_usergroups(ID):
+     with engine.connect() as con:
+        query = sql.text(
+                "SELECT * FROM GroupInfo Where GroupInfo.GroupNumber = (SELECT GroupNumber from GroupMemberInfo where GroupMemberInfo.UserID=:ID)"
+        )
+        rs = con.execute(query, ID=ID)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)
 
+def get_groupmemberinfo(ID):
+     with engine.connect() as con:
+        query = sql.text(
+                "SELECT * FROM GroupMemberInfo where GroupMemberInfo.UserID=:ID"
+        )
+        rs = con.execute(query, ID=ID)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)

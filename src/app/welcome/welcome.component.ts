@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import {Router} from '@angular/router';
 import {AppComponent} from '../app.component';
-import {User, WelcomeService, LoggedIn} from '../welcome.service';
+import {User, WelcomeService} from '../welcome.service';
 
 @Component({
   selector: 'app-welcome',
@@ -11,12 +11,8 @@ import {User, WelcomeService, LoggedIn} from '../welcome.service';
 
 export class WelcomeComponent implements OnInit {
   
-  email: string;
-  password: string;
-  id2: number;
-  logged: string[];
   user: User[]
-  public loggedIn: boolean = false;
+  loggedIn: boolean = false;
 
   constructor(
     public userService: WelcomeService,

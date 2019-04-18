@@ -14,6 +14,7 @@ import { WeightWatchersComponent } from './weight-watchers/weight-watchers.compo
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
 import {MealPlanComponent} from './meal-plan/meal-plan.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,11 @@ const routes: Routes = [
     path: 'mh-forums/:forum',
     pathMatch: 'full',
     component: MhForumsDetailsComponent
+  },
+  {
+    path: 'profile/:ID',
+    pathMatch: 'full',
+    component: ProfileComponent
   },
   {
     path: 'mh-start',
