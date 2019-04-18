@@ -53,7 +53,7 @@ export class WelcomeComponent implements OnInit {
         this.user = data;
         localStorage.setItem("loggedIn","true");
         localStorage.setItem("ID", this.user["ID"]);
-        alert("logged in");
+        console.log("signed in");
         this.loggedIn = true;
       },
       error => {

@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./meal-plan.component.css']
 })
 export class MealPlanComponent {
+
+
+
 }
