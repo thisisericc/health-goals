@@ -33,6 +33,7 @@ import { TableModule } from 'primeng/table';
 import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
 import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exerci
     MhStartForumComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

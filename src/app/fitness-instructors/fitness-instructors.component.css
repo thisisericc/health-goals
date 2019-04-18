@@ -1,0 +1,29 @@
+.Filter-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 200px;
+    width: 200px;
+}
+
+
+
+
+.Search-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 245px;
+    left: 215px;
+    width: 700px;
+}
+
+.Search-Row-Info {
+    position: relative;
+    left: 235px;
+    top: -185px;
+    min-height: 180px;
+    margin-bottom: -150px;
+    margin-right: 235px;
+}
+
