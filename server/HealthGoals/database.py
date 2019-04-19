@@ -164,9 +164,9 @@ def sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRes
         rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, DietaryRestrictions=DietaryRestrictions, Picture=Picture)
 
 
-def getInstructors():
+def get_Instructors():
         with engine.connect() as con:
-                rs = con.execute("SELECT Name, Number, Address, Zip, Tags, Image_url, Certifications, About FROM Instructors;")
+                rs = con.execute("SELECT Name, Number, Address, Zip, Tags, Image_URL, Certification, About, Rates FROM Instructors;")
                 return [dict(row) for row in rs]
 
 def filter_by_Tags(tags):

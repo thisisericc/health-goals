@@ -5,7 +5,6 @@ import { FindInstructorsService, FindInstructors } from '../find-instructors.ser
   selector: 'app-fitness-instructors',
   templateUrl: './fitness-instructors.component.html',
   styleUrls: ['./fitness-instructors.component.css'],
-  providers: [ FindInstructorsService ]
 })
 export class FitnessInstructorsComponent implements OnInit {
 
@@ -79,6 +78,7 @@ export class FitnessInstructorsComponent implements OnInit {
     this.InstructorService.getInstructor().subscribe(
       data=>{
         this.Instructors=data;
+        debugger;
       },
       error=>{
         alert('Could not retrieve a list of instructors');

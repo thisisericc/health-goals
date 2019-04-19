@@ -72,7 +72,7 @@
             <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
                 <div>
                     <div>
-                        <font color="grey"><b> {{ res.fname}} {{res.mname}} {{res.lname}}</b></font>
+                        <!--<font color="grey"><b> {{ res.fname}} {{res.mname}} {{res.lname}}</b></font>-->
                     </div>
                     <div>
                         <img src={{res.imageURL}} height="180" width="190">
@@ -81,24 +81,24 @@
 
                 <div class="Search-Row-Info">
                     <div>
-                        <font size="1.6">
-                                {{ res.bio}}
+                        <font size="6">
+                                {{ res.fname}} {{res.mname}} {{res.lname}}
                         </font>
                     </div>
                     <div>
-                        <font size="1.6">
+                        <font size="3">
                             {{ res.address}}, {{res.city}}, {{res.state}}, {{res.zip}}
 
                         </font>
                     </div>
                     <div>
-                        <font size="1.6">
-                            {{ res.number }}
+                        <font size="3">
+                            Phone Number: {{ res.number }}
                         </font>
                     </div>
                     <div>
                         <font size="1.6">
-                           Title: {{ res.title }}
+                           
                         </font>
                     </div>
                 </div>

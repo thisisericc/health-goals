@@ -11,6 +11,10 @@ app = Flask(__name__)
 def get_videos():
     return jsonify(database.get_videos())
 
+@app.route('/api/instructors', methods=["GET"])
+def get_Instructors():
+    return jsonify(database.get_Instructors())
+
 @app.route('/api/videos/<video>', methods=["GET"])
 def find_videos(video):
     try:
