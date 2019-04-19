@@ -189,6 +189,11 @@ def get_replies(name):
         if forum is None:
             return make_response("No replies found with the given name.", 404)
         return jsonify(forum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
 @app.route('/api/login/<email>/<password>', methods=["GET"])
 def get_login(email, password):
     try:
