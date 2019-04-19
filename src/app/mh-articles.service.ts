@@ -23,16 +23,15 @@ export class MHArticlesService {
     return this.http.get<MHArticles[]>('/api/articles');
   }
 
-
   findArticles(name: string) {
-    return this.http.get<MHArticles[]>('/api/MHArticles/'+ name);
+    return this.http.get<MHArticles[]>('/api/articles/'+ name);
   }
 
   filterByTopic(topic: string) {
     return this.http.get<MHArticles[]>('/api/topics/'+topic);
   }
   
-  filterByAuthor(author: string) {
-    return this.http.get<MHArticles[]>('/api/authors/'+author);
+  filterByType(types: string) {
+    return this.http.get<MHArticles[]>('/api/type/'+types);
   }
 }

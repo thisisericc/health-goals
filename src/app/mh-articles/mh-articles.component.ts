@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {MHArticlesService, MHArticles  } from '../mh-articles.service';
+
 @Component({
   selector: 'app-mh-articles',
   templateUrl: './mh-articles.component.html',
@@ -7,7 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MhArticlesComponent implements OnInit {
 
-  constructor() { }
+
+  articles:MHArticles[];
+  articletype:string;
+  articletopic:string;
+  link:string;
+  input:string;
+
+
+  constructor(public articleService:MHArticlesService) { 
+    
+
+this.articleService.filterByTopic(this.articletopic).subscribe(
+  data => {
+    console.log(data)
+  }
+)
+this.articleService.filterByType(this.articletype).subscribe(
+  data => {
+    console.log(data)
+  }
+)
+
+
+  }
+
 
   ngOnInit() {
   }

@@ -216,15 +216,15 @@ def filter_by_Topic(topic):
     except Exception as e:
         return make_response(str(e), 500)
 
-@app.route("/api/authors/<author>", methods=["GET"])
-def filter_by_author(author):
+@app.route("/api/type/<types>", methods=["GET"])
+def filter_by_type(types):
     try:
-        if author is None:
-            raise ValueError("author is not specified.")
-        authornum = database.filter_by_author(author)
-        if topicnum is None:
-            return make_response("No type found with the given author.", 400)
-        return jsonify(authornum)
+        if types is None:
+            raise ValueError("types is not specified.")
+        typesnum = database.filter_by_type(types)
+        if typesnum is None:
+            return make_response("No type found with the given types.", 400)
+        return jsonify(typesnum)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:

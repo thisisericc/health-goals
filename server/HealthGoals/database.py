@@ -163,11 +163,11 @@ def filter_by_Topic(topic):
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]
-def filter_by_author(author):
+def filter_by_type(types):
         with engine.connect() as con:
-                string = "%" + author+ "%"
+                string = "%" + types+ "%"
                 query = sql.text(
-                        "SELECT * from MentalHealthArticles WHERE Author LIKE :string;"
+                        "SELECT * from MentalHealthArticles WHERE Type LIKE :string;"
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]
