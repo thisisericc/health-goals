@@ -90,6 +90,14 @@ p {
     bottom: 100px;
 }
 
+.Reply-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: relative;
+    left: 50px;
+    width: 703px;
+}
+
 .Latest-Forums {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;

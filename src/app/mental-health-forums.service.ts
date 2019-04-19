@@ -5,8 +5,17 @@ export interface MentalHealthForums {
   ForumNumber: string,
   NameOfForum: string;
   Link: string;
+  Email: string;
   Description: string;
   Topic: string;
+}
+
+export interface MentalHealthForumReplies {
+  ForumNumber: string,
+  NameOfForum: string;
+  ForumReplyNumber: string,
+  Description: string;
+  Email: string;
 }
 
 @Injectable({
@@ -41,6 +50,14 @@ export class MentalHealthForumsService {
 
   postForum(name: string, description: string, topic: string) {
     return this.http.get<MentalHealthForums[]>('/api/PostForum/'+name+'/'+description+'/'+topic);
+  }
+
+  getReplies(name: string) {
+    return this.http.get<MentalHealthForumReplies[]>('/api/ForumReplies/'+name);
+  }
+
+  addReply(name: string, reply: string) {
+    return this.http.get<MentalHealthForums[]>('/api/AddReply/'+name+'/'+reply);
   }
 
 }

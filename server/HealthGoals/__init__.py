@@ -64,3 +64,21 @@ def post_forum(name, description, topic):
 @app.route('/api/CountForums', methods=["GET"])
 def count_num_forums():
     return jsonify(database.count_num_forums())
+
+@app.route('/api/ForumReplies/<name>', methods=["GET"])
+def get_replies(name):
+    try:
+        if name is None:
+            raise ValueError("Forum is not specified.")
+        forum = database.get_replies(name)
+        if forum is None:
+            return make_response("No replies found with the given name.", 404)
+        return jsonify(forum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/AddReply/<name>/<reply>', methods=["GET"])
+def add_reply(name, reply):
+    return jsonify(database.add_reply(name, reply))

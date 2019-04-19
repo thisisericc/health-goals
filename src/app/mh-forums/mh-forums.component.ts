@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import {MentalHealthForums, MentalHealthForumsService} from '../mental-health-forums.service';
+import {MentalHealthForums, MentalHealthForumReplies, MentalHealthForumsService} from '../mental-health-forums.service';
 
 @Component({
   selector: 'app-mh-forums',
