@@ -21,14 +21,6 @@ h2 {
     padding: 50px;
 }
 
-.icon {
-    background-image: url(images/icon.png);
-    background-repeat: no-repeat;
-    background-size: 200px;
-    height: 200px;
-    width: 200px;
-}
-
 .leftside{
     width: 25%;
     float: left;

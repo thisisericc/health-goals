@@ -10,7 +10,9 @@ import {User, WelcomeService} from '../welcome.service';
 })
 
 export class WelcomeComponent implements OnInit {
-  
+  onFileSelected(event){
+    console.log(event);
+  }
   user: User[]
   loggedIn: boolean = false;
 
