@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import {Youtube} from '../pipes/youtube';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -18,6 +18,7 @@ import { MhArticlesComponent } from './mh-articles/mh-articles.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 import { CardModule } from 'primeng/card';
+import {CarouselModule} from 'primeng/carousel';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -31,6 +32,10 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
 import { TableModule } from 'primeng/table';
 import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
 import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
+import { SignupComponent } from './signup/signup.component';
+import {WelcomeService} from './welcome.service'
+import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 @NgModule({
   declarations: [
@@ -44,9 +49,12 @@ import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component
     MhForumsComponent,
     MhArticlesComponent,
     WelcomeComponent,
+    ExerciseVideosDetailsComponent,
+    Youtube,
     MealPlanComponent,
     MhForumsDetailsComponent,
-    MhStartForumComponent
+    MhStartForumComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +64,7 @@ import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component
     AlertModule.forRoot(),
     CardModule,
     CheckboxModule,
+    CarouselModule,
     ButtonModule,
     InputTextModule,
     DataViewModule,
@@ -64,9 +73,10 @@ import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component
     MessagesModule,
     MessageModule,
     ToastModule,
-    TableModule
+    TableModule,
+    AutoCompleteModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, WelcomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,95 @@
+.jumbotron {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.VideoResults{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 365px;
+    left: 350px;
+    width: 925px;
+    bottom: 100px;
+}
+
+.Back-Button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 325px;
+    left: 350px;
+    width: 200px;
+}
+.sidenav {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    left: 25px;
+    top: 325px;
+    width: 300px;
+}
+h1 { 
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2 {
+        display: block;
+        font-size: 1.5em;
+        font-weight: bold;
+}
+
+.Heading2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
+    position: absolute;
+    left: 25px;
+    top: 260px;
+}
+
+.searchbar{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 325px;
+    left: 350px;
+}
+
+.search-button{
+    position: absolute;
+    top: 325px;
+    left: 1000px;
+}
+
+.new-button{
+    position: absolute;
+    top: 325px;
+    left: 1035px;
+}
+
+.page-button{
+    position: absolute;
+    top: 325px;
+    left: 1165px;
+}
+
+.workout-set1{
+    color: white;
+    position: absolute;
+    top: 380px;
+    left: 320px;
+}
+
+.workout-set2{
+    color:WHITE;
+    position: absolute;
+    top: 380px;
+    left: 650px;
+}
+.workout-set3{
+    color:WHITE;
+    position: absolute;
+    top: 380px;
+    left: 980px;
+}

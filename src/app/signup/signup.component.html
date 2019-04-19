@@ -1,0 +1,53 @@
+<div class="jumbotron jumbotron-fluid">
+    <br>
+    <h1 style="text-align:center" class="display-6">Welcome to Health Goals!</h1>
+    <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+</div>
+<html>
+<br/>
+<div class="SignUpBox">
+        <h2 style="text-align:center" font="Arial">Sign Up</h2>
+        <small>First Name:</small>
+        <input type="text" class="form-control" placeholder="FirstName" pInputText [(ngModel)]="FirstName" required>
+        <br>
+        <small>Last Name:</small>
+        <input type="text" class="form-control" placeholder="LastName" pInputText [(ngModel)]="LastName">
+        <br>
+        <small>Email Address:</small>
+        <input type="email" class="form-control" placeholder="Email" pInputText [(ngModel)]="Email">
+        <br>
+        <small>Password:</small>
+        <input type="password" class="form-control" placeholder="Password" pInputText [(ngModel)]="Password">
+        <br>
+        <small>Health Goals:</small>
+        <input type="text" class="form-control" [(ngModel)]="Goals" placeholder="Weight loss, get toned, healthy diet, etc...">
+        <br>
+        <small>Dietary Restrictions:</small>
+        <select class="custom-select" multiple id="scrolllist" size="3" [(ngModel)]="DietaryRestrictions">
+            <option selected>None</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="pescetarian">Pescetarian</option>
+            <option value="gluten free">Gluten Free</option>
+            <option value="grain free">Grain Free</option>
+            <option value="dairy free">Dairy Free</option>
+            <option value="high protein">High Protein</option>
+            <option value="low sodium">Low Sodium</option>
+            <option value="low carb">Low Carb</option>
+            <option value="Paleo">Paleo</option>
+            <option value="Primal">Primal</option>
+            <option value="ketogenic">Ketogenic</option>
+            <option value="FODMAP">FODMAP</option>
+            <option value="Whole 30">Whole 30</option>
+        </select>
+        <br>
+        <br>
+        <small>Description:</small>
+        <textarea class="form-control" [(ngModel)]="Description" placeholder="Describe yourself here..."></textarea>
+        <br>
+        <div style="text-align: center">
+          <button type="button" (click) = "sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture)" pButton label="Sign Up!" routerLink="/welcome"></button>
+        </div>
+    <br><br>
+</div>
+</html>

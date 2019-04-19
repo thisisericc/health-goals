@@ -11,7 +11,9 @@ import { MhForumsComponent } from './mh-forums/mh-forums.component';
 import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
 import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
 import { WeightWatchersComponent } from './weight-watchers/weight-watchers.component';
+import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
 import {MealPlanComponent} from './meal-plan/meal-plan.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,11 @@ const routes: Routes = [
     path: 'exercise-videos',
     pathMatch: 'full',
     component: ExerciseVideosComponent
+  },
+  {
+    path: 'exercise-videos/:videos',
+    pathMatch: 'full',
+    component:ExerciseVideosDetailsComponent
   },
   {
     path: 'find-therapist',
@@ -78,8 +85,12 @@ const routes: Routes = [
     path: 'meal-plan',
     pathMatch: 'full',
     component: MealPlanComponent
+  },
+  {
+    path: 'sign-up',
+    pathMatch: 'full',
+    component: SignupComponent
   }
-
 ];
 
 @NgModule({
