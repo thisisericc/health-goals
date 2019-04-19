@@ -180,7 +180,6 @@ def post_forum(name, description, topic):
 def count_num_forums():
     return jsonify(database.count_num_forums())
 
-<<<<<<< HEAD
 @app.route('/api/ForumReplies/<name>', methods=["GET"])
 def get_replies(name):
     try:
@@ -190,7 +189,6 @@ def get_replies(name):
         if forum is None:
             return make_response("No replies found with the given name.", 404)
         return jsonify(forum)
-=======
 @app.route('/api/login/<email>/<password>', methods=["GET"])
 def get_login(email, password):
     try:
@@ -198,17 +196,14 @@ def get_login(email, password):
         if res is None:
             raise ValueError("Incorrect username or password, please try again")
         return jsonify(res)
->>>>>>> 47a8d83bf04a8fb3e8c2ceeb50fcf459e030ba08
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
 
-<<<<<<< HEAD
 @app.route('/api/AddReply/<name>/<reply>', methods=["GET"])
 def add_reply(name, reply):
     return jsonify(database.add_reply(name, reply))
-=======
 @app.route('/api/get_userdata/<ID>', methods=["GET"])
 def getid(ID):
     try:
@@ -230,4 +225,3 @@ def sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRest
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
->>>>>>> 47a8d83bf04a8fb3e8c2ceeb50fcf459e030ba08
