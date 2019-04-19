@@ -137,3 +137,37 @@ def count_num_forums():
         query = sql.text("SELECT COUNT(*) FROM MentalHealthForums;")
         rs = con.execute(query)
         return [dict(row) for row in rs]
+
+'''be wary'''
+
+def get_articles():
+        with engine.connect() as con:
+                rs = con.execute("SELECT ArticleName, Link, Author, Year, ArticleType FROM MentalHealthArticles;")
+                return [dict(row) for row in rs]
+def find_articles(name):
+        with engine.connect() as con:
+                nameFinal = "%" + name + "%"
+                query = sql.text(
+                        " SELECT * from MentalHealthArticles WHERE ArticleName LIKE :name;"
+                )
+                rs = con.execute(query, name=nameFinal)
+                result = rs.first()
+                if result is None:
+                        return None
+                return dict(result)
+def filter_by_Topic(topic):
+        with engine.connect() as con:
+                string = "%" + topic+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE Topic  LIKE :string;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
+def filter_by_author(author):
+        with engine.connect() as con:
+                string = "%" + author+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE Author LIKE :string;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]

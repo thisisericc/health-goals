@@ -1,4 +1,6 @@
 {
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": false
+    "python.linting.enabled": false,
+    "python.terminal.activateEnvironment": false
+    //"python.venvPath":"C:\\Users\\Varun\\Documents\\GitHub\\health-goals\\server\\venv\\Scripts\\python.exe"
 }

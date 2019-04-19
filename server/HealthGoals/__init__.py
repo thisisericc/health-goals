@@ -180,3 +180,53 @@ def post_forum(name, description, topic):
 @app.route('/api/CountForums', methods=["GET"])
 def count_num_forums():
     return jsonify(database.count_num_forums())
+
+
+
+@app.route('/api/articles', methods=["GET"])
+def get_articles():
+    return jsonify(database.get_articles())
+
+
+@app.route('/api/articles/<article>', methods=["GET"])
+def find_articles(article):
+    try:
+        if article is None:
+            raise ValueError("video is not specified.")
+        articlefinal = database.find_articles(article)
+        if articlefinal is None:
+            return make_response("No video with the given name.", 400)
+        return jsonify(articlefinal)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+app.route("/api/topics/<topic>", methods=["GET"]) 
+def filter_by_Topic(topic):
+    try:
+        if topic is None:
+            raise ValueError("type is not specified.")
+        topictype = database.filter_by_Topic(topic)
+        if topictype is None:
+            return make_response("No type found with the given training.", 400)
+        return jsonify(topictype)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route("/api/authors/<author>", methods=["GET"])
+def filter_by_author(author):
+    try:
+        if author is None:
+            raise ValueError("author is not specified.")
+        authornum = database.filter_by_author(author)
+        if topicnum is None:
+            return make_response("No type found with the given author.", 400)
+        return jsonify(authornum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+        
