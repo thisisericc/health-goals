@@ -31,11 +31,25 @@ this.articleService.filterByType(this.articletype).subscribe(
   }
 )
 
-
   }
 
 
   ngOnInit() {
+    this.articletopic=undefined;
+    this.articletype=undefined;
+    this.getArticles();
+
+  }
+  getArticles(){
+    this.articleService.getArticles().subscribe(
+      data => {
+        this.articles = data;
+      },
+      error => {
+        alert ('Could not retrieve a list of articles');
+      }
+    )
   }
 
+  
 }
