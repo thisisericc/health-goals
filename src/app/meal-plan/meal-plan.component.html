@@ -16,55 +16,146 @@
 </div>
 
 
-
-<div class="sidenav">
-  <br>
-  <h5 style="text-align:center"> Account Details </h5>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <div class="card">
-    <img src="assets/image/man.png" alt="Ragu" style="width:100%">
-    <h1>Ragu Smith</h1>
-    <p class="title"></p>
-    <h6>Fitness Enthusiast</h6>
-    <p>Vegan, Gluten-Free</p>
-    <a href="#"><i class="fa fa-user-o"></i></a>
-    <a href="#"><i class="fa fa-heart-o"></i></a>
-    <a href="#"><i class="fa fa-leaf"></i></a>
-    <a href="#"><i class="fa fa-line-chart"></i></a>
-    <p><button>View My Groups</button></p>
-  </div>
-
+<div>
+  <h3>Personalized Meal Plan</h3>
 </div>
-<div class="header3">
-  <p>Today's Meal Plan: Total Calories - 1900; Carbs - 220 g; Protein - 62 g; Fats: 40 g </p>
-</div>
+<div>
+  <!--<div class="Search-Button">
+    <p-button label="Search" id="searchButton" (click)="mealPlanQuery(mealQuery)" style="display: none;"></p-button>
+  </div>-->
+  <div class = "breakfast">
+  <p-dataView [value]="searchbResults" [loading]="loading">
+    <ng-template let-res pTemplate="listItem">
+      <div id="Search-row1" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
+        <div>
+          <div>
+            <font color="grey"><b>BREAKFAST: {{ res.brecipeName }}</b></font>
+          </div>
+          <div>
+            <a href="{{ res.barticleURL }}">
+              <img src="{{ res.bimageURL }}" height="180" width="220">
+            </a>
+          </div>
+        </div>
+        <div class="Search-Row-Info">
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Calories/Serving: </b></font> {{ res.bcalories }} &nbsp;
+              <font color="grey"><b>Daily %: </b></font> {{ res.btotalDaily }} &nbsp;
+              <font color="grey"><b>Servings: </b></font> {{ res.bservings }}
 
+            </font>
+          </div>
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Diet Labels: </b></font> {{ res.bdietLabels }}
+            </font>
+          </div>
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Health Labels: </b></font> {{ res.bhealthLabels }}
+            </font>
+          </div>
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Ingredients: </b></font> {{ res.bingredients }}
+            </font>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView></div>
+<div class="lunch">
+  <p-dataView [value]="searchlResults" [loading]="loading">
+    <ng-template let-res pTemplate="listItem">
+      <div id="Search-row2" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
+        <div>
+          <div>
+            <font color="grey"><b>LUNCH: {{ res.lrecipeName }}</b></font>
+          </div>
+          <div>
+            <a href="{{ res.larticleURL }}">
+              <img src="{{ res.limageURL }}" height="180" width="220">
+            </a>
+          </div>
+        </div>
+
+        <div class="Search-Row-Info">
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Calories/Serving: </b></font> {{ res.lcalories }} &nbsp;
+              <font color="grey"><b>Daily %: </b></font> {{ res.ltotalDaily }} &nbsp;
+              <font color="grey"><b>Servings: </b></font> {{ res.lservings }}
+
+            </font>
+          </div>
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Diet Labels: </b></font> {{ res.ldietLabels }}
+            </font>
+          </div>
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Health Labels: </b></font> {{ res.lhealthLabels }}
+            </font>
+          </div>
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Ingredients: </b></font> {{ res.lingredients }}
+            </font>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+</div>
+  <div class = "dinner">
+ <p-dataView [value]="searchdResults" [loading]="loading">
+    <ng-template let-res pTemplate="listItem">
+      <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
+        <div>
+          <div>
+            <font color="grey"><b>DINNER: {{ res.drecipeName }}</b></font>
+          </div>
+          <div>
+            <a href="{{ res.darticleURL }}">
+              <img src="{{ res.dimageURL }}" height="180" width="220">
+            </a>
+          </div>
+        </div>
+
+        <div class="Search-Row-Info">
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Calories/Serving: </b></font> {{ res.dcalories }} &nbsp;
+              <font color="grey"><b>Daily %: </b></font> {{ res.dtotalDaily }} &nbsp;
+              <font color="grey"><b>Servings: </b></font> {{ res.dservings }}
+
+            </font>
+          </div>
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Diet Labels: </b></font> {{ res.ddietLabels }}
+            </font>
+          </div>
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Health Labels: </b></font> {{ res.dhealthLabels }}
+            </font>
+          </div>
+          <div>
+            <font size="1.6">
+              <font color="grey"><b>Ingredients: </b></font> {{ res.dingredients }}
+            </font>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView></div>
+</div>
 <!--Workout Links-->
-<div class="meal1">
-  <a href="http://www.isachandra.com/2012/10/blueberry-oatmeal-waffles/">
-    <figure> <img src="assets/image/blu.jpg" width="320" height="440" style="border:0.5px solid gray"></figure>
-    <p style="font-size: 16px">Breakfast: Blueberry Waffles</p>
-    <p></p>
-  </a>
-</div>
 
-<div class="meal2">
-  <a href="https://www.ambitiouskitchen.com/vegan-sweet-potato-buddha-bowl-almond-butter-dressing/">
-    <figure> <img src="assets/image/sweet.jpg" width="320" height="440" style="border:0.5px solid gray"></figure>
-    <p style="font-size: 16px">Lunch: Sweet Potato Bowl</p>
 
-  </a>
-</div>
-
-<div class="meal3">
-  <a href="https://cookieandkate.com/2015/vegan-sweet-potato-green-rice-burrito-bowls/">
-    <figure> <img src="assets/image/burrito.jpg" width="320" height="440" style="border:0.5px solid gray"></figure>
-    <p style="font-size: 16px">Dinner: Sweet Potato Burrito Bowl</p>
-
-  </a>
-
-</div>
 
 </body>
 </html>

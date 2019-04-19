@@ -69,22 +69,20 @@ button:hover, a:hover {
 }
 .meal1{
     color: white;
-    position: absolute;
+    position:absolute;
     top: 330px;
-    left: 320px;
+    left: 20px;
 }
 
-
-
-.meal2{
+.meal1{
     color:WHITE;
     position: absolute;
-    top: 330px;
-    left: 650px;
+    top: 530px;
+    left: 20px;
 }
-.meal3{
+.meal1{
     color:WHITE;
     position: absolute;
-    top: 330px;
-    left: 980px;
+    top: 730px;
+    left: 20px;
 }
