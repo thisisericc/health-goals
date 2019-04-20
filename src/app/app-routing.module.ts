@@ -9,6 +9,7 @@ import { FoodRecipesComponent } from './food-recipes/food-recipes.component';
 import { MhArticlesComponent } from './mh-articles/mh-articles.component';
 import { MhForumsComponent } from './mh-forums/mh-forums.component';
 import { WeightWatchersComponent } from './weight-watchers/weight-watchers.component';
+import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight-watchers-details.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,11 @@ const routes: Routes = [
     path: 'weight-watchers',
     pathMatch: 'full',
     component: WeightWatchersComponent
+  },
+  {
+    path: 'weight-watchers/:group',
+    pathMatch: 'full',
+    component: WeightWatchersDetailsComponent
   }
 ];
 

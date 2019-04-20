@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,13 +21,16 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
+import {CarouselModule} from 'primeng/carousel';
+import {TableModule} from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/primeng';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
+import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight-watchers-details.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,8 @@ import { ToastModule } from 'primeng/toast';
     FindTherapistComponent,
     MhForumsComponent,
     MhArticlesComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    WeightWatchersDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,11 +59,13 @@ import { ToastModule } from 'primeng/toast';
     DataViewModule,
     DropdownModule,
     HttpClientModule,
+    CarouselModule,
+    TableModule,
     MessagesModule,
     MessageModule,
     ToastModule
   ],
-  providers: [],
+  providers: [ HttpClient ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

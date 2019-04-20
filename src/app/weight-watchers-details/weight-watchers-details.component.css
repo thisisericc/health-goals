@@ -1,0 +1,23 @@
+.jumbotron {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.container{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 300px;
+    left: 500px;
+    width: 925px;
+    bottom: 900px;
+    }
+.Search-Results{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 300px;
+    left: 55px;
+    width: 300px;
+    bottom: 900px;
+}
