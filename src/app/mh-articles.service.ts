@@ -39,5 +39,16 @@ export class MHArticlesService {
     return this.http.get<MHArticles[]>('/api/year/'+years);
 
   }
-  
+  filterByGreat(greats: string) {
+    return this.http.get<MHArticles[]>('/api/great/'+greats);
+
+  }
+  filterByLess(lesss: string) {
+    return this.http.get<MHArticles[]>('/api/less/'+lesss);
+
+  } 
+  searchArticles(aname: string) {
+    return this.http.get<MHArticles[]>('/api/SearchArticles/'+aname);
+
+  } 
 }

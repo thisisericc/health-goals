@@ -245,3 +245,43 @@ def filter_by_year(years):
     except Exception as e:
         return make_response(str(e), 500)
 
+@app.route("/api/great/<greats>", methods=["GET"])
+def filter_by_great(greats):
+    try:
+        if greats is None:
+            raise ValueError("years is not specified.")
+        greatsnum = database.filter_by_great(greats)
+        if greatsnum is None:
+            return make_response("No type found with the given types.", 400)
+        return jsonify(greatsnum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+@app.route("/api/less/<lesss>", methods=["GET"])
+def filter_by_less(lesss):
+    try:
+        if lesss is None:
+            raise ValueError("years is not specified.")
+        lesssnum = database.filter_by_less(lesss)
+        if lesssnum is None:
+            return make_response("No type found with the given types.", 400)
+        return jsonify(lesssnum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route("/api/SearchArticles/<aname>", methods=["GET"])
+def search_articles(aname):
+    try:
+        if aname is None:
+            raise ValueError("focus is not specified.")
+        articlename = database.search_articles(aname)
+        if articlename is None:
+            return make_response("No article with the given name.", 400)
+        return jsonify(articlename)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)

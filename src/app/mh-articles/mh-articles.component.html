@@ -7,19 +7,15 @@
 <div class="Filter-Results">
 <p-card header="Filter Results" subheader="Type">
     &nbsp;
-    <p-checkbox name="symptoms" value="therapist" label="General Symptoms"></p-checkbox>
-    <br/>
-    <br/>
-    &nbsp;
     <p-checkbox name="symptoms" value="depression" label="Depression"(click)="filterByTopic('Depression')"></p-checkbox>
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="symptoms" value="suicidalthoughts" label="Suicidal Thoughts"></p-checkbox>
+    <p-checkbox name="symptoms" value="suicidalthoughts" label="Suicidal Thoughts"(click)="filterByTopic('Suicidal Thoughts')"></p-checkbox>
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="symptoms" value="other" label="Other"></p-checkbox>
+    <p-checkbox name="symptoms" value="other" label="Other"(click)="filterByTopic('Other')"></p-checkbox>
     <br/>
     <br/>
     
@@ -38,34 +34,32 @@
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="age" value="old" label="2000"></p-checkbox>
+    <p-checkbox name="age" value="old" label="2000"(click)="filterByLess('1990')"></p-checkbox>
     &nbsp;
+    <br/>
+    <br/>
     &nbsp;
     <p-checkbox name="age" value="3to5" label="2000-2010"(click)="filterByYear('2005')"></p-checkbox>
-    <br/>
-    <br/>
-    &nbsp;
-    <p-checkbox name="age" value="5to10" label=">2010"></p-checkbox>
     &nbsp;
     <br/>
     <br/>
-    <p-button label="Clear Filters" id="searchButton" (click) = "get_articles()"></p-button>
+    &nbsp;
+    <p-checkbox name="age" value="5to10" label=">2010"(click)="filterByGreat('3000')"></p-checkbox>
+    &nbsp;
+    <br/>
+    <br/>
+    <p-button label="Clear Filters" id="searchButton" (click) = "get_Articles()"></p-button>
 
 </p-card>
 </div>
 
 <div class="Search-Bar">
-<span class="ui-float-label">
-    <input id="float-input" type="text" size="83"> 
-    <label for="float-input">Search For Service</label>
-</span>
+        <span class="ui-float-label">
+                <input id="float-input" type="text" size="75" pInputTextArea [(ngModel)] = "input" (keyup.enter) = "searchArticles(input)"> 
+        </span>
 </div>
 
-<div class="Search-Button">
-    <span class="ui-float-label">
-            <input id="float-input" type="text" size="75" pInputTextArea [(ngModel)] = "input" (keyup.enter) = "getArticles(input)"> 
-    </span>
-</div>
+
 
 <div class="Search-Results">
 
@@ -75,10 +69,8 @@
           <a href="{{article.Link}}"><h2>{{article.ArticleName}}</h2></a>
         <hr>
         <p><b>{{article.Author}}</b></p>
-        <br>
         <p><b>{{article.ArticleType}}</b></p>
         <p><b>{{article.Year}}</b></p>
-        <br>
       </p-card>
       <br>
     </ng-template>

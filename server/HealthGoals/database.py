@@ -183,3 +183,27 @@ def filter_by_year(years):
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]
+def filter_by_great(greats):
+        with engine.connect() as con:
+                string = "%" + greats+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE Year > 2010;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
+def filter_by_less(lesss):
+        with engine.connect() as con:
+                string = "%" + lesss+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE Year < 2000;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
+def search_articles(aname):
+        with engine.connect() as con:
+                nameFinal = "%" + aname + "%"
+                query = sql.text(
+                        " SELECT * from MentalHealthArticles WHERE ArticleName LIKE :aname;"
+                )
+                rs = con.execute(query, aname=nameFinal)
+                return [dict(row) for row in rs]

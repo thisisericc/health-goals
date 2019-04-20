@@ -18,6 +18,7 @@ export class MhArticlesComponent implements OnInit {
   articleyear:string;
   articleyearg:string;
   articleyearl:string;
+  articlename:string;
 
   constructor(public articleService:MHArticlesService) { 
     
@@ -78,5 +79,34 @@ this.articleService.filterByType(this.articletype).subscribe(
       }
     )
   }
-  
+  filterByGreat(articleyearg:string){
+    this.articleService.filterByGreat(articleyearg).subscribe(
+      data => {
+        this.articles = data;
+      },
+      error => {
+        alert ('Could not retrieve a list of year');
+      }
+    )
+  } 
+  filterByLess(articleyearl:string){
+    this.articleService.filterByLess(articleyearl).subscribe(
+      data => {
+        this.articles = data;
+      },
+      error => {
+        alert ('Could not retrieve a list of year');
+      }
+    )
+  } 
+  searchArticles(articlename:string){
+    this.articleService.searchArticles(articlename).subscribe(
+      data => {
+        this.articles = data;
+      },
+      error => {
+        alert ('Could not retrieve a list of name');
+      }
+    )
+  } 
 }
