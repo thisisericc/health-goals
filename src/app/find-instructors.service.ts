@@ -11,6 +11,7 @@ export interface FindInstructors{
   Certifications:string;
   About : string;
   Rates : string;
+  uri_name:string;
 }
 
 @Injectable({
@@ -22,6 +23,9 @@ export class FindInstructorsService {
 
   getInstructor(){
     return this.http.get<FindInstructors[]>('/api/instructors');
+  }
+  findInstructor(name:string){
+    return this.http.get<FindInstructors[]>('/api/instructors/'+name);
   }
   getName(name:string){
     return this.http.get<FindInstructors[]>('/api/name/'+name);

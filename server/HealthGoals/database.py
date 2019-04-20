@@ -169,6 +169,18 @@ def get_Instructors():
                 rs = con.execute("SELECT Name, Number, Address, Zip, Tags, Image_URL, Certification, About, Rates FROM Instructors;")
                 return [dict(row) for row in rs]
 
+def find_Instructor(name):
+        with engine.connect() as con:
+                nameFinal = "%" + name + "%"
+                query = sql.text(
+                        " SELECT * from Instructors WHERE Name LIKE :name;"
+                )
+                rs = con.execute(query, name=nameFinal)
+                result = rs.first()
+                if result is None:
+                        return None
+                return dict(result)
+
 def filter_by_Tags(tags):
         with engine.connect() as con:
                 string = "%" + tags+ "%"
