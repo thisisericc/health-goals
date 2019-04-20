@@ -66,11 +66,9 @@
     <p-table [value]="articles" [paginator]="true" [rows]="5">
     <ng-template pTemplate="body" let-article>
       <p-card>
-          <a routerLink = "/mh-articles/{{ articlefinal.ArticleName }}"><h2>{{articlefinal.ArticleName}}</h2></a>
+          <a routerLink = "/mh-articles/{{ article.ArticleName }}"><h2>{{article.ArticleName}}</h2></a>
         <hr>
-        <p><b>{{forum.Description}}</b></p>
-        <br>
-        <b><a routerLink = "/mh-articles/{{ articlefinal.ArticleName }}">Read More</a></b>
+        <p><b>{{article.ArticleType}}</b></p>
         <br>
         <br>
       </p-card>
