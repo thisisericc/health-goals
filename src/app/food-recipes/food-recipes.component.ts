@@ -23,6 +23,12 @@ export class FoodRecipesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.mealQuery = JSON.parse(localStorage.getItem('mealQuery'));
+    this.searchResults = JSON.parse(localStorage.getItem('searchResults'));
+    if (this.searchResults == null) {
+      console.log('Run Query for vegan');
+      this.recipesQuery('vegan');
+    }
   }
 
   recipesQuery(mealQuery: string) {
@@ -66,6 +72,8 @@ export class FoodRecipesComponent implements OnInit {
         output.push(fR);
       });
       this.searchResults = output;
+      localStorage.setItem('mealQuery', JSON.stringify(this.mealQuery));
+      localStorage.setItem('searchResults', JSON.stringify(this.searchResults));
     },
     error => {
       console.error(error);

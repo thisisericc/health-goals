@@ -1,0 +1,102 @@
+
+.jumbotron {
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+
+h1 { 
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.Filter-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 330px;
+    width: 275px;
+}
+
+.Search-Bar {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 330px;
+    left: 290px;
+    width: 960px;
+}
+
+.Search-Button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 330px;
+    left: 735px;
+    width: 960px;
+}
+
+.Search-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    top: 375px;
+    left: 290px;
+    width: 960px;
+    height: 400px;
+}
+
+.Search-Row-Info {
+    position: relative;
+    left: 235px;
+    top: -165px;
+    min-height: 180px;
+    margin-bottom: -75px;
+    margin-right: 235px;
+}
+
+.match1{
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.match2{
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 260px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.match3{
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 505px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.match4{
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 745px;
+    text-align: center;
+}
+
+.body{
+    font-size: 8;
+}

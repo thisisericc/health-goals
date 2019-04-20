@@ -31,6 +31,7 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight-watchers-details.component';
+import { MealPlanComponent } from './meal-plan/meal-plan.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight
     MhForumsComponent,
     MhArticlesComponent,
     WelcomeComponent,
-    WeightWatchersDetailsComponent
+    WeightWatchersDetailsComponent,
+    MealPlanComponent
   ],
   imports: [
     BrowserModule,

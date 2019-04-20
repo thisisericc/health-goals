@@ -10,6 +10,7 @@ import { MhArticlesComponent } from './mh-articles/mh-articles.component';
 import { MhForumsComponent } from './mh-forums/mh-forums.component';
 import { WeightWatchersComponent } from './weight-watchers/weight-watchers.component';
 import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight-watchers-details.component';
+import {MealPlanComponent} from './meal-plan/meal-plan.component';
 
 const routes: Routes = [
   {
@@ -66,7 +67,13 @@ const routes: Routes = [
     path: 'weight-watchers/:group',
     pathMatch: 'full',
     component: WeightWatchersDetailsComponent
+  },
+  {
+     path: 'meal-plan',
+    pathMatch: 'full',
+    component: MealPlanComponent
   }
+
 ];
 
 @NgModule({
