@@ -483,9 +483,15 @@ def setcopyright():
     here = os.path.dirname(os.__file__)
     builtins.license = _Printer(
         "license",
+<<<<<<< HEAD
         "See https://www.python.org/psf/license/",
         ["LICENSE.txt", "LICENSE"],
         [sys.prefix, os.path.join(here, os.pardir), here, os.curdir],
+=======
+        "See http://www.python.org/%.3s/license.html" % sys.version,
+        ["LICENSE.txt", "LICENSE"],
+        [os.path.join(here, os.pardir), here, os.curdir],
+>>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
     )
 
 
@@ -733,6 +739,7 @@ def enablerlcompleter():
     sys.__interactivehook__ = register_readline
 
 
+<<<<<<< HEAD
 if _is_pypy:
 
     def import_builtin_stuff():
@@ -754,6 +761,11 @@ def main():
     virtual_install_main_packages()
     if _is_pypy:
         import_builtin_stuff()
+=======
+def main():
+    global ENABLE_USER_SITE
+    virtual_install_main_packages()
+>>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
     abs__file__()
     paths_in_sys = removeduppaths()
     if os.name == "posix" and sys.path and os.path.basename(sys.path[-1]) == "Modules":
@@ -820,7 +832,11 @@ def _script():
                 return "doesn't exist"
 
         print("USER_BASE: {!r} ({})".format(USER_BASE, exists(USER_BASE)))
+<<<<<<< HEAD
         print("USER_SITE: {!r} ({})".format(USER_SITE, exists(USER_SITE)))
+=======
+        print("USER_SITE: {!r} ({})".format(USER_SITE, exists(USER_BASE)))
+>>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
         print("ENABLE_USER_SITE: %r" % ENABLE_USER_SITE)
         sys.exit(0)
 

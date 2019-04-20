@@ -1,6 +1,7 @@
 # This file must be used using `source bin/activate.fish` *within a running fish ( http://fishshell.com ) session*.
 # Do not run it directly.
 
+<<<<<<< HEAD
 function _bashify_path -d "Converts a fish path to something bash can recognize"
     set fishy_path $argv
     set bashy_path $fishy_path[1]
@@ -23,6 +24,12 @@ function deactivate -d 'Exit virtualenv mode and return to the normal environmen
         else
             set -gx PATH $_OLD_VIRTUAL_PATH
         end
+=======
+function deactivate -d 'Exit virtualenv mode and return to the normal environment.'
+    # reset old environment variables
+    if test -n "$_OLD_VIRTUAL_PATH"
+        set -gx PATH $_OLD_VIRTUAL_PATH
+>>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
         set -e _OLD_VIRTUAL_PATH
     end
 
@@ -48,14 +55,18 @@ function deactivate -d 'Exit virtualenv mode and return to the normal environmen
         # Self-destruct!
         functions -e pydoc
         functions -e deactivate
+<<<<<<< HEAD
         functions -e _bashify_path
         functions -e _fishify_path
+=======
+>>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
     end
 end
 
 # Unset irrelevant variables.
 deactivate nondestructive
 
+<<<<<<< HEAD
 set -gx VIRTUAL_ENV "/Users/pranathi/health-goals/server/venv"
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
@@ -64,6 +75,11 @@ if test (echo $FISH_VERSION | tr "." "\n")[1] -lt 3
 else
     set -gx _OLD_VIRTUAL_PATH $PATH
 end
+=======
+set -gx VIRTUAL_ENV "/Users/varunbhandari/Desktop/health-goals/server/venv"
+
+set -gx _OLD_VIRTUAL_PATH $PATH
+>>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
 
 # Unset `$PYTHONHOME` if set.

@@ -3,87 +3,153 @@
         <h1 style="text-align:center" class="display-4">Health Goals</h1>
 </div>
 
-<h2> Exercise Videos </h2>
+<p class = "Heading2"><b>Exercise Videos</b></p>
+
+<!-- Side navigation 
+<div class="sidenav">
+        <p-card header = "Filter Results">
+        <h5> Training Type </h5>
+            <p-checkbox name="trainingtype" value="Strength Training" label="Strength Training" [(ngModel)] ="selectedTraining"> </p-checkbox>
+            <br>
+            <p-checkbox name="trainingtype" value="HIIT" label="HIIT" [(ngModel)] ="selectedTraining" > </p-checkbox>
+            <br>
+            <p-checkbox name="trainingtype" value="Low Impact" label="Low Impact" [(ngModel)] ="selectedTraining" > </p-checkbox>
+            <br>
+            <p-checkbox name="trainingtype" value="Toning" label="Toning" [(ngModel)] ="selectedTraining" > </p-checkbox>
+            <br>
+            <p-checkbox name="trainingtype" value="Warming/Cooldown" label="Warm up /Cool down"[(ngModel)] ="selectedTraining"> </p-checkbox>
+            <br>
+            <p-checkbox name="trainingtype" value="Yoga" label="Yoga" [(ngModel)] ="selectedTraining" ></p-checkbox>
+            <br>
+            <p-checkbox name="trainingtype" value="Cardiovascular" label="Cardiovascular" [(ngModel)] ="selectedTraining" > </p-checkbox>
+            <br>
+            <p-checkbox name="trainingtype" value="Barre" label="Barre" [(ngModel)] ="selectedTraining"> </p-checkbox>
+            <br>
+            <p-checkbox name="trainingtype" value="Plyometric" label ="Plyometric"[(ngModel)] ="selectedTraining"> </p-checkbox>
+            <br>
+            <p-checkbox name="trainingtype" value="Balance" label="Balance / Agility"  [(ngModel)] ="selectedTraining"> </p-checkbox>
+            <br>
+            <br>
+    
+        <h5> Difficulty </h5>
+            <p-checkbox name="difficulty" value="1" label="1"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+            <br>
+            <p-checkbox name="difficulty" value="2" label="2"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+            <br>
+            <p-checkbox name="difficulty" value="3" label="3"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+            <br>
+            <p-checkbox name="difficulty" value="4" label="4"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+            <br>
+            <p-checkbox name="difficulty" value="5" label="5"  [(ngModel)] ="selectedDifficulty"> </p-checkbox>
+            <br>
+            <br>
+    
+        <h5> Body Focus </h5>
+        
+            <p-checkbox name="bodyfocus" value="core" label=" Core "   [(ngModel)] ="selectedFocus"> </p-checkbox>
+            <br>
+            <p-checkbox name="bodyfocus" value="upper" label=" Upper " [(ngModel)] ="selectedFocus"> </p-checkbox>
+            <br>
+            <p-checkbox name="bodyfocus" value="lower" label=" Lower " [(ngModel)] ="selectedFocus"> </p-checkbox>
+            <br>
+            <p-checkbox name="bodyfocus" value="total" label=" Total " [(ngModel)] ="selectedFocus"> </p-checkbox>
+            <br>
+            <br>
+            
+        <Save Button
+        <div class="save-button"
+            <p-button label="Save" (click) ="getcombine(selectedTraining,selectedDifficulty,selectedFocus)"></p-button>
+        </div>  
+        <br>
+
+         <-Clear Filters Button
+        <p-button label="Clear Filters" id="searchButton" (click) = "getVideos()"></p-button>
+    
+    </p-card>
+</div>-->
 
 <!-- Side navigation -->
 <div class="sidenav">
-    <br>
-    <h3> Filter Results</h3>
-    <br>
+    <p-card header = "Filter Results">
     <h5> Training Type </h5>
-    <div class="checkbox">
-        <label><input type="checkbox" value="cardio"> Cardio </label>
+        <p-checkbox name="trainingtype" value="Strength Training" label="Strength Training" (click) ="getTrainingType('Strength Training')"> </p-checkbox>
         <br>
-        <label><input type="checkbox" value="crossfit"> Cross Fit </label>
+        <p-checkbox name="trainingtype" value="HIIT" label="HIIT" (click) ="getTrainingType('HIIT')" > </p-checkbox>
         <br>
-        <label><input type="checkbox" value="weightlifting"> Weight Lifting </label>
+        <p-checkbox name="trainingtype" value="Low Impact" label="Low Impact" (click) ="getTrainingType('Low Impact')" > </p-checkbox>
         <br>
-        <label><input type="checkbox" value="intervalTraining"> Interval Training </label>
+        <p-checkbox name="trainingtype" value="Toning" label="Toning" (click) ="getTrainingType('Toning')" > </p-checkbox>
         <br>
-        <label><input type="checkbox" value="highintensity"> High Intensity Training </label>
+        <p-checkbox name="trainingtype" value="Warming/Cooldown" label="Warm up /Cool down" (click) ="getTrainingType('Warming')"> </p-checkbox>
         <br>
-        <label><input type="checkbox" value="yoga"> Yoga </label>
+        <p-checkbox name="trainingtype" value="Yoga" label="Yoga" (click) ="getTrainingType('Yoga')" ></p-checkbox>
         <br>
-        <label><input type="checkbox" value="strength"> Strength Training </label>
+        <p-checkbox name="trainingtype" value="Cardiovascular" label="Cardiovascular" (click) ="getTrainingType('Cardiovascular')"> </p-checkbox>
+        <br>
+        <p-checkbox name="trainingtype" value="Barre" label="Barre" (click) ="getTrainingType('Barre')"> </p-checkbox>
+        <br>
+        <p-checkbox name="trainingtype" value="Plyometric" label ="Plyometric"(click) ="getTrainingType('Plyometric')"> </p-checkbox>
+        <br>
+        <p-checkbox name="trainingtype" value="Balance" label="Balance / Agility"  (click) ="getTrainingType('Balance')"> </p-checkbox>
         <br>
         <br>
-    </div>
 
     <h5> Difficulty </h5>
-    <div class="checkbox">
-        <label><input type="checkbox" value="0"> 0 </label>
+        <p-checkbox name="difficulty" value="1" label="1"   (click) ="getDifficultyLevel('1')"> </p-checkbox>
         <br>
-        <label><input type="checkbox" value="1"> 1 </label>
+        <p-checkbox name="difficulty" value="2" label="2"  (click) ="getDifficultyLevel('2')"> </p-checkbox>
         <br>
-        <label><input type="checkbox" value="2"> 2 </label>
+        <p-checkbox name="difficulty" value="3" label="3"   (click) ="getDifficultyLevel('3')"> </p-checkbox>
         <br>
-        <label><input type="checkbox" value="3"> 3 </label>
+        <p-checkbox name="difficulty" value="4" label="4"   (click) ="getDifficultyLevel('4')"> </p-checkbox>
         <br>
-        <label><input type="checkbox" value="4"> 4 </label>
+        <p-checkbox name="difficulty" value="5" label="5"   (click) ="getDifficultyLevel('5')"> </p-checkbox>
         <br>
-        <label><input type="checkbox" value="5"> 5 </label>
         <br>
-    </div>
 
-    <!-- Save Button -->
+    <h5> Body Focus </h5>
+    
+        <p-checkbox name="bodyfocus" value="core" label=" Core "    (click) ="getbodyfocus('Core')"> </p-checkbox>
+        <br>
+        <p-checkbox name="bodyfocus" value="upper" label=" Upper "  (click) ="getbodyfocus('Upper')"> </p-checkbox>
+        <br>
+        <p-checkbox name="bodyfocus" value="lower" label=" Lower "  (click) ="getbodyfocus('Lower')"> </p-checkbox>
+        <br>
+        <p-checkbox name="bodyfocus" value="total" label=" Total " (click) ="getbodyfocus('Total')"> </p-checkbox>
+        <br>
+        <br>
+   
+    <!-- Save Button 
     <div class="save-button">
-        <p-button label="Save" id="searchButton"></p-button>
-    </div>
+        <p-button label="Save" (click) =""></p-button>
+    </div>  
+    <br>-->
 
-    <!-- Search Bar -->
+    <!-- Clear Filters Button   -->     
+    <p-button label="Clear Filters" id="searchButton" (click) = "getVideos()"></p-button>
+
+</p-card>
+</div>
+<div class="VideoResults">
+        <p-carousel [value]="videos">
+            <ng-template pTemplate ="body" let-video>
+                 <a routerLink = "/exercise-videos/{{video.VideoName}}">  
+                    <img src="{{video.ImageLink}}" height="400" width="320">
+                 </a>
+        </ng-template>
+        </p-carousel>
+</div>
+
+    <!--Search Bar-->
     <div class="searchbar">
         <span class="ui-float-label">
-          <input id="float-input" type="text" size="75" > 
-          <label for="float-input">Search For Exercise Videos</label>
+          <input id="float-input" type="text" size="75" pInputTextArea [(ngModel)] = "input" (keyup.enter) = "searchVideo(input)"> 
       </span>
     </div>
 
-    <!-- Newest First Button -->
-    <div class="new-button">
-        <p-button label="Newest First" id="searchButton"></p-button>
-    </div>
 
-    <!-- Page Number Button -->
-    <div class="page-button">
-        <p-button label="Page 1 of 10" id="searchButton"></p-button>
-    </div>
 
-    <!--Workout Links-->
-    <div class="workout-set1">
-        <a href="https://www.fitnessblender.com/videos/easy-pilates-and-cardio-workout-with-relaxing-cool-down-active-recovery-workout">
-            <figure> <img src="assets/image/workout1.PNG" width="320" height="440" style="border:0.5px solid gray"></figure>
-        </a>
+<<<<<<< HEAD
     </div>
-
-    <div class="workout-set2">
-        <a href="https://www.fitnessblender.com/videos/30-minute-lower-body-hiit-and-upper-body-strength-total-body-workout-combo">
-            <figure> <img src="assets/image/workout2.PNG" width="320" height="440" style="border:0.5px solid gray"></figure>
-        </a>
-    </div>
-
-    <div class="workout-set3">
-        <a href="https://www.fitnessblender.com/videos/fitness-blender-15-minute-abs-workout-at-home-core-training-without-equipment">
-            <figure> <img src="assets/image/workout4.PNG" width="320" height="440" style="border:0.5px solid gray"></figure>
-        </a>
-
-    </div>
+=======
+>>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7

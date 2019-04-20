@@ -8,9 +8,16 @@ import { FoodBlogsComponent } from './food-blogs/food-blogs.component';
 import { FoodRecipesComponent } from './food-recipes/food-recipes.component';
 import { MhArticlesComponent } from './mh-articles/mh-articles.component';
 import { MhForumsComponent } from './mh-forums/mh-forums.component';
+import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
+import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
 import { WeightWatchersComponent } from './weight-watchers/weight-watchers.component';
+<<<<<<< HEAD
 import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight-watchers-details.component';
+=======
+import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
+>>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
 import {MealPlanComponent} from './meal-plan/meal-plan.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -27,6 +34,11 @@ const routes: Routes = [
     path: 'exercise-videos',
     pathMatch: 'full',
     component: ExerciseVideosComponent
+  },
+  {
+    path: 'exercise-videos/:videos',
+    pathMatch: 'full',
+    component:ExerciseVideosDetailsComponent
   },
   {
     path: 'find-therapist',
@@ -59,6 +71,16 @@ const routes: Routes = [
     component: MhForumsComponent
   },
   {
+    path: 'mh-forums/:forum',
+    pathMatch: 'full',
+    component: MhForumsDetailsComponent
+  },
+  {
+    path: 'mh-start',
+    pathMatch: 'full',
+    component: MhStartForumComponent
+  },
+  {
     path: 'weight-watchers',
     pathMatch: 'full',
     component: WeightWatchersComponent
@@ -72,8 +94,12 @@ const routes: Routes = [
      path: 'meal-plan',
     pathMatch: 'full',
     component: MealPlanComponent
+  },
+  {
+    path: 'sign-up',
+    pathMatch: 'full',
+    component: SignupComponent
   }
-
 ];
 
 @NgModule({

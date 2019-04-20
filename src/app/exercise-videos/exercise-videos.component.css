@@ -3,10 +3,23 @@
     padding-bottom: 3%;
 }
 
+.VideoResults{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 380px;
+    left: 350px;
+    width: 925px;
+    bottom: 100px;
+}
+
 .sidenav {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    left: 25px;
+    top: 325px;
     width: 300px;
-    background: #eee;
-    padding: 8px 8px;
 }
 h1 { 
     font-size: 2em;
@@ -19,22 +32,40 @@ h2 {
         font-weight: bold;
 }
 
-.searchbar{
+.Heading2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
     position: absolute;
+    left: 25px;
+    top: 260px;
+}
+
+.searchbar{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 325px;
+    left: 350px;
+}
+
+.search-button{
+    position: absolute;
+    top: 325px;
+    left: 940px;
     top: 318px;
     left: 320px;
 }
 
 .new-button{
     position: absolute;
-    top: 318px;
-    left: 1015px;
+    top: 325px;
+    left: 1035px;
 }
 
 .page-button{
     position: absolute;
-    top: 318px;
-    left: 1130px;
+    top: 325px;
+    left: 1165px;
 }
 
 .workout-set1{

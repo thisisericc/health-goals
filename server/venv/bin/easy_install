@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #!/Users/pranathi/health-goals/server/venv/bin/python3.7
+=======
+#!/Users/varunbhandari/Desktop/health-goals/server/venv/bin/python3.7
+
+>>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
 # -*- coding: utf-8 -*-
 import re
 import sys
