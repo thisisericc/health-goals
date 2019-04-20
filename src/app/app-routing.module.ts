@@ -15,6 +15,7 @@ import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exerci
 import {MealPlanComponent} from './meal-plan/meal-plan.component';
 import { SignupComponent } from './signup/signup.component';
 import { TherapistDetailsComponent } from './therapist-details/therapist-details.component';
+import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,11 @@ const routes: Routes = [
     path: 'fitness-instructors',
     pathMatch: 'full',
     component: FitnessInstructorsComponent
+  },
+  {
+    path:'fitness-instructors/:Name',
+    pathMatch: 'full',
+    component: InstructorDetailsComponent
   },
   {
     path: 'food-blogs',

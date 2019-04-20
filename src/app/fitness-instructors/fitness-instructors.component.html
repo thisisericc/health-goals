@@ -1,6 +1,6 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" >
   <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
-  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+  <h1 style="text-align:center" class="display-4">Health Goals &nbsp;</h1>
 </div>
 
 
@@ -72,50 +72,31 @@
   </p-card>
 </div>
 
-<div class="Search-Results">
-    <ng-container *ngIf="error == null">
-                <img src="{{ Instructors.Image_URL }}">
-    </ng-container>
-    <br>
-    <!--<p-toast *ngIf="error !== null" position="center">{{ error }}</p-toast>-->
-    <br>
-
-    <p-dataView [value]="Instructors" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
-        <ng-template let-instructor pTemplate="listItem">
-            <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
-                <div>
+<div class="Search-Results" style="padding: 1em">
+    <p-dataView [value]="instructors_" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
+        <ng-template pTemplate="listItem" let-instructor>
+            <a routeLink="">
+                <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9; cursor:pointer">
                     <div>
-                        <font color="grey"><b> {{ res.fname}} {{res.mname}} {{res.lname}}</b></font>
+                        <img src="{{instructor.Image_URL}}" height="180" width="190">
                     </div>
-                    <div>
-                        <img src={{intructor.Image_URL}} height="180" width="190">
+
+                    <div class="Search-Row-Info">
+                        <div>
+                            <font size="6">
+                                {{instructor.Name}}
+                            </font>
+                        </div>
+                        <div>
+                            <font size="3">
+                                {{instructor.Address}}, {{instructor.Zip}}
+                            </font>
+                        </div>
                     </div>
                 </div>
-
-                <div class="Search-Row-Info">
-                    <div>
-                        <font size="10">
-                                {{ instructor.name }}
-                        </font>
-                    </div>
-                    <div>
-                        <font size="1.6">
-                            {{ res.address}}, {{res.city}}, {{res.state}}, {{res.zip}}
-
-                        </font>
-                    </div>
-                    <div>
-                        <font size="1.6">
-                            {{ res.number }}
-                        </font>
-                    </div>
-                    <div>
-                        <font size="1.6">
-                           Title: {{ instructor.Zip }}
-                        </font>
-                    </div>
-                </div>
-            </div>
+            </a>
+            <!--<img src="{{instructor.Image_URL}}" height="400" width="320">
+            <img src="https://acefitnessmediastorage.blob.core.windows.net/acepublicfiles/c83ce4e7-0c1a-48e1-ae46-d1540c3e2231.jpg">-->
         </ng-template>
     </p-dataView>
 </div>

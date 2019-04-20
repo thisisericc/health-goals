@@ -8,7 +8,7 @@ import { FindInstructorsService, FindInstructors } from '../find-instructors.ser
 })
 export class FitnessInstructorsComponent implements OnInit {
 
-  Instructors: FindInstructors[];
+  instructors_: FindInstructors[];
   name:string;
   phone:string;
   address:string;
@@ -77,19 +77,23 @@ export class FitnessInstructorsComponent implements OnInit {
   getInstructors(){
     this.InstructorService.getInstructor().subscribe(
       data=>{
-        this.Instructors=data;
+        this.instructors_=data;
+        
+        console.log(this.instructors_[0].Image_URL);
         debugger;
       },
       error=>{
         alert('Could not retrieve a list of instructors');
       }
     )
+    
+    debugger;
   }
 
   getPhone(phone:string){
     this.InstructorService.getPhone(phone).subscribe(
       data=>{
-        this.Instructors=data;
+        this.instructors_=data;
       }, error=>{
         alert('Could not retrieve phones');
       }
@@ -99,7 +103,7 @@ export class FitnessInstructorsComponent implements OnInit {
   getAddress(address:string){
     this.InstructorService.getAddress(address).subscribe(
       data=>{
-        this.Instructors=data;
+        this.instructors_=data;
       }, error=>{
         alert('Could not retrieve address');
       }
@@ -109,7 +113,7 @@ export class FitnessInstructorsComponent implements OnInit {
   getZip(zip:string){
     this.InstructorService.getZip(zip).subscribe(
       data=>{
-        this.Instructors=data;
+        this.instructors_=data;
       }, error=>{
         alert('Could not retrieve zip code');
       }
@@ -119,7 +123,7 @@ export class FitnessInstructorsComponent implements OnInit {
   getImage(image:string){
     this.InstructorService.getImage(image).subscribe(
       data=>{
-        this.Instructors=data;
+        this.instructors_=data;
       }, error=>{
         alert('Could not retrieve images');
       }
@@ -129,7 +133,7 @@ export class FitnessInstructorsComponent implements OnInit {
   getTags(tags:string){
     this.InstructorService.getTags(tags).subscribe(
       data=>{
-        this.Instructors=data;
+        this.instructors_=data;
       }, error=>{
         alert('Could not retrieve tags');
       }
@@ -139,7 +143,7 @@ export class FitnessInstructorsComponent implements OnInit {
   getRates(rates:string){
     this.InstructorService.getRates(rates).subscribe(
       data=>{
-        this.Instructors=data;
+        this.instructors_=data;
       }, error=>{
         alert('Could not retrieve rates');
       }
@@ -149,7 +153,7 @@ export class FitnessInstructorsComponent implements OnInit {
   getAbout(about:string){
     this.InstructorService.getAbout(about).subscribe(
       data=>{
-        this.Instructors=data;
+        this.instructors_=data;
       }, error=>{
         alert('Could not retrieve about');
       }
@@ -159,7 +163,7 @@ export class FitnessInstructorsComponent implements OnInit {
   getCertification(certifications:string){
     this.InstructorService.getCertifications(certifications).subscribe(
       data=>{
-        this.Instructors=data;
+        this.instructors_=data;
       }, error=>{
         alert('Could not retrieve certification');
       }

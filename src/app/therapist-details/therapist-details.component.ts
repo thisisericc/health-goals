@@ -130,7 +130,7 @@ export class TherapistDetailsComponent implements OnInit {
         
         this.therapistResults=output;
         this.fname=T.fname;
-        this.mname=T.mname;
+        this.mname=T.mname.replace('_type', '');
         this.lname=T.lname;
         this.number=this.formatPhoneNumber(T.number);
         this.address=T.address;

@@ -6,7 +6,9 @@
     width: 200px;
 }
 
-
+img{
+    border-radius: 50%;
+}
 
 
 .Search-Results {

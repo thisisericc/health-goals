@@ -37,6 +37,7 @@ import {WelcomeService} from './welcome.service'
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { TherapistDetailsComponent } from './therapist-details/therapist-details.component';
+import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { TherapistDetailsComponent } from './therapist-details/therapist-details
     MhForumsDetailsComponent,
     MhStartForumComponent,
     SignupComponent,
-    TherapistDetailsComponent
+    TherapistDetailsComponent,
+    InstructorDetailsComponent
   ],
   imports: [
     BrowserModule,
