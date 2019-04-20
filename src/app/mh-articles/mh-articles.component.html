@@ -62,6 +62,22 @@
 </div>
 
 <div class="Search-Results">
-    
+
+    <p-table [value]="articles" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="body" let-article>
+      <p-card>
+          <a routerLink = "/mh-articles/{{ articlefinal.ArticleName }}"><h2>{{articlefinal.ArticleName}}</h2></a>
+        <hr>
+        <p><b>{{forum.Description}}</b></p>
+        <br>
+        <b><a routerLink = "/mh-articles/{{ articlefinal.ArticleName }}">Read More</a></b>
+        <br>
+        <br>
+      </p-card>
+      <br>
+    </ng-template>
+  </p-table>
+  <br>
+
 
 </div>

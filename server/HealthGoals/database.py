@@ -155,19 +155,22 @@ def find_articles(name):
                 if result is None:
                         return None
                 return dict(result)
+
+             
 def filter_by_Topic(topic):
         with engine.connect() as con:
                 string = "%" + topic+ "%"
                 query = sql.text(
-                        "SELECT * from MentalHealthArticles WHERE Topic  LIKE :string;"
+                        "SELECT * from MentalHealthArticles WHERE Topic LIKE :string;"
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]
+                
 def filter_by_type(types):
         with engine.connect() as con:
                 string = "%" + types+ "%"
                 query = sql.text(
-                        "SELECT * from MentalHealthArticles WHERE Type LIKE :string;"
+                        "SELECT * from MentalHealthArticles WHERE ArticleType LIKE :string;"
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]

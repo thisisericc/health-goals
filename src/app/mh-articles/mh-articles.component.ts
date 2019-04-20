@@ -20,11 +20,6 @@ export class MhArticlesComponent implements OnInit {
   constructor(public articleService:MHArticlesService) { 
     
 
-this.articleService.filterByTopic(this.articletopic).subscribe(
-  data => {
-    console.log(data)
-  }
-)
 this.articleService.filterByType(this.articletype).subscribe(
   data => {
     console.log(data)
@@ -50,6 +45,15 @@ this.articleService.filterByType(this.articletype).subscribe(
       }
     )
   }
-
   
+  filterByType(articletype:string){
+    this.articleService.filterByType(articletype).subscribe(
+      data => {
+        this.articles = data;
+      },
+      error => {
+        alert ('Could not retrieve a list of types');
+      }
+    )
+  }
 }

@@ -192,30 +192,31 @@ def get_articles():
 def find_articles(article):
     try:
         if article is None:
-            raise ValueError("video is not specified.")
+            raise ValueError("article is not specified.")
         articlefinal = database.find_articles(article)
         if articlefinal is None:
-            return make_response("No video with the given name.", 400)
+            return make_response("No article with the given name.", 400)
         return jsonify(articlefinal)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
 
-app.route("/api/topics/<topic>", methods=["GET"]) 
+'''
+app.route("/api/worm/<topic>", methods=["GET"]) 
 def filter_by_Topic(topic):
     try:
         if topic is None:
-            raise ValueError("type is not specified.")
+            raise ValueError("topics is not specified.")
         topictype = database.filter_by_Topic(topic)
         if topictype is None:
-            return make_response("No type found with the given training.", 400)
+            return make_response("No type found with the given topics.", 400)
         return jsonify(topictype)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
-
+'''
 @app.route("/api/type/<types>", methods=["GET"])
 def filter_by_type(types):
     try:
@@ -229,4 +230,3 @@ def filter_by_type(types):
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
-        
