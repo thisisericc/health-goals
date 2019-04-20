@@ -32,7 +32,10 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
 import { TableModule } from 'primeng/table';
 import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
 import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
+import { SignupComponent } from './signup/signup.component';
+import {WelcomeService} from './welcome.service'
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,8 @@ import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exerci
     Youtube,
     MealPlanComponent,
     MhForumsDetailsComponent,
-    MhStartForumComponent
+    MhStartForumComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -69,9 +73,10 @@ import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exerci
     MessagesModule,
     MessageModule,
     ToastModule,
-    TableModule
+    TableModule,
+    AutoCompleteModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, WelcomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

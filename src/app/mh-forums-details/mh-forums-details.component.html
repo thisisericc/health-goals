@@ -43,10 +43,34 @@
 
 <div class="Search-Results">
       <p-card>
-        <h2>{{forumName}}</h2>
+        <h1>{{forumName}}</h1>
         <hr>
-        <p *ngIf="forumDetails">{{ forumDetails?.Description }} </p>
+        <h6><p *ngIf="forumDetails">{{ forumDetails?.Description }}</p></h6>
         <br>
+        <br>
+        <h6 ALIGN="RIGHT" *ngIf="forumDetails">Posted by: <b>{{ forumDetails?.Email }}</b></h6>
       </p-card>
       <br>
+
+    <div class = "Reply-Results">
+        <p-table [value]="replies">
+            <ng-template pTemplate="body" let-reply>
+              <p-card>
+                <p><b>{{reply.Description}}</b></p>
+                <br>
+                <h6 ALIGN="RIGHT">Posted by: <b>{{reply.Email}}</b></h6>
+              </p-card>
+              <br>
+            </ng-template>
+        </p-table>
+
+          <p-card>
+            <h5><b>Reply to this forum:</b></h5>
+            <textarea autoresize="autoResize" cols="93" pInputTextarea rows="5" [(ngModel)]="NewReply"></textarea>
+            <br/>
+            <br/>
+            <button type="button" (click) = "addNewReply(NewReply)" pButton label="Add Reply"></button>
+          </p-card>
+          <br>
+    </div>
 </div>
