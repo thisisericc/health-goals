@@ -12,6 +12,10 @@ export interface FindTherapist {
     state: string;
     zip: string;
     city: string;
+    npi:string;
+    specialties:string;
+    s_description:string;
+
 
 
 }
