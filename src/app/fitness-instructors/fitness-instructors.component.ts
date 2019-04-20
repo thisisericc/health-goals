@@ -80,7 +80,7 @@ export class FitnessInstructorsComponent implements OnInit {
         this.instructors_=data;
         console.log(this.instructors_[0].Image_URL);
         for(var i=0;i<this.instructors_.length; i++){
-      this.instructors_[i].uri_name=encodeURI(this.instructors_[i].Name);
+      //this.instructors_[i].uri_name=encodeURI(this.instructors_[i].Name);
     }
         debugger;
       },
