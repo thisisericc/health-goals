@@ -202,13 +202,13 @@ def find_articles(article):
     except Exception as e:
         return make_response(str(e), 500)
 
-'''
-app.route("/api/worm/<topic>", methods=["GET"]) 
-def filter_by_Topic(topic):
+
+@app.route("/api/topic/<topics>", methods=["GET"]) 
+def filter_by_Topic(topics):
     try:
-        if topic is None:
+        if topics is None:
             raise ValueError("topics is not specified.")
-        topictype = database.filter_by_Topic(topic)
+        topictype = database.filter_by_Topic(topics)
         if topictype is None:
             return make_response("No type found with the given topics.", 400)
         return jsonify(topictype)
@@ -216,7 +216,7 @@ def filter_by_Topic(topic):
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
-'''
+
 @app.route("/api/type/<types>", methods=["GET"])
 def filter_by_type(types):
     try:
@@ -230,3 +230,18 @@ def filter_by_type(types):
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
+
+@app.route("/api/year/<years>", methods=["GET"])
+def filter_by_year(years):
+    try:
+        if years is None:
+            raise ValueError("years is not specified.")
+        yearsnum = database.filter_by_year(years)
+        if yearsnum is None:
+            return make_response("No type found with the given types.", 400)
+        return jsonify(yearsnum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+

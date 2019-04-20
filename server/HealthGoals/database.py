@@ -157,20 +157,29 @@ def find_articles(name):
                 return dict(result)
 
              
-def filter_by_Topic(topic):
+def filter_by_Topic(topics):
         with engine.connect() as con:
-                string = "%" + topic+ "%"
+                string = "%" + topics+ "%"
                 query = sql.text(
                         "SELECT * from MentalHealthArticles WHERE Topic LIKE :string;"
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]
-                
+
 def filter_by_type(types):
         with engine.connect() as con:
                 string = "%" + types+ "%"
                 query = sql.text(
                         "SELECT * from MentalHealthArticles WHERE ArticleType LIKE :string;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
+
+def filter_by_year(years):
+        with engine.connect() as con:
+                string = "%" + years+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE Year BETWEEN 2000 AND 2010;"
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]

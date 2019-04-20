@@ -31,4 +31,13 @@ export class MHArticlesService {
     return this.http.get<MHArticles[]>('/api/type/'+types);
 
   }
+  filterByTopic(topics: string) {
+    return this.http.get<MHArticles[]>('/api/topic/'+topics);
+
+  }
+  filterByYear(years: string) {
+    return this.http.get<MHArticles[]>('/api/year/'+years);
+
+  }
+  
 }

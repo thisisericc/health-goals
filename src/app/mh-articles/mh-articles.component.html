@@ -11,7 +11,7 @@
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="symptoms" value="depression" label="Depression"></p-checkbox>
+    <p-checkbox name="symptoms" value="depression" label="Depression"(click)="filterByTopic('Depression')"></p-checkbox>
     <br/>
     <br/>
     &nbsp;
@@ -27,26 +27,30 @@
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="duration" value="scholarly" label="Scholarly"></p-checkbox>
+    <p-checkbox name="duration" value="scholarly" label="Scholarly"(click)="filterByType('Scholarly')"></p-checkbox>
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="duration" value="opinion" label="Opinion"></p-checkbox>
+    <p-checkbox name="duration" value="opinion" label="Opinion"(click)="filterByType('Opinion')"></p-checkbox>
     <br/>
     <br/>
     <font color="grey"><b>Article Age</b></font>
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="age" value="old" label="<2000"></p-checkbox>
+    <p-checkbox name="age" value="old" label="2000"></p-checkbox>
     &nbsp;
     &nbsp;
-    <p-checkbox name="age" value="3to5" label="2000-2010"></p-checkbox>
+    <p-checkbox name="age" value="3to5" label="2000-2010"(click)="filterByYear('2005')"></p-checkbox>
     <br/>
     <br/>
     &nbsp;
     <p-checkbox name="age" value="5to10" label=">2010"></p-checkbox>
     &nbsp;
+    <br/>
+    <br/>
+    <p-button label="Clear Filters" id="searchButton" (click) = "get_articles()"></p-button>
+
 </p-card>
 </div>
 
@@ -58,7 +62,9 @@
 </div>
 
 <div class="Search-Button">
-<p-button label="Search" id="searchButton" style="display: none;"></p-button>
+    <span class="ui-float-label">
+            <input id="float-input" type="text" size="75" pInputTextArea [(ngModel)] = "input" (keyup.enter) = "getArticles(input)"> 
+    </span>
 </div>
 
 <div class="Search-Results">
@@ -66,10 +72,12 @@
     <p-table [value]="articles" [paginator]="true" [rows]="5">
     <ng-template pTemplate="body" let-article>
       <p-card>
-          <a routerLink = "/mh-articles/{{ article.ArticleName }}"><h2>{{article.ArticleName}}</h2></a>
+          <a href="{{article.Link}}"><h2>{{article.ArticleName}}</h2></a>
         <hr>
-        <p><b>{{article.ArticleType}}</b></p>
+        <p><b>{{article.Author}}</b></p>
         <br>
+        <p><b>{{article.ArticleType}}</b></p>
+        <p><b>{{article.Year}}</b></p>
         <br>
       </p-card>
       <br>
