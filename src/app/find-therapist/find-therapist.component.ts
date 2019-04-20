@@ -17,7 +17,7 @@ export class FindTherapistComponent implements OnInit {
   error=null;
 
   constructor(
-    private findTherapistService: FindTherapistService,
+    public findTherapistService: FindTherapistService,
     private messageService: MessageService,
   ) { }
 
@@ -46,6 +46,7 @@ export class FindTherapistComponent implements OnInit {
           T.number=therapist.substring(therapist.indexOf('\"phones\"')+21, therapist.indexOf('\"', therapist.indexOf('\"phones\"')+21));
           T.zip=therapist.substring(therapist.indexOf('\"zip\"')+7, therapist.indexOf('\"', therapist.indexOf('\"zip\"')+7));
           T.city=therapist.substring(therapist.indexOf('\"city\"')+8, therapist.indexOf('\"', therapist.indexOf('\"city\"')+8));
+          T.npi=therapist.substring(therapist.indexOf('\"npi\"')+7,therapist.indexOf('\"',therapist.indexOf('\"npi\"')+7));
           debugger
           output.push(T);
         });
