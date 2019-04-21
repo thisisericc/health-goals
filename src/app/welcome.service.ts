@@ -29,8 +29,14 @@ export interface GroupMemberInfo {
   GoalReached: string;
 }
 
+export interface UserForums {
+  Description: string;
+  Email: string;
+  NameOfForum: string;
+}
+
 export interface LoggedIn{
-  
+
 }
 
 @Injectable({
@@ -61,15 +67,19 @@ export class WelcomeService {
     return this.http.get<GroupInfo[]>('/api/get_usergroups/'+ID)
   }
 
-  get_groupmemberinfo(ID){
+  get_groupmemberinfo(ID: any){
     return this.http.get<GroupMemberInfo[]>('/api/get_groupmemberinfo/'+ID)
   }
 
-  default_img(id, blob){
+  get_user_forum(ID: any){
+    return this.http.get<UserForums[]>('/api/get_user_forums/'+ID)
+  }
+
+  default_img(id: any, blob: Blob){
     return this.http.get('/api/default_img/'+id+'/'+blob)
   }
 
-  update_img(id, blob){
+  update_img(id: any, blob: Blob){
     return this.http.get('/api/update_img/'+id+'/'+blob)
   }
 }

@@ -108,6 +108,25 @@ def get_forums():
         rs = con.execute("SELECT ForumNumber, NameOfForum, Link, Description, Topic, Email FROM MentalHealthForums;")
         return [dict(row) for row in rs]
 
+def get_forum_byemail(Email):
+    with engine.connect() as con:
+        query = sql.text(
+                "SELECT ForumNumber, NameOfForum, Link, Description, Topic, Email FROM MentalHealthForums WHERE Email=:Email;"
+                )
+        rs = con.execute(query, email=email)
+        result = rs.first()
+        if result is None:
+            return None
+        return dict(result)
+
+def get_user_forums(ID):
+        with engine.connect() as con:
+                query = sql.text(
+                        "SELECT NameOfForum, Description, Email FROM MentalHealthForums WHERE Email= (Select Email FROM Users WHERE Users.ID =:ID)"
+                )
+                rs = con.execute(query, ID=ID)
+                return [dict(row) for row in rs]
+
 def get_latest_forums():
     with engine.connect() as con:
         rs = con.execute("SELECT ForumNumber, NameOfForum, Link, Description, Topic, Email FROM MentalHealthForums LIMIT 10;")

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpResponse} from '@angular/common/http';
-import {WelcomeService, User, GroupInfo, GroupMemberInfo} from '../welcome.service';
+import {WelcomeService, User, GroupInfo, GroupMemberInfo, UserForums} from '../welcome.service';
+import {ExercisevideosService, ExerciseVideos} from '../exercisevideos.service'
 import {DataTableModule,SharedModule,DialogModule} from 'primeng/primeng';
 
 @Component({
@@ -15,9 +16,13 @@ export class ProfileComponent implements OnInit {
   user: User[];
   groupInfo: GroupInfo[];
   groupMemberInfo: GroupMemberInfo[];
+  savedvideos: ExerciseVideos[];
+  userForums: UserForums[];
+  isNULL: boolean = false;
 
   constructor(
     private userService: WelcomeService,
+    public videoService: ExercisevideosService,
     private route: ActivatedRoute
   ) { 
     route.paramMap.subscribe((paramMap) => {
@@ -40,6 +45,12 @@ export class ProfileComponent implements OnInit {
 
       userService.get_usergroups(this.userID).subscribe(
         data => {
+          if (data == null){
+            console.log("NULL YO");
+            this.isNULL = true;
+            return;
+          }
+          console.log("usergroups" + data)
           this.groupInfo = data;
         },
         (error: HttpResponse<any>) => {
@@ -54,6 +65,11 @@ export class ProfileComponent implements OnInit {
 
       userService.get_groupmemberinfo(this.userID).subscribe(
         data => {
+          if (data == null){
+            console.log("NULL YO");
+            this.isNULL = true;
+            return;
+          }
           this.groupMemberInfo = data;
         },
         (error: HttpResponse<any>) => {
@@ -65,6 +81,37 @@ export class ProfileComponent implements OnInit {
           }
         }
       );
+
+      userService.get_user_forum(this.userID).subscribe(
+        data => {
+          this.userForums = data;
+          console.log(this.userForums);
+        },
+        (error: HttpResponse<any>) => {
+          if(error.status === 404){
+            alert('User Forums not found');
+          }else{
+            console.error(error.status + ' - ' + error.body);
+            alert('An error occured on the server. Check the console.');
+          }
+        }
+      );
+
+      videoService.getSavedVideos(this.userID).subscribe(
+        data => {
+          this.savedvideos = data;
+          console.log(this.savedvideos);
+        },
+        (error: HttpResponse<any>) => {
+          if(error.status === 404){
+            alert('Group Member Info not found.');
+          }else{
+            console.error(error.status + ' - ' + error.body);
+            alert('An error occured on the server. Check the console.');
+          }
+        }
+      );
+
     });
   }
 

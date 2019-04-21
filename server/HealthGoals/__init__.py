@@ -262,6 +262,8 @@ def sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRest
 def get_usergroups(ID):
     try:
         res = database.get_usergroups(ID)
+        if res is None:
+            return jsonify("none")
         return jsonify(res)
     except ValueError as e:
         return make_response(str(e), 400)
@@ -272,6 +274,8 @@ def get_usergroups(ID):
 def get_groupmemberinfo(ID):
     try:
         res = database.get_groupmemberinfo(ID)
+        if res is None:
+            return jsonify("none")
         return jsonify(res)
     except ValueError as e:
         return make_response(str(e), 400)
@@ -298,3 +302,6 @@ def update_img(id, blob):
     except Exception as e:
         return make_response(str(e), 500)
 
+@app.route('/api/get_user_forums/<ID>', methods=["GET"])
+def get_user_forums(ID):
+    return jsonify(database.get_user_forums(ID))
