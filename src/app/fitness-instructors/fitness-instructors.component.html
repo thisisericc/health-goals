@@ -72,7 +72,7 @@
   </p-card>
 </div>
 
-<div class="Search-Results" style="padding: 1em">
+<div class="Search-Results" style="padding: 1em; text-decoration: none !important;">
     <p-dataView [value]="instructors_" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
         <ng-template pTemplate="listItem" let-instructor>
             <a routerLink="/fitness-instructors/{{instructor.Name}}">
@@ -82,7 +82,7 @@
                     </div>
 
                     <div class="Search-Row-Info">
-                        <div>
+                        <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
                             <font size="6">
                                 {{instructor.Name}}
                             </font>
@@ -90,6 +90,12 @@
                         <div>
                             <font size="3">
                                 {{instructor.Address}}, {{instructor.Zip}}
+                            </font>
+                        </div>
+                        <br>
+                        <div>
+                            <font size="1">
+                                {{instructor.Tags}}
                             </font>
                         </div>
                     </div>

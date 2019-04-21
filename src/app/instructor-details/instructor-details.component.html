@@ -1,3 +1,54 @@
-<p>
-  instructor-details works!
-</p>
+<div class="jumbotron jumbotron-fluid">
+  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+</div>
+
+<button type="button" (click) = "backClicked()" pButton label="Back to list of Instructors" class = "Back-Button"></button>
+
+<div class="InstructorResults">
+  <!--<p-card>
+    <p *ngIf="instructor_d"> {{instructor_d?.About}} </p>
+  </p-card>-->
+  <p-card>
+    <h2 style="text-align: center !important"><strong><font size=7>{{ name }}</font></strong></h2>
+  </p-card>
+
+  <div class="inst-img">
+    <img src="{{instructor_d.Image_URL}}" style="float:left; padding: 5px" alt="Avatar" height="260" width="250">
+    <div style="left:1000px; display: inline-block">
+      <font size=4.5>
+        <font size=6>
+          <strong>
+            <div>
+              {{instructor_d?.Address}}, {{instructor_d?.Zip}}
+            </div>
+            <div>
+              Phone:{{instructor_d?.Number}}
+            </div>
+          </strong>
+        </font>
+        <div>
+          Certifications: {{instructor_d?.Certification}}
+        </div>
+      </font>
+    </div>
+    <font size=4>
+      <br>
+      <br>
+      About Me:
+      {{ instructor_d?.About }}
+    </font>
+    <br>
+    <br>
+    <br>
+    <div>
+      My Rates:
+      <br>
+      {{ instructor_d?.Rates }}
+    </div>
+    <br>
+    <div>
+      Specialties: {{ instructor_d?.Tags }}
+    </div>
+  </div>
+</div>

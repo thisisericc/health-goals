@@ -15,12 +15,12 @@ def get_videos():
 def get_Instructors():
     return jsonify(database.get_Instructors())
 
-@app.route('/api/instructors/<name>', methods=["GET"])
-def find_Instructor(name):
+@app.route('/api/instructors/<Name>', methods=["GET"])
+def find_Instructor(Name):
     try:
-        if name is None:
+        if Name is None:
             raise ValueError("name is not specified.")
-        instructorfinal = database.find_Instructor(name)
+        instructorfinal = database.find_Instructor(Name)
         if instructorfinal is None:
             return make_response("No instructor with the given name.", 400)
         return jsonify(instructorfinal)
