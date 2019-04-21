@@ -56,7 +56,7 @@
             <br><br><br>
             <div style="text-align: center">
                 <span class="psw">Don't have an account? <a href="sign-up">Sign Up!</a></span> <br>
-                <span class = "psw"> Guests: View a Sample Meal Plan <a href="meal-plan"> Here! </a></span>
+                <span class = "psw"> Get a Daily Meal Plan <a href="meal-plan"> Here! </a></span>
             </div>         
     </div>
     <div class="SignInBox2" *ngIf="loggedIn">
@@ -64,9 +64,11 @@
         <h1 style="text-align:center" class="display-4">{{user.FirstName}}</h1>
         <div style="text-align: center">
             <a href="profile/{{user.ID}}"> <img src="icon.png" width="200" height="200"></a>
-            <p>Upload Photo: </p><input id="inp" type="file" (change)="onFileSelected($event)" style="text-align:center">
-            <button type="btn-primary" (click) = "onUpload()" pButton label="Save"></button>
+            <!-- <p>Upload Photo: </p><input id="inp" type="file" (change)="onFileSelected($event)" style="text-align:center">
+            <button type="btn-primary" (click) = "onUpload()" pButton label="Save"></button> -->
+            <br>
             <span class="psw"> <a href="/profile/{{user.ID}}">View Your Profile</a></span> <br>
+            <small><b><a href="meal-plan"> Meal Plan </a></b></small><br><br><br>
             <button type="btn-primary" (click) = "logout()" pButton label="Log Out"></button>
         </div>
 

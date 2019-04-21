@@ -3,6 +3,8 @@ import { FoodRecipesService } from '../food-recipes.service';
 import { MessageService } from 'primeng/api';
 import {MealPlanService} from '../welcome/meal-plan.service';
 import {MealPlan} from '../meal-plan';
+import {User, WelcomeService} from '../welcome.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,7 +13,17 @@ import {MealPlan} from '../meal-plan';
   styleUrls: ['./meal-plan.component.css'],
   providers: [MessageService]
 })
+
+
 export class MealPlanComponent implements OnInit{
+    
+    email: string;
+    password: string;
+    id2: number;
+    logged: string[];
+    user: User[]
+    public loggedIn: boolean = false;
+    
   breakfast: any;
   lunch:any;
   dinner:any;
@@ -27,24 +39,55 @@ export class MealPlanComponent implements OnInit{
   constructor(
       private foodRecipesService: FoodRecipesService,
       private mealPlanService: MealPlanService,
-      private messageService: MessageService
+      private messageService: MessageService,
+      private userService: WelcomeService
   ) { }
+
 
 
   ngOnInit() {
 
-      let breakfastitems: Array<string>= ['apple-juice','strawberry','french-toast','fruit','bananas-milk','granola','banana-pancake','bacon-strip-breakfast','smoothie','omelette','quick','bread','orange-juice'];
-      let lunchitems: Array<string>=['veggie-sandwich','chicken-sandwich','egg','rice','bowl','wrap','salad','beans','green','burrito','lunch','whole-wheat','tater-tots','quinoa'];
-      let dinneritems: Array<string>=['burger','pizza','steak','pasta','rice','hearty','potatoes','vegetable','eggplant','tomato-salad','steamed-veg','olive','pita-bread','low-cal-steaks'];
+      if(localStorage.getItem("loggedIn") == "true"){
+          this.loggedIn = true;
+          this.get_userdata(localStorage.getItem("ID"));
+          console.log(this.get_userdata(localStorage.getItem("ID")));
+      }
+      else{
+          this.loggedIn = false;
+          localStorage.clear();
+          localStorage.setItem("loggedIn", "false");
+      }
+
+
+      let breakfastitems: Array<string>= ['apple-juice','strawberry','french-toast','fruit','bananas-milk','granola','banana-pancake','bacon-strip-breakfast','smoothie','omelette','quick','bread','orange-juice','low-cal-juice','granola-bar'];
+      let lunchitems: Array<string>=['veggie-sandwich','chicken-sandwich','egg','rice','bowl','wrap','salad','beans','green','burrito','lunch','whole-wheat','tater-tots','quinoa','salad-wrap'];
+      let dinneritems: Array<string>=['burger','pizza','steak','pasta','rice','hearty','potatoes','vegetable','eggplant','tomato-salad','steamed-veg','olive','pita-bread','low-cal-steaks','lasagna'];
+
+
       this.r = this.randomInt(0,breakfastitems.length);
       console.log(breakfastitems[this.r]);
       console.log(lunchitems[this.r]);
       console.log(dinneritems[this.r]);
 
-      this.mealPlanQuery(breakfastitems[this.r], lunchitems[this.r], dinneritems[this.r]);
+     this.mealPlanQuery(breakfastitems[this.r], lunchitems[this.r], dinneritems[this.r]);
 
-
-  }
+     if(this.loggedIn == true){
+          this.mealPlanQuery(String(breakfastitems[this.r] + this.user["Dietary Restrictions"]), String(lunchitems[this.r] + this.user["Dietary Restrictions"]), String(dinneritems[this.r] + this.user["Dietary Restrictions"]));
+      }
+      else{
+          this.mealPlanQuery(breakfastitems[this.r], lunchitems[this.r], dinneritems[this.r]);
+      }
+    }
+    get_userdata(ID: any){
+        this.userService.get_userdata(ID).subscribe(
+            data => {
+                this.user= data;
+            },
+            error => {
+                alert("unable to get user data");
+            }
+        )
+    }
   randomInt(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
