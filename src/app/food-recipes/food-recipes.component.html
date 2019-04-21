@@ -26,41 +26,42 @@
         <font color="grey"><b>Diet</b></font>
         <br/>
         <br/>
-        <p-checkbox name="diet" value="balanced" label="Balanced"></p-checkbox>
+        <p-checkbox name="diet" value="balanced" label="Balanced" [(ngModel)]="balancedValue" binary="true" (onChange)="balancedQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="diet" value="highprotein" label="High-Protein"></p-checkbox>
+        <p-checkbox name="diet" value="highprotein" label="High-Protein" [(ngModel)]="highProteinValue" binary="true" (onChange)="highProteinQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="diet" value="lowfat" label="Low-fat"></p-checkbox>
+        <p-checkbox name="diet" value="lowfat" label="Low-fat" [(ngModel)]="lowFatValue" binary="true" (onChange)="lowFatQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="diet" value="lowcarb" label="Low-carb"></p-checkbox>
+        <p-checkbox name="diet" value="lowcarb" label="Low-carb" [(ngModel)]="lowCarbValue" binary="true" (onChange)="lowCarbQuery($event)"></p-checkbox>
         <br/>
         <br/>
 
         <font color="grey"><b>Health</b></font>
         <br/>
         <br/>
-        <p-checkbox name="health" value="vegan" label="Vegan"></p-checkbox>
+        <p-checkbox name="health" value="vegan" label="Vegan" [(ngModel)]="veganValue" binary="true" (onChange)="veganQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="health" value="vegetarian" label="Vegetarian"></p-checkbox>
+        <p-checkbox name="health" value="vegetarian" label="Vegetarian" [(ngModel)]="vegetarianValue" binary="true" (onChange)="vegetarianQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="health" value="sugarconscious" label="Sugar-conscious"></p-checkbox>
+        <p-checkbox name="health" value="sugarconscious" label="Sugar-conscious" [(ngModel)]="sugarConsciousValue" binary="true" (onChange)="sugarConsciousQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="health" value="peanutfree" label="Peanut-free"></p-checkbox>
+        <p-checkbox name="health" value="peanutfree" label="Peanut-free" [(ngModel)]="peanutFreeValue" binary="true" (onChange)="peanutFreeQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="health" value="treenutfree" label="Tree-nut-free"></p-checkbox>
+        <p-checkbox name="health" value="treenutfree" label="Tree-nut-free" [(ngModel)]="treeNutFreeValue" binary="true" (onChange)="treeNutFreeQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="health" value="alcoholfree" label="Alcohol-free"></p-checkbox>
+        <p-checkbox name="health" value="alcoholfree" label="Alcohol-free" [(ngModel)]="alcoholFreeValue" binary="true" (onChange)="alcoholFreeQuery($event)"></p-checkbox>
         <br/>
         <br/>
 
+        <!--
         <font color="grey"><b>Additional</b></font>
         <br/>
         <br/>
@@ -71,6 +72,7 @@
         <br/>
         <br/>
         <p-checkbox name="additional" value="ratings" label="Ratings"></p-checkbox>
+        -->
     </p-card>
 </div>
 
@@ -108,7 +110,16 @@
     <p-toast *ngIf="error !== null" position="center">{{ error }}</p-toast>
     <br> -->
 
-    <p-dataView [value]="searchResults" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
+    <p-dataView [value]="searchResults" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both" [sortField]="sortField" [sortOrder]="sortOrder">
+        <p-header>
+            <div class="ui-helper-clearfix">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-4">
+                        <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [style]="{'min-width':'100px'}"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </p-header>
         <ng-template let-res pTemplate="listItem">
             <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
                 <div>

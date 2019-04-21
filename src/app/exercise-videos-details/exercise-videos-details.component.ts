@@ -41,6 +41,7 @@ export class ExerciseVideosDetailsComponent implements OnInit {
     public userService: WelcomeService
   ) {
     route.paramMap.subscribe((paramMap) => {
+      debugger;
       this.videoname = paramMap.get('videos');
       
       exercisevideoService.findvideo(this.videoname).subscribe(

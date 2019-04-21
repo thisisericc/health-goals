@@ -6,6 +6,11 @@
     width: 200px;
 }
 
+.jumbotron {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
 .Search-Bar {
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
@@ -31,6 +36,32 @@
     width: 700px;
 }
 
+.Search-Results li {
+    cursor: pointer;
+    position: relative;
+    left: 215px;
+    background-color: #EEE;
+    margin: .5em;
+
+}
+
+.Search-Results li.selected:hover{
+    background-color: #BBD8DC !important;
+    color: white;
+}
+
+.Search-Results li:hover{
+    color: #607D8B;
+    background-color: #DDD;
+    left: 215px;
+}
+
+.Search-Results .text{
+    position: relative;
+    top: -3px;
+}
+
+
 .Search-Row-Info {
     position: relative;
     left: 235px;
@@ -38,14 +69,4 @@
     min-height: 180px;
     margin-bottom: -150px;
     margin-right: 235px;
-}
-
-.Trending-Recipes {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 350;
-    list-style: none;
-    position: absolute;
-    top: 200px;
-    left: 930px;
-    width: 250px;
 }
