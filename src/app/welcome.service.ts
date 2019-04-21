@@ -60,4 +60,12 @@ export class WelcomeService {
   get_groupmemberinfo(ID){
     return this.http.get<GroupMemberInfo[]>('/api/get_groupmemberinfo/'+ID)
   }
+
+  default_img(id, blob){
+    return this.http.get('/api/default_img/'+id+'/'+blob)
+  }
+
+  update_img(id, blob){
+    return this.http.get('/api/update_img/'+id+'/'+blob)
+  }
 }

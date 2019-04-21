@@ -222,3 +222,25 @@ def get_groupmemberinfo(ID):
         if result is None:
                 return None
         return dict(result)
+
+def default_img(id, blob):
+     with engine.connect() as con:
+        query = sql.text(
+                "INSERT INTO Pictures (id, blob) VALUES (:id, :blob)"
+        )
+        rs = con.execute(query, id=id, blob=blob)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)        
+
+def update_img(id, blob):
+     with engine.connect() as con:
+        query = sql.text(
+                "UPDATE `Pictures` SET `blob` = :blob WHERE `id` =: ID;"
+        )
+        rs = con.execute(query, blob= blob, id=id)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)
