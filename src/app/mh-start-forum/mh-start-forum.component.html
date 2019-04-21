@@ -54,7 +54,9 @@
       <textarea autoresize="autoResize" cols="100" pInputTextarea rows="1" [(ngModel)]="NewTopic"></textarea>
       <br/>
       <br/>
-      <button type="button" (click) = "postForum(NameOfNewForum, NewDescription, NewTopic)" pButton label="Post Forum"></button>
+      <button type="button" (click) = "postForum(user.Email, NameOfNewForum, NewDescription, NewTopic)" pButton label="Post Forum" *ngIf="loggedIn"></button>
+      
+      <button type="button" (click) = "SignInToPostForum()" pButton label="Post Forum" *ngIf="!loggedIn"></button>
     </p-card>
     <br>
 </div>

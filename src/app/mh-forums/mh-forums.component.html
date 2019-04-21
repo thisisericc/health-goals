@@ -38,7 +38,9 @@
   </p-card>
 </div>
 
-<button type="button" routerLink = "/mh-start" pButton label="Start a Forum" class = "Start-Forum-Button"></button>
+  <button type="button" routerLink = "/mh-start" pButton label="Start a Forum" class = "Start-Forum-Button" *ngIf="loggedIn"></button>
+
+  <button type="button" (click) = "SignInToStartForum()" pButton label="Start a Forum" class = "Start-Forum-Button" *ngIf="!loggedIn"></button>
 
 <div class="Search-Forum">
   <span class="ui-float-label">
