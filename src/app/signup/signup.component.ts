@@ -27,7 +27,6 @@ export class SignupComponent implements OnInit {
       data => {
         this.user = data;
         localStorage.setItem("signup","true");
-        "/images/icon.png"
         alert('Signed Up!');
       },
       error => {
