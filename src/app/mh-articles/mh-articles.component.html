@@ -48,7 +48,7 @@
     &nbsp;
     <br/>
     <br/>
-    <p-button label="Clear Filters" id="searchButton" (click) = "get_Articles()"></p-button>
+    <p-button label="Clear Filters" id="searchButton" (click) = "getArticles()"></p-button>
 
 </p-card>
 </div>
@@ -66,7 +66,7 @@
     <p-table [value]="articles" [paginator]="true" [rows]="5">
     <ng-template pTemplate="body" let-article>
       <p-card>
-          <a href="{{article.Link}};getRecent(ids,article.Link)"><h2>{{article.ArticleName}}</h2></a>
+          <a href="{{article.Link}}"><h2>{{article.ArticleName}}</h2></a>
         <hr>
         <p><b>{{article.Author}}</b></p>
         <p><b>{{article.ArticleType}}</b></p>
@@ -85,9 +85,9 @@
         <p-table [value]="articles" [paginator]="true" [rows]="5">
         <ng-template pTemplate="body" let-article>
           <p-card>
-              <a href="{{article.Link}}">{{article.ArticleName}}</a>
+              <a href="{{article.Link}};getRecent(user.ID,article.Link)">{{article.ArticleName}}</a>
             <p><b>{{input}}</b></p>
-
+           
           </p-card>
           <br>
         </ng-template>
