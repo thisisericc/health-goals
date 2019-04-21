@@ -82,7 +82,7 @@ export class FitnessInstructorsComponent implements OnInit {
         for(var i=0;i<this.instructors_.length; i++){
       //this.instructors_[i].uri_name=encodeURI(this.instructors_[i].Name);
     }
-        debugger;
+        // debugger;
       },
       error=>{
         alert('Could not retrieve a list of instructors');
@@ -90,7 +90,7 @@ export class FitnessInstructorsComponent implements OnInit {
     )
     
     
-    debugger;
+    // debugger;
   }
 
   getPhone(phone:string){
