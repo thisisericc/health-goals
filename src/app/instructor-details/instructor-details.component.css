@@ -1,0 +1,19 @@
+div{
+    white-space: pre-wrap !important;
+}
+
+.jumbotron {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.Instructor-Result{
+    top:5px;
+    white-space: pre-line;
+}
+
+img{
+    border-radius: 50% !important;
+    position: relative;
+
+}
