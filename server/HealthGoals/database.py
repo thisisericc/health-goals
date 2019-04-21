@@ -127,10 +127,10 @@ def search_forums(name):
         rs = con.execute(query, name=nameFinal)
         return [dict(row) for row in rs]
 
-def post_forum(name, description, topic):
+def post_forum(email, name, description, topic):
     with engine.connect() as con: 
-        query = sql.text("INSERT INTO MentalHealthForums (NameOfForum, Description, Topic) VALUES (:name, :description, :topic);")
-        rs = con.execute(query, name=name, description=description, topic=topic)
+        query = sql.text("INSERT INTO MentalHealthForums (Email, NameOfForum, Description, Topic) VALUES (:email, :name, :description, :topic);")
+        rs = con.execute(query, email=email, name=name, description=description, topic=topic)
 
 def count_num_forums():
     with engine.connect() as con: 
@@ -145,10 +145,11 @@ def get_replies(name):
         rs = con.execute(query, name=name)
         return [dict(row) for row in rs]
 
-def add_reply(name, reply):
+def add_reply(email, name, reply):
     with engine.connect() as con: 
-        query = sql.text("INSERT INTO MentalHealthForumReplies (NameOfForum, Description) VALUES (:name, :reply);")
-        rs = con.execute(query, name=name, reply=reply)
+        query = sql.text("INSERT INTO MentalHealthForumReplies (Email, NameOfForum, Description) VALUES (:email, :name, :reply);")
+        rs = con.execute(query, email = email, name=name, reply=reply)
+
 def get_login(email, password):
     with engine.connect() as con:
         query = sql.text("SELECT * FROM Users WHERE Email =:email AND Password =:password")
