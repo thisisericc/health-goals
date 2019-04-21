@@ -1,7 +1,9 @@
-<div class="jumbotron jumbotron-fluid" >
-  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
-  <h1 style="text-align:center" class="display-4">Health Goals &nbsp;</h1>
+<div class="jumbotron jumbotron-fluid">
+    <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+    <h1 style="text-align:center" class="display-4">Health Goals</h1>
 </div>
+
+<p class = "Heading2"><b>Find a Fitness Instructor!</b></p>
 
 
 <div class="Filter-Results">
@@ -72,7 +74,7 @@
   </p-card>
 </div>
 
-<div class="Search-Results" style="padding: 1em; text-decoration: none !important;">
+<div class="Search-Results" style=" text-decoration: none !important;">
     <p-dataView [value]="instructors_" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
         <ng-template pTemplate="listItem" let-instructor>
             <a routerLink="/fitness-instructors/{{instructor.Name}}">
