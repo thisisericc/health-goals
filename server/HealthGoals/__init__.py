@@ -7,6 +7,14 @@ from HealthGoals import database
 
 app = Flask(__name__)
 
+@app.route('/api/SaveVideo/<videoname>/<userid>', methods=["GET"])
+def saved_videos(videoname,userid):
+    return jsonify(database.saved_videos(videoname,userid))
+
+@app.route('/api/savedvideos/<userid>', methods=["GET"])
+def get_saved_videos(userid):
+    return jsonify(database.get_saved_videos(userid))
+
 @app.route('/api/videos', methods=["GET"])
 def get_videos():
     return jsonify(database.get_videos())
@@ -190,9 +198,9 @@ def find_forum(name):
     except Exception as e:
         return make_response(str(e), 500)
     
-@app.route('/api/PostForum/<name>/<description>/<topic>', methods=["GET"])
-def post_forum(name, description, topic):
-    return jsonify(database.post_forum(name, description, topic))
+@app.route('/api/PostForum/<email>/<name>/<description>/<topic>', methods=["GET"])
+def post_forum(email, name, description, topic):
+    return jsonify(database.post_forum(email, name, description, topic))
 
 @app.route('/api/CountForums', methods=["GET"])
 def count_num_forums():
@@ -224,9 +232,10 @@ def get_login(email, password):
     except Exception as e:
         return make_response(str(e), 500)
 
-@app.route('/api/AddReply/<name>/<reply>', methods=["GET"])
-def add_reply(name, reply):
-    return jsonify(database.add_reply(name, reply))
+@app.route('/api/AddReply/<email>/<name>/<reply>', methods=["GET"])
+def add_reply(email,name, reply):
+    return jsonify(database.add_reply(email,name, reply))
+
 @app.route('/api/get_userdata/<ID>', methods=["GET"])
 def getid(ID):
     try:

@@ -29,6 +29,10 @@ export interface GroupMemberInfo {
   GoalReached: string;
 }
 
+export interface LoggedIn{
+  
+}
+
 @Injectable({
   providedIn: 'root'
 })

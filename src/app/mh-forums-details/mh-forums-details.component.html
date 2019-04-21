@@ -64,12 +64,16 @@
             </ng-template>
         </p-table>
 
-          <p-card>
+        <p-card *ngIf="!loggedIn">
+          <h5><b>Please sign in or sign up to reply to this forum!</b></h5>
+        </p-card>
+
+          <p-card *ngIf="loggedIn">
             <h5><b>Reply to this forum:</b></h5>
             <textarea autoresize="autoResize" cols="93" pInputTextarea rows="5" [(ngModel)]="NewReply"></textarea>
             <br/>
             <br/>
-            <button type="button" (click) = "addNewReply(NewReply)" pButton label="Add Reply"></button>
+            <button type="button" (click) = "addNewReply(user.Email, NewReply)" pButton label="Add Reply"></button>
           </p-card>
           <br>
     </div>

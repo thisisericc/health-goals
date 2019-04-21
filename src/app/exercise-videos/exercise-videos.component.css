@@ -3,6 +3,31 @@
     padding-bottom: 3%;
 }
 
+.save-button{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 325px;
+    left: 1110px;
+}
+
+.SavedVideoResults{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 900px;
+    left: 350px;
+    width: 925px;
+    bottom: 100px;
+}
+
+.search-button{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 325px;
+    left: 1000px;
+}
 .VideoResults{
     font-family: 'Quicksand', sans-serif;
     font-weight: 250;

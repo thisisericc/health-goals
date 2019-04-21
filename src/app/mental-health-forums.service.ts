@@ -48,16 +48,16 @@ export class MentalHealthForumsService {
     return this.http.get<MentalHealthForums[]>('/api/SearchForForum/'+name);
   }
 
-  postForum(name: string, description: string, topic: string) {
-    return this.http.get<MentalHealthForums[]>('/api/PostForum/'+name+'/'+description+'/'+topic);
+  postForum(useremail:string, name: string, description: string, topic: string) {
+    return this.http.get<MentalHealthForums[]>('/api/PostForum/'+useremail+'/'+name+'/'+description+'/'+topic);
   }
 
   getReplies(name: string) {
     return this.http.get<MentalHealthForumReplies[]>('/api/ForumReplies/'+name);
   }
 
-  addReply(name: string, reply: string) {
-    return this.http.get<MentalHealthForums[]>('/api/AddReply/'+name+'/'+reply);
+  addReply(useremail: string, name: string, reply: string) {
+    return this.http.get<MentalHealthForums[]>('/api/AddReply/'+useremail+'/'+name+'/'+reply);
   }
 
 }

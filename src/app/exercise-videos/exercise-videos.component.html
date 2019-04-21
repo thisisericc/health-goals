@@ -80,7 +80,7 @@
         <br>
         <p-checkbox name="trainingtype" value="Toning" label="Toning" (click) ="getTrainingType('Toning')" > </p-checkbox>
         <br>
-        <p-checkbox name="trainingtype" value="Warming/Cooldown" label="Warm up /Cool down" (click) ="getTrainingType('Warming')"> </p-checkbox>
+        <p-checkbox name="trainingtype" value="Warming/Cooldown" label="Warm up /Cool down" (click) ="getTrainingType('Warm')"> </p-checkbox>
         <br>
         <p-checkbox name="trainingtype" value="Yoga" label="Yoga" (click) ="getTrainingType('Yoga')" ></p-checkbox>
         <br>
@@ -118,20 +118,16 @@
         <p-checkbox name="bodyfocus" value="total" label=" Total " (click) ="getbodyfocus('Total')"> </p-checkbox>
         <br>
         <br>
-   
-    <!-- Save Button 
-    <div class="save-button">
-        <p-button label="Save" (click) =""></p-button>
-    </div>  
-    <br>-->
 
-    <!-- Clear Filters Button   -->     
+    <!-- Clear Filters Button -->     
     <p-button label="Clear Filters" id="searchButton" (click) = "getVideos()"></p-button>
 
 </p-card>
 </div>
+
+<br>
 <div class="VideoResults">
-        <p-carousel [value]="videos">
+        <p-carousel headerText = "All Videos" [value]="videos">
             <ng-template pTemplate ="body" let-video>
                  <a routerLink = "/exercise-videos/{{video.VideoName}}">  
                     <img src="{{video.ImageLink}}" height="400" width="320">
@@ -139,13 +135,32 @@
         </ng-template>
         </p-carousel>
 </div>
+<br>
+<div class="save-button"><p-button *ngIf= "loggedIn" label="Show Saved Videos" (click) ="getSavedVideos(user.ID)"></p-button></div>
+
+
+<div class="SavedVideoResults">
+    
+    
+    <p-carousel *ngIf= "loggedIn" [value]="savedvideos" numVisible="3" headerText = "Saved Videos">
+        <ng-template pTemplate ="body" let-savedvideo>
+                <a routerLink = "/exercise-videos/{{savedvideo.VideoName}}"> {{savedvideo.VideoName}}
+                 </a>
+             
+        </ng-template>
+    </p-carousel>
+</div>
 
     <!--Search Bar-->
+   
     <div class="searchbar">
         <span class="ui-float-label">
-          <input id="float-input" type="text" size="75" pInputTextArea [(ngModel)] = "input" (keyup.enter) = "searchVideo(input)"> 
+          <input id="float-input" type="text" size="85" pInputTextArea [(ngModel)] = "input" (keyup.enter) = "searchVideo(input)"> 
       </span>
     </div>
-
+    <!--    <div class = "search-button">
+        <p-button label="Search" (click) ="saveVideo()"></p-button>
+    </div>-->
+ 
 
 
