@@ -42,13 +42,11 @@
 
 <div class="Search-Forum">
   <span class="ui-float-label">
-      <input id="float-input" type="text" size="41" pInputTextarea [(ngModel)]="input"> 
+      <input id="float-input" type="text" size="55" pInputTextarea [(ngModel)]="input"> 
   </span>
 </div>
 
 <button type="button" (click) = "searchForForums(input)" pButton label="Search" class = "Search-Button"></button>
-
-<button type="button" pButton label="Dropdown" class="Dropdown-Forum"></button>
 
 <br/>
 <br/>
@@ -59,9 +57,12 @@
       <p-card>
           <a routerLink = "/mh-forums/{{ forum.NameOfForum }}"><h2>{{forum.NameOfForum}}</h2></a>
         <hr>
-        <p>{{forum.Description}}</p>
+        <p><b>{{forum.Description}}</b></p>
         <br>
         <b><a routerLink = "/mh-forums/{{ forum.NameOfForum }}">Read More</a></b>
+        <br>
+        <br>
+        <h6 ALIGN="RIGHT">Posted by: <b>{{forum.Email}}</b></h6>
       </p-card>
       <br>
     </ng-template>

@@ -1,0 +1,30 @@
+export interface MealPlan {
+    brecipeName: string;
+    bimageURL: string;
+    barticleURL: string;
+    bdietLabels: string;
+    bhealthLabels: string;
+    bcalories: string;
+    bservings: string;
+    btotalDaily: string;
+    bingredients: string;
+    lrecipeName: string;
+    limageURL: string;
+    larticleURL: string;
+    ldietLabels: string;
+    lhealthLabels: string;
+    lcalories: string;
+    lservings: string;
+    ltotalDaily: string;
+    lingredients: string;
+    drecipeName: string;
+    dimageURL: string;
+    darticleURL: string;
+    ddietLabels: string;
+    dhealthLabels: string;
+    dcalories: string;
+    dservings: string;
+    dtotalDaily: string;
+    dingredients: string;
+    totalCal:string;
+}

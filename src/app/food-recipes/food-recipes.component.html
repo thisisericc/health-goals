@@ -7,19 +7,57 @@
 
 <div class="Filter-Results">
     <p-card header="Filter Results" subheader="Meal Type">
-        <p-checkbox name="mealtype" value="breakfast" label="Breakfast"></p-checkbox>
+        <p-checkbox name="mealtype" value="breakfast" label="Breakfast" [(ngModel)]="breakfastValue" binary="true" (onChange)="breakfastQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="mealtype" value="lunch" label="Lunch"></p-checkbox>
+        <p-checkbox name="mealtype" value="lunch" label="Lunch" [(ngModel)]="lunchValue" binary="true" (onChange)="lunchQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="mealtype" value="dinner" label="Dinner"></p-checkbox>
+        <p-checkbox name="mealtype" value="dinner" label="Dinner" [(ngModel)]="dinnerValue" binary="true" (onChange)="dinnerQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="mealtype" value="snack" label="Snack"></p-checkbox>
+        <p-checkbox name="mealtype" value="snack" label="Snack" [(ngModel)]="snackValue" binary="true" (onChange)="snackQuery($event)"></p-checkbox>
         <br/>
         <br/>
-        <p-checkbox name="mealtype" value="drink" label="Drink"></p-checkbox>
+        <p-checkbox name="mealtype" value="drink" label="Drink" [(ngModel)]="drinkValue" binary="true" (onChange)="drinkQuery($event)"></p-checkbox>
+        <br/>
+        <br/>
+
+        <font color="grey"><b>Diet</b></font>
+        <br/>
+        <br/>
+        <p-checkbox name="diet" value="balanced" label="Balanced"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="diet" value="highprotein" label="High-Protein"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="diet" value="lowfat" label="Low-fat"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="diet" value="lowcarb" label="Low-carb"></p-checkbox>
+        <br/>
+        <br/>
+
+        <font color="grey"><b>Health</b></font>
+        <br/>
+        <br/>
+        <p-checkbox name="health" value="vegan" label="Vegan"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="health" value="vegetarian" label="Vegetarian"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="health" value="sugarconscious" label="Sugar-conscious"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="health" value="peanutfree" label="Peanut-free"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="health" value="treenutfree" label="Tree-nut-free"></p-checkbox>
+        <br/>
+        <br/>
+        <p-checkbox name="health" value="alcoholfree" label="Alcohol-free"></p-checkbox>
         <br/>
         <br/>
 

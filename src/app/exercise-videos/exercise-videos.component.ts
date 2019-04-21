@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ExerciseVideos, ExercisevideosService } from '../exercisevideos.service';
+import {User, WelcomeService, LoggedIn} from '../welcome.service';
 
 
 @Component({
@@ -19,12 +20,21 @@ export class ExerciseVideosComponent implements OnInit{
   selectedDifficulty: string;
   selectedFocus: string;
   input: string;
+
+  savedvideos: ExerciseVideos[];
+
+  user: User[];
+  loggedIn: boolean =false;
+
   
 
   constructor(
-    public videoService: ExercisevideosService
+    public videoService: ExercisevideosService,
+    public userService: WelcomeService
 
   ) { 
+
+
     this.videoService.getDifficultyLevel(this.difficulty).subscribe(
       data => {
         console.log(data)
@@ -50,8 +60,31 @@ export class ExerciseVideosComponent implements OnInit{
     this.bodyfocus = undefined;
     this.getVideos();
 
-  }
+    if(localStorage.getItem("loggedIn") == "true"){
+      this.loggedIn = true;
+      this.get_userdata(localStorage.getItem("ID"));
+    }
+    else{
+      this.loggedIn = false;
+      localStorage.clear();
+      localStorage.setItem("loggedIn", "false");
+    }
 
+  }
+  
+  signInToSave(){
+    alert('Please sign in to save this video');
+  }
+  get_userdata(ID: any){
+    this.userService.get_userdata(ID).subscribe(
+      data => {
+        this.user= data;
+      },
+      error => {
+        alert("unable to get user data");
+      }
+    )
+  }
   getVideos(){
     this.videoService.getVideos().subscribe(
       data => {
@@ -63,6 +96,17 @@ export class ExerciseVideosComponent implements OnInit{
     )
   }
 
+  getSavedVideos(userID:number){
+    this.videoService.getSavedVideos(userID).subscribe(
+      data => {
+        this.savedvideos = data;
+        console.log(data);
+      },
+      error => {
+        alert ('Could not retrieve a list of saved videos');
+      }
+    )
+  }
   getDifficultyLevel(difficulty: string){
     this.videoService.getDifficultyLevel(difficulty).subscribe(
       data => {

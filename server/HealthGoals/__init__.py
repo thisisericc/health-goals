@@ -7,6 +7,14 @@ from HealthGoals import database
 
 app = Flask(__name__)
 
+@app.route('/api/SaveVideo/<videoname>/<userid>', methods=["GET"])
+def saved_videos(videoname,userid):
+    return jsonify(database.saved_videos(videoname,userid))
+
+@app.route('/api/savedvideos/<userid>', methods=["GET"])
+def get_saved_videos(userid):
+    return jsonify(database.get_saved_videos(userid))
+
 @app.route('/api/videos', methods=["GET"])
 def get_videos():
     return jsonify(database.get_videos())
@@ -180,6 +188,20 @@ def post_forum(name, description, topic):
 def count_num_forums():
     return jsonify(database.count_num_forums())
 
+@app.route('/api/ForumReplies/<name>', methods=["GET"])
+def get_replies(name):
+    try:
+        if name is None:
+            raise ValueError("Forum is not specified.")
+        forum = database.get_replies(name)
+        if forum is None:
+            return make_response("No replies found with the given name.", 404)
+        return jsonify(forum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
 @app.route('/api/login/<email>/<password>', methods=["GET"])
 def get_login(email, password):
     try:
@@ -192,6 +214,9 @@ def get_login(email, password):
     except Exception as e:
         return make_response(str(e), 500)
 
+@app.route('/api/AddReply/<name>/<reply>', methods=["GET"])
+def add_reply(name, reply):
+    return jsonify(database.add_reply(name, reply))
 @app.route('/api/get_userdata/<ID>', methods=["GET"])
 def getid(ID):
     try:

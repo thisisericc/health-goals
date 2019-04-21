@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import {MentalHealthForums, MentalHealthForumsService} from '../mental-health-forums.service';
+import {MentalHealthForums, MentalHealthForumReplies, MentalHealthForumsService} from '../mental-health-forums.service';
 
 @Component({
   selector: 'app-mh-forums',
@@ -24,9 +24,9 @@ export class MhForumsComponent implements OnInit {
   ngOnInit() {
     this.getForums();
     this.getLatestForums();
-    if(localStorage.getItem("loggedIn") == "true"){
-      this.examplename = localStorage.getItem("ID");
-    }
+    //if(localStorage.getItem("loggedIn") == "true"){
+      //this.examplename = localStorage.getItem("ID");
+    //}
   }
 
   getForums() {
