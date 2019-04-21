@@ -5,6 +5,15 @@ from HealthGoals import config
 
 engine = create_engine(config.database_uri)
 
+def saved_videos(videoname,userid):
+        with engine.connect() as con:
+                query = sql.text("INSERT INTO SavedVideos (ID, VideoName) VALUES (:userid, :videoname);")
+                rs = con.execute(query, userid = userid, videoname=videoname)
+def get_saved_videos(userid):
+        with engine.connect() as con:
+                query = sql.text("SELECT * FROM SavedVideos WHERE ID = :userid;")
+                rs = con.execute(query, userid = userid)
+                return [dict(row) for row in rs]
 def get_videos():
         with engine.connect() as con:
                 rs = con.execute("SELECT VideoName, Difficulty, TrainingType, Link, FinalLink, ImageLink FROM ExerciseVideos;")
@@ -176,3 +185,28 @@ def sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRes
         rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, DietaryRestrictions=DietaryRestrictions, Picture=Picture)
 
 
+def get_Instructors():
+        with engine.connect() as con:
+                rs = con.execute("SELECT Name, Number, Address, Zip, Tags, Image_URL, Certification, About, Rates FROM Instructors;")
+                return [dict(row) for row in rs]
+
+def find_Instructor(name):
+        with engine.connect() as con:
+                nameFinal = "%" + name + "%"
+                query = sql.text(
+                        " SELECT * from Instructors WHERE Name LIKE :name;"
+                )
+                rs = con.execute(query, name=nameFinal)
+                result = rs.first()
+                if result is None:
+                        return None
+                return dict(result)
+
+def filter_by_Tags(tags):
+        with engine.connect() as con:
+                string = "%" + tags+ "%"
+                query = sql.text(
+                        "SELECT * from Instructors WHERE Tags LIKE :string;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]

@@ -1,0 +1,50 @@
+<div class="jumbotron jumbotron-fluid">
+    <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+    <h1 style="text-align:center" class="display-4">Health Goals</h1>
+</div>
+
+<button type="button" (click) = "backClicked()" pButton label="Back to list of Therapist" class = "Back-Button"></button>
+
+<div class="Therapist-Result">
+  <p-card>
+    <h2 style="text-align: center !important"><strong><font size=7>{{fname}} {{mname}} {{lname}}</font></strong></h2>
+  </p-card>
+  <div class=doctor-image>
+      <img src={{imageURL}} style="float:left; padding: 10px" alt="Avatar" height="250" width="230">
+      <div style= 'left:1000px; display: inline-block'>
+        <font size=5>
+          <font size=6.5>
+          <strong>
+          <div>
+            {{address}}, {{city}}, USA, {{zip}}
+          </div>
+          
+          <div>
+            Phone: {{number}}
+          </div>
+          </strong>
+          </font>
+          <div>
+            Specialty: {{specialties}}
+          </div>
+          <div>
+            {{s_description}}
+          </div>
+          <div>
+            Title: <strong>{{title}}</strong> 
+          </div>
+        </font>
+        
+      </div>
+  </div>
+  <div class="info-n">
+    <br>
+    <br>
+    <font size=4>
+      {{bio}}
+    </font>
+    
+  </div>
+
+
+</div>

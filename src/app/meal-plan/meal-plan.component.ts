@@ -33,9 +33,9 @@ export class MealPlanComponent implements OnInit{
 
   ngOnInit() {
 
-      let breakfastitems: Array<string>= ['apple-juice','strawberry','toast','fruit','bananas','granola','milk-cereal','bacon','smoothie','omelette','quick','bread','orange-juice'];
+      let breakfastitems: Array<string>= ['apple-juice','strawberry','french-toast','fruit','bananas-milk','granola','banana-pancake','bacon-strip-breakfast','smoothie','omelette','quick','bread','orange-juice'];
       let lunchitems: Array<string>=['veggie-sandwich','chicken-sandwich','egg','rice','bowl','wrap','salad','beans','green','burrito','lunch','whole-wheat','tater-tots','quinoa'];
-      let dinneritems: Array<string>=['burger','pizza','steak','pasta','rice','hearty','potatoes','vegetable','eggplant','tomato','steamed-veg','olive','pita-bread','steaks'];
+      let dinneritems: Array<string>=['burger','pizza','steak','pasta','rice','hearty','potatoes','vegetable','eggplant','tomato-salad','steamed-veg','olive','pita-bread','low-cal-steaks'];
       this.r = this.randomInt(0,breakfastitems.length);
       console.log(breakfastitems[this.r]);
       console.log(lunchitems[this.r]);

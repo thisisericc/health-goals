@@ -68,6 +68,11 @@
   </p-card>
 </div>
 
+<div class="save-button">
+    <p-button *ngIf= "loggedIn" label="Save Video" (click) ="saveVideo(user.ID)"></p-button>
+    <p-button *ngIf="!loggedIn" label="Save Video" (click) ="signInToSave()"></p-button>
+</div> 
+
 <button type="button" (click) = "backClicked()" pButton label="Back to all Videos" class = "Back-Button"></button>
 
 <div class="VideoResults">

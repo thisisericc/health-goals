@@ -7,9 +7,35 @@ from HealthGoals import database
 
 app = Flask(__name__)
 
+@app.route('/api/SaveVideo/<videoname>/<userid>', methods=["GET"])
+def saved_videos(videoname,userid):
+    return jsonify(database.saved_videos(videoname,userid))
+
+@app.route('/api/savedvideos/<userid>', methods=["GET"])
+def get_saved_videos(userid):
+    return jsonify(database.get_saved_videos(userid))
+
 @app.route('/api/videos', methods=["GET"])
 def get_videos():
     return jsonify(database.get_videos())
+
+@app.route('/api/instructors', methods=["GET"])
+def get_Instructors():
+    return jsonify(database.get_Instructors())
+
+@app.route('/api/instructors/<Name>', methods=["GET"])
+def find_Instructor(Name):
+    try:
+        if Name is None:
+            raise ValueError("name is not specified.")
+        instructorfinal = database.find_Instructor(Name)
+        if instructorfinal is None:
+            return make_response("No instructor with the given name.", 400)
+        return jsonify(instructorfinal)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
 
 @app.route('/api/videos/<video>', methods=["GET"])
 def find_videos(video):

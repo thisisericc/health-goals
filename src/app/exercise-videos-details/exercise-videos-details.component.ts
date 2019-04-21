@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import {HttpResponse} from '@angular/common/http';
 import {Location} from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-
+import {User, WelcomeService, LoggedIn} from '../welcome.service';
 
 @Component({
   selector: 'app-exercise-videos-details',
@@ -21,21 +21,29 @@ export class ExerciseVideosDetailsComponent implements OnInit {
   difficulty: string;
   bodyfocus: string;
   videolink:string;
+
+
   videoDetails: ExerciseVideos[];
   selectedTraining: string;
   selectedDifficulty: string;
   selectedFocus: string;
   input: string;
 
+  user: User[];
+  loggedIn: boolean =false;
+
+
   constructor(
     public videoService: ExercisevideosService,
     private exercisevideoService: ExercisevideosService,
     private route: ActivatedRoute,
     private _location:Location,
+    public userService: WelcomeService
   ) {
     route.paramMap.subscribe((paramMap) => {
+      debugger;
       this.videoname = paramMap.get('videos');
-
+      
       exercisevideoService.findvideo(this.videoname).subscribe(
         data => {
           this.videoDetails = data;
@@ -57,9 +65,41 @@ export class ExerciseVideosDetailsComponent implements OnInit {
      this._location.back();
    }
   ngOnInit() {
+    if(localStorage.getItem("loggedIn") == "true"){
+      this.loggedIn = true;
+      this.get_userdata(localStorage.getItem("ID"));
+    }
+    else{
+      this.loggedIn = false;
+      localStorage.clear();
+      localStorage.setItem("loggedIn", "false");
+    }
   }
 
-  
+  signInToSave(){
+    alert('Please sign in to save this video');
+  }
+  get_userdata(ID: any){
+    this.userService.get_userdata(ID).subscribe(
+      data => {
+        this.user= data;
+      },
+      error => {
+        alert("unable to get user data");
+      }
+    )
+  }
+  saveVideo(username:string){
+    this.videoService.saveVideo(this.videoname, username).subscribe(
+      data =>{
+        this.videos =data;
+        alert('Video saved');
+      },
+      error => {
+        alert ('Could not save video');
+      }
+    )
+  }
   getVideos(){
     this.videoService.getVideos().subscribe(
       data => {
