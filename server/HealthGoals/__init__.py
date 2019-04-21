@@ -11,6 +11,24 @@ app = Flask(__name__)
 def get_videos():
     return jsonify(database.get_videos())
 
+@app.route('/api/instructors', methods=["GET"])
+def get_Instructors():
+    return jsonify(database.get_Instructors())
+
+@app.route('/api/instructors/<Name>', methods=["GET"])
+def find_Instructor(Name):
+    try:
+        if Name is None:
+            raise ValueError("name is not specified.")
+        instructorfinal = database.find_Instructor(Name)
+        if instructorfinal is None:
+            return make_response("No instructor with the given name.", 400)
+        return jsonify(instructorfinal)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
 @app.route('/api/videos/<video>', methods=["GET"])
 def find_videos(video):
     try:

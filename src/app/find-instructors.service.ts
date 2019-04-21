@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export interface FindInstructors{
-  name:string;
-  phone: string;
-  address : string;
-  zip : string;
-  tags : string;
-  image_URL : string;
-  certifications:string;
-  about : string;
-  rates : string;
+  Name:string;
+  Number: string;
+  Address : string;
+  Zip : string;
+  Tags : string;
+  Image_URL : string;
+  Certifications:string;
+  About : string;
+  Rates : string;
+  uri_name:string;
 }
 
 @Injectable({
@@ -22,6 +23,9 @@ export class FindInstructorsService {
 
   getInstructor(){
     return this.http.get<FindInstructors[]>('/api/instructors');
+  }
+  findInstructor(name:string){
+    return this.http.get<FindInstructors[]>('/api/instructors/'+name);
   }
   getName(name:string){
     return this.http.get<FindInstructors[]>('/api/name/'+name);
@@ -52,5 +56,9 @@ export class FindInstructorsService {
 
   getRates(rates:string){
     return this.http.get<FindInstructors[]>('/api/rates/'+rates);
+  }
+
+  getCertifications(certifications:string){
+    return this.http.get<FindInstructors[]>('/api/certifications/'+certifications);
   }
 }

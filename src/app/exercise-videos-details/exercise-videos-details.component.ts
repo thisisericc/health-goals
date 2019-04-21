@@ -34,6 +34,7 @@ export class ExerciseVideosDetailsComponent implements OnInit {
     private _location:Location,
   ) {
     route.paramMap.subscribe((paramMap) => {
+      debugger;
       this.videoname = paramMap.get('videos');
 
       exercisevideoService.findvideo(this.videoname).subscribe(

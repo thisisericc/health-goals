@@ -14,6 +14,8 @@ import { WeightWatchersComponent } from './weight-watchers/weight-watchers.compo
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
 import {MealPlanComponent} from './meal-plan/meal-plan.component';
 import { SignupComponent } from './signup/signup.component';
+import { TherapistDetailsComponent } from './therapist-details/therapist-details.component';
+import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
 
 const routes: Routes = [
   {
@@ -42,9 +44,19 @@ const routes: Routes = [
     component: FindTherapistComponent
   },
   {
+    path: 'find-therapist/:npi',
+    pathMatch: 'full',
+    component:TherapistDetailsComponent
+  },
+  {
     path: 'fitness-instructors',
     pathMatch: 'full',
     component: FitnessInstructorsComponent
+  },
+  {
+    path:'fitness-instructors/:Name',
+    pathMatch: 'full',
+    component: InstructorDetailsComponent
   },
   {
     path: 'food-blogs',
