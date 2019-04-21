@@ -6,7 +6,6 @@ import {MealPlan} from '../meal-plan';
 import {User, WelcomeService} from '../welcome.service';
 import {Router} from '@angular/router';
 
-
 @Component({
   selector: 'app-meal-plan',
   templateUrl: './meal-plan.component.html',
@@ -16,7 +15,8 @@ import {Router} from '@angular/router';
 
 
 export class MealPlanComponent implements OnInit{
-    
+
+
     email: string;
     password: string;
     id2: number;
@@ -50,14 +50,14 @@ export class MealPlanComponent implements OnInit{
   constructor(
       private foodRecipesService: FoodRecipesService,
       private mealPlanService: MealPlanService,
-      private messageService: MessageService
+      private messageService: MessageService,
   ) { }
 
 
 
   ngOnInit() {
 
-      /*if(localStorage.getItem("loggedIn") == "true"){
+     if(localStorage.getItem("loggedIn") == "true"){
           this.loggedIn = true;
           this.get_userdata(localStorage.getItem("ID"));
           console.log(this.get_userdata(localStorage.getItem("ID")));
@@ -66,7 +66,10 @@ export class MealPlanComponent implements OnInit{
           this.loggedIn = false;
           localStorage.clear();
           localStorage.setItem("loggedIn", "false");
-      }*/
+      }
+
+     // this.welcomeService.get_userdata(localStorage.getItem("ID"));
+      //console.log(this.user["Dietary Restrictions"]);
 
 
       let breakfastitems: Array<string>= ['apple-juice','strawberry','french-toast','fruit','bananas-milk','granola','banana-pancake','bacon-strip-breakfast','smoothie','omelette','quick','bread','orange-juice','low-cal-juice','granola-bar'];
