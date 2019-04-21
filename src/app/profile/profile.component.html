@@ -4,40 +4,6 @@
 </div>
 <html>
 
-<!-- <div class="container">
-
-    <h2 class="text-center font-weight-light">About {{user.FirstName}} </h2>
-    <div class = "LeftBox"></div>
-    <div class="UserBox">
-            <img src="icon.png" width="200" height="200">
-            <p>{{user.FirstName}} {{user.LastName}}</p>
-            <p>{{user.Email}}</p>
-            <p>{{user.DietaryRestrictions}}</p>
-            <i>" {{user.Description}} "</i>
-            <h3 class="text-center font-weight-light"> Your Groups </h3>
-            <table class="table table-dark">
-                    <thead>
-                      <tr> 
-                        <th scope="col">Group Name</th>
-                        <th scope="col">Group Number</th>
-                        <th scope="col">Training Type</th>
-                        <th scope="col">Calorie Goal</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">{{groupInfo.NameOfGroup}}</th>
-                        <td>{{groupInfo.GroupNumber}}</td>
-                        <td>{{groupInfo.TrainingType}}</td>
-                        <td>{{groupInfo.CalorieGoal}}</td>
-                      </tr>
-                    </tbody>
-            </table>
-      </div>
-      <div class = "RightBox"></div>
-</div>
-</html> -->
-
 <html>
     <body>
 
@@ -45,8 +11,8 @@
          
         <div class="row" >
           <div class="column left" style="text-align: center">
-            <h2>Your Groups</h2>
-            <table class="table">
+            <h2>Groups Joined</h2>
+            <table class="table" *ngIf="!isNull">
                 <thead>
                   <tr> 
                     <th scope="col">Group <br> Name</th>
@@ -61,8 +27,27 @@
                     <td>{{groupInfo.CalorieGoal}}</td>
                   </tr>
                 </tbody>
-              </table>
+            </table>
+              <br>
+              <h2>Group Goals</h2>
+              <table class="table" *ngIf="!isNull">
+                  <thead>
+                    <tr> 
+                      <th scope="col">Group Name</th>
+                      <th scope="col">Rank</th>
+                      <th scope="col">Goal Reached</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">{{groupMemberInfo.NameOfGroup}}</th>
+                      <td>{{groupMemberInfo.Rank}}</td>
+                      <td>{{groupMemberInfo.GoalReached}}</td>
+                    </tr>
+                  </tbody>
+                </table>
           </div>
+
           <div class="column middle" style="text-align: center">
             <h2>About {{user.FirstName}}</h2>
               <img src="icon.png" width="200" height="200">
@@ -77,26 +62,27 @@
               <br>
               <small><b>Goals</b> {{user.Goals}} </small>
               <br>
-              <small><b><a href="meal-plan"> Meal Plan </a></b></small>
           </div>
           <div class="column right" style="text-align: center">
-            <h2>Your Group Goals</h2>
-            <table class="table">
-                <thead>
-                  <tr> 
-                    <th scope="col">Group Name</th>
-                    <th scope="col">Rank</th>
-                    <th scope="col">Goal Reached</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">{{groupMemberInfo.NameOfGroup}}</th>
-                    <td>{{groupMemberInfo.Rank}}</td>
-                    <td>{{groupMemberInfo.GoalReached}}</td>
-                  </tr>
-                </tbody>
-              </table>
+              <h2>Saved Videos</h2>
+                <div class="SavedVideoResults">
+                    <p-carousel [value]="savedvideos" numVisible="3" headerText = "Saved Videos">
+                        <ng-template pTemplate ="body" let-savedvideo>
+                                <a routerLink = "/exercise-videos/{{savedvideo.VideoName}}"> {{savedvideo.VideoName}}
+                                 </a> 
+                        </ng-template>
+                    </p-carousel>
+                </div>
+              <br>
+              <h2>Forums</h2>
+              <div class="SavedForumResults">
+                  <p-carousel [value]="userForums" numVisible="3" headerText = "Forums">
+                      <ng-template pTemplate ="body" let-userForum>
+                              <a routerLink = "/mh-forums/{{userForum.NameOfForum}}"> {{userForum.NameOfForum}}
+                               </a> 
+                      </ng-template>
+                  </p-carousel>
+              </div>
           </div>
         </div>
         </div>
