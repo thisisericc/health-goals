@@ -23,8 +23,19 @@ export class MealPlanComponent implements OnInit{
     logged: string[];
     user: User[]
     public loggedIn: boolean = false;
+    private userService: any;
     
-  breakfast: any;
+    get_userdata(ID: any){
+        this.userService.get_userdata(ID).subscribe(
+            data => {
+                this.user= data;
+            },
+            error => {
+                alert("unable to get user data");
+            }
+        )
+    }
+    breakfast: any;
   lunch:any;
   dinner:any;
   searchbResults: any;
@@ -39,15 +50,14 @@ export class MealPlanComponent implements OnInit{
   constructor(
       private foodRecipesService: FoodRecipesService,
       private mealPlanService: MealPlanService,
-      private messageService: MessageService,
-      private userService: WelcomeService
+      private messageService: MessageService
   ) { }
 
 
 
   ngOnInit() {
 
-      if(localStorage.getItem("loggedIn") == "true"){
+      /*if(localStorage.getItem("loggedIn") == "true"){
           this.loggedIn = true;
           this.get_userdata(localStorage.getItem("ID"));
           console.log(this.get_userdata(localStorage.getItem("ID")));
@@ -56,7 +66,7 @@ export class MealPlanComponent implements OnInit{
           this.loggedIn = false;
           localStorage.clear();
           localStorage.setItem("loggedIn", "false");
-      }
+      }*/
 
 
       let breakfastitems: Array<string>= ['apple-juice','strawberry','french-toast','fruit','bananas-milk','granola','banana-pancake','bacon-strip-breakfast','smoothie','omelette','quick','bread','orange-juice','low-cal-juice','granola-bar'];
@@ -71,23 +81,14 @@ export class MealPlanComponent implements OnInit{
 
      this.mealPlanQuery(breakfastitems[this.r], lunchitems[this.r], dinneritems[this.r]);
 
-     if(this.loggedIn == true){
+     /* if(this.loggedIn == true){
           this.mealPlanQuery(String(breakfastitems[this.r] + this.user["Dietary Restrictions"]), String(lunchitems[this.r] + this.user["Dietary Restrictions"]), String(dinneritems[this.r] + this.user["Dietary Restrictions"]));
       }
       else{
           this.mealPlanQuery(breakfastitems[this.r], lunchitems[this.r], dinneritems[this.r]);
-      }
-    }
-    get_userdata(ID: any){
-        this.userService.get_userdata(ID).subscribe(
-            data => {
-                this.user= data;
-            },
-            error => {
-                alert("unable to get user data");
-            }
-        )
-    }
+      }*/
+
+  }
   randomInt(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
