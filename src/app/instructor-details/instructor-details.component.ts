@@ -12,7 +12,7 @@ import {HttpResponse} from '@angular/common/http';
 })
 export class InstructorDetailsComponent implements OnInit {
 
-  instructors:FindInstructors[];
+  instructors_:FindInstructors[];
   instructor_d:FindInstructors[];
   name:string;
   address:string;
@@ -33,14 +33,14 @@ export class InstructorDetailsComponent implements OnInit {
     private route:ActivatedRoute
   ) {
     route.paramMap.subscribe((paramMap)=>{
-      this.name=paramMap.get('instructors');
-      debugger;
+      this.name=paramMap.get('Name');
+      console.log(this.name)
 
       priv_ins.findInstructor(this.name).subscribe(
         data=>{
           this.instructor_d=data;
-          debugger;
           console.log(data);
+          debugger;
         },
         (error:HttpResponse<any>)=>{
           if(error.status==404){
@@ -51,24 +51,28 @@ export class InstructorDetailsComponent implements OnInit {
           }
         }
       )
+      
     });
   }
+
 
   backClicked(){
     this._location.back();
   }
 
   ngOnInit() {
+
   }
 
   getInstructors(){
     this.instructorService.getInstructor().subscribe(
       data=>{
-        this.instructors=data;
+        this.instructors_=data;
+        
         //console.log(this.instructors[0].Image_URL);
-        for(var i=0;i<this.instructors.length; i++){
+        /*for(var i=0;i<this.instructors_.length; i++){
       //this.instructors_[i].uri_name=encodeURI(this.instructors_[i].Name);
-    }
+    }*/
         debugger;
       },
       error=>{
