@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export interface User {
-  ID: number;
+  ID: any;
   FirstName: String;
   LastName: String;
   Email: String;
@@ -13,12 +13,20 @@ export interface User {
   Picture: String;
 }
 
-export interface LoggedIn {
-  loggedIn: boolean;
+export interface GroupInfo {
+  GroupNumber: any;
+  NameOfGroup: string;
+  TrainingType: string;
+  CalorieGoal: string;
 }
 
-export interface ID2 {
-  ID: number;
+export interface GroupMemberInfo {
+  GroupNumber: any;
+  NameOfGroup: string;
+  UserID: any;
+  MemberName: string;
+  Rank: any;
+  GoalReached: string;
 }
 
 @Injectable({
@@ -43,5 +51,13 @@ export class WelcomeService {
 
   sign_up(FirstName: String, LastName: String, Email: String, Password:String, Description:String, Goals: String, DietaryRestrictions: String, Picture: String){
     return this.http.get<User[]>('/api/signup/'+FirstName+'/'+LastName+'/'+Email+'/'+Password+'/'+Description+'/'+Goals+'/'+DietaryRestrictions+'/'+Picture)
+  }
+
+  get_usergroups(ID: any){
+    return this.http.get<GroupInfo[]>('/api/get_usergroups/'+ID)
+  }
+
+  get_groupmemberinfo(ID){
+    return this.http.get<GroupMemberInfo[]>('/api/get_groupmemberinfo/'+ID)
   }
 }

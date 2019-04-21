@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import {Router} from '@angular/router';
 import {AppComponent} from '../app.component';
-import {User, WelcomeService, LoggedIn} from '../welcome.service';
+import {User, WelcomeService} from '../welcome.service';
 
 @Component({
   selector: 'app-welcome',

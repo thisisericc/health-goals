@@ -1,0 +1,102 @@
+<div class="jumbotron jumbotron-fluid">
+  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+</div>
+<html>
+
+<!-- <div class="container">
+
+    <h2 class="text-center font-weight-light">About {{user.FirstName}} </h2>
+    <div class = "LeftBox"></div>
+    <div class="UserBox">
+            <img src="icon.png" width="200" height="200">
+            <p>{{user.FirstName}} {{user.LastName}}</p>
+            <p>{{user.Email}}</p>
+            <p>{{user.DietaryRestrictions}}</p>
+            <i>" {{user.Description}} "</i>
+            <h3 class="text-center font-weight-light"> Your Groups </h3>
+            <table class="table table-dark">
+                    <thead>
+                      <tr> 
+                        <th scope="col">Group Name</th>
+                        <th scope="col">Group Number</th>
+                        <th scope="col">Training Type</th>
+                        <th scope="col">Calorie Goal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{groupInfo.NameOfGroup}}</th>
+                        <td>{{groupInfo.GroupNumber}}</td>
+                        <td>{{groupInfo.TrainingType}}</td>
+                        <td>{{groupInfo.CalorieGoal}}</td>
+                      </tr>
+                    </tbody>
+            </table>
+      </div>
+      <div class = "RightBox"></div>
+</div>
+</html> -->
+
+<html>
+    <body>
+
+        <div style="text-align: center"> 
+         
+        <div class="row" >
+          <div class="column left" style="text-align: center">
+            <h2>Your Groups</h2>
+            <table class="table">
+                <thead>
+                  <tr> 
+                    <th scope="col">Group <br> Name</th>
+                    <th scope="col">Training Type</th>
+                    <th scope="col">Calorie Goal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{groupInfo.NameOfGroup}}</th>
+                    <td>{{groupInfo.TrainingType}}</td>
+                    <td>{{groupInfo.CalorieGoal}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="column middle" style="text-align: center">
+            <h2>About {{user.FirstName}}</h2>
+              <img src="icon.png" width="200" height="200">
+              <br>
+              <i>"{{user.Description}}"</i>
+              <br>
+              <small><b>Name:</b> {{user.FirstName}} {{user.LastName}}</small>
+              <br>
+              <small><b>E-mail:</b> {{user.Email}}</small>
+              <br>
+              <small><b>Dietary Restrictions:</b> {{user.DietaryRestrictions}}</small>
+              <br>
+              <small><b>Goals</b> {{user.Goals}} </small>
+          </div>
+          <div class="column right" style="text-align: center">
+            <h2>Your Group Goals</h2>
+            <table class="table">
+                <thead>
+                  <tr> 
+                    <th scope="col">Group Name</th>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Goal Reached</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{groupMemberInfo.NameOfGroup}}</th>
+                    <td>{{groupMemberInfo.Rank}}</td>
+                    <td>{{groupMemberInfo.GoalReached}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+        </div>
+    </body>
+</html>
