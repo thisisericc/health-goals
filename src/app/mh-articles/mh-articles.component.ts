@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {MHArticlesService, MHArticles  } from '../mh-articles.service';
-
+import {User, WelcomeService} from '../welcome.service';
 @Component({
   selector: 'app-mh-articles',
   templateUrl: './mh-articles.component.html',
@@ -19,6 +19,8 @@ export class MhArticlesComponent implements OnInit {
   articleyearg:string;
   articleyearl:string;
   articlename:string;
+  ids:string;
+  recents:string;
 
   constructor(public articleService:MHArticlesService) { 
     
@@ -109,4 +111,15 @@ this.articleService.filterByType(this.articletype).subscribe(
       }
     )
   } 
+  getRecent(ids:string,recents:string){
+    this.articleService.getRecent(ids,recents).subscribe(
+      data => {
+        this.articles = data;
+      },
+      error => {
+        alert ('Could not retrieve a list of recents');
+      }
+    )
+  }
+
 }

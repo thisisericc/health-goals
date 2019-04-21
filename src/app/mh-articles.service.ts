@@ -51,4 +51,11 @@ export class MHArticlesService {
     return this.http.get<MHArticles[]>('/api/SearchArticles/'+aname);
 
   } 
+  getRecent(ids:string, recent:string){
+    return this.http.get<MHArticles[]>('/api/recent/'+ids+'/'+recent)
+  }
+  writeRecent(writes:string){
+    return this.http.get<MHArticles[]>('/api/write/'+writes)
+  }
+
 }

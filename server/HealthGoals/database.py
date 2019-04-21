@@ -207,3 +207,47 @@ def search_articles(aname):
                 )
                 rs = con.execute(query, aname=nameFinal)
                 return [dict(row) for row in rs]
+def get_recent(ids,recents):
+    with engine.connect() as con:
+        query = sql.text(
+            "INSERT INTO Users (ID,ArticleName) VALUES (:ids, :recents);"
+        )
+        rs = con.execute(query, ids=ids, recents=recents)
+def write_recent(write):
+        with engine.connect() as con:
+                writeFinal = "%" + write + "%"
+                query = sql.text(
+                        " SELECT * from RecentArticle WHERE ArticleName LIKE :write;"
+                )
+                rs = con.execute(query, write=writeFinal)
+                return [dict(row) for row in rs]
+
+def get_login(email, password):
+    with engine.connect() as con:
+        query = sql.text("SELECT * FROM Users WHERE Email =:email AND Password =:password")
+        rs = con.execute(query, email=email, password=password)
+        result = rs.first()
+        if result is None:
+            return None
+        return dict(result)
+
+def get_userdata(ID):
+    with engine.connect() as con:
+        query = sql.text("SELECT * FROM Users WHERE ID=:ID")
+        rs = con.execute(query, ID=ID)
+        result = rs.first()
+        if result is None:
+            return None
+        return dict(result)
+
+def sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture):
+    with engine.connect() as con:
+        query = sql.text(
+            "INSERT INTO Users (FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture) VALUES (:FirstName, :LastName, :Email, :Password, :Description, :Goals, :DietaryRestrictions, :Picture);"
+        )
+        rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, DietaryRestrictions=DietaryRestrictions, Picture=Picture)
+
+
+
+
+

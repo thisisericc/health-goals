@@ -3,7 +3,6 @@ from flask import jsonify
 from flask import make_response
 from flask import request
 import json
-
 from HealthGoals import database
 
 app = Flask(__name__)
@@ -11,6 +10,10 @@ app = Flask(__name__)
 @app.route('/api/videos', methods=["GET"])
 def get_videos():
     return jsonify(database.get_videos())
+
+@app.route('/api/instructors', methods=["GET"])
+def get_Instructors():
+    return jsonify(database.get_Instructors())
 
 @app.route('/api/videos/<video>', methods=["GET"])
 def find_videos(video):
@@ -281,6 +284,39 @@ def search_articles(aname):
         if articlename is None:
             return make_response("No article with the given name.", 400)
         return jsonify(articlename)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/get_userdata/<ID>', methods=["GET"])
+def getid(ID):
+    try:
+        res = database.get_userdata(ID)
+        if res is None:
+            raise ValueError("Couldnt get data")
+        return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+
+
+@app.route('/api/recent/<ids>/<recents>', methods=["GET"])
+def get_recent(ids,recents):
+    try:
+        res = database.get_recent(ids,recents)
+        return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+@app.route('/api/write/<writes>', methods=["GET"])
+def write_recent(writes):
+    try:
+        rest = database.write_recent(writes)
+        return jsonify(rest)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
