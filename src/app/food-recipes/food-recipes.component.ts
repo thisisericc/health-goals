@@ -37,7 +37,7 @@ export class FoodRecipesComponent implements OnInit {
   sortField: string;
   sortOrder: number;
   sortKey: string;
-  sortOptions: string[];
+  sortOptions: any;
 
   constructor(
     private foodRecipesService: FoodRecipesService,
@@ -54,7 +54,12 @@ export class FoodRecipesComponent implements OnInit {
       this.recipesQuery(this.mealQuery);
     }
 
-    this.sortOptions = ['A-Z', 'Z-A', 'Calories'];
+    this.sortOptions = [
+      {label: 'A-Z', value: 'name'},
+      {label: 'Z-A', value: '!name'},
+      {label: 'Calories', value: 'calories'},
+      {label: 'Daily %', value: 'daily'}
+    ];
   }
 
   recipesQuery(mealQuery: string) {
@@ -693,7 +698,15 @@ export class FoodRecipesComponent implements OnInit {
 
   onSortChange(event) {
     if (this.searchResults.length > 0) {
-
+      if (event.value === 'name') {
+        this.searchResults.sort((a, b) => (a.recipeName > b.recipeName) ? 1 : ((b.recipeName > a.recipeName) ? -1 : 0));
+      } else if (event.value === '!name') {
+        this.searchResults.sort((a, b) => (a.recipeName < b.recipeName) ? 1 : ((b.recipeName < a.recipeName) ? -1 : 0));
+      } else if (event.value === 'calories') {
+        this.searchResults.sort((a, b) => (parseInt(a.calories) * parseInt(a.servings) > parseInt(b.calories) * parseInt(b.servings)) ? 1 : ((parseInt(b.calories) * parseInt(b.servings) > parseInt(a.calories) * parseInt(a.servings)) ? -1 : 0));
+      } else if (event.value === 'daily') {
+        this.searchResults.sort((a, b) => (parseInt(a.totalDaily) > parseInt(b.totalDaily)) ? 1 : ((parseInt(b.totalDaily) > parseInt(a.totalDaily)) ? -1 : 0));
+      }
     }
   }
 }
