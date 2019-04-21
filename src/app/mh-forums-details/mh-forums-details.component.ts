@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
 import { MentalHealthForums, MentalHealthForumReplies, MentalHealthForumsService } from '../mental-health-forums.service';
 import {Location} from '@angular/common';
+import {User, WelcomeService, LoggedIn} from '../welcome.service'
 
 @Component({
   selector: 'app-mh-forums-details',
@@ -20,10 +21,14 @@ export class MhForumsDetailsComponent implements OnInit {
   replies: MentalHealthForumReplies[];
   NewReply: string;
 
+  user: User[]
+  loggedIn: boolean = false;
+
   constructor(
     public forumsService: MentalHealthForumsService,
     private mentalHealthForumsService: MentalHealthForumsService,
     private route: ActivatedRoute,
+    public userService: WelcomeService,
     private _location: Location
   ) { 
     route.paramMap.subscribe((paramMap) => {
@@ -64,6 +69,26 @@ export class MhForumsDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem("loggedIn") == "true"){
+      this.loggedIn = true;
+      this.get_userdata(localStorage.getItem("ID"));
+    }
+    else{
+      this.loggedIn = false;
+      localStorage.clear();
+      localStorage.setItem("loggedIn", "false");
+    }
+  }
+
+  get_userdata(ID: any){
+    this.userService.get_userdata(ID).subscribe(
+      data => {
+        this.user= data;
+      },
+      error => {
+        alert("unable to get user data");
+      }
+    )
   }
 
   getForums() {
@@ -99,8 +124,8 @@ export class MhForumsDetailsComponent implements OnInit {
     );
   }
 
-  addNewReply(reply: string) {
-    this.forumsService.addReply(this.forumName, reply).subscribe(
+  addNewReply(useremail: string, reply: string) {
+    this.forumsService.addReply(useremail, this.forumName, reply).subscribe(
       data => {
         this.forums = data;
         alert('Reply posted');
