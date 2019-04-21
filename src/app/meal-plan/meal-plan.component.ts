@@ -57,15 +57,16 @@ export class MealPlanComponent implements OnInit{
 
   ngOnInit() {
 
-      if(localStorage.getItem("loggedIn") == "true"){
+      /*if(localStorage.getItem("loggedIn") == "true"){
           this.loggedIn = true;
           this.get_userdata(localStorage.getItem("ID"));
+          console.log(this.get_userdata(localStorage.getItem("ID")));
       }
       else{
           this.loggedIn = false;
           localStorage.clear();
           localStorage.setItem("loggedIn", "false");
-      }
+      }*/
 
 
       let breakfastitems: Array<string>= ['apple-juice','strawberry','french-toast','fruit','bananas-milk','granola','banana-pancake','bacon-strip-breakfast','smoothie','omelette','quick','bread','orange-juice','low-cal-juice','granola-bar'];
