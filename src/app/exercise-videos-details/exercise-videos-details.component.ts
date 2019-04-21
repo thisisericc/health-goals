@@ -22,6 +22,7 @@ export class ExerciseVideosDetailsComponent implements OnInit {
   bodyfocus: string;
   videolink:string;
 
+
   videoDetails: ExerciseVideos[];
   selectedTraining: string;
   selectedDifficulty: string;
@@ -41,7 +42,7 @@ export class ExerciseVideosDetailsComponent implements OnInit {
   ) {
     route.paramMap.subscribe((paramMap) => {
       this.videoname = paramMap.get('videos');
-
+      
       exercisevideoService.findvideo(this.videoname).subscribe(
         data => {
           this.videoDetails = data;
