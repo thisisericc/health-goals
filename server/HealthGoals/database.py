@@ -210,3 +210,47 @@ def filter_by_Tags(tags):
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]
+
+def get_usergroups(ID):
+     with engine.connect() as con:
+        query = sql.text(
+                "SELECT * FROM GroupInfo Where GroupInfo.GroupNumber = (SELECT GroupNumber from GroupMemberInfo where GroupMemberInfo.UserID=:ID)"
+        )
+        rs = con.execute(query, ID=ID)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)
+
+def get_groupmemberinfo(ID):
+     with engine.connect() as con:
+        query = sql.text(
+                "SELECT * FROM GroupMemberInfo where GroupMemberInfo.UserID=:ID"
+        )
+        rs = con.execute(query, ID=ID)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)
+
+def default_img(id, blob):
+     with engine.connect() as con:
+        query = sql.text(
+                "INSERT INTO Pictures (id, blob) VALUES (:id, :blob)"
+        )
+        rs = con.execute(query, id=id, blob=blob)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)        
+
+def update_img(id, blob):
+     with engine.connect() as con:
+        query = sql.text(
+                "UPDATE `Pictures` SET `blob` = :blob WHERE `id` =: ID;"
+        )
+        rs = con.execute(query, blob= blob, id=id)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)

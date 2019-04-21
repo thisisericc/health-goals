@@ -257,3 +257,44 @@ def sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRest
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
+
+@app.route('/api/get_usergroups/<ID>', methods=["GET"])
+def get_usergroups(ID):
+    try:
+        res = database.get_usergroups(ID)
+        return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/get_groupmemberinfo/<ID>', methods=["GET"])
+def get_groupmemberinfo(ID):
+    try:
+        res = database.get_groupmemberinfo(ID)
+        return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/default_img/<id>/<blob>', methods=["GET"])
+def default_img(id, blob):
+    try:
+        res = database.default_img(id, blob)
+        return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/update_img/<id>/<blob>', methods=["GET"])
+def update_img(id, blob):
+    try:
+        res = database.update_img(id, blob)
+        return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
