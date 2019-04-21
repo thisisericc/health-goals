@@ -62,7 +62,7 @@ export class FoodRecipesComponent implements OnInit {
       obj => {
       const str = JSON.stringify(obj);
       const output: FoodRecipes[] = [];
-      if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8)), -1) > 0) {
+      if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8))) > 0) {
         str.substring(str.indexOf('\"recipe\"') + 12, str.length - 1).split('\"recipe\"').forEach(function (recipe) {
 
           const fR = {} as FoodRecipes;
@@ -129,7 +129,7 @@ export class FoodRecipesComponent implements OnInit {
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
-        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8)), -1) > 0) {
+        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8))) > 0) {
           str.substring(str.indexOf('\"recipe\"') + 12, str.length - 1).split('\"recipe\"').forEach(function (recipe) {
   
             const fR = {} as FoodRecipes;
@@ -193,7 +193,7 @@ export class FoodRecipesComponent implements OnInit {
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
-        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8)), -1) > 0) {
+        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8))) > 0) {
           str.substring(str.indexOf('\"recipe\"') + 12, str.length - 1).split('\"recipe\"').forEach(function (recipe) {
   
             const fR = {} as FoodRecipes;
@@ -258,7 +258,7 @@ export class FoodRecipesComponent implements OnInit {
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
-        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8)), -1) > 0) {
+        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8))) > 0) {
           str.substring(str.indexOf('\"recipe\"') + 12, str.length - 1).split('\"recipe\"').forEach(function (recipe) {
   
             const fR = {} as FoodRecipes;
@@ -323,7 +323,7 @@ export class FoodRecipesComponent implements OnInit {
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
-        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8)), -1) > 0) {
+        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8))) > 0) {
           str.substring(str.indexOf('\"recipe\"') + 12, str.length - 1).split('\"recipe\"').forEach(function (recipe) {
   
             const fR = {} as FoodRecipes;
@@ -388,7 +388,7 @@ export class FoodRecipesComponent implements OnInit {
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
-        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8)), -1) > 0) {
+        if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8))) > 0) {
           str.substring(str.indexOf('\"recipe\"') + 12, str.length - 1).split('\"recipe\"').forEach(function (recipe) {
   
             const fR = {} as FoodRecipes;
