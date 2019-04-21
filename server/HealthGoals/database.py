@@ -5,6 +5,15 @@ from HealthGoals import config
 
 engine = create_engine(config.database_uri)
 
+def saved_videos(videoname,userid):
+        with engine.connect() as con:
+                query = sql.text("INSERT INTO SavedVideos (ID, VideoName) VALUES (:userid, :videoname);")
+                rs = con.execute(query, userid = userid, videoname=videoname)
+def get_saved_videos(userid):
+        with engine.connect() as con:
+                query = sql.text("SELECT * FROM SavedVideos WHERE ID = :userid;")
+                rs = con.execute(query, userid = userid)
+                return [dict(row) for row in rs]
 def get_videos():
         with engine.connect() as con:
                 rs = con.execute("SELECT VideoName, Difficulty, TrainingType, Link, FinalLink, ImageLink FROM ExerciseVideos;")

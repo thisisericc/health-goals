@@ -7,6 +7,14 @@ from HealthGoals import database
 
 app = Flask(__name__)
 
+@app.route('/api/SaveVideo/<videoname>/<userid>', methods=["GET"])
+def saved_videos(videoname,userid):
+    return jsonify(database.saved_videos(videoname,userid))
+
+@app.route('/api/savedvideos/<userid>', methods=["GET"])
+def get_saved_videos(userid):
+    return jsonify(database.get_saved_videos(userid))
+
 @app.route('/api/videos', methods=["GET"])
 def get_videos():
     return jsonify(database.get_videos())

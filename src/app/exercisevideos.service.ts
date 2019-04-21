@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 export interface ExerciseVideos{
 
   Difficulty: string;
+  ID:string;
   TrainingType: string;
   VideoName: string;
   BodyFocus: string;
@@ -11,6 +12,9 @@ export interface ExerciseVideos{
   ImageLink:string;
   FinalLink: string;
 }
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,6 +27,12 @@ export class ExercisevideosService {
 
    }
 
+  saveVideo(videoname:string, user: string, ){
+    return this.http.get<ExerciseVideos[]>('/api/SaveVideo/'+videoname+'/'+user);
+  }
+  getSavedVideos(userid:number){
+    return this.http.get<ExerciseVideos[]>('/api/savedvideos/'+userid);
+  }
   getVideos(){
     return this.http.get<ExerciseVideos[]>('/api/videos');
   }
