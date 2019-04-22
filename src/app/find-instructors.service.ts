@@ -8,7 +8,7 @@ export interface FindInstructors{
   Zip : string;
   Tags : string;
   Image_URL : string;
-  Certifications:string;
+  Certification:string;
   About : string;
   Rates : string;
   uri_name:string;
