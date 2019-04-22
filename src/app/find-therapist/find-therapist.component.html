@@ -6,21 +6,23 @@
 <p class = "Heading2"><b>Find a Therapist!</b></p>
 
 <div class="Filter-Results">
+        
   <p-card header="Filter Results" subheader="Treatment Type">
       <font style="font-weight: normal;">
         <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="treatmenttype" value="Therapy" label="Therapy" (click)="getonlyTherapists()"></p-checkbox>
+      <p-checkbox name="treatmenttype" value="Therapy" label="Therapy" (click)="getonlyTherapists()" [(ngModel)]="thera" binary="true"></p-checkbox>
       </div>
       <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="treatmenttype" value="Psychiatrist" label="Psychiatrist" (click)="getonlyPsychiatrists()"></p-checkbox>
+      <p-checkbox name="treatmenttype" value="Psychiatrist" label="Psychiatrist" (click)="getonlyPsychiatrists()" [(ngModel)]="psych" binary="true"></p-checkbox>
       </div>
       <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="treatmenttype" value="psychologist" label="Psychology" (click)="getonlyPsychologists()"></p-checkbox>
+      <p-checkbox name="treatmenttype" value="psychologist" label="Psychology" (click)="getonlyPsychologists()" [(ngModel)]="psychologis" binary="true"></p-checkbox>
       </div>
       <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="treatmenttype" value="counselor" label="Counseling" (click)="getonlyCounselors()"></p-checkbox>
+      <p-checkbox name="treatmenttype" value="counselor" label="Counseling" (click)="getonlyCounselors()" [(ngModel)]="coun" binary="true"></p-checkbox>
       </div>
       <br>
+      <button type="button" (click) = "resetFilter()" pButton label="Reset Filter" class = "reset-filter"></button>
   
       
       <!--<font color="grey"><b>Duration</b></font>

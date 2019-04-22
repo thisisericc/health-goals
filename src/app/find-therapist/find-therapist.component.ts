@@ -15,6 +15,10 @@ export class FindTherapistComponent implements OnInit {
   therapistResults: any;
   loading: any;
   error=null;
+  thera:boolean;
+  psych:boolean;
+  psychologis:boolean;
+  coun:boolean;
 
   constructor(
     public findTherapistService: FindTherapistService,
@@ -188,6 +192,16 @@ export class FindTherapistComponent implements OnInit {
         this.error=error;
         this.messageService.add({severity: 'error',summary:this.error, life:5000, detail: 'Search Failed'});
       });
+  }
+
+  resetFilter(){
+    debugger;
+    this.thera=false;
+    this.psych=false;
+    this.psychologis=false;
+    this.coun=false;
+    this.TherapistLocation();
+    
   }
 
   getonlyPsychiatrists(){

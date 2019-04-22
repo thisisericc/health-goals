@@ -9,9 +9,6 @@
 <div class="Filter-Results">
   <p-card header="Filter Results">
       <!--<input type="button" (click)="resetFilters()" pButton label="Reset Filters" class="reset"></button>-->
-      <button type="button" (click) = "resetFilters()" pButton label="Reset Filters" class = "reset-filter"></button>
-      <br/>
-      <br/>
       <font color="grey"><b>Tags</b></font>
       <br/>
       <br/>
@@ -81,7 +78,8 @@
       <p-checkbox name="cert" value="personal" label="Personal Trainer" [(ngModel)]="Personalvalue" binary="true" (onChange)="getByCert($event)"></p-checkbox>
       </div>
     </font>
-
+    <br>
+    <button type="button" (click) = "resetFilters()" pButton label="Reset Filters" class = "reset-filter"></button>
   </p-card>
 </div>
 
