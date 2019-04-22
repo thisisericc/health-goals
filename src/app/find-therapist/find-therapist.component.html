@@ -6,19 +6,23 @@
 <p class = "Heading2"><b>Find a Therapist!</b></p>
 
 <div class="Filter-Results">
+        
   <p-card header="Filter Results" subheader="Treatment Type">
-      <p-checkbox name="treatmenttype" value="Therapy" label="Therapy" (click)="getonlyTherapists()"></p-checkbox>
+      <font style="font-weight: normal;">
+        <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+      <p-checkbox name="treatmenttype" value="Therapy" label="Therapy" (click)="getonlyTherapists()" [(ngModel)]="thera" binary="true"></p-checkbox>
+      </div>
+      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+      <p-checkbox name="treatmenttype" value="Psychiatrist" label="Psychiatrist" (click)="getonlyPsychiatrists()" [(ngModel)]="psych" binary="true"></p-checkbox>
+      </div>
+      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+      <p-checkbox name="treatmenttype" value="psychologist" label="Psychology" (click)="getonlyPsychologists()" [(ngModel)]="psychologis" binary="true"></p-checkbox>
+      </div>
+      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+      <p-checkbox name="treatmenttype" value="counselor" label="Counseling" (click)="getonlyCounselors()" [(ngModel)]="coun" binary="true"></p-checkbox>
+      </div>
       <br>
-      <br>
-      <p-checkbox name="treatmenttype" value="Psychiatrist" label="Psychiatrist" (click)="getonlyPsychiatrists()"></p-checkbox>
-      <br/>
-      <br/>
-      <p-checkbox name="treatmenttype" value="psychologist" label="Psychology" (click)="getonlyPsychologists()"></p-checkbox>
-      <br/>
-      <br/>
-      <p-checkbox name="treatmenttype" value="counselor" label="Counseling" (click)="getonlyCounselors()"></p-checkbox>
-      <br/>
-     <br/>
+      <button type="button" (click) = "resetFilter()" pButton label="Reset Filter" class = "reset-filter"></button>
   
       
       <!--<font color="grey"><b>Duration</b></font>
@@ -38,21 +42,7 @@
       <p-checkbox name="otherspecifications" value="LGBTQ" label="LGBTQ+ Friendly"></p-checkbox>
       <br/>
       <br/>-->
-
-      <font color="grey"><b>Location Radius</b></font>
-      <br/>
-      <br/>
-      <p-checkbox name="locationradius" value="1to3" label="1-3 miles"></p-checkbox>
-      <br>
-      <br>
-      <p-checkbox name="locationradius" value="3to5" label="3-5 miles"></p-checkbox>
-      <br/>
-      <br/>
-      <p-checkbox name="locationradius" value="5to10" label="5-10 miles"></p-checkbox>
-      <br>
-      <br>
-      <p-checkbox name="locationradius" value="morethan10" label="10+ miles"></p-checkbox>
-
+</font>
   </p-card>
 </div>
 
@@ -70,7 +60,7 @@
 
     <p-dataView [value]="therapistResults"  [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
         <ng-template let-res pTemplate="listItem">
-        <a routerLink="/find-therapist/{{res.npi}}">
+        <a routerLink="/find-therapist/{{res.npi}}" style="text-decoration: none;">
             <div id="Search-row"  >
                 
                     <div>
@@ -78,10 +68,12 @@
                     </div>
                 
 
-                <div class="Search-Row-Info">
+                <div class="Search-Row-Info" style="color: black; text-decoration: none">
                     <div>
                         <font size="6">
+                            <strong>
                                 {{ res.fname}} {{res.mname}} {{res.lname}}
+                                </strong>
                         </font>
                     </div>
                     <div>
@@ -95,9 +87,12 @@
                             Phone Number: {{ res.number }}
                         </font>
                     </div>
+                    <br>
                     <div>
-                        <font size="1.6">
-                           
+                        <font size="1.5">
+                           Specialty: {{res.specialties}}
+                           <br>
+                           {{res.s_description}}
                         </font>
                     </div>
                 </div>

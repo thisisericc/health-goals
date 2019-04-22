@@ -159,6 +159,57 @@
                     </div>
                 </div>
             </div>
+            <div class="Nutrition-Facts">
+                <p-dialog header="Nutrition Facts" [(visible)]="nutritionFacts" [modal]="true" [responsive]="true" [style]="{width: '450px', minWidth: '200px'}" [contentStyle]="{'max-height':'650px'}" [minY]="70" [maximizable]="true" [baseZIndex]="10000">
+                    <!--
+                    <p-orderList [value]="facts" [listStyle]="{'height':'250px'}">
+                        <ng-template let-car pTemplate="item">
+                            <div class="ui-helper-clearfix">
+                                <img src="assets/showcase/images/demo/car/{{car.brand}}.png" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+                                <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{car.brand}} - {{car.year}} - {{car.color}}</div>
+                            </div>
+                        </ng-template>
+                    </p-orderList>
+                    -->
+                    <p-table [value]="nutrientsList">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th style="width: 70%">Nutrition Facts (per serving)</th>
+                                <th style="width: 30%">% Daily Value</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-nutri>
+                            <tr>
+                                <td>
+                                    {{ nutri.vitamin }}
+                                </td>
+                                <td>
+                                    {{ nutri.daily }}
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                    <br/>
+                    <br/>
+                    <p-table [value]="ingredientsList">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th style="width: 100%">Ingredients</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-ingr>
+                            <tr>
+                                <td>
+                                    <font color="grey"><b>Weight: </b></font> {{ ingr.weight }}g
+                                    <br/>
+                                    <font color="grey"><b>Ingredient: </b></font> {{ ingr.ingredient }}
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-dialog>
+                <button type="button" (click)="showNutritionFacts(res)" pButton icon="pi pi-info-circle" label="Nutrition Facts"></button>
+            </div>
         </ng-template>
     </p-dataView>
 </div>

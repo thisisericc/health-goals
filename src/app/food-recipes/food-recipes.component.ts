@@ -3,6 +3,8 @@ import { FoodRecipesService } from '../food-recipes.service';
 import { FoodRecipes } from '../food-recipes';
 import { MessageService } from 'primeng/api';
 import { FoodRecipesSuggestionsService } from '../food-recipes-suggestions.service';
+import { FoodRecipesIngredients } from '../food-recipes-ingredients';
+import { FoodRecipesVitamins } from '../food-recipes-vitamins';
 
 @Component({
   selector: 'app-food-recipes',
@@ -38,6 +40,9 @@ export class FoodRecipesComponent implements OnInit {
   sortOrder: number;
   sortKey: string;
   sortOptions: any;
+  nutritionFacts = false;
+  nutrientsList: FoodRecipesVitamins[] = [];
+  ingredientsList: FoodRecipesIngredients[] = [];
 
   constructor(
     private foodRecipesService: FoodRecipesService,
@@ -65,15 +70,20 @@ export class FoodRecipesComponent implements OnInit {
   recipesQuery(mealQuery: string) {
     this.foodRecipesService.getFoodRecipes(mealQuery, this.dietFilters, this.healthFilters).subscribe(
       obj => {
+      let idx = 0;
       const str = JSON.stringify(obj);
       const output: FoodRecipes[] = [];
       if(parseInt(str.substring(str.indexOf('\"count\"') + 8, str.indexOf(',', str.indexOf('\"count\"') + 8))) > 0) {
         str.substring(str.indexOf('\"recipe\"') + 12, str.length - 1).split('\"recipe\"').forEach(function (recipe) {
-
           const fR = {} as FoodRecipes;
-  
+
           fR.recipeName = recipe.substring(recipe.indexOf('\"label\"') + 9, recipe.indexOf('\"', recipe.indexOf('\"label\"') + 9));
-  
+          /*
+          const test = obj.hits[idx++];
+          console.log(test.recipe);
+          this.makeNutritionLabel(test, null);
+          */
+
           fR.imageURL = recipe.substring(recipe.indexOf('\"image\"') + 9, recipe.indexOf('\"', recipe.indexOf('\"image\"') + 9));
   
           fR.articleURL = recipe.substring(recipe.indexOf('\"url\"') + 7, recipe.indexOf('\"', recipe.indexOf('\"url\"') + 7));
@@ -93,6 +103,44 @@ export class FoodRecipesComponent implements OnInit {
           fR.servings = Math.round(parseFloat(recipe.substring(recipe.indexOf('\"yield\"') + 8, recipe.indexOf(',',
           recipe.indexOf('\"yield\"') + 8)))) + '';
   
+          const ingreds = obj.hits[idx].recipe.ingredients;
+          const w = [];
+          const i = [];
+          ingreds.forEach( function(o) {
+            w.push(o.weight);
+            i.push(o.text);
+          });
+          //console.log(w);
+          //console.log(i);
+          fR.weights = w;
+          fR.ingreds = i;
+
+          const nutrients = JSON.stringify(obj.hits[idx].recipe.totalNutrients);
+          const nutri = [];
+          nutri.push('Servings: ' + fR.servings);
+          nutrients.split('\},').forEach( function(str2) {
+            let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+            str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+            parseFloat(fR.servings) * 100) / 100;
+            str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+            //console.log(str3);
+            nutri.push(str3);
+          });
+
+          const dailyVal = JSON.stringify(obj.hits[idx++].recipe.totalDaily);
+          const daily = [];
+          dailyVal.split('\},').forEach( function(str2) {
+            let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+            str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+            parseFloat(fR.servings) * 100) / 100;
+            str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+            //console.log(str3);
+            daily.push(str3);
+          });
+
+          fR.vitamins = nutri;
+          fR.daily = daily;
+
           const totalDailyStr = recipe.substring(recipe.indexOf('\"totalDaily\"') + 14, recipe.indexOf('\},',
           recipe.indexOf('\"totalDaily\"') + 14));
           fR.totalDaily = Math.round(parseFloat(totalDailyStr.substring(totalDailyStr.indexOf('\"quantity\"') + 11,
@@ -131,6 +179,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getBreakfast(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
@@ -159,6 +208,44 @@ export class FoodRecipesComponent implements OnInit {
     
             fR.servings = Math.round(parseFloat(recipe.substring(recipe.indexOf('\"yield\"') + 8, recipe.indexOf(',',
             recipe.indexOf('\"yield\"') + 8)))) + '';
+
+            const ingreds = obj.hits[idx].recipe.ingredients;
+            const w = [];
+            const i = [];
+            ingreds.forEach( function(o) {
+              w.push(o.weight);
+              i.push(o.text);
+            });
+            //console.log(w);
+            //console.log(i);
+            fR.weights = w;
+            fR.ingreds = i;
+  
+            const nutrients = JSON.stringify(obj.hits[idx].recipe.totalNutrients);
+            const nutri = [];
+            nutri.push('Servings: ' + fR.servings);
+            nutrients.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              nutri.push(str3);
+            });
+  
+            const dailyVal = JSON.stringify(obj.hits[idx++].recipe.totalDaily);
+            const daily = [];
+            dailyVal.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              daily.push(str3);
+            });
+  
+            fR.vitamins = nutri;
+            fR.daily = daily;
     
             const totalDailyStr = recipe.substring(recipe.indexOf('\"totalDaily\"') + 14, recipe.indexOf('\},',
             recipe.indexOf('\"totalDaily\"') + 14));
@@ -195,6 +282,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getLunch(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
@@ -223,6 +311,44 @@ export class FoodRecipesComponent implements OnInit {
     
             fR.servings = Math.round(parseFloat(recipe.substring(recipe.indexOf('\"yield\"') + 8, recipe.indexOf(',',
             recipe.indexOf('\"yield\"') + 8)))) + '';
+
+            const ingreds = obj.hits[idx].recipe.ingredients;
+            const w = [];
+            const i = [];
+            ingreds.forEach( function(o) {
+              w.push(o.weight);
+              i.push(o.text);
+            });
+            //console.log(w);
+            //console.log(i);
+            fR.weights = w;
+            fR.ingreds = i;
+  
+            const nutrients = JSON.stringify(obj.hits[idx].recipe.totalNutrients);
+            const nutri = [];
+            nutri.push('Servings: ' + fR.servings);
+            nutrients.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              nutri.push(str3);
+            });
+  
+            const dailyVal = JSON.stringify(obj.hits[idx++].recipe.totalDaily);
+            const daily = [];
+            dailyVal.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              daily.push(str3);
+            });
+  
+            fR.vitamins = nutri;
+            fR.daily = daily;
     
             const totalDailyStr = recipe.substring(recipe.indexOf('\"totalDaily\"') + 14, recipe.indexOf('\},',
             recipe.indexOf('\"totalDaily\"') + 14));
@@ -260,6 +386,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getDinner(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
@@ -288,6 +415,44 @@ export class FoodRecipesComponent implements OnInit {
     
             fR.servings = Math.round(parseFloat(recipe.substring(recipe.indexOf('\"yield\"') + 8, recipe.indexOf(',',
             recipe.indexOf('\"yield\"') + 8)))) + '';
+
+            const ingreds = obj.hits[idx].recipe.ingredients;
+            const w = [];
+            const i = [];
+            ingreds.forEach( function(o) {
+              w.push(o.weight);
+              i.push(o.text);
+            });
+            //console.log(w);
+            //console.log(i);
+            fR.weights = w;
+            fR.ingreds = i;
+  
+            const nutrients = JSON.stringify(obj.hits[idx].recipe.totalNutrients);
+            const nutri = [];
+            nutri.push('Servings: ' + fR.servings);
+            nutrients.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              nutri.push(str3);
+            });
+  
+            const dailyVal = JSON.stringify(obj.hits[idx++].recipe.totalDaily);
+            const daily = [];
+            dailyVal.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              daily.push(str3);
+            });
+  
+            fR.vitamins = nutri;
+            fR.daily = daily;
     
             const totalDailyStr = recipe.substring(recipe.indexOf('\"totalDaily\"') + 14, recipe.indexOf('\},',
             recipe.indexOf('\"totalDaily\"') + 14));
@@ -325,6 +490,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getSnack(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
@@ -353,6 +519,44 @@ export class FoodRecipesComponent implements OnInit {
     
             fR.servings = Math.round(parseFloat(recipe.substring(recipe.indexOf('\"yield\"') + 8, recipe.indexOf(',',
             recipe.indexOf('\"yield\"') + 8)))) + '';
+
+            const ingreds = obj.hits[idx].recipe.ingredients;
+            const w = [];
+            const i = [];
+            ingreds.forEach( function(o) {
+              w.push(o.weight);
+              i.push(o.text);
+            });
+            //console.log(w);
+            //console.log(i);
+            fR.weights = w;
+            fR.ingreds = i;
+  
+            const nutrients = JSON.stringify(obj.hits[idx].recipe.totalNutrients);
+            const nutri = [];
+            nutri.push('Servings: ' + fR.servings);
+            nutrients.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              nutri.push(str3);
+            });
+  
+            const dailyVal = JSON.stringify(obj.hits[idx++].recipe.totalDaily);
+            const daily = [];
+            dailyVal.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              daily.push(str3);
+            });
+  
+            fR.vitamins = nutri;
+            fR.daily = daily;
     
             const totalDailyStr = recipe.substring(recipe.indexOf('\"totalDaily\"') + 14, recipe.indexOf('\},',
             recipe.indexOf('\"totalDaily\"') + 14));
@@ -390,6 +594,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getDrink(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
@@ -418,6 +623,44 @@ export class FoodRecipesComponent implements OnInit {
     
             fR.servings = Math.round(parseFloat(recipe.substring(recipe.indexOf('\"yield\"') + 8, recipe.indexOf(',',
             recipe.indexOf('\"yield\"') + 8)))) + '';
+
+            const ingreds = obj.hits[idx].recipe.ingredients;
+            const w = [];
+            const i = [];
+            ingreds.forEach( function(o) {
+              w.push(o.weight);
+              i.push(o.text);
+            });
+            //console.log(w);
+            //console.log(i);
+            fR.weights = w;
+            fR.ingreds = i;
+  
+            const nutrients = JSON.stringify(obj.hits[idx].recipe.totalNutrients);
+            const nutri = [];
+            nutri.push('Servings: ' + fR.servings);
+            nutrients.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              nutri.push(str3);
+            });
+  
+            const dailyVal = JSON.stringify(obj.hits[idx++].recipe.totalDaily);
+            const daily = [];
+            dailyVal.split('\},').forEach( function(str2) {
+              let str3 = str2.substring(str2.indexOf('\"label\"') + 9, str2.indexOf('\"', str2.indexOf('\"label\"') + 9)) + ':';
+              str3 += ' ' + Math.round(parseFloat(str2.substring(str2.indexOf('\"quantity\"') + 11, str2.indexOf(',', str2.indexOf('\"quantity\"') + 11))) /
+              parseFloat(fR.servings) * 100) / 100;
+              str3 += str2.substring(str2.indexOf('\"unit\"') + 8, str2.indexOf('\"', str2.indexOf('\"unit\"') + 8));
+              //console.log(str3);
+              daily.push(str3);
+            });
+  
+            fR.vitamins = nutri;
+            fR.daily = daily;
     
             const totalDailyStr = recipe.substring(recipe.indexOf('\"totalDaily\"') + 14, recipe.indexOf('\},',
             recipe.indexOf('\"totalDaily\"') + 14));
@@ -708,5 +951,47 @@ export class FoodRecipesComponent implements OnInit {
         this.searchResults.sort((a, b) => (parseInt(a.totalDaily) > parseInt(b.totalDaily)) ? 1 : ((parseInt(b.totalDaily) > parseInt(a.totalDaily)) ? -1 : 0));
       }
     }
+  }
+
+  showNutritionFacts(res: any) {
+    this.nutritionFacts = true;
+    const output: FoodRecipesIngredients[] = [];
+    for (let i = 0; i < res.weights.length; i++) {
+      const o = {} as FoodRecipesIngredients;
+      o.ingredient = res.ingreds[i];
+      o.weight = Math.round(parseFloat(res.weights[i]) * 100) / 100 + '';
+      output.push(o);
+    }
+    this.ingredientsList = output;
+
+    const output2: FoodRecipesVitamins[] = [];
+    for (let i = 0; i < res.vitamins.length; i++) {
+      const o = {} as FoodRecipesVitamins;
+      o.vitamin = res.vitamins[i];
+      let contains = false;
+      for (let j = 0; j < res.daily.length; j++) {
+        if (res.vitamins[i].split(':')[0] === res.daily[j].split(':')[0]) {
+          contains = true;
+          o.daily = res.daily[j].split(': ')[1].split('\%')[0];
+        }
+      }
+      if (!contains) {
+        o.daily = '';
+      }
+      output2.push(o);
+    }
+    this.nutrientsList = output2;
+  }
+
+  makeNutritionLabel(obj: any, output: FoodRecipes) {
+    const ingreds = obj.recipe.ingredients;
+    const w = [];
+    const i = [];
+    ingreds.forEach( function(o) {
+      w.push(o.weight);
+      i.push(o.text);
+    });
+    console.log(w);
+    console.log(i);
   }
 }
