@@ -179,6 +179,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getBreakfast(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
@@ -281,6 +282,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getLunch(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
@@ -384,6 +386,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getDinner(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
@@ -487,6 +490,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getSnack(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
@@ -590,6 +594,7 @@ export class FoodRecipesComponent implements OnInit {
       console.log(this.mealQuery);
       this.foodRecipesService.getDrink(this.mealQuery, this.dietFilters, this.healthFilters).subscribe(
         obj => {
+        let idx = 0;
         const str = JSON.stringify(obj);
         const output: FoodRecipes[] = [];
 
