@@ -39,6 +39,9 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { TherapistDetailsComponent } from './therapist-details/therapist-details.component';
 import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DialogModule } from 'primeng/dialog';
+import { OrderListModule } from 'primeng/orderlist';
+
 
 @NgModule({
   declarations: [
@@ -80,7 +83,9 @@ import { ProfileComponent } from './profile/profile.component';
     MessageModule,
     ToastModule,
     TableModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    DialogModule,
+    OrderListModule
   ],
   providers: [HttpClient, WelcomeComponent],
   bootstrap: [AppComponent]

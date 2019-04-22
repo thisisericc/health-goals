@@ -3,7 +3,7 @@
     padding-bottom: 3%;
 }
 
-h1 { 
+h1 {
     font-size: 2em;
     font-weight: bold;
 }
@@ -46,8 +46,14 @@ h1 {
     left: 235px;
     top: -185px;
     min-height: 180px;
-    margin-bottom: -150px;
+    margin-bottom: -140px;
     margin-right: 235px;
+}
+
+.Nutrition-Facts {
+    position: relative;
+    left: 540px;
+    top: -40px;
 }
 
 .Trending-Recipes {
