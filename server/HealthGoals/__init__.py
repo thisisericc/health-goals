@@ -328,7 +328,7 @@ def getMemberInfo(Name):
 def JoinGroup(groupname, username, name): 
     return jsonify(database.JoinGroup(groupname, username, name))
 
-@app.route('/api/insert_saved_recipes/<ID>/<Name>/<URL>')
+@app.route('/api/insert_saved_recipes/<ID>/<Name>/<path:URL>')
 def insert_saved_recipes(ID, Name, URL):
     return jsonify(database.insert_saved_recipes(ID, Name, URL))
 
