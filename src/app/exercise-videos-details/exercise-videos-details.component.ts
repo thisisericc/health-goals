@@ -30,7 +30,7 @@ export class ExerciseVideosDetailsComponent implements OnInit {
   input: string;
 
   user: User[];
-  loggedIn: boolean =false;
+  loggedIn: boolean = false;
 
 
   constructor(

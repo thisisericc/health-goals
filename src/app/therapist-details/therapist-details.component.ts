@@ -125,7 +125,6 @@ export class TherapistDetailsComponent implements OnInit {
           T.specialties=therapist.substring(therapist.indexOf('\"name\":')+8, therapist.indexOf('\"', therapist.indexOf('\"name\"')+8));
           T.s_description=therapist.substring(therapist.indexOf('\"description\":')+15, therapist.indexOf('\"', therapist.indexOf('\"description\"')+15));
         });
-        debugger;
         output.push(T);
         
         this.therapistResults=output;
