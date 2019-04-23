@@ -213,7 +213,23 @@ def find_Instructor(name):
         with engine.connect() as con:
                 nameFinal = "%" + name + "%"
                 query = sql.text(
-                        " SELECT * from Instructors WHERE Name LIKE :name;"
+                        " SELECT * from Instructors WHERE Name LIKE :name;")
+                rs = con.execute(query, name=nameFinal)
+                result = rs.first()
+                if result is None:
+                        return None
+                return dict(result)
+
+
+def get_articles():
+        with engine.connect() as con:
+                rs = con.execute("SELECT ArticleName, Link, Author, Year, ArticleType FROM MentalHealthArticles;")
+                return [dict(row) for row in rs]
+def find_articles(name):
+        with engine.connect() as con:
+                nameFinal = "%" + name + "%"
+                query = sql.text(
+                        " SELECT * from MentalHealthArticles WHERE ArticleName LIKE :name;"
                 )
                 rs = con.execute(query, name=nameFinal)
                 result = rs.first()
@@ -226,6 +242,15 @@ def filter_by_Tags(tags):
                 string = "%" + tags+ "%"
                 query = sql.text(
                         "SELECT * from Instructors WHERE Tags LIKE :string;"
+                        )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
+             
+def filter_by_Topic(topics):
+        with engine.connect() as con:
+                string = "%" + topics+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE Topic LIKE :string;"
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]
@@ -328,3 +353,89 @@ def get_saved_recipes(ID):
                 query = sql.text("SELECT * FROM SavedRecipes WHERE ID = :ID;")
                 rs = con.execute(query, ID=ID)
                 return [dict(row) for row in rs]
+def filter_by_type(types):
+        with engine.connect() as con:
+                string = "%" + types+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE ArticleType LIKE :string;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
+
+def filter_by_year(years):
+        with engine.connect() as con:
+                string = "%" + years+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE Year BETWEEN 2000 AND 2010;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
+def filter_by_great(greats):
+        with engine.connect() as con:
+                string = "%" + greats+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE Year > 2010;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
+def filter_by_less(lesss):
+        with engine.connect() as con:
+                string = "%" + lesss+ "%"
+                query = sql.text(
+                        "SELECT * from MentalHealthArticles WHERE Year < 2000;"
+                )
+                rs = con.execute(query, string = string)
+                return [dict(row) for row in rs]
+def search_articles(aname):
+        with engine.connect() as con:
+                nameFinal = "%" + aname + "%"
+                query = sql.text(
+                        " SELECT * from MentalHealthArticles WHERE ArticleName LIKE :aname;"
+                )
+                rs = con.execute(query, aname=nameFinal)
+                return [dict(row) for row in rs]
+def get_recent(recents):
+    with engine.connect() as con:
+        query = sql.text(
+            "INSERT INTO RecentArticles (RecentName) VALUES ( :recents);"
+        )
+        rs = con.execute(query,  recents=recents)
+def write_recent(write):
+        with engine.connect() as con:
+                writeFinal = "%" + write + "%"
+                query = sql.text(
+                        "SELECT * , count(*) FROM RecentArticles GROUP BY RecentName ORDER BY count(*) DESC LIMIT 4;"
+                )
+                rs = con.execute(query, write=writeFinal)
+                return [dict(row) for row in rs]
+
+
+def get_login(email, password):
+    with engine.connect() as con:
+        query = sql.text("SELECT * FROM Users WHERE Email =:email AND Password =:password")
+        rs = con.execute(query, email=email, password=password)
+        result = rs.first()
+        if result is None:
+            return None
+        return dict(result)
+
+def get_userdata(ID):
+    with engine.connect() as con:
+        query = sql.text("SELECT * FROM Users WHERE ID=:ID")
+        rs = con.execute(query, ID=ID)
+        result = rs.first()
+        if result is None:
+            return None
+        return dict(result)
+
+def sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture):
+    with engine.connect() as con:
+        query = sql.text(
+            "INSERT INTO Users (FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture) VALUES (:FirstName, :LastName, :Email, :Password, :Description, :Goals, :DietaryRestrictions, :Picture);"
+        )
+        rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, DietaryRestrictions=DietaryRestrictions, Picture=Picture)
+
+
+
+
+

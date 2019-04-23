@@ -7,19 +7,15 @@
 <div class="Filter-Results">
 <p-card header="Filter Results" subheader="Type">
     &nbsp;
-    <p-checkbox name="symptoms" value="therapist" label="General Symptoms"></p-checkbox>
+    <p-checkbox name="symptoms" value="depression" label="Depression"(click)="filterByTopic('Depression')"></p-checkbox>
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="symptoms" value="depression" label="Depression"></p-checkbox>
+    <p-checkbox name="symptoms" value="suicidalthoughts" label="Suicidal Thoughts"(click)="filterByTopic('Suicidal Thoughts')"></p-checkbox>
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="symptoms" value="suicidalthoughts" label="Suicidal Thoughts"></p-checkbox>
-    <br/>
-    <br/>
-    &nbsp;
-    <p-checkbox name="symptoms" value="other" label="Other"></p-checkbox>
+    <p-checkbox name="symptoms" value="other" label="Other"(click)="filterByTopic('Other')"></p-checkbox>
     <br/>
     <br/>
     
@@ -27,120 +23,82 @@
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="duration" value="scholarly" label="Scholarly"></p-checkbox>
+    <p-checkbox name="duration" value="scholarly" label="Scholarly"(click)="filterByType('Scholarly')"></p-checkbox>
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="duration" value="opinion" label="Opinion"></p-checkbox>
+    <p-checkbox name="duration" value="opinion" label="Opinion"(click)="filterByType('Opinion')"></p-checkbox>
     <br/>
     <br/>
     <font color="grey"><b>Article Age</b></font>
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="age" value="old" label="<2000"></p-checkbox>
+    <p-checkbox name="age" value="old" label="<2000"(click)="filterByLess('1990')"></p-checkbox>
     &nbsp;
-    &nbsp;
-    <p-checkbox name="age" value="3to5" label="2000-2010"></p-checkbox>
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="age" value="5to10" label=">2010"></p-checkbox>
+    <p-checkbox name="age" value="3to5" label="2000-2010"(click)="filterByYear('2005')"></p-checkbox>
     &nbsp;
+    <br/>
+    <br/>
+    &nbsp;
+    <p-checkbox name="age" value="5to10" label=">2010"(click)="filterByGreat('3000')"></p-checkbox>
+    &nbsp;
+    <br/>
+    <br/>
+    
+    <p-button label="Likes" id="searchButton" (click) = "writeRecent('dep')"></p-button>
+    &nbsp;
+    <br/>
+    <br/>
+    <p-button label="Clear Filters" id="searchButton" (click) = "getArticles()"></p-button>
+
 </p-card>
 </div>
 
 <div class="Search-Bar">
-<span class="ui-float-label">
-    <input id="float-input" type="text" size="83"> 
-    <label for="float-input">Search For Service</label>
-</span>
+        <span class="ui-float-label">
+                <input id="float-input" type="text" size="75" pInputTextArea [(ngModel)] = "input" (keyup.enter) = "searchArticles(input)"> 
+        </span>
 </div>
 
-<div class="Search-Button">
-<p-button label="Search" id="searchButton" style="display: none;"></p-button>
-</div>
+
 
 <div class="Search-Results">
-<div class="match1">
-    <a href="https://teenlineonline.org/ask-teen-line/" style="color:#000;">
-        <figure><img src="assets/image/tll.png" width="200" height="100" style="border:0.5px solid gray">
-            <figcaption>Teenline</figcaption>
-            <p style="font-size: xx-small; width: 50px;">Teenline.org<br>
-                <span style="font-size: x-small" >Published 1980 </span></p>
-        </figure>
-    </a>
-</div>
 
-<div class="match2">
-    <a href="https://stacks.cdc.gov/view/cdc/39008" style="color: #000;">
-        <figure><img src="assets/image/cdc.png" width="200" height="100" style="border: 0.5px solid gray">
-            <figcaption>Increase in Suicide in ...</figcaption>
-            <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">US Department of Health and Human Services<br>
-                <span style="font-size: x-small">Published April, 2016</span></p>
-        </figure>
-    </a>
-</div>
-
-<div class="match3">
-    <a href="https://themighty.com/2019/03/second-parkland-shooting-survivor-dies-by-suicide/" style="color:#000;">
-        <figure><img src="assets/image/mh.png" width="200" height="100" style="border:0.5px solid gray">
-            <figcaption>Second Parkland Shooting Surv...</figcaption>
-            <p style="font-size: xx-small; width: 50px;">Paige Wyant<br>
-                <span style="font-size: x-small" >Published March, 2019 </span></p>
-        </figure>
-    </a>
-</div>
-
-<div class="match4">
-    <a href="https://psycnet.apa.org/record/2006-20880-000" style="color: #000;">
-        <figure><img src="assets/image/apa.png" width="200" height="100" style="border: 0.5px solid gray">
-            <figcaption>Current concepts of positive mental health.</figcaption>
-            <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">Jahoda, M.<br>
-                <span style="font-size: x-small">Published 1958</span></p>
-        </figure>
-    </a>
-</div>
-
-<div class="match5">
-    <a href="https://psycnet.apa.org/search/display?id=87ae849b-c03f-cfaf-e2bc-13c466d9c435&recordId=3&tab=PA&page=1&display=25&sort=PublicationYearMSSort%20desc,AuthorSort%20asc&sr=1" style="color: #000;">
-        <figure><img src="assets/image/apa.png" width="200" height="100" style="border: 0.5px solid gray">
-            <figcaption>Moral injury and suicidality...</figcaption>
-            <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">Kelley, M.<br>
-                <span style="font-size: x-small">Published 2019</span></p>
-        </figure>
-    </a>
-</div>
-
-<div class="match6">
-    <a href="https://www.npr.org/sections/health-shots/2019/03/21/705545014/new-postpartum-depression-drug-could-be-hard-to-access-for-moms-most-in-need" style="color: #000;">
-        <figure><img src="assets/image/npr.png" width="200" height="100" style="border: 0.5px solid gray">
-            <figcaption>New Postpartum Depress...</figcaption>
-            <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">Kelley, M.<br>
-                <span style="font-size: x-small">Published March, 2019</span></p>
-        </figure>
-    </a>
-</div>
+    <p-table [value]="articles" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="body" let-article>
+      <p-card>
+          <a href="{{article.Link}} "><b>{{article.ArticleName}}</b></a>
+        <hr>
+        <p><b>{{article.Author}}</b></p>
+        <p><b>{{article.ArticleType}}</b></p>
+        <p><b>{{article.Year}}</b></p>
+        <p-checkbox name="Like" label="Like"(click)="getRecent(article.ArticleName); getArticles()" ></p-checkbox>
+      </p-card>
+      
+      <br>
+    </ng-template>
+  </p-table>
+  <br>
 
 
-<div class="match7">
-    <a href="https://www.washingtonpost.com/opinions/we-must-treat-mental-and-bodily-health-the-same-its-a-matter-of-human-rights/2018/09/28/1348d73a-c263-11e8-97a5-ab1e46bb3bc7_story.html?utm_term=.a01f3a1c19a1" style="color: #000;">
-        <figure><img src="assets/image/wp.jpeg" width="200" height="120" style="border: 0.5px solid gray">
-            <figcaption>We Must Treat Mental...</figcaption>
-            <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">Rosalynn Carter <br>
-                <span style="font-size: x-small">Published September, 2018</span></p>
-        </figure>
-    </a>
 </div>
 
-<div class="match8">
-    <a href="http://time.com/5304227/suicide-on-the-rise/" style="color: #000;">
-        <figure><img src="assets/image/time.png" width="200" height="120" style="border: 0.5px solid gray">
-            <figcaption>Suicide on the Rise</figcaption>
-            <p style="font-size: xx-small; border-right: 925; border-left: 745; overflow: inherit">Jaime Ducharme<br>
-                <span style="font-size: x-small">Published June, 2018</span></p>
-        </figure>
-    </a>
-</div>
+<div class="Latest-Articles">
+        <p-button label="Top Pages" id="searchButton" (click) = "writeRecent('dep')"></p-button>
+        <p-table [value]="articles" [paginator]="true" [rows]="4">
+        <ng-template pTemplate="body" let-article>
+          <p-card>
+            <a><b>{{article.RecentName}}</b></a>
+          </p-card>
+          <br>
+        </ng-template>
+      </p-table>
+      <br>
+    
+    
+    </div>
 
-</div>

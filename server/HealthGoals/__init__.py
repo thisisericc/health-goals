@@ -220,6 +220,26 @@ def get_replies(name):
     except Exception as e:
         return make_response(str(e), 500)
 
+
+@app.route('/api/articles', methods=["GET"])
+def get_articles():
+    return jsonify(database.get_articles())
+
+
+@app.route('/api/articles/<article>', methods=["GET"])
+def find_articles(article):
+    try:
+        if article is None:
+            raise ValueError("article is not specified.")
+        articlefinal = database.find_articles(article)
+        if articlefinal is None:
+            return make_response("No article with the given name.", 400)
+        return jsonify(articlefinal)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
 @app.route('/api/login/<email>/<password>', methods=["GET"])
 def get_login(email, password):
     try:
@@ -232,17 +252,33 @@ def get_login(email, password):
     except Exception as e:
         return make_response(str(e), 500)
 
+@app.route("/api/topic/<topics>", methods=["GET"]) 
+def filter_by_Topic(topics):
+    try:
+        if topics is None:
+            raise ValueError("topics is not specified.")
+        topictype = database.filter_by_Topic(topics)
+        if topictype is None:
+            return make_response("No type found with the given topics.", 400)
+        return jsonify(topictype)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
 @app.route('/api/AddReply/<email>/<name>/<reply>', methods=["GET"])
 def add_reply(email,name, reply):
     return jsonify(database.add_reply(email,name, reply))
-
-@app.route('/api/get_userdata/<ID>', methods=["GET"])
-def getid(ID):
+        
+@app.route("/api/type/<types>", methods=["GET"])
+def filter_by_type(types):
     try:
-        res = database.get_userdata(ID)
-        if res is None:
-            raise ValueError("Couldnt get data")
-        return jsonify(res)
+        if types is None:
+            raise ValueError("types is not specified.")
+        typesnum = database.filter_by_type(types)
+        if typesnum is None:
+            return make_response("No type found with the given types.", 400)
+        return jsonify(typesnum)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
@@ -253,6 +289,20 @@ def sign_up(FirstName,LastName, Email, Password, Description, Goals, Diet, Restr
     try:
         res = database.sign_up(FirstName,LastName, Email, Password, Description, Goals, Diet, Restrictions)
         return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route("/api/year/<years>", methods=["GET"])
+def filter_by_year(years):
+    try:
+        if years is None:
+            raise ValueError("years is not specified.")
+        yearsnum = database.filter_by_year(years)
+        if yearsnum is None:
+            return make_response("No type found with the given types.", 400)
+        return jsonify(yearsnum)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
@@ -275,11 +325,63 @@ def default_img(id, blob):
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
+        
+@app.route("/api/great/<greats>", methods=["GET"])
+def filter_by_great(greats):
+    try:
+        if greats is None:
+            raise ValueError("years is not specified.")
+        greatsnum = database.filter_by_great(greats)
+        if greatsnum is None:
+            return make_response("No type found with the given types.", 400)
+        return jsonify(greatsnum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+@app.route("/api/less/<lesss>", methods=["GET"])
+def filter_by_less(lesss):
+    try:
+        if lesss is None:
+            raise ValueError("years is not specified.")
+        lesssnum = database.filter_by_less(lesss)
+        if lesssnum is None:
+            return make_response("No type found with the given types.", 400)
+        return jsonify(lesssnum)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route("/api/SearchArticles/<aname>", methods=["GET"])
+def search_articles(aname):
+    try:
+        if aname is None:
+            raise ValueError("focus is not specified.")
+        articlename = database.search_articles(aname)
+        if articlename is None:
+            return make_response("No article with the given name.", 400)
+        return jsonify(articlename)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
 
 @app.route('/api/update_img/<id>/<blob>', methods=["GET"])
 def update_img(id, blob):
     try:
         res = database.update_img(id, blob)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/get_userdata/<ID>', methods=["GET"])
+def getid(ID):
+    try:
+        res = database.get_userdata(ID)
+        if res is None:
+            raise ValueError("Couldnt get data")
         return jsonify(res)
     except ValueError as e:
         return make_response(str(e), 400)
@@ -304,6 +406,16 @@ def searchForGroups(name):
         if group is None:
             return make_response("No Group found with the given name.", 404)
         return jsonify(group)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/recent/<recents>', methods=["GET"])
+def get_recent(recents):
+    try:
+        res = database.get_recent(recents)
+        return jsonify(res)
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
@@ -339,3 +451,12 @@ def insert(ID, Name):
 @app.route('/api/get_saved_recipes/<ID>')
 def get_saved_recipes(ID):
     return jsonify(database.get_saved_recipes(ID))
+@app.route('/api/write/<writes>', methods=["GET"])
+def write_recent(writes):
+    try:
+        rest = database.write_recent(writes)
+        return jsonify(rest)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)

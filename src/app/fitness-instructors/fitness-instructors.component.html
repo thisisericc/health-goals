@@ -1,134 +1,130 @@
 <div class="jumbotron jumbotron-fluid">
-    <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
-    <h1 style="text-align:center" class="display-4">Health Goals</h1>
-</div>
-
-<p class = "Heading2"><b>Find a Fitness Instructor!</b></p>
-
-
-<div class="Filter-Results">
-  <p-card header="Filter Results">
-      <!--<input type="button" (click)="resetFilters()" pButton label="Reset Filters" class="reset"></button>-->
-      <font color="grey"><b>Tags</b></font>
-      <br/>
-      <br/>
-      <font size="0.1" style="font-weight: normal">
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">    
-      <p-checkbox name="tags" value="activeaging" label="Active Aging" [(ngModel)]="activeAgingvalue" ng-checked="selectall" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+        <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+        <h1 style="text-align:center" class="display-4">Health Goals</h1>
     </div>
-    <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Corrective Exercise" label="Corrective Exercise" [(ngModel)]="correctiveExercise" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+    
+    <p class = "Heading2"><b>Find a Fitness Instructor!</b></p>
+    
+    
+    <div class="Filter-Results">
+      <p-card header="Filter Results">
+          <!--<input type="button" (click)="resetFilters()" pButton label="Reset Filters" class="reset"></button>-->
+          <font color="grey"><b>Tags</b></font>
+          <br/>
+          <br/>
+          <font size="0.1" style="font-weight: normal">
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">    
+          <p-checkbox name="tags" value="activeaging" label="Active Aging" [(ngModel)]="activeAgingvalue" ng-checked="selectall" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+        </div>
+        <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Corrective Exercise" label="Corrective Exercise" [(ngModel)]="correctiveExercise" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+        </div>
+        <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Disease Considerations" label="Disease Considerations" [(ngModel)]="diseaseConsiderationvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Orthopedic Conditions" label="Orthopedic Conditions" [(ngModel)]="orthopedicConditionsvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Pre-Post Natal" label="Pre-Post Natal" [(ngModel)]="prepostNatalvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Group Fitness" label="Group Fitness" [(ngModel)]="groupFitnessvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Dancebased Programs" label="Dance-based Programs" [(ngModel)]="dancebasedProgramsvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Functional Training" label="Functional Training" [(ngModel)]="functionalTrainingvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">      
+          <p-checkbox name="tags" value="Group Strength" label="Group Strength" [(ngModel)]="groupStrengthvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Walking Programs" label="Walking Programs" [(ngModel)]="walkingProgramsvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+        </div>
+        <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Lifestyle Medicine" label="Lifestyle Medicine" [(ngModel)]="lifestyleMedicinevalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Pilates (Mat Training)" label="Pilates (Mat Training)" [(ngModel)]="pilatesMattrainingvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Yoga" label="Yoga" [(ngModel)]="yogavalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Nutrition" label="Nutrition" [(ngModel)]="nutritionvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Weight Loss/Weight Management" label="Weight Loss" [(ngModel)]="weightLossweightManagementvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="tags" value="Overweight and Obesity" label="Overweight and Obesity" [(ngModel)]="overweightAndobesityvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox> 
+        </div>  
+        </font>
+    
+        <br>
+          <font color="grey"><b>Certifications</b></font>
+          <br/>
+          <br/>
+          <font size="0.1" style="font-weight: normal">
+                <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="cert" value="ACEhealth" label="ACE Health Coach" [(ngModel)]="ACEvalue" binary="true" (onChange)="getByCert($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="cert" value="GroupFitness" label="Group Fitness Instructor" [(ngModel)]="groupvalue" binary="true" (onChange)="getByCert($event)"></p-checkbox>
+          </div>
+          <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+          <p-checkbox name="cert" value="personal" label="Personal Trainer" [(ngModel)]="Personalvalue" binary="true" (onChange)="getByCert($event)"></p-checkbox>
+          </div>
+        </font>
+        <br>
+        <button type="button" (click) = "resetFilters()" pButton label="Reset Filters" class = "reset-filter"></button>
+      </p-card>
     </div>
-    <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Disease Considerations" label="Disease Considerations" [(ngModel)]="diseaseConsiderationvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Orthopedic Conditions" label="Orthopedic Conditions" [(ngModel)]="orthopedicConditionsvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Pre-Post Natal" label="Pre-Post Natal" [(ngModel)]="prepostNatalvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Group Fitness" label="Group Fitness" [(ngModel)]="groupFitnessvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Dancebased Programs" label="Dance-based Programs" [(ngModel)]="dancebasedProgramsvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Functional Training" label="Functional Training" [(ngModel)]="functionalTrainingvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">      
-      <p-checkbox name="tags" value="Group Strength" label="Group Strength" [(ngModel)]="groupStrengthvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Walking Programs" label="Walking Programs" [(ngModel)]="walkingProgramsvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-    </div>
-    <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Lifestyle Medicine" label="Lifestyle Medicine" [(ngModel)]="lifestyleMedicinevalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Pilates (Mat Training)" label="Pilates (Mat Training)" [(ngModel)]="pilatesMattrainingvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Yoga" label="Yoga" [(ngModel)]="yogavalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Nutrition" label="Nutrition" [(ngModel)]="nutritionvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Weight Loss/Weight Management" label="Weight Loss" [(ngModel)]="weightLossweightManagementvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="tags" value="Overweight and Obesity" label="Overweight and Obesity" [(ngModel)]="overweightAndobesityvalue" binary="true" (onChange)="getByTags($event)"></p-checkbox> 
-    </div>  
-    </font>
-
-    <br>
-      <font color="grey"><b>Certifications</b></font>
-      <br/>
-      <br/>
-      <font size="0.1" style="font-weight: normal">
-            <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="cert" value="ACEhealth" label="ACE Health Coach" [(ngModel)]="ACEvalue" binary="true" (onChange)="getByCert($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="cert" value="GroupFitness" label="Group Fitness Instructor" [(ngModel)]="groupvalue" binary="true" (onChange)="getByCert($event)"></p-checkbox>
-      </div>
-      <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-      <p-checkbox name="cert" value="personal" label="Personal Trainer" [(ngModel)]="Personalvalue" binary="true" (onChange)="getByCert($event)"></p-checkbox>
-      </div>
-    </font>
-    <br>
-    <button type="button" (click) = "resetFilters()" pButton label="Reset Filters" class = "reset-filter"></button>
-  </p-card>
-</div>
-
-<script>
-    var app=angular.module("CheckAllModule", []);
-    app.controller("checkboxController", function checkboxController($scope) {
-        $scope.checkAll = function (Count) {
-            angular.forEach($scope.Items, function (item) {
-                item.Selected = false;
-        });
-
-    };
-
-
-});
-</script>
-
-<div class="Search-Results" style=" text-decoration: none !important;">
-    <p-dataView [value]="instructors_" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
-        <ng-template pTemplate="listItem" let-instructor>
-            <a routerLink="/fitness-instructors/{{instructor.Name}}" style="text-decoration: none; color:black;">
-                <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9; cursor:pointer">
-                    <div>
-                        <img src="{{instructor.Image_URL}}" height="180" width="190">
-                    </div>
-
-                    <div class="Search-Row-Info">
-                        <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
-                            <font size="6" style="font-weight: normal; ">
-                                {{instructor.Name}}
-                            </font>
-                        </div>
+    
+    <script>
+        var app=angular.module("CheckAllModule", []);
+        app.controller("checkboxController", function checkboxController($scope) {
+            $scope.checkAll = function (Count) {
+                angular.forEach($scope.Items, function (item) {
+                    item.Selected = false;
+            });
+        };
+    });
+    </script>
+    
+    <div class="Search-Results" style=" text-decoration: none !important;">
+        <p-dataView [value]="instructors_" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
+            <ng-template pTemplate="listItem" let-instructor>
+                <a routerLink="/fitness-instructors/{{instructor.Name}}" style="text-decoration: none; color:black;">
+                    <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9; cursor:pointer">
                         <div>
-                            <font size="3">
-                                {{instructor.Address}}, {{instructor.Zip}}
-                            </font>
+                            <img src="{{instructor.Image_URL}}" height="180" width="190">
                         </div>
-                        <br>
-                        <div>
-                            <font size="1">
-                                {{instructor.Tags}}
-                            </font>
+    
+                        <div class="Search-Row-Info">
+                            <div onmouseover="this.style.fontWeight='bold'" onmouseout="this.style.fontWeight='normal'">
+                                <font size="6" style="font-weight: normal; ">
+                                    {{instructor.Name}}
+                                </font>
+                            </div>
+                            <div>
+                                <font size="3">
+                                    {{instructor.Address}}, {{instructor.Zip}}
+                                </font>
+                            </div>
+                            <br>
+                            <div>
+                                <font size="1">
+                                    {{instructor.Tags}}
+                                </font>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-            <!--<img src="{{instructor.Image_URL}}" height="400" width="320">
-            <img src="https://acefitnessmediastorage.blob.core.windows.net/acepublicfiles/c83ce4e7-0c1a-48e1-ae46-d1540c3e2231.jpg">-->
-        </ng-template>
-    </p-dataView>
-</div>
-
+                </a>
+                <!--<img src="{{instructor.Image_URL}}" height="400" width="320">
+                <img src="https://acefitnessmediastorage.blob.core.windows.net/acepublicfiles/c83ce4e7-0c1a-48e1-ae46-d1540c3e2231.jpg">-->
+            </ng-template>
+        </p-dataView>
+    </div>

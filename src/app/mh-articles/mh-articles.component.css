@@ -61,74 +61,14 @@ h2 {
     margin-right: 235px;
 }
 
-.match1{
-    color: white;
+.Latest-Articles {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    list-style: none;
     position: absolute;
-    top: 20px;
-    left: 20px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.match2{
-    color: white;
-    position: absolute;
-    top: 20px;
-    left: 260px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.match3{
-    color: white;
-    position: absolute;
-    top: 20px;
-    left: 505px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.match4{
-    color: white;
-    position: absolute;
-    top: 20px;
-    left: 745px;
-    text-align: center;
-}
-.match5{
-    color: white;
-    position: absolute;
-    top: 200px;
-    left: 20px;
-    text-align: center;
-}
-
-.match6{
-    color: white;
-    position: absolute;
-    top: 200px;
-    left: 260px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-
-.match7{
-    color: white;
-    position: absolute;
-    top: 200px;
-    left: 505px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.match8{
-    color: white;
-    position: absolute;
-    top: 200px;
-    left: 745px;
-    text-align: center;
-    white-space: nowrap;
+    top: 325px;
+    left: 1260px;
+    width: 230px;
 }
 .body{
     font-size: 8;
