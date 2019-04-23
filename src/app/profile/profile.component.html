@@ -76,11 +76,11 @@
                   </ng-template>
               </p-table>
               <br><h2>Saved Recipes:</h2>
-              <p-table [value]="savedrecipes">
-                <ng-template pTemplate="body" let-savedrecipe>
+              <p-table [value]="savedRecipes">
+                <ng-template pTemplate="body" let-savedRecipe>
                     <tr>
-                        <td><a routerLink = "{{savedrecipe.URL}}"> {{savedrecipe.Name}}
-                        </a> </td>
+                        <td><a routerLink = "{{savedRecipe.URL}}"> {{savedRecipe.Name}}
+                        </a></td>
                     </tr>
                 </ng-template>
             </p-table>

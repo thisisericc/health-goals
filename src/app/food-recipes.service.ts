@@ -133,6 +133,10 @@ export class FoodRecipesService {
     return this.http.get('/api/insert_saved_recipes/'+ID+'/'+Name+'/'+URL)
   }
 
+  insert(ID: any, Name: any){
+    return this.http.get('/api/insert/'+ID+'/'+Name)
+  }
+
   private errorHandler(error: HttpErrorResponse) {
     return throwError(
       error.error
