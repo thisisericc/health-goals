@@ -25,6 +25,11 @@ const routes: Routes = [
     redirectTo: 'welcome'
   },
   {
+    path: 'static',
+    pathMatch: 'full',
+    redirectTo: 'welcome'
+  },
+  {
     path: 'welcome',
     pathMatch: 'full',
     component: WelcomeComponent
