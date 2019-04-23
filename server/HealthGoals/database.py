@@ -320,6 +320,6 @@ def insert_saved_recipes(ID, Name, URL):
 
 def get_saved_recipes(ID):
         with engine.connect() as con:
-                query = sql.text("SELECT * FROM SavedRecipes WHERE ID = :userid;")
+                query = sql.text("SELECT * FROM SavedRecipes WHERE ID = :ID;")
                 rs = con.execute(query, ID=ID)
                 return [dict(row) for row in rs]

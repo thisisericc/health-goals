@@ -77,22 +77,4 @@ export class WelcomeComponent implements OnInit {
     window.location.reload();
   }
 
-  update_img(id: any, blob: Blob){
-    this.userService.update_img(id, blob).subscribe(
-      data => {
-        console.log("inserted image.");
-      },
-      error => {
-        alert('error!!!');
-      }
-    )
-  }
-
-  default_img(id:any, blob:Blob){
-    this.userService.default_img(id, blob).subscribe(
-      data => {
-        console.log("uploaded default img");
-      }
-    )
-  }
 }
