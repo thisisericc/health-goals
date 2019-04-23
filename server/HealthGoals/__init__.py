@@ -269,18 +269,6 @@ def filter_by_Topic(topics):
 @app.route('/api/AddReply/<email>/<name>/<reply>', methods=["GET"])
 def add_reply(email,name, reply):
     return jsonify(database.add_reply(email,name, reply))
-
-@app.route('/api/get_userdata/<ID>', methods=["GET"])
-def getid(ID):
-    try:
-        res = database.get_userdata(ID)
-        if res is None:
-            raise ValueError("Couldnt get data")
-        return jsonify(res)
-    except ValueError as e:
-        return make_response(str(e), 400)
-    except Exception as e:
-        return make_response(str(e), 500)
         
 @app.route("/api/type/<types>", methods=["GET"])
 def filter_by_type(types):
