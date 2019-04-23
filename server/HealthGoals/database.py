@@ -318,6 +318,11 @@ def insert_saved_recipes(ID, Name, URL):
                 query = sql.text("INSERT INTO SavedRecipes (ID, Name, URL) VALUES (:ID, :Name, :URL);")
                 rs = con.execute(query, ID=ID, Name=Name, URL=URL)
 
+def insert(ID, Name):
+        with engine.connect() as con:
+                query = sql.text("INSERT INTO SavedRecipes (ID, Name) VALUES (:ID, :Name);")
+                rs = con.execute(query, ID=ID, Name=Name)
+
 def get_saved_recipes(ID):
         with engine.connect() as con:
                 query = sql.text("SELECT * FROM SavedRecipes WHERE ID = :ID;")
