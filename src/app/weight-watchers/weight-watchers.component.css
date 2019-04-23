@@ -2,11 +2,7 @@
     padding-top: 2%;
     padding-bottom: 3%;
 }
-.sidenav {
-    width: 300px;
-    background: #eee;
-    padding: 8px 8px;
-}
+
 h1 { 
     font-size: 2em;
     font-weight: bold;
@@ -18,60 +14,104 @@ h2 {
         font-weight: bold;
 }
 
-h3 {
-    display: block;
-    font-size: 1.5em;
+.container{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 330px;
+    left: 350px;
+    width: 925px;
+    bottom: 900px;
+    }
+
+
+.search-container {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 80px;
+    left: 5px;
 }
 
+.Search-Button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 115px;
+    left: 5px;
+}
 
-.topnav .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-.topnav input[type=text] {
-    border: 1px solid #ccc;  
-  }
-  
-.Search-Results{
+.save-button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
     position: absolute;
     top: 300px;
-    left: 320px;
+    left: 5px;
 }
 
-.Memberlogo{
+.save-button1{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
     position: absolute;
-    top: 400px;
-    left: 320px;
+    top: 500px;
+    left: 5px;
+}
+.Filter-Results {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    background: rgba(238, 238, 238, 0.842);
+    left: 20px;
+    top: 350px;
+    width: 200px;
 }
 
-.Table-heading{
-    color:white;
-    text-align: center;
+.Filters{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
     position: absolute;
-    top: 300px;
-    left: 630px;
+    left: 20px;
+    top: 430px;
+    width: 200px;
 }
 
-.Search-Results1{
+
+.ClearFilters{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
     position: absolute;
-    top: 850px;
-    left: 320px;
+    left: 80px;
+    top: 500px;
+    width: 200px;
 }
 
-.Memberlogo1{
+.sidenav{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
     position: absolute;
-    top: 950px;
-    left: 320px;
+    left: 25px;
+    top: 325px;
+    width: 300px;
+}
+.Filter-Button1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 350;
+    position: absolute;
+    top: 170px;
+    left: 9px;
 }
 
-.Table-heading1{
-    color:white;
-    text-align: center;
+.Heading2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
     position: absolute;
-    top: 850px;
-    left: 630px;
+    left: 25px;
+    top: 260px;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }

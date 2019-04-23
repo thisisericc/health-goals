@@ -42,6 +42,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DialogModule } from 'primeng/dialog';
 import { OrderListModule } from 'primeng/orderlist';
 
+import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight-watchers-details.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { OrderListModule } from 'primeng/orderlist';
     SignupComponent,
     TherapistDetailsComponent,
     InstructorDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    WeightWatchersDetailsComponent
   ],
   imports: [
     BrowserModule,
