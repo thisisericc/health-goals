@@ -258,7 +258,6 @@ def sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRest
     except Exception as e:
         return make_response(str(e), 500)
 
-<<<<<<< HEAD
 @app.route('/api/get_usergroups/<ID>', methods=["GET"])
 def get_usergroups(ID):
     return jsonify(database.get_usergroups(ID))
@@ -282,7 +281,6 @@ def update_img(id, blob):
     try:
         res = database.update_img(id, blob)
         return jsonify(res)
-=======
 
 @app.route('/api/groups', methods=["GET"])
 def get_GroupInfo(): 
@@ -301,17 +299,14 @@ def searchForGroups(name):
         if group is None:
             return make_response("No Group found with the given name.", 404)
         return jsonify(group)
->>>>>>> 0f7969246f4df22552919ec4245734890608465e
     except ValueError as e:
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
 
-<<<<<<< HEAD
 @app.route('/api/get_user_forums/<ID>', methods=["GET"])
 def get_user_forums(ID):
     return jsonify(database.get_user_forums(ID))
-=======
 @app.route('/api/filterexercise/<exercise>', methods=["GET"])
 def filterexercise(exercise): 
     return jsonify(database.filterexercise(exercise))
@@ -327,4 +322,3 @@ def getMemberInfo(Name):
 @app.route('/api/joingroup/<groupname>/<username>/<name>/', methods=["GET"])
 def JoinGroup(groupname, username, name): 
     return jsonify(database.JoinGroup(groupname, username, name))
->>>>>>> 0f7969246f4df22552919ec4245734890608465e

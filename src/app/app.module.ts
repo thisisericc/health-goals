@@ -36,16 +36,13 @@ import { SignupComponent } from './signup/signup.component';
 import {WelcomeService} from './welcome.service'
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
 import { AutoCompleteModule } from 'primeng/autocomplete';
-<<<<<<< HEAD
 import { TherapistDetailsComponent } from './therapist-details/therapist-details.component';
 import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DialogModule } from 'primeng/dialog';
 import { OrderListModule } from 'primeng/orderlist';
 
-=======
 import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight-watchers-details.component';
->>>>>>> 0f7969246f4df22552919ec4245734890608465e
 
 @NgModule({
   declarations: [
@@ -65,13 +62,10 @@ import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight
     MhForumsDetailsComponent,
     MhStartForumComponent,
     SignupComponent,
-<<<<<<< HEAD
     TherapistDetailsComponent,
     InstructorDetailsComponent,
-    ProfileComponent
-=======
+    ProfileComponent,
     WeightWatchersDetailsComponent
->>>>>>> 0f7969246f4df22552919ec4245734890608465e
   ],
   imports: [
     BrowserModule,
