@@ -10,7 +10,7 @@ export interface User {
   Goals: String;
   Description: String;
   Diet: String;
-  Restrictions: String;
+  Restriction: String;
 }
 
 export interface GroupInfo {

@@ -41,7 +41,7 @@
           <ng-template pTemplate="body" let-groupmemberdetail>
               <tr>
              <td>{{ groupmemberdetail.UserID }}</td>
-             <td>{{ groupmemberdetail.MemberName}}</td>
+             <td><a routerLink="/profile/{{groupmemberdetail.UserID}}">{{ groupmemberdetail.MemberName}}</a></td>
              <td>{{ groupmemberdetail.Rank }}</td>
              <td>{{ groupmemberdetail.GoalReached }}</td>
               </tr>
