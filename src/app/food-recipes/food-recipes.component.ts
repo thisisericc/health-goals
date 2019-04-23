@@ -45,7 +45,8 @@ export class FoodRecipesComponent implements OnInit {
   nutrientsList: FoodRecipesVitamins[] = [];
   ingredientsList: FoodRecipesIngredients[] = [];
   loggedIn: boolean = false;
-  user: User[];
+  user: User[] = [];
+  userFilters: string = '';
 
   constructor(
     private foodRecipesService: FoodRecipesService,
@@ -57,11 +58,6 @@ export class FoodRecipesComponent implements OnInit {
   ngOnInit() {
     this.mealQuery = JSON.parse(localStorage.getItem('mealQuery'));
     this.searchResults = JSON.parse(localStorage.getItem('searchResults'));
-    if (this.searchResults == null) {
-      console.log('Run Query for vegan');
-      this.mealQuery = 'vegan';
-      this.recipesQuery(this.mealQuery);
-    }
 
     this.sortOptions = [
       {label: 'A-Z', value: 'name'},
@@ -69,31 +65,55 @@ export class FoodRecipesComponent implements OnInit {
       {label: 'Calories', value: 'calories'},
       {label: 'Daily %', value: 'daily'}
     ];
+    // this.sortKey = '!name';
+    // console.log(this.sortKey);
+    // console.log(this.sortField);
 
     if (localStorage.getItem('loggedIn') === 'true') {
       this.loggedIn = true;
+      this.get_userdata(localStorage.getItem('ID'));
     } else {
       this.loggedIn = false;
       localStorage.setItem('loggedIn', 'false');
     }
+
+    if (this.searchResults == null) {
+      console.log('Run Query for vegan');
+      this.mealQuery = 'vegan';
+      this.recipesQuery(this.mealQuery);
+    }
+
+    /*
+    if (this.loggedIn) {
+      if (this.user['Goals'].indexOf('Lose Weight') >= 0) {
+        this.sortKey = 'daily';
+      }
+    }
+    */
   }
 
   signInToSave() {
     alert('Please sign in to save this recipe');
   }
 
-  /*
   get_userdata(ID: any) {
     this.userService.get_userdata(ID).subscribe(
       data => {
         this.user = data;
+
+        console.log(this.user);
+        console.log(this.user['Goals']);
+        if (this.loggedIn) {
+          if (this.user['Goals'].indexOf('Lose Weight') >= 0) {
+            this.sortKey = 'daily';
+          }
+        }
       },
       error => {
         alert('unable to get user data');
       }
     );
   }
-  */
 
   saveRecipe(res: any) {
     console.log(localStorage.getItem('ID'));
@@ -108,10 +128,6 @@ export class FoodRecipesComponent implements OnInit {
         alert ('Could not save recipe');
       }
     );
-
-    console.log(localStorage.getItem('ID'));
-    console.log(res.recipeName);
-
   }
 
   recipesQuery(mealQuery: string) {

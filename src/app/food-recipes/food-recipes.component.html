@@ -159,7 +159,7 @@
                     </div>
                 </div>
             </div>
-            <div class="Nutrition-Facts">
+            <div class="Nutrition-Fact">
                 <p-dialog header="Nutrition Facts" [(visible)]="nutritionFacts" [modal]="true" [responsive]="true" [style]="{width: '450px', minWidth: '200px'}" [contentStyle]="{'max-height':'650px'}" [minY]="70" [maximizable]="true" [baseZIndex]="10000">
                     <!--
                     <p-orderList [value]="facts" [listStyle]="{'height':'250px'}">
@@ -208,13 +208,25 @@
                         </ng-template>
                     </p-table>
                 </p-dialog>
-                <button type="button" (click)="showNutritionFacts(res)" pButton icon="pi pi-info-circle" label="Nutrition Facts"></button>
+                <div class="Save">
+                    <p-button *ngIf="loggedIn" label="Save Recipe" (click)="saveRecipe(res)"></p-button>
+                    <p-button *ngIf="!loggedIn" label="Save Recipe" (click)="signInToSave()"></p-button>
+                </div>
             </div>
+            <div class="Nutrition-Facts">
+                <p-button type="button" (click)="showNutritionFacts(res)" label="Nutrition Facts"></p-button>
+            </div>
+            <!--
             <div class="Save">
                 <p-button *ngIf="loggedIn" label="Save Recipe" (click)="saveRecipe(res)"></p-button>
                 <p-button *ngIf="!loggedIn" label="Save Recipe" (click)="signInToSave()"></p-button>
             </div>
+            -->
         </ng-template>
+        <div class="Save">
+            <p-button *ngIf="loggedIn" label="Save Recipe" (click)="saveRecipe(res)"></p-button>
+            <p-button *ngIf="!loggedIn" label="Save Recipe" (click)="signInToSave()"></p-button>
+        </div>
     </p-dataView>
 </div>
 
