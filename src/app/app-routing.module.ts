@@ -16,10 +16,16 @@ import {MealPlanComponent} from './meal-plan/meal-plan.component';
 import { SignupComponent } from './signup/signup.component';
 import { TherapistDetailsComponent } from './therapist-details/therapist-details.component';
 import { InstructorDetailsComponent } from './instructor-details/instructor-details.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: 'welcome'
+  },
+  {
+    path: 'static',
     pathMatch: 'full',
     redirectTo: 'welcome'
   },
@@ -87,6 +93,11 @@ const routes: Routes = [
     path: 'mh-start',
     pathMatch: 'full',
     component: MhStartForumComponent
+  },
+  {
+    path: 'profile/:ID',
+    pathMatch: 'full',
+    component: ProfileComponent
   },
   {
     path: 'weight-watchers',

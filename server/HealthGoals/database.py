@@ -108,6 +108,25 @@ def get_forums():
         rs = con.execute("SELECT ForumNumber, NameOfForum, Link, Description, Topic, Email FROM MentalHealthForums;")
         return [dict(row) for row in rs]
 
+def get_forum_byemail(Email):
+    with engine.connect() as con:
+        query = sql.text(
+                "SELECT ForumNumber, NameOfForum, Link, Description, Topic, Email FROM MentalHealthForums WHERE Email=:Email;"
+                )
+        rs = con.execute(query, email=email)
+        result = rs.first()
+        if result is None:
+            return None
+        return dict(result)
+
+def get_user_forums(ID):
+        with engine.connect() as con:
+                query = sql.text(
+                        "SELECT NameOfForum, Description, Email FROM MentalHealthForums WHERE Email= (Select Email FROM Users WHERE Users.ID =:ID)"
+                )
+                rs = con.execute(query, ID=ID)
+                return [dict(row) for row in rs]
+
 def get_latest_forums():
     with engine.connect() as con:
         rs = con.execute("SELECT ForumNumber, NameOfForum, Link, Description, Topic, Email FROM MentalHealthForums LIMIT 10;")
@@ -210,3 +229,41 @@ def filter_by_Tags(tags):
                 )
                 rs = con.execute(query, string = string)
                 return [dict(row) for row in rs]
+
+def get_usergroups(ID):
+     with engine.connect() as con:
+        query = sql.text(
+                "SELECT * FROM GroupInfo Where GroupInfo.GroupNumber = (SELECT GroupNumber from GroupMemberInfo where GroupMemberInfo.UserID=:ID)"
+        )
+        rs = con.execute(query, ID=ID)
+        return [dict(row) for row in rs]
+
+def get_groupmemberinfo(ID):
+     with engine.connect() as con:
+        query = sql.text(
+                "SELECT * FROM GroupMemberInfo where GroupMemberInfo.UserID=:ID"
+        )
+        rs = con.execute(query, ID=ID)
+        return [dict(row) for row in rs]
+
+def default_img(id, blob):
+     with engine.connect() as con:
+        query = sql.text(
+                "INSERT INTO Pictures (id, blob) VALUES (:id, :blob)"
+        )
+        rs = con.execute(query, id=id, blob=blob)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)        
+
+def update_img(id, blob):
+     with engine.connect() as con:
+        query = sql.text(
+                "UPDATE `Pictures` SET `blob` = :blob WHERE `id` =: ID;"
+        )
+        rs = con.execute(query, blob= blob, id=id)
+        result = rs.first()
+        if result is None:
+                return None
+        return dict(result)

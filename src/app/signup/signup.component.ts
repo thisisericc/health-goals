@@ -10,6 +10,7 @@ import {WelcomeComponent} from '../welcome/welcome.component'
 export class SignupComponent implements OnInit {
 
   user: User[]
+  blob: Blob
   constructor(
     public signupService :WelcomeService
     
@@ -32,6 +33,14 @@ export class SignupComponent implements OnInit {
         alert('Error Signing Up');
       }
     );
+  }
+
+  default_img(id:any, blob:Blob){
+    this.signupService.default_img(id, blob).subscribe(
+      data => {
+        console.log("uploaded default img");
+      }
+    )
   }
 
 }

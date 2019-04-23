@@ -1,0 +1,92 @@
+<div class="jumbotron jumbotron-fluid">
+  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+</div>
+<html>
+
+<html>
+    <body>
+        <div style="text-align: center"> 
+        <div class="row" >
+          <div class="column left" style="text-align: center">
+            <div class="SavedGroupsJoined">
+              <br><h2>Groups Joined</h2>
+              <p-table [value]="groupInfos">
+                  <ng-template pTemplate="header">
+                      <tr>
+                          <th>Name</th>
+                          <th>Training Type</th>
+                          <th>Calorie Goal</th>
+                      </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-groupInfo>
+                      <tr>
+                          <td>{{ groupInfo.NameOfGroup }}</td>
+                          <td>{{ groupInfo.TrainingType}}</td>
+                          <td>{{ groupInfo.CalorieGoal }}</td>
+                      </tr>
+                  </ng-template>
+              </p-table>
+            </div>
+            <div class="SavedGroupGoals">
+              <br><h2>Group Goals</h2>
+              <p-table [value]="groupMemberInfos">
+                  <ng-template pTemplate="header">
+                      <tr>
+                          <th>Name</th>
+                          <th>Rank</th>
+                          <th>Goal Reached</th>
+                      </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-groupMemberInfo>
+                      <tr>
+                        <td>{{groupMemberInfo.NameOfGroup}}</td>
+                        <td>{{groupMemberInfo.Rank}}</td>
+                        <td>{{groupMemberInfo.GoalReached}}</td>
+                      </tr>
+                  </ng-template>
+              </p-table>
+            </div><br>
+        </div>
+
+          <div class="column middle" style="text-align: center">
+            <h2>About {{user.FirstName}}</h2>
+              <img src="icon.png" width="200" height="200">
+              <br>
+              <i>"{{user.Description}}"</i>
+              <br>
+              <small><b>Name:</b> {{user.FirstName}} {{user.LastName}}</small>
+              <br>
+              <small><b>E-mail:</b> {{user.Email}}</small>
+              <br>
+              <small><b>Dietary Restrictions:</b> {{user.DietaryRestrictions}}</small>
+              <br>
+              <small><b>Goals</b> {{user.Goals}} </small>
+          </div>
+          <div class="column right" style="text-align: center">
+              <br><h2>Saved Videos</h2>
+                <p-table [value]="savedvideos">
+                  <ng-template pTemplate="body" let-savedvideo>
+                      <tr>
+                          <td><a routerLink = "/exercise-videos/{{savedvideo.VideoName}}"> {{savedvideo.VideoName}}
+                          </a> </td>
+                      </tr>
+                  </ng-template>
+              </p-table>
+              <br>
+              <h2>Forums Posted</h2>
+              <div class="SavedForumResults">
+                  <p-table [value]="userForums">
+                    <ng-template pTemplate="body" let-userForum>
+                        <tr>
+                            <td><a routerLink = "/mh-forums/{{userForum.NameOfForum}}"> {{userForum.NameOfForum}}
+                            </a> </td>
+                        </tr>
+                    </ng-template>
+                </p-table><br>
+              </div>
+          </div>
+        </div>
+        </div>
+    </body>
+</html>

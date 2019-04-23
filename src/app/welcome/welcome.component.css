@@ -82,6 +82,12 @@
     right: 150px;
 }
 
+.icon {
+    background-image: url(images/icon.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+}
+
 .SignInBox{
     background-color: rgb(236, 236, 236);
     margin: auto;
@@ -90,3 +96,17 @@
     height: 500px;
     padding: 50px;
 }
+
+.SignInBox2{
+    background-color: rgb(236, 236, 236);
+    margin: auto;
+    margin-bottom: 3%;
+    width: 35%;
+    /* height: 550px; */
+    padding: 50px;
+}
+
+#inp {
+    text-align: center;
+    margin: auto;
+  }

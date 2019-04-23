@@ -8,4 +8,8 @@ export interface FoodRecipes {
     servings: string;
     totalDaily: string;
     ingredients: string;
+    ingreds: string[];
+    weights: string[];
+    vitamins: string[];
+    daily: string[];
 }

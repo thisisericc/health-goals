@@ -1,3 +1,5 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <div class="jumbotron jumbotron-fluid">
     <br>
     <h1 style="text-align:center" class="display-6">Welcome to Health Goals!</h1>
@@ -13,9 +15,9 @@
         <a href="weight-watchers">
             <figure class="circle circle-weight-watchers"></figure>
         </a>
-        <!-- <a href="food-blogs"> -->
+        <a href="food-blogs">
             <figure class="circle circle-food-blogs"></figure>
-        <!-- </a> -->
+        </a>
         <a href="food-recipes">
             <figure class="circle circle-food-recipes"></figure>
 
@@ -57,11 +59,16 @@
                 <span class = "psw"> Get a Daily Meal Plan <a href="meal-plan"> Here! </a></span>
             </div>         
     </div>
-    <div class="SignInBox" *ngIf="loggedIn">
-        <h2 style="text-align:center" class="display-4">Welcome <br> {{user.FirstName}} </h2>
-        <br><br><br>
+    <div class="SignInBox2" *ngIf="loggedIn">
+        <h2 style="text-align:center" class="display-4">Welcome</h2>
+        <h1 style="text-align:center" class="display-4">{{user.FirstName}}</h1>
         <div style="text-align: center">
-        <button type="btn-primary" (click) = "logout()" pButton label="Log Out"></button>
+            <a href="profile/{{user.ID}}"> <img src="icon.png" width="200" height="200"></a><br>
+            <a href="meal-plan"><button type="button" class="btn btn-warning">Get Your Meal Plan</button></a>
+            <br>
+            <a href="/profile/{{user.ID}}"><button type="button" class="btn btn-danger">View Profile</button></a>
+            <br>
+            <button type="button" class="btn btn-info" (click) = "logout(); refresh()">Log Out</button>
         </div>
 
     </div>

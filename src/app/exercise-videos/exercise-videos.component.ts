@@ -86,7 +86,7 @@ export class ExerciseVideosComponent implements OnInit{
     )
   }
   getVideos(){
-    debugger;
+    // debugger;
     this.videoService.getVideos().subscribe(
       data => {
         this.videos = data;

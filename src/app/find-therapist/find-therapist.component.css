@@ -2,10 +2,30 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 200px;
+    top: 330px;
+    left: 25px;
     width: 200px;
 }
+img{
+    border-radius: 50%;
+}
+h1 { 
+    font-size: 2em;
+    font-weight: bold;
+}
 
+h2 {
+        display: block;
+        font-size: 1.5em;
+        font-weight: bold;
+}
+.Heading2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
+    position: absolute;
+    left: 25px;
+    top: 260px;
+}
 .jumbotron {
     padding-top: 2%;
     padding-bottom: 2%;
@@ -31,9 +51,9 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 350;
     position: absolute;
-    top: 245px;
-    left: 215px;
-    width: 700px;
+    top: 287px;
+    left: 255px;
+    width: 925px;
 }
 
 .Search-Results li {

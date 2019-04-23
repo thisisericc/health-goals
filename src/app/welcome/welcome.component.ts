@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import {Router} from '@angular/router';
 import {AppComponent} from '../app.component';
-import {User, WelcomeService, LoggedIn} from '../welcome.service';
+import {User, WelcomeService} from '../welcome.service';
+import {HttpClientModule} from '@angular/common/http'
 
 @Component({
   selector: 'app-welcome',
@@ -17,10 +18,13 @@ export class WelcomeComponent implements OnInit {
   logged: string[];
   user: User[]
   public loggedIn: boolean = false;
+  selectedFile: File = null;
+  blob: Blob;
 
   constructor(
     public userService: WelcomeService,
-    private router: Router
+    private router: Router,
+    private http: HttpClientModule
   ) { }
 
 
@@ -55,6 +59,7 @@ export class WelcomeComponent implements OnInit {
         localStorage.setItem("ID", this.user["ID"]);
         console.log("signed in");
         this.loggedIn = true;
+        this.refresh();
       },
       error => {
         alert('incorrect username or password');
@@ -66,5 +71,28 @@ export class WelcomeComponent implements OnInit {
     localStorage.clear();
     localStorage.setItem("loggedIn", "false");
     this.loggedIn = false;
+  }
+
+  refresh(): void {
+    window.location.reload();
+  }
+
+  update_img(id: any, blob: Blob){
+    this.userService.update_img(id, blob).subscribe(
+      data => {
+        console.log("inserted image.");
+      },
+      error => {
+        alert('error!!!');
+      }
+    )
+  }
+
+  default_img(id:any, blob:Blob){
+    this.userService.default_img(id, blob).subscribe(
+      data => {
+        console.log("uploaded default img");
+      }
+    )
   }
 }
