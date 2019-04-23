@@ -40,7 +40,6 @@ export class FindTherapistService {
   getonlyTherapists(){
     const my_url='https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=occupational-therapist%2Coccupational-therapist-environmental-modification%2Crecreation-therapist&location=40.5194742%2C-74.4558448%2C100&user_location=40.5194742%2C-74.4558448&skip=0&limit=100&user_key=09fd788402c043185e2d8aa505cb01ff';
     console.log(my_url);
-    debugger;
     return this.http.get(my_url)
     .pipe(
       catchError(this.errorHandler)

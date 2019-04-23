@@ -195,7 +195,6 @@ export class FindTherapistComponent implements OnInit {
   }
 
   resetFilter(){
-    debugger;
     this.thera=false;
     this.psych=false;
     this.psychologis=false;
@@ -209,7 +208,6 @@ export class FindTherapistComponent implements OnInit {
       obj=>{
         const str=JSON.stringify(obj);
         const output: FindTherapist[]=[];
-        debugger
         str.substring(str.indexOf('\"profile\":')+12, str.length-1).split('\"profile\":').forEach(function(therapist){
           const T={} as FindTherapist;
 
