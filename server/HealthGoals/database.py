@@ -312,3 +312,14 @@ def JoinGroup(groupname, username, name):
          with engine.connect() as con:
                 query = sql.text("INSERT INTO GroupMemberInfo (NameOfGroup,UserID,MemberName) VALUES (:groupname, :username, :name);")
                 rs = con.execute(query, groupname=groupname, username=username, name=name)
+
+def insert_saved_recipes(ID, Name, URL):
+        with engine.connect() as con:
+                query = sql.text("INSERT INTO SavedRecipes (ID, Name, URL) VALUES (:ID, :Name, :URL);")
+                rs = con.execute(query, ID=ID, Name=Name, URL=URL)
+
+def get_saved_recipes(ID):
+        with engine.connect() as con:
+                query = sql.text("SELECT * FROM SavedRecipes WHERE ID = :userid;")
+                rs = con.execute(query, ID=ID)
+                return [dict(row) for row in rs]

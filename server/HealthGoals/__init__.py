@@ -327,3 +327,11 @@ def getMemberInfo(Name):
 @app.route('/api/joingroup/<groupname>/<username>/<name>/', methods=["GET"])
 def JoinGroup(groupname, username, name): 
     return jsonify(database.JoinGroup(groupname, username, name))
+
+@app.route('/api/insert_saved_recipes/<ID>/<Name>/<URL>')
+def insert_saved_recipes(ID, Name, URL):
+    return jsonify(database.insert_saved_recipes(ID,Name,URL))
+
+@app.route('/api/get_saved_recipes/<ID>')
+def get_saved_recipes(ID):
+    return jsonify(database.get_saved_recipes(ID))
