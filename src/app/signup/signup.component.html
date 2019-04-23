@@ -20,25 +20,30 @@
         <input type="password" class="form-control" placeholder="Password" pInputText [(ngModel)]="Password">
         <br>
         <small>Health Goals:</small>
-        <input type="text" class="form-control" [(ngModel)]="Goals" placeholder="Weight loss, get toned, healthy diet, etc...">
-        <br>
-        <small>Dietary Restrictions:</small>
-        <select class="custom-select" multiple id="scrolllist" size="3" [(ngModel)]="DietaryRestrictions">
+        <select class="custom-select" multiple id="scrolllist" size="2" [(ngModel)]="Goals">
+            <option selected>None</option>
+            <option value="Lose Weight">Lose Weight</option>
+            <option value="Gain Weight">Gain Weight</option>
+            <option value="Gain Muscles">Gain Muscles</option>
+        </select>
+        <br><br>
+        <small>Diet:</small>
+        <select class="custom-select" multiple id="scrolllist" size="2" [(ngModel)]="Diet">
+            <option selected>None</option>
+            <option value="balanced">Balanced</option>
+            <option value="high-protein">High Protein</option>
+            <option value="low-fat">Low Fat</option>
+            <option value="low-carb">Low Carb</option>
+        </select>
+        <br><br>
+        <small>Restrictions:</small>
+        <select class="custom-select" multiple id="scrolllist" size="2" [(ngModel)]="Restrictions">
             <option selected>None</option>
             <option value="vegan">Vegan</option>
             <option value="vegetarian">Vegetarian</option>
-            <option value="pescetarian">Pescetarian</option>
-            <option value="gluten free">Gluten Free</option>
-            <option value="grain free">Grain Free</option>
-            <option value="dairy free">Dairy Free</option>
-            <option value="high protein">High Protein</option>
-            <option value="low sodium">Low Sodium</option>
-            <option value="low carb">Low Carb</option>
-            <option value="Paleo">Paleo</option>
-            <option value="Primal">Primal</option>
-            <option value="ketogenic">Ketogenic</option>
-            <option value="FODMAP">FODMAP</option>
-            <option value="Whole 30">Whole 30</option>
+            <option value="low-sugar">Sugar Conscious</option>
+            <option value="peanut-free">Peanut Free</option>
+            <option value="tree-nut-free">Tree Nut Free</option>
         </select>
         <br>
         <br>
@@ -46,7 +51,7 @@
         <textarea class="form-control" [(ngModel)]="Description" placeholder="Describe yourself here..."></textarea>
         <br>
         <div style="text-align: center">
-          <button type="button" (click) = "sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture)" pButton label="Sign Up!" routerLink="/welcome"></button>
+          <button type="button" (click) = "sign_up(FirstName, LastName, Email, Password, Description, Goals, Diet, Restrictions)" pButton label="Sign Up!" routerLink="/welcome"></button>
         </div>
     <br><br>
 </div>

@@ -9,8 +9,8 @@ export interface User {
   Password: String;
   Goals: String;
   Description: String;
-  DietaryRestrictions: String;
-  Picture: String;
+  Diet: String;
+  Restrictions: String;
 }
 
 export interface GroupInfo {
@@ -59,8 +59,8 @@ export class WelcomeService {
     return this.http.get<User[]>('/api/get_userdata/'+ID)
   }
 
-  sign_up(FirstName: String, LastName: String, Email: String, Password:String, Description:String, Goals: String, DietaryRestrictions: String, Picture: String){
-    return this.http.get<User[]>('/api/signup/'+FirstName+'/'+LastName+'/'+Email+'/'+Password+'/'+Description+'/'+Goals+'/'+DietaryRestrictions+'/'+Picture)
+  sign_up(FirstName: String, LastName: String, Email: String, Password:String, Description:String, Goals: String, Diet: String, Restrictions: String){
+    return this.http.get<User[]>('/api/signup/'+FirstName+'/'+LastName+'/'+Email+'/'+Password+'/'+Description+'/'+Goals+'/'+Diet+'/'+Restrictions)
   }
 
   get_usergroups(ID: any){

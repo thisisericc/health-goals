@@ -248,10 +248,10 @@ def getid(ID):
     except Exception as e:
         return make_response(str(e), 500)
 
-@app.route('/api/signup/<FirstName>/<LastName>/<Email>/<Password>/<Description>/<Goals>/<DietaryRestrictions>/<Picture>', methods=["GET"])
-def sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture):
+@app.route('/api/signup/<FirstName>/<LastName>/<Email>/<Password>/<Description>/<Goals>/<Diet>/<Restrictions>', methods=["GET"])
+def sign_up(FirstName,LastName, Email, Password, Description, Goals, Diet, Restrictions):
     try:
-        res = database.sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture)
+        res = database.sign_up(FirstName,LastName, Email, Password, Description, Goals, Diet, Restrictions)
         return jsonify(res)
     except ValueError as e:
         return make_response(str(e), 400)
