@@ -1,0 +1,50 @@
+<div class="jumbotron jumbotron-fluid">
+  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+</div>
+
+<div class="Search-Results">
+  <p-card>
+    <h2><b>{{ NameOfGroup }}</b></h2>
+    <b> <img src="{{groupdetails?.Images}}" height="100" width="100" class="center"> </b>
+    <hr>
+    <h4><p *ngIf="groupdetails">
+      Group Number: <b>{{ groupdetails?.GroupNumber }}</b> 
+      <br>
+      Calorie Goals: <b>{{ groupdetails?.CalorieGoal}}</b>
+      <br>
+      Training Type: <b>{{ groupdetails?.TrainingType}}</b>
+      
+       </p></h4>
+  </p-card>
+  <br>
+</div>
+
+
+<div class="Joinbutton">
+<button type="button" (click) = "JoinGroup(user.ID, user.FirstName )" pButton label="Join" *ngIf="loggedIn" class="ui-button-rounded ui-button-Join"></button>
+<button type= "button" (click) = "signintoGroup()" pButton label="Join" *ngIf="!loggedIn" class="ui-button-rounded ui-button-Join"></button>
+</div>
+
+
+<div class="container">
+  <br>
+      <p-table [value]="groupmemberdetails">
+          <ng-template pTemplate="header">
+            <tr>
+             <th> UserID </th> 
+             <th> MemberName </th>
+             <th> Rank </th>
+             <th> % Goal Reached</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-groupmemberdetail>
+              <tr>
+             <td>{{ groupmemberdetail.UserID }}</td>
+             <td><a routerLink="/profile/{{groupmemberdetail.UserID}}">{{ groupmemberdetail.MemberName}}</a></td>
+             <td>{{ groupmemberdetail.Rank }}</td>
+             <td>{{ groupmemberdetail.GoalReached }}</td>
+              </tr>
+          </ng-template>
+      </p-table>
+  </div> 

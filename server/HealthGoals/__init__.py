@@ -248,10 +248,10 @@ def getid(ID):
     except Exception as e:
         return make_response(str(e), 500)
 
-@app.route('/api/signup/<FirstName>/<LastName>/<Email>/<Password>/<Description>/<Goals>/<DietaryRestrictions>/<Picture>', methods=["GET"])
-def sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture):
+@app.route('/api/signup/<FirstName>/<LastName>/<Email>/<Password>/<Description>/<Goals>/<Diet>/<Restrictions>', methods=["GET"])
+def sign_up(FirstName,LastName, Email, Password, Description, Goals, Diet, Restrictions):
     try:
-        res = database.sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture)
+        res = database.sign_up(FirstName,LastName, Email, Password, Description, Goals, Diet, Restrictions)
         return jsonify(res)
     except ValueError as e:
         return make_response(str(e), 400)
@@ -285,7 +285,57 @@ def update_img(id, blob):
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
+    
+
+@app.route('/api/groups', methods=["GET"])
+def get_GroupInfo(): 
+    return jsonify(database.get_GroupInfo())
+
+@app.route('/api/group/<groupname>', methods=["GET"])
+def getGroup(groupname): 
+    return jsonify(database.getGroup(groupname))
+
+@app.route('/api/searchForGroups/<name>', methods=["GET"])
+def searchForGroups(name): 
+    try:
+        if name is None:
+            raise ValueError("Group is not specified.")
+        group = database.searchForGroups(name)
+        if group is None:
+            return make_response("No Group found with the given name.", 404)
+        return jsonify(group)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
 
 @app.route('/api/get_user_forums/<ID>', methods=["GET"])
 def get_user_forums(ID):
     return jsonify(database.get_user_forums(ID))
+@app.route('/api/filterexercise/<exercise>', methods=["GET"])
+def filterexercise(exercise): 
+    return jsonify(database.filterexercise(exercise))
+
+@app.route('/api/filtercalories/<calories>', methods=["GET"])
+def filtercalories(calories): 
+    return jsonify(database.filtercalories(calories))
+
+@app.route('/api/members/<Name>', methods=["GET"])
+def getMemberInfo(Name): 
+    return jsonify(database.getMemberInfo(Name))
+
+@app.route('/api/joingroup/<groupname>/<username>/<name>/', methods=["GET"])
+def JoinGroup(groupname, username, name): 
+    return jsonify(database.JoinGroup(groupname, username, name))
+
+@app.route('/api/insert_saved_recipes/<ID>/<Name>/<path:URL>')
+def insert_saved_recipes(ID, Name, URL):
+    return jsonify(database.insert_saved_recipes(ID, Name, URL))
+
+@app.route('/api/insert/<ID>/<Name>')
+def insert(ID, Name):
+    return jsonify(database.insert(ID, Name))
+
+@app.route('/api/get_saved_recipes/<ID>')
+def get_saved_recipes(ID):
+    return jsonify(database.get_saved_recipes(ID))

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpResponse} from '@angular/common/http';
-import {WelcomeService, User, GroupInfo, GroupMemberInfo, UserForums} from '../welcome.service';
+import {WelcomeService, User, GroupInfo, GroupMemberInfo, UserForums, SavedRecipes} from '../welcome.service';
 import {ExercisevideosService, ExerciseVideos} from '../exercisevideos.service'
 import {DataTableModule,SharedModule,DialogModule} from 'primeng/primeng';
 
@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   groupInfos: GroupInfo[];
   groupMemberInfos: GroupMemberInfo[];
   savedvideos: ExerciseVideos[];
+  savedRecipes: SavedRecipes[];
   userForums: UserForums[];
   isNULL: boolean = false;
 
@@ -104,7 +105,22 @@ export class ProfileComponent implements OnInit {
         },
         (error: HttpResponse<any>) => {
           if(error.status === 404){
-            alert('Group Member Info not found.');
+            alert('Videos not found.');
+          }else{
+            console.error(error.status + ' - ' + error.body);
+            alert('An error occured on the server. Check the console.');
+          }
+        }
+      );
+
+      userService.get_saved_recipes(this.userID).subscribe(
+        data => {
+          this.savedRecipes = data;
+          console.log(this.savedRecipes);
+        },
+        (error: HttpResponse<any>) => {
+          if(error.status === 404){
+            alert('Recipes not found.');
           }else{
             console.error(error.status + ' - ' + error.body);
             alert('An error occured on the server. Check the console.');

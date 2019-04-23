@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import { FoodRecipesSuggestionsService } from '../food-recipes-suggestions.service';
 import { FoodRecipesIngredients } from '../food-recipes-ingredients';
 import { FoodRecipesVitamins } from '../food-recipes-vitamins';
+import {User, WelcomeService, LoggedIn} from '../welcome.service';
 
 @Component({
   selector: 'app-food-recipes',
@@ -43,11 +44,14 @@ export class FoodRecipesComponent implements OnInit {
   nutritionFacts = false;
   nutrientsList: FoodRecipesVitamins[] = [];
   ingredientsList: FoodRecipesIngredients[] = [];
+  loggedIn: boolean = false;
+  user: User[];
 
   constructor(
     private foodRecipesService: FoodRecipesService,
     private messageService: MessageService,
-    private foodRecipesSuggestionsService: FoodRecipesSuggestionsService
+    private foodRecipesSuggestionsService: FoodRecipesSuggestionsService,
+    private userService: WelcomeService
   ) { }
 
   ngOnInit() {
@@ -65,6 +69,49 @@ export class FoodRecipesComponent implements OnInit {
       {label: 'Calories', value: 'calories'},
       {label: 'Daily %', value: 'daily'}
     ];
+
+    if (localStorage.getItem('loggedIn') === 'true') {
+      this.loggedIn = true;
+    } else {
+      this.loggedIn = false;
+      localStorage.setItem('loggedIn', 'false');
+    }
+  }
+
+  signInToSave() {
+    alert('Please sign in to save this recipe');
+  }
+
+  /*
+  get_userdata(ID: any) {
+    this.userService.get_userdata(ID).subscribe(
+      data => {
+        this.user = data;
+      },
+      error => {
+        alert('unable to get user data');
+      }
+    );
+  }
+  */
+
+  saveRecipe(res: any) {
+    console.log(localStorage.getItem('ID'));
+    console.log(res.recipeName);
+    console.log(res.articleURL);
+    this.foodRecipesService.insert_saved_recipes(localStorage.getItem('ID'), res.recipeName, res.articleURL).subscribe(
+      data => {
+        console.log(data);
+        alert('Recipe saved');
+      },
+      error => {
+        alert ('Could not save recipe');
+      }
+    );
+
+    console.log(localStorage.getItem('ID'));
+    console.log(res.recipeName);
+
   }
 
   recipesQuery(mealQuery: string) {

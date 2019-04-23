@@ -122,7 +122,7 @@ def get_forum_byemail(Email):
 def get_user_forums(ID):
         with engine.connect() as con:
                 query = sql.text(
-                        "SELECT NameOfForum, Description, Email FROM MentalHealthForums WHERE Email= (Select Email FROM Users WHERE Users.ID =:ID)"
+                        "SELECT NameOfForum, Description, Email FROM MentalHealthForums WHERE Email= (Select Email FROM Users2 WHERE Users2.ID =:ID)"
                 )
                 rs = con.execute(query, ID=ID)
                 return [dict(row) for row in rs]
@@ -180,7 +180,7 @@ def add_reply(email, name, reply):
 
 def get_login(email, password):
     with engine.connect() as con:
-        query = sql.text("SELECT * FROM Users WHERE Email =:email AND Password =:password")
+        query = sql.text("SELECT * FROM Users2 WHERE Email =:email AND Password =:password")
         rs = con.execute(query, email=email, password=password)
         result = rs.first()
         if result is None:
@@ -189,19 +189,19 @@ def get_login(email, password):
 
 def get_userdata(ID):
     with engine.connect() as con:
-        query = sql.text("SELECT * FROM Users WHERE ID=:ID")
+        query = sql.text("SELECT * FROM Users2 WHERE ID=:ID")
         rs = con.execute(query, ID=ID)
         result = rs.first()
         if result is None:
             return None
         return dict(result)
 
-def sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture):
+def sign_up(FirstName, LastName, Email, Password, Description, Goals, Diet, Restrictions):
     with engine.connect() as con:
         query = sql.text(
-            "INSERT INTO Users (FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture) VALUES (:FirstName, :LastName, :Email, :Password, :Description, :Goals, :DietaryRestrictions, :Picture);"
+            "INSERT INTO Users2 (FirstName, LastName, Email, Password, Description, Goals, Diet, Restriction) VALUES (:FirstName, :LastName, :Email, :Password, :Description, :Goals, :Diet, :Restrictions);"
         )
-        rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, DietaryRestrictions=DietaryRestrictions, Picture=Picture)
+        rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, Diet=Diet, Restrictions=Restrictions)
 
 
 def get_Instructors():
@@ -233,7 +233,7 @@ def filter_by_Tags(tags):
 def get_usergroups(ID):
      with engine.connect() as con:
         query = sql.text(
-                "SELECT * FROM GroupInfo Where GroupInfo.GroupNumber = (SELECT GroupNumber from GroupMemberInfo where GroupMemberInfo.UserID=:ID)"
+                "SELECT * FROM GroupInfo Where GroupInfo.NameOfGroup = (SELECT NameOfGroup from GroupMemberInfo where GroupMemberInfo.UserID=:ID)"
         )
         rs = con.execute(query, ID=ID)
         return [dict(row) for row in rs]
@@ -267,3 +267,64 @@ def update_img(id, blob):
         if result is None:
                 return None
         return dict(result)
+def get_GroupInfo():
+        with engine.connect() as con:
+                rs = con.execute("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal, Images FROM GroupInfo;")
+                return [dict(row) for row in rs]
+
+def getGroup(groupname):
+        with engine.connect() as con:
+                groupnameFinal = "%" + groupname + "%" 
+                query = sql.text("SELECT * FROM GroupInfo WHERE NameOfGroup LIKE :groupname;")
+                rs = con.execute(query, groupname=groupnameFinal)
+                results=rs.first()
+                return dict(results)
+
+def searchForGroups(name):
+        with engine.connect() as con:
+                nameFinal = "%" + name + "%" 
+                query = sql.text("SELECT * from GroupInfo WHERE NameOfGroup LIKE :name;")
+                rs = con.execute(query, name=nameFinal)
+                return [dict(row) for row in rs]
+
+def filterexercise(exercise):
+        with engine.connect() as con:
+                exerciseFinal = "%" + exercise + "%" 
+                query = sql.text("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal, Images FROM GroupInfo WHERE TrainingType LIKE :exercise;")
+                rs = con.execute(query, exercise=exerciseFinal)
+                return [dict(row) for row in rs]
+
+def filtercalories(calories):
+        with engine.connect() as con:
+                caloriesFinal = "%" + calories + "%" 
+                query = sql.text("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal, Images FROM GroupInfo WHERE CalorieGoal LIKE :calories;")
+                rs = con.execute(query, calories=caloriesFinal)
+                return [dict(row) for row in rs]
+
+def getMemberInfo(Name):
+        with engine.connect() as con:
+                NameFinal = "%" + Name + "%" 
+                query = sql.text("SELECT * FROM GroupMemberInfo WHERE NameOfGroup LIKE :Name;")
+                rs = con.execute(query, Name=NameFinal)
+                return [dict(row) for row in rs]
+
+def JoinGroup(groupname, username, name):
+         with engine.connect() as con:
+                query = sql.text("INSERT INTO GroupMemberInfo (NameOfGroup,UserID,MemberName) VALUES (:groupname, :username, :name);")
+                rs = con.execute(query, groupname=groupname, username=username, name=name)
+
+def insert_saved_recipes(ID, Name, URL):
+        with engine.connect() as con:
+                query = sql.text("INSERT INTO SavedRecipes (ID, Name, URL) VALUES (:ID, :Name, :URL);")
+                rs = con.execute(query, ID=ID, Name=Name, URL=URL)
+
+def insert(ID, Name):
+        with engine.connect() as con:
+                query = sql.text("INSERT INTO SavedRecipes (ID, Name) VALUES (:ID, :Name);")
+                rs = con.execute(query, ID=ID, Name=Name)
+
+def get_saved_recipes(ID):
+        with engine.connect() as con:
+                query = sql.text("SELECT * FROM SavedRecipes WHERE ID = :ID;")
+                rs = con.execute(query, ID=ID)
+                return [dict(row) for row in rs]

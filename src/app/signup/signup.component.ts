@@ -22,8 +22,8 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  sign_up(FirstName: String, LastName: String, Email: String, Password:String, Description:String, Goals: String, DietaryRestrictions: String, Picture: String) {
-    this.signupService.sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture).subscribe(
+  sign_up(FirstName: String, LastName: String, Email: String, Password:String, Description:String, Goals: String, Diet: String, Restrictions: String) {
+    this.signupService.sign_up(FirstName, LastName, Email, Password, Description, Goals, Diet, Restrictions).subscribe(
       data => {
         this.user = data;
         localStorage.setItem("signup","true");
@@ -33,14 +33,6 @@ export class SignupComponent implements OnInit {
         alert('Error Signing Up');
       }
     );
-  }
-
-  default_img(id:any, blob:Blob){
-    this.signupService.default_img(id, blob).subscribe(
-      data => {
-        console.log("uploaded default img");
-      }
-    )
   }
 
 }

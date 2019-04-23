@@ -9,8 +9,8 @@ export interface User {
   Password: String;
   Goals: String;
   Description: String;
-  DietaryRestrictions: String;
-  Picture: String;
+  Diet: String;
+  Restriction: String;
 }
 
 export interface GroupInfo {
@@ -39,6 +39,12 @@ export interface LoggedIn{
 
 }
 
+export interface SavedRecipes{
+  ID: any;
+  Name: any;
+  URL: any;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -59,8 +65,8 @@ export class WelcomeService {
     return this.http.get<User[]>('/api/get_userdata/'+ID)
   }
 
-  sign_up(FirstName: String, LastName: String, Email: String, Password:String, Description:String, Goals: String, DietaryRestrictions: String, Picture: String){
-    return this.http.get<User[]>('/api/signup/'+FirstName+'/'+LastName+'/'+Email+'/'+Password+'/'+Description+'/'+Goals+'/'+DietaryRestrictions+'/'+Picture)
+  sign_up(FirstName: String, LastName: String, Email: String, Password:String, Description:String, Goals: String, Diet: String, Restrictions: String){
+    return this.http.get<User[]>('/api/signup/'+FirstName+'/'+LastName+'/'+Email+'/'+Password+'/'+Description+'/'+Goals+'/'+Diet+'/'+Restrictions)
   }
 
   get_usergroups(ID: any){
@@ -75,11 +81,8 @@ export class WelcomeService {
     return this.http.get<UserForums[]>('/api/get_user_forums/'+ID)
   }
 
-  default_img(id: any, blob: Blob){
-    return this.http.get('/api/default_img/'+id+'/'+blob)
+  get_saved_recipes(ID: any){
+    return this.http.get<SavedRecipes[]>('/api/get_saved_recipes/'+ID)
   }
 
-  update_img(id: any, blob: Blob){
-    return this.http.get('/api/update_img/'+id+'/'+blob)
-  }
 }

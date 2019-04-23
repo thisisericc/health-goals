@@ -25,17 +25,17 @@ export class MealPlanComponent implements OnInit{
     public loggedIn: boolean = false;
     private userService: any;
     
-    get_userdata(ID: any){
-        this.userService.get_userdata(ID).subscribe(
-            data => {
-                this.user= data;
-            },
-            error => {
-                alert("unable to get user data");
-            }
-        )
-    }
-    breakfast: any;
+    // get_userdata(ID: any){
+    //     this.userService.get_userdata(ID).subscribe(
+    //         data => {
+    //             this.user= data;
+    //         },
+    //         error => {
+    //             alert("unable to get user data");
+    //         }
+    //     )
+    // }
+  breakfast: any;
   lunch:any;
   dinner:any;
   searchbResults: any;
@@ -57,16 +57,16 @@ export class MealPlanComponent implements OnInit{
 
   ngOnInit() {
 
-     if(localStorage.getItem("loggedIn") == "true"){
-          this.loggedIn = true;
-          this.get_userdata(localStorage.getItem("ID"));
-          console.log(this.get_userdata(localStorage.getItem("ID")));
-      }
-      else{
-          this.loggedIn = false;
-          localStorage.clear();
-          localStorage.setItem("loggedIn", "false");
-      }
+    //  if(localStorage.getItem("loggedIn") == "true"){
+    //       this.loggedIn = true;
+    //       this.get_userdata(localStorage.getItem("ID"));
+    //       console.log(this.get_userdata(localStorage.getItem("ID")));
+    //   }
+    //   else{
+    //       this.loggedIn = false;
+    //       localStorage.clear();
+    //       localStorage.setItem("loggedIn", "false");
+    //   }
 
 
       let breakfastitems: Array<string>= ['apple-juice','strawberry-jam','french-toast','fruit','bananas-milk','granola','banana-pancake','bacon-strip-breakfast','smoothie','omelette','quick','bread','orange-juice','low-cal-juice','granola-bar'];
