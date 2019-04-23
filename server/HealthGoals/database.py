@@ -233,7 +233,7 @@ def filter_by_Tags(tags):
 def get_usergroups(ID):
      with engine.connect() as con:
         query = sql.text(
-                "SELECT * FROM GroupInfo Where GroupInfo.GroupNumber = (SELECT GroupNumber from GroupMemberInfo where GroupMemberInfo.UserID=:ID)"
+                "SELECT * FROM GroupInfo Where GroupInfo.NameOfGroup = (SELECT NameOfGroup from GroupMemberInfo where GroupMemberInfo.UserID=:ID)"
         )
         rs = con.execute(query, ID=ID)
         return [dict(row) for row in rs]
