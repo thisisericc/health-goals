@@ -109,7 +109,6 @@ export class FitnessInstructorsComponent implements OnInit {
     }*/
       //this.getByTags('Active Aging');
       //this.getByTags('Corrective Exercise');
-        debugger;
       },
       error=>{
         alert('Could not retrieve a list of instructors');
@@ -187,16 +186,13 @@ export class FitnessInstructorsComponent implements OnInit {
     }
 
     
-    debugger;
   }
 
   getByCert(event){
-    debugger;
     if(this.ACEvalue){
       this.certifications="ACE Health Coach";
       console.log(this.certifications);
       this.helperC(this.certifications);
-      debugger;
     }
     if(this.Personalvalue){
       this.certifications='Personal Trainer';

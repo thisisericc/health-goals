@@ -40,7 +40,6 @@ export class InstructorDetailsComponent implements OnInit {
         data=>{
           this.instructor_d=data;
           console.log(data);
-          debugger;
         },
         (error:HttpResponse<any>)=>{
           if(error.status==404){
@@ -73,7 +72,6 @@ export class InstructorDetailsComponent implements OnInit {
         /*for(var i=0;i<this.instructors_.length; i++){
       //this.instructors_[i].uri_name=encodeURI(this.instructors_[i].Name);
     }*/
-        debugger;
       },
       error=>{
         alert('Could not retrieve a list of instructors');
@@ -81,7 +79,6 @@ export class InstructorDetailsComponent implements OnInit {
     )
     
     
-    debugger;
   }
 
 }
