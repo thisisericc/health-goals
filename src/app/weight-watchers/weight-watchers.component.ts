@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupInfo ,WeightWatchersService, GroupMemberInfo } from '../weight-watchers.service' ;
+import { User, WelcomeService, LoggedIn } from '../welcome.service';
 
 
 @Component({
@@ -14,16 +15,40 @@ export class WeightWatchersComponent implements OnInit {
   selectedValues: string; 
   selectedCalories: string;
   members: GroupMemberInfo[];
-  
+  user: User[]
+  loggedIn: boolean = false;
+
   constructor(
-    public weightwatchersService: WeightWatchersService
+    public weightwatchersService: WeightWatchersService,
+    public userService: WelcomeService
     
   ) { 
   }
 
   ngOnInit() {
     this.getGroupInfo();
+
+    if(localStorage.getItem("loggedIn") == "true"){
+            this.loggedIn = true;
+            this.get_userdata(localStorage.getItem("ID"));
+          }
+          else{
+            this.loggedIn = false;
+            localStorage.clear();
+            localStorage.setItem("loggedIn", "false");
+          }
   }
+  
+  get_userdata(ID: any){
+        this.userService.get_userdata(ID).subscribe(
+          data => {
+            this.user= data;
+          },
+          error => {
+            alert("unable to get user data");
+          }
+        )
+      }
   
   getGroupInfo() {
     this.weightwatchersService.getGroupInfo().subscribe(
@@ -34,6 +59,17 @@ export class WeightWatchersComponent implements OnInit {
       alert('Cannot retrieve Data');
     }
     );
+  }
+
+  getgroup(group: string) {
+    this.weightwatchersService.getgroup(group).subscribe(
+      data => {
+        this.groups = data;
+      },
+    error => {
+      alert('Cannot retrieve Data');
+      }
+    )
   }
 
   getMemberInfo(number: string){

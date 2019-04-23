@@ -2,6 +2,7 @@
     padding-top: 2%;
     padding-bottom: 3%;
 }
+
 .container{
     font-family: 'Quicksand', sans-serif;
     font-weight: 250;
@@ -88,11 +89,18 @@
     top: 170px;
     left: 9px;
 }
+
 .Heading2 {
     font-family: 'Quicksand', sans-serif;
-    position: absolute;
-    top: 260px;
-    left: 25px;
     font-size: 25px;
+    position: absolute;
+    left: 25px;
+    top: 260px;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }

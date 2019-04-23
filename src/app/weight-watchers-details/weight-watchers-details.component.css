@@ -21,3 +21,10 @@
     width: 300px;
     bottom: 900px;
 }
+
+.Joinbutton{
+    font-family: 'Quicksand', sans-serif;
+    position: absolute;
+    top: 650px;
+    left: 57px; 
+}

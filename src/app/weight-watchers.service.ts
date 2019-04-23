@@ -6,6 +6,7 @@ export interface GroupInfo {
   NameOfGroup: string;
   TrainingType: string;
   CalorieGoal: string;
+  Images: string;
 }
 
 export interface GroupMemberInfo {
@@ -35,7 +36,7 @@ export class WeightWatchersService  {
   }
 
   searchForGroups(name: string){
-    return this.http.get<GroupInfo[]>('/api/searchForGroups'+name);
+    return this.http.get<GroupInfo[]>('/api/searchForGroups/' +name);
   }
 
   filterexercise(exercise: string){
@@ -50,7 +51,11 @@ export class WeightWatchersService  {
     return this.http.get<GroupMemberInfo[]>('/api/members/' +Name);
   }
 
-  JoinGroup(groupname: string, username: string ){
-    return this.http.get<GroupMemberInfo[]>('/api/joingroup/' +groupname +'/' +username)
+  JoinGroup(groupname: string, username: string, name: string ){
+    return this.http.get<GroupMemberInfo[]>('/api/joingroup/' +groupname +'/' +username +'/' +name)
+  }
+
+  getRank(rank: string) {
+    return this.http.get<GroupMemberInfo[]>('/api/rank/' +rank)
   }
 }

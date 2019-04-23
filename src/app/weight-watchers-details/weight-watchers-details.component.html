@@ -12,6 +12,7 @@
  <div class="Search-Results">
     <p-card>
       <h2><b>{{ NameOfGroup }}</b></h2>
+      <b> <img src="{{groupdetails?.Images}}" height="100" width="100" class="center"> </b>
       <hr>
       <h4><p *ngIf="groupdetails">
         Group Number: <b>{{ groupdetails?.GroupNumber }}</b> 
@@ -19,19 +20,21 @@
         Calorie Goals: <b>{{ groupdetails?.CalorieGoal}}</b>
         <br>
         Training Type: <b>{{ groupdetails?.TrainingType}}</b>
+        
          </p></h4>
-      <br>
     </p-card>
     <br>
  </div>
 
- <!--
- <div class="Joinbutton">
- <button type="button" (click) = "JoinGroup(username)" pButton label="Join"></button>
-</div>
--->
 
-    <div class="container">
+ <div class="Joinbutton">
+ <button type="button" (click) = "JoinGroup(user.ID, user.FirstName )" pButton label="Join" *ngIf="loggedIn" class="ui-button-rounded ui-button-Join"></button>
+ <button type= "button" (click) = "signintoGroup()" pButton label="Join" *ngIf="!loggedIn" class="ui-button-rounded ui-button-Join"></button>
+</div>
+
+
+  <div class="container">
+    <br>
         <p-table [value]="groupmemberdetails">
             <ng-template pTemplate="header">
               <tr>

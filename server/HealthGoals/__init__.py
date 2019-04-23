@@ -241,7 +241,17 @@ def getGroup(groupname):
 
 @app.route('/api/searchForGroups/<name>', methods=["GET"])
 def searchForGroups(name): 
-    return jsonify(database.searchForGroups(name))
+    try:
+        if name is None:
+            raise ValueError("Group is not specified.")
+        group = database.searchForGroups(name)
+        if group is None:
+            return make_response("No Group found with the given name.", 404)
+        return jsonify(group)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
 
 @app.route('/api/filterexercise/<exercise>', methods=["GET"])
 def filterexercise(exercise): 
@@ -250,10 +260,11 @@ def filterexercise(exercise):
 @app.route('/api/filtercalories/<calories>', methods=["GET"])
 def filtercalories(calories): 
     return jsonify(database.filtercalories(calories))
+
 @app.route('/api/members/<Name>', methods=["GET"])
 def getMemberInfo(Name): 
     return jsonify(database.getMemberInfo(Name))
 
-@app.route('/api/joingroup/<groupname>/<username>', methods=["GET"])
-def JoinGroup(groupname, username): 
-    return jsonify(database.JoinGroup(groupname, username))
+@app.route('/api/joingroup/<groupname>/<username>/<name>/', methods=["GET"])
+def JoinGroup(groupname, username, name): 
+    return jsonify(database.JoinGroup(groupname, username, name))

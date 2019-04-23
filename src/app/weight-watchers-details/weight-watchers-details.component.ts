@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {GroupInfo ,WeightWatchersService, GroupMemberInfo } from '../weight-watchers.service' ;
 import { HttpResponse } from '@angular/common/http';
+import { User, WelcomeService, LoggedIn } from '../welcome.service';
 
+import { SelectItem } from 'primeng/components/common/selectitem';
+ 
 @Component({
   selector: 'app-weight-watchers-details',
   templateUrl: './weight-watchers-details.component.html',
@@ -16,10 +19,21 @@ export class WeightWatchersDetailsComponent implements OnInit {
   GroupNumber: string;
   members: GroupMemberInfo[];
   groupmemberdetails: GroupMemberInfo[];
+  Rank: string; 
+
+  user: User[]
+  loggedIn: boolean = false;
+  
+
+  filterOptions: SelectItem[];
+  sortField: string;
+  sortOrder: number;
+
 
   constructor(
     public weightwatchersService: WeightWatchersService,
     private watchersService: WeightWatchersService,
+    public userService: WelcomeService,
     private route: ActivatedRoute,
   ) { 
     route.paramMap.subscribe((paramMap) => {
@@ -54,11 +68,48 @@ export class WeightWatchersDetailsComponent implements OnInit {
                   }
       )
 
-    })
+      watchersService.getRank(this.NameOfGroup).subscribe(
+        data => {
+          this.groupmemberdetails = data;  
+          console.log(data);
+        }
+      );
+    
+      this.filterOptions = [
+        {
+          'label' : 'Highest Rank First',
+          'value' : 'high rank'
+        },
+        {
+          'label' : 'Lowest Rank First',
+          'value' : 'low rank'
+        },
+      ];
+    });
   }
 
   ngOnInit() {
+    if(localStorage.getItem("loggedIn") == "true"){
+            this.loggedIn = true;
+            this.get_userdata(localStorage.getItem("ID"));
+          }
+          else{
+            this.loggedIn = false;
+            localStorage.clear();
+            localStorage.setItem("loggedIn", "false");
+          }
   }
+
+  get_userdata(ID: any){
+        this.userService.get_userdata(ID).subscribe(
+          data => {
+            this.user= data;
+          },
+          error => {
+            alert("unable to get user data");
+          }
+        )
+      }
 
   getMemberInfo(Name: string){
     this.weightwatchersService.getMemberInfo(Name).subscribe(
@@ -71,8 +122,8 @@ export class WeightWatchersDetailsComponent implements OnInit {
     )
   }
   
-  JoinGroup(username: string){
-    this.weightwatchersService.JoinGroup(this.NameOfGroup, username).subscribe(
+  JoinGroup(username: string, name: string){
+    this.weightwatchersService.JoinGroup(this.NameOfGroup, username, name).subscribe(
       data => {
         this.groupmemberdetails = data;
        alert('Group Joined!!')
@@ -81,6 +132,10 @@ export class WeightWatchersDetailsComponent implements OnInit {
         alert('Cannot Join Group!!');
       }
     )
+  }
+
+  signintoGroup(){
+    alert('Please Sign In To Join A Group!')
   }
 
 }

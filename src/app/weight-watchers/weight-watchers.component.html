@@ -1,8 +1,11 @@
 <div class="jumbotron jumbotron-fluid">
-  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
-  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+    <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+    <h1 style="text-align:center" class="display-4">Health Goals</h1>
 </div>
- <!--S
+
+<p class = "Heading2"><b>Weight Watchers</b> </p>
+
+<!--S
 <div class="container">
   <table class="table">
     <thead>
@@ -27,11 +30,13 @@
 <div class="sidenav">
     <p-card header = "Filter Results">
       <h6>Search For Specific Group</h6>
+      
       <div class="search-container">
           <span class ="ui-float-label">
-          <input id="float-input" type="text" size="41" pInputTextarea [(ngModel)]="input">
+          <input id="float-input" type="text" size="40" pInputTextarea [(ngModel)]="input">
           </span>
       </div>
+
     <button type="button" (click) = "searchForGroups(input)" pButton label="Search" class = "Search-Button"></button>
         <br>
         <br>
@@ -82,12 +87,15 @@
 
 <!-- RESULTS-->
 <div class="container"> 
-    <p-carousel [value]="groups" numVisible="4">
+    <p-carousel [value]="groups">
         <ng-template pTemplate ="body" let-group>
-            <br>
-             <a routerLink="/weight-watchers/{{group.NameOfGroup}}">{{group.NameOfGroup}}</a> 
+            <!-- IMAGE DISPLAY HERE -->
+             <a routerLink="/weight-watchers/{{group.NameOfGroup}}">
+             <img src="{{group.Images}}" height="200" width="200" class="center"> 
              <br>
-    </ng-template>
+             <h5 style="text-align:center">{{group.NameOfGroup}}</h5>
+             </a> 
+        </ng-template>
     </p-carousel>
   </div>
 

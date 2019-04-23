@@ -40,11 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-<<<<<<< HEAD
 VIRTUAL_ENV="/Users/pranathi/health-goals/server/venv"
-=======
-VIRTUAL_ENV="/Users/varunbhandari/Desktop/health-goals/server/venv"
->>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -58,29 +54,17 @@ if ! [ -z "${PYTHONHOME+_}" ] ; then
 fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT-}" ] ; then
-<<<<<<< HEAD
     _OLD_VIRTUAL_PS1="${PS1-}"
     if [ "x" != x ] ; then
         PS1="${PS1-}"
     else
         PS1="(`basename \"$VIRTUAL_ENV\"`) ${PS1-}"
-=======
-    _OLD_VIRTUAL_PS1="$PS1"
-    if [ "x" != x ] ; then
-        PS1="$PS1"
-    else
-        PS1="(`basename \"$VIRTUAL_ENV\"`) $PS1"
->>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
     fi
     export PS1
 fi
 
 # Make sure to unalias pydoc if it's already there
-<<<<<<< HEAD
 alias pydoc 2>/dev/null >/dev/null && unalias pydoc || true
-=======
-alias pydoc 2>/dev/null >/dev/null && unalias pydoc
->>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
 
 pydoc () {
     python -m pydoc "$@"

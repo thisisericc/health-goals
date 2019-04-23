@@ -11,11 +11,8 @@ import { MhForumsComponent } from './mh-forums/mh-forums.component';
 import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
 import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
 import { WeightWatchersComponent } from './weight-watchers/weight-watchers.component';
-<<<<<<< HEAD
 import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight-watchers-details.component';
-=======
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
->>>>>>> 8c7b5ae3324b439f72558eaf32cbb85e3c9548d7
 import {MealPlanComponent} from './meal-plan/meal-plan.component';
 import { SignupComponent } from './signup/signup.component';
 

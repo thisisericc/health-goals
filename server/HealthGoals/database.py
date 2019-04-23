@@ -177,7 +177,7 @@ def sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRes
 
 def get_GroupInfo():
         with engine.connect() as con:
-                rs = con.execute("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal FROM GroupInfo;")
+                rs = con.execute("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal, Images FROM GroupInfo;")
                 return [dict(row) for row in rs]
 
 def getGroup(groupname):
@@ -191,21 +191,21 @@ def getGroup(groupname):
 def searchForGroups(name):
         with engine.connect() as con:
                 nameFinal = "%" + name + "%" 
-                query = sql.text("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal FROM GroupInfo WHERE NameOfGroup LIKE :name;")
+                query = sql.text("SELECT * from GroupInfo WHERE NameOfGroup LIKE :name;")
                 rs = con.execute(query, name=nameFinal)
                 return [dict(row) for row in rs]
 
 def filterexercise(exercise):
         with engine.connect() as con:
                 exerciseFinal = "%" + exercise + "%" 
-                query = sql.text("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal FROM GroupInfo WHERE TrainingType LIKE :exercise;")
+                query = sql.text("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal, Images FROM GroupInfo WHERE TrainingType LIKE :exercise;")
                 rs = con.execute(query, exercise=exerciseFinal)
                 return [dict(row) for row in rs]
 
 def filtercalories(calories):
         with engine.connect() as con:
                 caloriesFinal = "%" + calories + "%" 
-                query = sql.text("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal FROM GroupInfo WHERE CalorieGoal LIKE :calories;")
+                query = sql.text("SELECT GroupNumber, NameOfGroup, TrainingType, CalorieGoal, Images FROM GroupInfo WHERE CalorieGoal LIKE :calories;")
                 rs = con.execute(query, calories=caloriesFinal)
                 return [dict(row) for row in rs]
 
@@ -216,8 +216,8 @@ def getMemberInfo(Name):
                 rs = con.execute(query, Name=NameFinal)
                 return [dict(row) for row in rs]
 
-def JoinGroup(groupname, username):
+def JoinGroup(groupname, username, name):
          with engine.connect() as con:
-                query = sql.text("INSERT INTO GroupMemberInfo (NameOfGroup,UserID) VALUES (:groupname, :username);")
-                rs = con.execute(query, groupname=groupname, username=username)
+                query = sql.text("INSERT INTO GroupMemberInfo (NameOfGroup,UserID,MemberName) VALUES (:groupname, :username, :name);")
+                rs = con.execute(query, groupname=groupname, username=username, name=name)
 
