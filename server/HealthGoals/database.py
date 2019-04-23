@@ -207,20 +207,21 @@ def search_articles(aname):
                 )
                 rs = con.execute(query, aname=nameFinal)
                 return [dict(row) for row in rs]
-def get_recent(ids,recents):
+def get_recent(recents):
     with engine.connect() as con:
         query = sql.text(
-            "INSERT INTO Users (ID,ArticleName) VALUES (:ids, :recents);"
+            "INSERT INTO RecentArticles (RecentName) VALUES ( :recents);"
         )
-        rs = con.execute(query, ids=ids, recents=recents)
+        rs = con.execute(query,  recents=recents)
 def write_recent(write):
         with engine.connect() as con:
                 writeFinal = "%" + write + "%"
                 query = sql.text(
-                        " SELECT * from RecentArticle WHERE ArticleName LIKE :write;"
+                        "SELECT * , count(*) FROM RecentArticles GROUP BY RecentName ORDER BY count(*) DESC LIMIT 4;"
                 )
                 rs = con.execute(query, write=writeFinal)
                 return [dict(row) for row in rs]
+
 
 def get_login(email, password):
     with engine.connect() as con:

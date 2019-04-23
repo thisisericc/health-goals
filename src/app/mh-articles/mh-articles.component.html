@@ -34,7 +34,7 @@
     <br/>
     <br/>
     &nbsp;
-    <p-checkbox name="age" value="old" label="2000"(click)="filterByLess('1990')"></p-checkbox>
+    <p-checkbox name="age" value="old" label="<2000"(click)="filterByLess('1990')"></p-checkbox>
     &nbsp;
     <br/>
     <br/>
@@ -45,6 +45,11 @@
     <br/>
     &nbsp;
     <p-checkbox name="age" value="5to10" label=">2010"(click)="filterByGreat('3000')"></p-checkbox>
+    &nbsp;
+    <br/>
+    <br/>
+    
+    <p-button label="Likes" id="searchButton" (click) = "writeRecent('dep')"></p-button>
     &nbsp;
     <br/>
     <br/>
@@ -66,12 +71,14 @@
     <p-table [value]="articles" [paginator]="true" [rows]="5">
     <ng-template pTemplate="body" let-article>
       <p-card>
-          <a href="{{article.Link}}"><h2>{{article.ArticleName}}</h2></a>
+          <a href="{{article.Link}} "><b>{{article.ArticleName}}</b></a>
         <hr>
         <p><b>{{article.Author}}</b></p>
         <p><b>{{article.ArticleType}}</b></p>
         <p><b>{{article.Year}}</b></p>
+        <p-checkbox name="Like" label="Like"(click)="getRecent(article.ArticleName); getArticles()" ></p-checkbox>
       </p-card>
+      
       <br>
     </ng-template>
   </p-table>
@@ -81,13 +88,11 @@
 </div>
 
 <div class="Latest-Articles">
-
-        <p-table [value]="articles" [paginator]="true" [rows]="5">
+        <p-button label="Top Pages" id="searchButton" (click) = "writeRecent('dep')"></p-button>
+        <p-table [value]="articles" [paginator]="true" [rows]="4">
         <ng-template pTemplate="body" let-article>
           <p-card>
-              <a href="{{article.Link}};getRecent(user.ID,article.Link)">{{article.ArticleName}}</a>
-            <p><b>{{input}}</b></p>
-           
+            <a><b>{{article.RecentName}}</b></a>
           </p-card>
           <br>
         </ng-template>
@@ -96,3 +101,4 @@
     
     
     </div>
+

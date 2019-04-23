@@ -22,6 +22,7 @@ export class MhArticlesComponent implements OnInit {
   ids:string;
   recents:string;
   write:string;
+  RecentName:string;
   constructor(public articleService:MHArticlesService) { 
     
 
@@ -111,8 +112,8 @@ this.articleService.filterByType(this.articletype).subscribe(
       }
     )
   } 
-  getRecent(ids:string,recents:string){
-    this.articleService.getRecent(ids,recents).subscribe(
+  getRecent(recents:string){
+    this.articleService.getRecent(recents).subscribe(
       data => {
         this.articles = data;
       },

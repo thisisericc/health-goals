@@ -303,10 +303,10 @@ def getid(ID):
 
 
 
-@app.route('/api/recent/<ids>/<recents>', methods=["GET"])
-def get_recent(ids,recents):
+@app.route('/api/recent/<recents>', methods=["GET"])
+def get_recent(recents):
     try:
-        res = database.get_recent(ids,recents)
+        res = database.get_recent(recents)
         return jsonify(res)
     except ValueError as e:
         return make_response(str(e), 400)
