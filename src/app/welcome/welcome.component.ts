@@ -24,12 +24,10 @@ export class WelcomeComponent implements OnInit {
   onFileSelected(event){
     console.log(event);
     this.selectedFile = <File>event.target.files[0];
-    this.blob = this.selectedFile as Blob;
-    console.log("blob" + this.blob)
   }
 
   onUpload(){
-    //this.default_img(localStorage.getItem("ID"), this.blob);
+    this.default_img(localStorage.getItem("ID"), this.selectedFile);
   }
 
   constructor(

@@ -236,10 +236,7 @@ def get_usergroups(ID):
                 "SELECT * FROM GroupInfo Where GroupInfo.GroupNumber = (SELECT GroupNumber from GroupMemberInfo where GroupMemberInfo.UserID=:ID)"
         )
         rs = con.execute(query, ID=ID)
-        result = rs.first()
-        if result is None:
-                return None
-        return dict(result)
+        return [dict(row) for row in rs]
 
 def get_groupmemberinfo(ID):
      with engine.connect() as con:
@@ -247,10 +244,7 @@ def get_groupmemberinfo(ID):
                 "SELECT * FROM GroupMemberInfo where GroupMemberInfo.UserID=:ID"
         )
         rs = con.execute(query, ID=ID)
-        result = rs.first()
-        if result is None:
-                return None
-        return dict(result)
+        return [dict(row) for row in rs]
 
 def default_img(id, blob):
      with engine.connect() as con:

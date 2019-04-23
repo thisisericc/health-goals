@@ -11,8 +11,8 @@
          
         <div class="row" >
           <div class="column left" style="text-align: center">
-            <h2>Groups Joined</h2>
-            <table class="table" *ngIf="!isNull">
+            <!-- <h2>Groups Joined</h2> -->
+            <!-- <table class="table" *ngIf="!isNull">
                 <thead>
                   <tr> 
                     <th scope="col">Group <br> Name</th>
@@ -27,9 +27,50 @@
                     <td>{{groupInfo.CalorieGoal}}</td>
                   </tr>
                 </tbody>
-            </table>
+            </table> -->
+            <div class="SavedGroupsJoined">
+              <h2>Groups Joined</h2>
               <br>
+              <p-table [value]="groupInfos">
+                  <ng-template pTemplate="header">
+                      <tr>
+                          <th></th>
+                          <th>Name</th>
+                          <th>Training Type</th>
+                          <th>Calorie Goal</th>
+                      </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-groupInfo>
+                      <tr>
+                          <td>{{ groupInfo.NameOfGroup }}</td>
+                          <td>{{ groupInfo.TrainingType}}</td>
+                          <td>{{ groupInfo.CalorieGoal }}</td>
+                      </tr>
+                  </ng-template>
+              </p-table>
+            </div><br>
+            <div class="SavedGroupGoals">
               <h2>Group Goals</h2>
+              <br>
+              <p-table [value]="groupMemberInfos">
+                  <ng-template pTemplate="header">
+                      <tr>
+                          <th></th>
+                          <th>Name</th>
+                          <th>Rank</th>
+                          <th>Goal Reached</th>
+                      </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-groupMemberInfo>
+                      <tr>
+                        <td>{{groupMemberInfo.NameOfGroup}}</td>
+                        <td>{{groupMemberInfo.Rank}}</td>
+                        <td>{{groupMemberInfo.GoalReached}}</td>
+                      </tr>
+                  </ng-template>
+              </p-table>
+            </div><br>
+              <!-- <h2>Group Goals</h2>
               <table class="table" *ngIf="!isNull">
                   <thead>
                     <tr> 
@@ -46,7 +87,8 @@
                     </tr>
                   </tbody>
                 </table>
-          </div>
+          </div> -->
+        </div>
 
           <div class="column middle" style="text-align: center">
             <h2>About {{user.FirstName}}</h2>
