@@ -210,6 +210,10 @@
                 </p-dialog>
                 <button type="button" (click)="showNutritionFacts(res)" pButton icon="pi pi-info-circle" label="Nutrition Facts"></button>
             </div>
+            <div class="Save">
+                <p-button *ngIf="loggedIn" label="Save Recipe" (click)="saveRecipe(res)"></p-button>
+                <p-button *ngIf="!loggedIn" label="Save Recipe" (click)="signInToSave()"></p-button>
+            </div>
         </ng-template>
     </p-dataView>
 </div>
