@@ -281,6 +281,11 @@ def update_img(id, blob):
     try:
         res = database.update_img(id, blob)
         return jsonify(res)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+    
 
 @app.route('/api/groups', methods=["GET"])
 def get_GroupInfo(): 
