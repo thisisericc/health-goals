@@ -22,4 +22,4 @@ describe('WeightWatchersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+})
