@@ -10,7 +10,7 @@
         <div class="row" >
           <div class="column left" style="text-align: center">
             <div class="SavedGroupsJoined">
-              <br><h2>Groups Joined</h2>
+              <br><h2>Weight Watchers Joined</h2>
               <p-table [value]="groupInfos">
                   <ng-template pTemplate="header">
                       <tr>
@@ -21,7 +21,7 @@
                   </ng-template>
                   <ng-template pTemplate="body" let-groupInfo>
                       <tr>
-                          <td>{{ groupInfo.NameOfGroup }}</td>
+                        <td><a routerLink="/weight-watchers/{{groupInfo.NameOfGroup}}">{{ groupInfo.NameOfGroup }}</a></td>
                           <td>{{ groupInfo.TrainingType}}</td>
                           <td>{{ groupInfo.CalorieGoal }}</td>
                       </tr>
@@ -40,7 +40,7 @@
                   </ng-template>
                   <ng-template pTemplate="body" let-groupMemberInfo>
                       <tr>
-                        <td>{{groupMemberInfo.NameOfGroup}}</td>
+                        <td><a routerLink="/weight-watchers/{{groupMemberInfo.NameOfGroup}}">{{groupMemberInfo.NameOfGroup}}</a></td>
                         <td>{{groupMemberInfo.Rank}}</td>
                         <td>{{groupMemberInfo.GoalReached}}</td>
                       </tr>
