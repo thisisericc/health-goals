@@ -102,24 +102,16 @@ export class FoodRecipesComponent implements OnInit {
     this.foodRecipesService.insert_saved_recipes(localStorage.getItem('ID'), res.recipeName, res.articleURL).subscribe(
       data => {
         console.log(data);
-        alert('Video saved');
+        alert('Recipe saved');
       },
       error => {
-        alert ('Could not save video');
+        alert ('Could not save recipe');
       }
     );
 
     console.log(localStorage.getItem('ID'));
     console.log(res.recipeName);
-    this.foodRecipesService.insert(localStorage.getItem('ID'), res.recipeName).subscribe(
-      data => {
-        console.log(data);
-        alert('Video saved');
-      },
-      error => {
-        alert ('Could not save video');
-      }
-    );
+
   }
 
   recipesQuery(mealQuery: string) {

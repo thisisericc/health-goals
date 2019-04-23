@@ -79,7 +79,7 @@
               <p-table [value]="savedRecipes">
                 <ng-template pTemplate="body" let-savedRecipe>
                     <tr>
-                        <td><a routerLink = "{{savedRecipe.URL}}"> {{savedRecipe.Name}}
+                        <td><a href = "{{savedRecipe.URL}}"> {{savedRecipe.Name}}
                         </a></td>
                     </tr>
                 </ng-template>
