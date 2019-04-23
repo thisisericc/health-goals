@@ -48,7 +48,7 @@
   .left{
     background-color: rgb(248, 246, 246);
     width: 30%;
-    height: 45%;
+    /* height: 45%; */
     margin: 30px;
     position: absolute;
     left: 10px; 
@@ -57,7 +57,7 @@
   
   .right {
     background-color: rgb(248, 246, 246);
-    height: 45%;
+    /* height: 45%; */
     width: 30%;
     margin: 30px;
     position: absolute;
@@ -67,6 +67,7 @@
   
   .middle {
     background-color: rgb(248, 246, 246);
+    margin: auto;
     width: 25%;
     margin-bottom: 5%;
   }

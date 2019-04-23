@@ -6,35 +6,14 @@
 
 <html>
     <body>
-
         <div style="text-align: center"> 
-         
         <div class="row" >
           <div class="column left" style="text-align: center">
-            <!-- <h2>Groups Joined</h2> -->
-            <!-- <table class="table" *ngIf="!isNull">
-                <thead>
-                  <tr> 
-                    <th scope="col">Group <br> Name</th>
-                    <th scope="col">Training Type</th>
-                    <th scope="col">Calorie Goal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">{{groupInfo.NameOfGroup}}</th>
-                    <td>{{groupInfo.TrainingType}}</td>
-                    <td>{{groupInfo.CalorieGoal}}</td>
-                  </tr>
-                </tbody>
-            </table> -->
             <div class="SavedGroupsJoined">
-              <h2>Groups Joined</h2>
-              <br>
+              <br><h2>Groups Joined</h2>
               <p-table [value]="groupInfos">
                   <ng-template pTemplate="header">
                       <tr>
-                          <th></th>
                           <th>Name</th>
                           <th>Training Type</th>
                           <th>Calorie Goal</th>
@@ -48,14 +27,12 @@
                       </tr>
                   </ng-template>
               </p-table>
-            </div><br>
+            </div>
             <div class="SavedGroupGoals">
-              <h2>Group Goals</h2>
-              <br>
+              <br><h2>Group Goals</h2>
               <p-table [value]="groupMemberInfos">
                   <ng-template pTemplate="header">
                       <tr>
-                          <th></th>
                           <th>Name</th>
                           <th>Rank</th>
                           <th>Goal Reached</th>
@@ -70,24 +47,6 @@
                   </ng-template>
               </p-table>
             </div><br>
-              <!-- <h2>Group Goals</h2>
-              <table class="table" *ngIf="!isNull">
-                  <thead>
-                    <tr> 
-                      <th scope="col">Group Name</th>
-                      <th scope="col">Rank</th>
-                      <th scope="col">Goal Reached</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">{{groupMemberInfo.NameOfGroup}}</th>
-                      <td>{{groupMemberInfo.Rank}}</td>
-                      <td>{{groupMemberInfo.GoalReached}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-          </div> -->
         </div>
 
           <div class="column middle" style="text-align: center">
@@ -103,27 +62,28 @@
               <small><b>Dietary Restrictions:</b> {{user.DietaryRestrictions}}</small>
               <br>
               <small><b>Goals</b> {{user.Goals}} </small>
-              <br>
           </div>
           <div class="column right" style="text-align: center">
-              <h2>Saved Videos</h2>
-                <div class="SavedVideoResults">
-                    <p-carousel [value]="savedvideos" numVisible="3" headerText = "Saved Videos">
-                        <ng-template pTemplate ="body" let-savedvideo>
-                                <a routerLink = "/exercise-videos/{{savedvideo.VideoName}}"> {{savedvideo.VideoName}}
-                                 </a> 
-                        </ng-template>
-                    </p-carousel>
-                </div>
+              <br><h2>Saved Videos</h2>
+                <p-table [value]="savedvideos">
+                  <ng-template pTemplate="body" let-savedvideo>
+                      <tr>
+                          <td><a routerLink = "/exercise-videos/{{savedvideo.VideoName}}"> {{savedvideo.VideoName}}
+                          </a> </td>
+                      </tr>
+                  </ng-template>
+              </p-table>
               <br>
-              <h2>Forums</h2>
+              <h2>Forums Posted</h2>
               <div class="SavedForumResults">
-                  <p-carousel [value]="userForums" numVisible="3" headerText = "Forums">
-                      <ng-template pTemplate ="body" let-userForum>
-                              <a routerLink = "/mh-forums/{{userForum.NameOfForum}}"> {{userForum.NameOfForum}}
-                               </a> 
-                      </ng-template>
-                  </p-carousel>
+                  <p-table [value]="userForums">
+                    <ng-template pTemplate="body" let-userForum>
+                        <tr>
+                            <td><a routerLink = "/mh-forums/{{userForum.NameOfForum}}"> {{userForum.NameOfForum}}
+                            </a> </td>
+                        </tr>
+                    </ng-template>
+                </p-table><br>
               </div>
           </div>
         </div>
