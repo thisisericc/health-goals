@@ -330,7 +330,11 @@ def JoinGroup(groupname, username, name):
 
 @app.route('/api/insert_saved_recipes/<ID>/<Name>/<URL>')
 def insert_saved_recipes(ID, Name, URL):
-    return jsonify(database.insert_saved_recipes(ID,Name,URL))
+    return jsonify(database.insert_saved_recipes(ID, Name, URL))
+
+@app.route('/api/insert/<ID>/<Name>')
+def insert(ID, Name):
+    return jsonify(database.insert(ID, Name))
 
 @app.route('/api/get_saved_recipes/<ID>')
 def get_saved_recipes(ID):
