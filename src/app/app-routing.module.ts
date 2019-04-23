@@ -11,6 +11,7 @@ import { MhForumsComponent } from './mh-forums/mh-forums.component';
 import { MhForumsDetailsComponent } from './mh-forums-details/mh-forums-details.component';
 import { MhStartForumComponent } from './mh-start-forum/mh-start-forum.component';
 import { WeightWatchersComponent } from './weight-watchers/weight-watchers.component';
+import { WeightWatchersDetailsComponent } from './weight-watchers-details/weight-watchers-details.component'
 import { ExerciseVideosDetailsComponent } from './exercise-videos-details/exercise-videos-details.component';
 import {MealPlanComponent} from './meal-plan/meal-plan.component';
 import { SignupComponent } from './signup/signup.component';
@@ -80,6 +81,11 @@ const routes: Routes = [
     path: 'weight-watchers',
     pathMatch: 'full',
     component: WeightWatchersComponent
+  },
+  {
+    path: 'weight-watchers/:group',
+    pathMatch: 'full',
+    component: WeightWatchersDetailsComponent
   },
   {
     path: 'meal-plan',

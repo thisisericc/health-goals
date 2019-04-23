@@ -1,0 +1,41 @@
+.jumbotron {
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+h1 { 
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2 {
+        display: block;
+        font-size: 1.5em;
+        font-weight: bold;
+}
+
+
+.container{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 280px;
+    left: 400px;
+    width: 925px;
+    bottom: 900px;
+    }
+.Search-Results{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 250;
+    position: absolute;
+    top: 300px;
+    left: 55px;
+    width: 300px;
+    bottom: 900px;
+}
+
+.Joinbutton{
+    font-family: 'Quicksand', sans-serif;
+    position: absolute;
+    top: 650px;
+    left: 57px; 
+}
