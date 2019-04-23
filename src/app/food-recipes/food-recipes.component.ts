@@ -81,6 +81,12 @@ export class FoodRecipesComponent implements OnInit {
       console.log('Run Query for vegan');
       this.mealQuery = 'vegan';
       this.recipesQuery(this.mealQuery);
+      if (this.loggedIn) {
+        if (this.user['Goals'].indexOf('Lose Weight') >= 0) {
+          this.sortKey =  'name';
+          this.sortKey = 'daily';
+        }
+      }
     }
 
     /*
