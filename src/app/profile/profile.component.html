@@ -66,7 +66,7 @@
                 <small><b>Restrictions: </b> {{user.Restriction}}</small>
           </div>
           <div class="column right" style="text-align: center">
-              <br><h2>Saved Videos</h2>
+              <br><h2>Saved Videos:</h2>
                 <p-table [value]="savedvideos">
                   <ng-template pTemplate="body" let-savedvideo>
                       <tr>
@@ -75,8 +75,17 @@
                       </tr>
                   </ng-template>
               </p-table>
-              <br>
-              <h2>Forums Posted</h2>
+              <br><h2>Saved Recipes:</h2>
+              <p-table [value]="savedrecipes">
+                <ng-template pTemplate="body" let-savedrecipe>
+                    <tr>
+                        <td><a routerLink = "{{savedrecipe.URL}}"> {{savedrecipe.Name}}
+                        </a> </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <br>
+              <h2>Forums Posted:</h2>
               <div class="SavedForumResults">
                   <p-table [value]="userForums">
                     <ng-template pTemplate="body" let-userForum>

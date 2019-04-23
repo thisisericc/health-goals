@@ -35,12 +35,4 @@ export class SignupComponent implements OnInit {
     );
   }
 
-  default_img(id:any, blob:Blob){
-    this.signupService.default_img(id, blob).subscribe(
-      data => {
-        console.log("uploaded default img");
-      }
-    )
-  }
-
 }

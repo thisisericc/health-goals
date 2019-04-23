@@ -39,6 +39,12 @@ export interface LoggedIn{
 
 }
 
+export interface SavedRecipes{
+  ID: any;
+  Name: any;
+  URL: any;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -75,11 +81,8 @@ export class WelcomeService {
     return this.http.get<UserForums[]>('/api/get_user_forums/'+ID)
   }
 
-  default_img(id: any, blob: Blob){
-    return this.http.get('/api/default_img/'+id+'/'+blob)
+  get_saved_recipes(ID: any){
+    return this.http.get<SavedRecipes[]>('/api/get_saved_recipes/'+ID)
   }
 
-  update_img(id: any, blob: Blob){
-    return this.http.get('/api/update_img/'+id+'/'+blob)
-  }
 }
