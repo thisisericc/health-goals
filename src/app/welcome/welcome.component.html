@@ -63,13 +63,12 @@
         <h2 style="text-align:center" class="display-4">Welcome</h2>
         <h1 style="text-align:center" class="display-4">{{user.FirstName}}</h1>
         <div style="text-align: center">
-            <a href="profile/{{user.ID}}"> <img src="icon.png" width="200" height="200"></a>
-            <!-- <p>Upload Photo: </p><input id="inp" type="file" (change)="onFileSelected($event)" style="text-align:center">
-            <button type="btn-primary" (click) = "onUpload()" pButton label="Save"></button> -->
+            <a href="profile/{{user.ID}}"> <img src="icon.png" width="200" height="200"></a><br>
+            <a href="meal-plan"><button type="button" class="btn btn-warning">Get Your Meal Plan</button></a>
             <br>
-            <span class="psw"> <a href="/profile/{{user.ID}}">View Your Profile</a></span> <br>
-            <small><b><a href="meal-plan"> Meal Plan </a></b></small><br><br><br>
-            <button type="btn-primary" (click) = "logout()" pButton label="Log Out"></button>
+            <a href="/profile/{{user.ID}}"><button type="button" class="btn btn-danger">View Profile</button></a>
+            <br>
+            <button type="button" class="btn btn-info" (click) = "logout(); refresh()">Log Out</button>
         </div>
 
     </div>

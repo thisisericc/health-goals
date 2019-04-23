@@ -260,27 +260,11 @@ def sign_up(FirstName,LastName, Email, Password, Description, Goals, DietaryRest
 
 @app.route('/api/get_usergroups/<ID>', methods=["GET"])
 def get_usergroups(ID):
-    try:
-        res = database.get_usergroups(ID)
-        if res is None:
-            return jsonify("none")
-        return jsonify(res)
-    except ValueError as e:
-        return make_response(str(e), 400)
-    except Exception as e:
-        return make_response(str(e), 500)
+    return jsonify(database.get_usergroups(ID))
 
 @app.route('/api/get_groupmemberinfo/<ID>', methods=["GET"])
 def get_groupmemberinfo(ID):
-    try:
-        res = database.get_groupmemberinfo(ID)
-        if res is None:
-            return jsonify("none")
-        return jsonify(res)
-    except ValueError as e:
-        return make_response(str(e), 400)
-    except Exception as e:
-        return make_response(str(e), 500)
+        return jsonify(database.get_groupmemberinfo(ID))
 
 @app.route('/api/default_img/<id>/<blob>', methods=["GET"])
 def default_img(id, blob):

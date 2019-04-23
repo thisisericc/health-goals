@@ -21,17 +21,6 @@ export class WelcomeComponent implements OnInit {
   selectedFile: File = null;
   blob: Blob;
 
-  onFileSelected(event){
-    console.log(event);
-    this.selectedFile = <File>event.target.files[0];
-    this.blob = this.selectedFile as Blob;
-    console.log("blob" + this.blob)
-  }
-
-  onUpload(){
-    //this.default_img(localStorage.getItem("ID"), this.blob);
-  }
-
   constructor(
     public userService: WelcomeService,
     private router: Router,
@@ -70,6 +59,7 @@ export class WelcomeComponent implements OnInit {
         localStorage.setItem("ID", this.user["ID"]);
         console.log("signed in");
         this.loggedIn = true;
+        this.refresh();
       },
       error => {
         alert('incorrect username or password');
@@ -81,6 +71,10 @@ export class WelcomeComponent implements OnInit {
     localStorage.clear();
     localStorage.setItem("loggedIn", "false");
     this.loggedIn = false;
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
   update_img(id: any, blob: Blob){

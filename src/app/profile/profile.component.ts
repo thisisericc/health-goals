@@ -14,8 +14,8 @@ export class ProfileComponent implements OnInit {
 
   userID: any;
   user: User[];
-  groupInfo: GroupInfo[];
-  groupMemberInfo: GroupMemberInfo[];
+  groupInfos: GroupInfo[];
+  groupMemberInfos: GroupMemberInfo[];
   savedvideos: ExerciseVideos[];
   userForums: UserForums[];
   isNULL: boolean = false;
@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
             return;
           }
           console.log("usergroups" + data)
-          this.groupInfo = data;
+          this.groupInfos = data;
         },
         (error: HttpResponse<any>) => {
           if(error.status === 404){
@@ -70,7 +70,7 @@ export class ProfileComponent implements OnInit {
             this.isNULL = true;
             return;
           }
-          this.groupMemberInfo = data;
+          this.groupMemberInfos = data;
         },
         (error: HttpResponse<any>) => {
           if(error.status === 404){
