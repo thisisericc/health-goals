@@ -1,4 +1,5 @@
 <div class="jumbotron jumbotron-fluid">
+<<<<<<< HEAD
     <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
     <h1 style="text-align:center" class="display-4">Health Goals</h1>
 </div>
@@ -132,3 +133,154 @@
     </p-dataView>
 </div>
 
+=======
+  <figure><img src="assets/image/heart.png" width="60" height="60"  class="mx-auto d-block"></figure>
+  <h1 style="text-align:center" class="display-4">Health Goals</h1>
+</div>
+
+
+<div class="Filter-Results">
+  <p-card header="Filter Results" subheader="Treatment Type">
+      <p-checkbox name="treatmenttype" value="therapist" label="Therapist"></p-checkbox>
+      <!–– <br/>
+      <!–– <br/>
+      &nbsp;&nbsp;
+      <p-checkbox name="treatmenttype" value="psychologist" label="Psychologist"></p-checkbox>
+      <br/>
+      <br/>
+      <p-checkbox name="treatmenttype" value="counselor" label="Counselor"></p-checkbox>
+      <!–– <br/>
+      <!–– <br/>
+      &nbsp;
+      <p-checkbox name="treatmenttype" value="other" label="Other"></p-checkbox>
+      <br/>
+      <br/>
+      
+      <font color="grey"><b>Duration</b></font>
+      <br/>
+      <br/>
+      <p-checkbox name="duration" value="shortterm" label="Short Term"></p-checkbox>
+      <!–– <br/>
+      <!–– <br/>
+      &nbsp;
+      <p-checkbox name="duration" value="longterm" label="Long Term"></p-checkbox>
+      <br/>
+      <br/>
+
+      <font color="grey"><b>Tags</b></font>
+      <br/>
+      <br/>
+      <p-checkbox name="tags" value="ActiveAging" label="Active Aging"></p-checkbox>
+      &nbsp;
+      &nbsp;
+      <p-checkbox name="tags" value="CorrectiveExercise" label="Corrective Exercise"></p-checkbox>
+      <br/>
+      <br/>
+      <p-checkbox name="tags" value="DiseaseConsiderations" label="Disease Considerations"></p-checkbox>
+      &nbsp;
+      <p-checkbox name="tags" value="OrthopedicConditions" label="Orthopedic Conditions"></p-checkbox>
+      <br/>
+      <br/>
+      <p-checkbox name="tags" value="PrePostNatal" label="Pre-Post Natal"></p-checkbox>
+      &nbsp;
+      &nbsp;
+      <p-checkbox name="tags" value="GroupFitness" label="Group Fitness"></p-checkbox>
+      <br/>
+      <br/>
+      <p-checkbox name="tags" value="DancebasedPrograms" label="Dance-based Programs"></p-checkbox>
+      &nbsp;
+      <p-checkbox name="tags" value="FunctionalTraining" label="Functional Training"></p-checkbox>
+      <br/>
+      <br/>
+      <p-checkbox name="tags" value="GroupStrength" label="Group Strength"></p-checkbox>
+      &nbsp;
+      &nbsp;
+      <p-checkbox name="tags" value="WalkingPrograms" label="Walking Programs"></p-checkbox>
+      <br/>
+      <br/>
+      <p-checkbox name="tags" value="LifestyleMedicine" label="Lifestyle Medicine"></p-checkbox>
+      &nbsp;
+      <p-checkbox name="tags" value="PilatesMatTraining" label="Pilates (Mat Training)"></p-checkbox>
+      <br/>
+      <br/>
+      <p-checkbox name="tags" value="yoga" label="Yoga"></p-checkbox>
+      &nbsp;
+      &nbsp;
+      <p-checkbox name="tags" value="nutrition" label="Nutrition"></p-checkbox>
+      <br/>
+      <br/>
+      <p-checkbox name="tags" value="WeightLossWeightManagement" label="Weight Loss / Weight Management"></p-checkbox>
+      &nbsp;
+      <p-checkbox name="tags" value="OverweightandObesity" label="Overweight and Obesity"></p-checkbox>
+
+
+
+      <font color="grey"><b>Location Radius</b></font>
+      <br/>
+      <br/>
+      <p-checkbox name="locationradius" value="1to3" label="1-3 miles"></p-checkbox>
+      &nbsp;
+      &nbsp;
+      <p-checkbox name="locationradius" value="3to5" label="3-5 miles"></p-checkbox>
+      <br/>
+      <br/>
+      <p-checkbox name="locationradius" value="5to10" label="5-10 miles"></p-checkbox>
+      &nbsp;
+      <p-checkbox name="locationradius" value="morethan10" label="10+ miles"></p-checkbox>
+
+
+  </p-card>
+</div>
+
+<div class="Search-Button">
+  <p-button label="Search" id="searchButton" style="display: none;"></p-button>
+</div>
+
+<div class="Search-Results">
+    <ng-container *ngIf="error == null">
+                <img src="{{ this.imageURL }}">
+    </ng-container>
+    <br>
+    <p-toast *ngIf="error !== null" position="center">{{ error }}</p-toast>
+    <br>
+
+    <p-dataView [value]="therapistResults" [loading]="loading" [paginator]="true" [rows]="5" paginatorPosition="both">
+        <ng-template let-res pTemplate="listItem">
+            <div id="Search-row" style="padding: 0.1em;border-bottom: 1px solid #d9d9d9">
+                <div>
+                    <div>
+                        <font color="grey"><b> {{ res.fname}} {{res.mname}} {{res.lname}}</b></font>
+                    </div>
+                    <div>
+                        <img src={{res.imageURL}} height="180" width="190">
+                    </div>
+                </div>
+
+                <div class="Search-Row-Info">
+                    <div>
+                        <font size="1.6">
+                                {{ res.bio}}
+                        </font>
+                    </div>
+                    <div>
+                        <font size="1.6">
+                            {{ res.address}}, {{res.city}}, {{res.state}}, {{res.zip}}
+
+                        </font>
+                    </div>
+                    <div>
+                        <font size="1.6">
+                            {{ res.number }}
+                        </font>
+                    </div>
+                    <div>
+                        <font size="1.6">
+                           Title: {{ res.title }}
+                        </font>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
+>>>>>>> c9b1ad31db22c97c7020917fc1fe112e63a2461b
