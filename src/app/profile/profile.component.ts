@@ -33,6 +33,7 @@ export class ProfileComponent implements OnInit {
       userService.get_userdata(this.userID).subscribe(
         data => {
           this.user = data;
+          console.log(this.user);
         },
         (error: HttpResponse<any>) => {
           if(error.status === 404){

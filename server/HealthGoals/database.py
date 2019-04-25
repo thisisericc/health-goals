@@ -412,7 +412,7 @@ def write_recent(write):
 
 def get_login(email, password):
     with engine.connect() as con:
-        query = sql.text("SELECT * FROM Users WHERE Email =:email AND Password =:password")
+        query = sql.text("SELECT * FROM Users2 WHERE Email =:email AND Password =:password")
         rs = con.execute(query, email=email, password=password)
         result = rs.first()
         if result is None:
@@ -421,19 +421,19 @@ def get_login(email, password):
 
 def get_userdata(ID):
     with engine.connect() as con:
-        query = sql.text("SELECT * FROM Users WHERE ID=:ID")
+        query = sql.text("SELECT * FROM Users2 WHERE ID=:ID")
         rs = con.execute(query, ID=ID)
         result = rs.first()
         if result is None:
             return None
         return dict(result)
 
-def sign_up(FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture):
+def sign_up(FirstName, LastName, Email, Password, Description, Goals, Diet, Restrictions):
     with engine.connect() as con:
         query = sql.text(
-            "INSERT INTO Users (FirstName, LastName, Email, Password, Description, Goals, DietaryRestrictions, Picture) VALUES (:FirstName, :LastName, :Email, :Password, :Description, :Goals, :DietaryRestrictions, :Picture);"
+            "INSERT INTO Users2 (FirstName, LastName, Email, Password, Description, Goals, Diet, Restriction) VALUES (:FirstName, :LastName, :Email, :Password, :Description, :Goals, :Diet, :Restrictions);"
         )
-        rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, DietaryRestrictions=DietaryRestrictions, Picture=Picture)
+        rs = con.execute(query, FirstName=FirstName, LastName=LastName, Email=Email, Password=Password, Description=Description, Goals=Goals, Diet=Diet, Restrictions=Restrictions)
 
 
 
