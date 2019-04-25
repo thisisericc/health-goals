@@ -16,7 +16,7 @@ export class WelcomeComponent implements OnInit {
   password: string;
   id2: number;
   logged: string[];
-  user: User[]
+  user: User[];
   public loggedIn: boolean = false;
   selectedFile: File = null;
   blob: Blob;
