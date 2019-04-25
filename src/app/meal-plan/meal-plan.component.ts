@@ -68,11 +68,8 @@ export class MealPlanComponent implements OnInit{
     //       localStorage.setItem("loggedIn", "false");
     //   }
 
-     // this.welcomeService.get_userdata(localStorage.getItem("ID"));
-      //console.log(this.user["Dietary Restrictions"]);
 
-
-      let breakfastitems: Array<string>= ['apple-juice','strawberry','french-toast','fruit','bananas-milk','granola','banana-pancake','bacon-strip-breakfast','smoothie','omelette','quick','bread','orange-juice','low-cal-juice','granola-bar'];
+      let breakfastitems: Array<string>= ['apple-juice','strawberry-jam','french-toast','fruit','bananas-milk','granola','banana-pancake','bacon-strip-breakfast','smoothie','omelette','quick','bread','orange-juice','low-cal-juice','granola-bar'];
       let lunchitems: Array<string>=['veggie-sandwich','chicken-sandwich','egg','rice','bowl','wrap','salad','beans','green','burrito','lunch','whole-wheat','tater-tots','quinoa','salad-wrap'];
       let dinneritems: Array<string>=['burger','pizza','steak','pasta','rice','hearty','potatoes','vegetable','eggplant','tomato-salad','steamed-veg','olive','pita-bread','low-cal-steaks','lasagna'];
 
@@ -84,12 +81,12 @@ export class MealPlanComponent implements OnInit{
 
      this.mealPlanQuery(breakfastitems[this.r], lunchitems[this.r], dinneritems[this.r]);
 
-     /* if(this.loggedIn == true){
+     if(this.loggedIn == true){
           this.mealPlanQuery(String(breakfastitems[this.r] + this.user["Dietary Restrictions"]), String(lunchitems[this.r] + this.user["Dietary Restrictions"]), String(dinneritems[this.r] + this.user["Dietary Restrictions"]));
       }
       else{
           this.mealPlanQuery(breakfastitems[this.r], lunchitems[this.r], dinneritems[this.r]);
-      }*/
+      }
 
   }
   randomInt(min, max){
