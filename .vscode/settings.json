@@ -1,10 +1,6 @@
 {
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": false,
-<<<<<<< HEAD
-    "python.pythonPath": "C:\\Users\\Varun\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe"
-=======
     "python.terminal.activateEnvironment": false
     
->>>>>>> c9b1ad31db22c97c7020917fc1fe112e63a2461b
 }
