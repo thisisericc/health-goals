@@ -10,24 +10,25 @@ e2e: General update for Homepage settings
 
 src:
     src/app: Contains most page files, including html, css, service, and assorted .ts files	
-            exercise-videos-details:
-            exercise-videos:
-            find-therapist:
-            fitness-instructors:
-            food-blogs:
-            food-recipes:
-            instructor-details:
-            meal-plan:
-            mh-articles:
-            mh-forums-details:
-            mh-forums:
-            mh-start-forum:
-            profile:
-            signup:
-            therapist-details:
-            weight-watchers-details:
-            weight-watchers:
-            welcome:
+    Debuging and Coding of Features
+            exercise-videos-details: Niharika
+            exercise-videos: Niharika
+            find-therapist: Jose
+            fitness-instructors: Jose, Varun R
+            food-blogs: Anushka
+            food-recipes: Kishan
+            instructor-details: Jose, Varun R
+            meal-plan: Anuska
+            mh-articles: Varun R
+            mh-forums-details: Varun B
+            mh-forums: Varun B
+            mh-start-forum: Varun B
+            profile: Arti
+            signup: Arti
+            therapist-details: Jose
+            weight-watchers-details: Pranathi
+            weight-watchers: Pranathi
+            welcome: Arti
     src/assets: Contains all website images
     src/environments: Assorted ts files for Homepage
     sc/pipes: UI update for youtube video embedding
